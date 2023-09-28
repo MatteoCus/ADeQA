@@ -9,13 +9,13 @@ export interface QualityphaseModel {
   c_projectphase_id?: number;
   color?: string;
   customer?: string;
-  end_plan?: date;
+  end_plan?: Date;
   isglobal?: 'Y' | 'N';
   linename?: string;
   m_product_category_id?: number;
   m_product_id?: number;
   phasename?: string;
   projectplan_timeline_id?: number;
-  start_plan?: date;
+  start_plan?: Date;
   status?: 'Y' | 'N';
 }
