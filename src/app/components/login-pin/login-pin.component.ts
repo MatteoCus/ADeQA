@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ErrorModel } from 'src/app/api/models';
-import { AuthenticationService } from 'src/app/api/services';
+import { AuthenticationService, OperatorsService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -9,15 +9,11 @@ import {MatSnackBar} from '@angular/material/snack-bar';
  * Classe che gestisce il form di login con username e password
  */
 @Component({
-  selector: 'app-login-username',
-  templateUrl: './login-username.component.html',
-  styleUrls: ['./login-username.component.scss']
+  selector: 'app-login-pin',
+  templateUrl: './login-pin.component.html',
+  styleUrls: ['./login-pin.component.scss']
 })
-export class LoginUsernameComponent implements OnInit {
-  /**
-   * Variabile booleana per cambiare l'icona che nasconde il contenuto del campo "password"
-   */
-  public hide: boolean = true;
+export class LoginPinComponent implements OnInit {
 
   /**
    * Form di login
@@ -30,21 +26,20 @@ export class LoginUsernameComponent implements OnInit {
   public loading : boolean = false;
 
   /**
-   * Costruttore della classe di login con username e password
+   * Costruttore della classe di login con pin
    * @param formBuilder Variabile atta alla costruzione del form a livello logico
    * @param authService Servizio di autenticazione
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    */
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar) { }
 
   /**
    * Costruzione del form alla creazione del componente
    */
     ngOnInit() {
         this.form = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
+            pin: [Validators.required, Validators.minLength(4), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]
         });
     }
 
@@ -60,28 +55,45 @@ export class LoginUsernameComponent implements OnInit {
     }
 
     /**
-     * Metodo per eseguire il login, consente di salvare il token in localStorage e passare, in caso di successo, al login tramite pin
+     * Metodo per eseguire il login, consente di salvare l'id utente nel servizio authInfoService e passare così alla visualizzazione di fasi e informazioni di controllo qualità
      * In caso di errore, gestisce l'apertura della barra di stato
      * In caso la richiesta impiegasse un tempo eccessivamente lungo, gestisce l'apertura della barra di caricamento
      */
   public login(): void {
+
     if (this.form.invalid) {
-      this.openSnackBar("Inserire tutti i dati richiesti", "X");
+      this.openSnackBar("Inserire un PIN di almeno 4 cifre", "X");
       return;
     }
+
+    // Dichiarazioni dati di autenticazione
+    const token = this.authInfoService.Token;
+    const pin = this.form.controls['pin'].value;
+
+    // Dichiarazioni dettate dai modelli in /app/api/models
+    const fieldName = "userpin" as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined;
+    const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined;
 
     setTimeout(() => {this.loading = true;},700);
 
     const params = {
+      "AdesuiteToken": token, 
       "body": {
-        'password': this.form.controls['password'].value,
-        'username': this.form.controls['username'].value
+        "startRow": 0,
+        "endRow": 0,
+        "criteria" : [
+          {
+            "fieldName": fieldName ,
+            "value": pin,
+            "operator": operator
+          }
+        ]
       }};
 
-    this.authService.login(params)
+    this.operatorsService.fetch(params)
     .subscribe({
       next: (response) => {
-          response.token != undefined? this.authInfoService.Token = response.token : this.openSnackBar("Error 500 - Token nullo", "X");
+          (response.data != undefined && response.data[0].ad_user_id != undefined)? this.authInfoService.UserId = response.data[0].ad_user_id : this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X");
           this.loading = false;
       },
       error: response => {

@@ -12,11 +12,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBar} from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPinComponent } from './components/login-pin/login-pin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginUsernameComponent
+    LoginUsernameComponent,
+    LoginPinComponent
   ],
   imports: [
     BrowserModule,

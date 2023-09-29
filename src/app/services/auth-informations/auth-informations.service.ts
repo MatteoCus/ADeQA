@@ -16,7 +16,7 @@ export class AuthInformationsService {
    /**
    * Id utente per acquisire informazioni da visualizzare a video
    */
-  private userId: string = "";
+  private userId: number = 0
 
   /**
    * Costruttore, cerca di ottenere il token da localStorage qualora l'utente avesse già eseguito l'accesso in precedenza
@@ -48,5 +48,5 @@ export class AuthInformationsService {
    * Setter dell'identificativo utente
    * @param userId Valore del nuovo identificativo dell'utente
    */
-  public set UserId(userId: string) {this.userId = userId}
+  public set UserId(userId: number) {this.userId = userId}
 }
