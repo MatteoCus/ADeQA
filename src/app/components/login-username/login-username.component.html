@@ -1,15 +1,15 @@
 <div id="form-background">
-    <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()" [formGroup]="form">
         <mat-form-field>
             <mat-label>Username</mat-label>
-            <input matInput [type]="'text'">
+            <input matInput [type]="'text'" formControlName="username">
         </mat-form-field>
         <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button type='button' mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button type='button' mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
         </mat-form-field>
         <button mat-button type="submit">Accedi</button>
     </form>
