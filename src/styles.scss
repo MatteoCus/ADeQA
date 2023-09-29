@@ -35,5 +35,23 @@ $ADeQA-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: transparent !important;
+}
+
+.red-snackbar {
+  background-color: #F44336 !important;
+  color: white !important;
+  box-shadow: 0px 0px 5px white;
+}
+
+.red-snackbar button {
+  color: white !important;
+}
+
+* {
+  font-size: large;
+}
