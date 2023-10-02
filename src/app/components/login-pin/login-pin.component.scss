@@ -25,18 +25,18 @@ input.example-right-align {
 }
 
 form {
-    width: 50%;
+    width: 45%;
     height: 30%;
-    max-height: 400px;
+    max-height: 500px;
     background-color: white;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
-    gap: 1.2em;
-    flex-basis: 20%;
+    margin-top: 5em;
+    gap: 1em;
+    flex-basis: 60%;
     padding: 3em;
     padding-bottom: 2.5em;
 }
@@ -46,14 +46,27 @@ form > * {
     min-height: 80px;
 }
 
-form > button {
-    width:auto;
+form button {
     color: white;
     background-color: $backgroundColor;
+    border-radius: 5px;
+}
+
+form button:hover{
+    background-color: white;
+    color: $backgroundColor;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+form > button {
+    width:auto;
     height: 50px;
-    min-height: 40px;
+    min-height: 60px;
     margin-bottom:3%;
-    font-size: large;
+    font-size: 30px;
+    padding: 10px;
 }
 
 img {
@@ -62,7 +75,11 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
-    flex-basis: 40%;
+    flex-basis: 25%;
+}
+
+#pin{
+    font-size: 25px;
 }
 
 #loading-frame {
@@ -88,14 +105,28 @@ img {
     box-shadow: 0px 0px 5px white;
 }
 
-@media only screen and (max-width: 1200px) {
-    img {
-        width: 40%;
-        height: 20%;
-    }
+#pinFrame{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    min-width: 240px;
+    max-width: 400px;
+    margin: 0 auto 0 auto;
 }
 
-@media only screen and (max-height: 700px) {
+.pinButton {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    text-align: center;
+    font-size: 40px;
+}
+#del{
+    padding:0;
+}
+
+
+@media only screen and (max-height: 800px) {
     img {
         height: 8%;
         width: 15%;
@@ -107,9 +138,37 @@ img {
     }
 }
 
-@media only screen and (max-height: 700px) and (max-width: 1000px) {
-    img {
-        height: 15%;
-        width: 30%;
+@media only screen and (max-height: 800px), (max-width: 1000px) {
+
+    .pinButton {
+        font-size: 30px;
+    }
+
+    form > button {
+        font-size: 20px;
+        min-height: 30px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-height : 700px ) and (max-width : 1920px), (max-width: 600px) {
+    img{
+        height: 8%;
+        width: 15%;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    #form-background {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    form {
+        margin: auto 0 auto 0;
+        width: auto;
+        height: auto;
     }
 }

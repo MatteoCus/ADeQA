@@ -4,6 +4,7 @@ import { ErrorModel } from 'src/app/api/models';
 import { AuthenticationService, OperatorsService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -32,14 +33,14 @@ export class LoginPinComponent implements OnInit {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    */
-  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) { }
 
   /**
    * Costruzione del form alla creazione del componente
    */
     ngOnInit() {
         this.form = this.formBuilder.group({
-            pin: [Validators.required, Validators.minLength(4), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]
+            pin: [Validators.required]
         });
     }
 
@@ -55,14 +56,37 @@ export class LoginPinComponent implements OnInit {
     }
 
     /**
+     * Metodo per appendere l'ultimo numero inserito dall'utente nella casella di testo riservata al pin 
+     * @param input Numero da aggiungere alla stringa numerica che rappresenta il pin immesso dall'utente
+     */
+    public append(input: number): void {
+      (<HTMLInputElement>document.getElementById("pin")).value += input.toString();
+    }
+
+    /**
+     * Metodo per cancellare il pin inserito, pulendo la casella di testo
+     */
+    public clear(): void {
+      (<HTMLInputElement>document.getElementById("pin")).value = "";
+    }
+
+    /**
+     * Metodo per rimuovere l'ultima cifra del pin inserito
+     */
+    public removeLast(): void {
+      const element = (<HTMLInputElement>document.getElementById("pin"));
+      element.value = element.value.substring(0, element.value.length-1);
+    }
+
+    /**
      * Metodo per eseguire il login, consente di salvare l'id utente nel servizio authInfoService e passare così alla visualizzazione di fasi e informazioni di controllo qualità
      * In caso di errore, gestisce l'apertura della barra di stato
-     * In caso la richiesta impiegasse un tempo eccessivamente lungo, gestisce l'apertura della barra di caricamento
+     * Gestisce l'apertura della barra di caricamento
      */
   public login(): void {
 
     if (this.form.invalid) {
-      this.openSnackBar("Inserire un PIN di almeno 4 cifre", "X");
+      this.openSnackBar("I dati inseriti non sono validi", "X");
       return;
     }
 
@@ -74,16 +98,16 @@ export class LoginPinComponent implements OnInit {
     const fieldName = "userpin" as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined;
     const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined;
 
-    setTimeout(() => {this.loading = true;},700);
+    this.loading = true;
 
     const params = {
       "AdesuiteToken": token, 
       "body": {
         "startRow": 0,
-        "endRow": 0,
+        "endRow": 1,
         "criteria" : [
           {
-            "fieldName": fieldName ,
+            "fieldName": fieldName,
             "value": pin,
             "operator": operator
           }
@@ -95,6 +119,9 @@ export class LoginPinComponent implements OnInit {
       next: (response) => {
           (response.data != undefined && response.data[0].ad_user_id != undefined)? this.authInfoService.UserId = response.data[0].ad_user_id : this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X");
           this.loading = false;
+          if(this.authInfoService.UserId) {
+            this.router.navigate(['dashboard']);
+          }
       },
       error: response => {
         const errorDescription = (response.error as ErrorModel).description;

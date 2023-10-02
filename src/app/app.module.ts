@@ -34,7 +34,7 @@ import { LoginPinComponent } from './components/login-pin/login-pin.component';
   ],
   providers: [
     MatSnackBar,
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {horizontalPosition: 'center', verticalPosition: 'top', duration: 2500}}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {horizontalPosition: 'center', verticalPosition: 'top', duration: 3000}}
   ],
   bootstrap: [AppComponent]
 })

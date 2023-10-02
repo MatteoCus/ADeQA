@@ -2,9 +2,25 @@
     <form (ngSubmit)="login()" [formGroup]="form">
         <mat-form-field>
             <mat-label>Pin</mat-label>
-            <input matInput [type]="'text'" formControlName="pin">
+            <input matInput [type]="'number'" formControlName="pin" id="pin" readonly>
         </mat-form-field>
         <button mat-button type="submit">Accedi</button>
+        <div id="pinSection">
+            <div id="pinFrame">
+                <button mat-button type="button" class="pinButton" (click) = "append(1)">1</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(2)">2</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(3)">3</button>
+                <button mat-button type="button" class="pinButton" (click)="append(4)">4</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(5)">5</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(6)">6</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(7)">7</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(8)">8</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(9)">9</button>
+                <button mat-button type="button" class="pinButton" (click) = "clear()" >X</button>
+                <button mat-button type="button" class="pinButton" (click) = "append(0)">0</button>
+                <button mat-button type="button" class="pinButton" (click) = "removeLast()" id="del">DEL</button>
+            </div>
+        </div>
     </form>
     <img src="../../../assets/images/logo-ADeMES.svg" />
 </div>

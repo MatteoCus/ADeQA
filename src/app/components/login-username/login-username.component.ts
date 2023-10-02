@@ -4,6 +4,7 @@ import { ErrorModel } from 'src/app/api/models';
 import { AuthenticationService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -36,7 +37,7 @@ export class LoginUsernameComponent implements OnInit {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    */
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) { }
 
   /**
    * Costruzione del form alla creazione del componente
@@ -62,7 +63,7 @@ export class LoginUsernameComponent implements OnInit {
     /**
      * Metodo per eseguire il login, consente di salvare il token in localStorage e passare, in caso di successo, al login tramite pin
      * In caso di errore, gestisce l'apertura della barra di stato
-     * In caso la richiesta impiegasse un tempo eccessivamente lungo, gestisce l'apertura della barra di caricamento
+     * Gestisce l'apertura della barra di caricamento
      */
   public login(): void {
     if (this.form.invalid) {
@@ -70,7 +71,7 @@ export class LoginUsernameComponent implements OnInit {
       return;
     }
 
-    setTimeout(() => {this.loading = true;},700);
+    this.loading = true;
 
     const params = {
       "body": {
@@ -78,11 +79,17 @@ export class LoginUsernameComponent implements OnInit {
         'username': this.form.controls['username'].value
       }};
 
+      this.router.navigate(['login/pin']);
+
     this.authService.login(params)
     .subscribe({
       next: (response) => {
           response.token != undefined? this.authInfoService.Token = response.token : this.openSnackBar("Error 500 - Token nullo", "X");
           this.loading = false;
+
+          if(this.authInfoService.Token) {
+            this.router.navigate(['login/pin']);
+          }
       },
       error: response => {
         const errorDescription = (response.error as ErrorModel).description;
