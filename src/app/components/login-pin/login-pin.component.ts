@@ -16,6 +16,11 @@ import { Router } from '@angular/router';
 })
 export class LoginPinComponent implements OnInit {
 
+    /**
+   * Variabile booleana per cambiare l'icona che nasconde il contenuto del campo "password"
+   */
+    public hide: boolean = true;
+
   /**
    * Form di login
    */
@@ -27,20 +32,31 @@ export class LoginPinComponent implements OnInit {
   public loading : boolean = false;
 
   /**
-   * Costruttore della classe di login con pin
+   * Costruttore della classe di login con pin: evita di renderizzare la pagina se non si è prima ottenuto il token
+   * Reindirizza alla dashboard qualora vi fosse già una sessione attiva
    * @param formBuilder Variabile atta alla costruzione del form a livello logico
    * @param authService Servizio di autenticazione
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
+   * @param router Router per eseguire dei reindirizzamenti su browser
    */
-  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) {
+    if(localStorage.getItem('ADeToken') == "") {
+      this.router.navigate(['login/username']);
+    }
+
+    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0) {
+      this.authInfoService.UserId = sessionStorage.getItem('ADeUserId') as any as number;
+      this.router.navigate(['dashboard']);
+    }
+   }
 
   /**
    * Costruzione del form alla creazione del componente
    */
     ngOnInit() {
         this.form = this.formBuilder.group({
-            pin: [Validators.required]
+          pin: ['', Validators.required]
         });
     }
 
@@ -60,14 +76,15 @@ export class LoginPinComponent implements OnInit {
      * @param input Numero da aggiungere alla stringa numerica che rappresenta il pin immesso dall'utente
      */
     public append(input: number): void {
-      (<HTMLInputElement>document.getElementById("pin")).value += input.toString();
+      const previous = this.form.get('pin')?.value;
+      this.form.setValue({"pin": previous + input});
     }
 
     /**
      * Metodo per cancellare il pin inserito, pulendo la casella di testo
      */
     public clear(): void {
-      (<HTMLInputElement>document.getElementById("pin")).value = "";
+      this.form.setValue({"pin": ""});
     }
 
     /**
@@ -75,7 +92,7 @@ export class LoginPinComponent implements OnInit {
      */
     public removeLast(): void {
       const element = (<HTMLInputElement>document.getElementById("pin"));
-      element.value = element.value.substring(0, element.value.length-1);
+      this.form.setValue({"pin": element.value.substring(0, element.value.length-1)});
     }
 
     /**
@@ -86,7 +103,7 @@ export class LoginPinComponent implements OnInit {
   public login(): void {
 
     if (this.form.invalid) {
-      this.openSnackBar("I dati inseriti non sono validi", "X");
+      this.openSnackBar("Il pin inserito non è valido!", "X");
       return;
     }
 
@@ -104,20 +121,20 @@ export class LoginPinComponent implements OnInit {
       "AdesuiteToken": token, 
       "body": {
         "startRow": 0,
-        "endRow": 1,
         "criteria" : [
           {
             "fieldName": fieldName,
             "value": pin,
             "operator": operator
           }
-        ]
+        ],
+        "endRow": 1
       }};
 
     this.operatorsService.fetch(params)
     .subscribe({
       next: (response) => {
-          (response.data != undefined && response.data[0].ad_user_id != undefined)? this.authInfoService.UserId = response.data[0].ad_user_id : this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X");
+          (response.data != undefined && response.data[0] != undefined && response.data[0].ad_user_id != undefined)? this.authInfoService.UserId = response.data[0].ad_user_id : this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X");
           this.loading = false;
           if(this.authInfoService.UserId) {
             this.router.navigate(['dashboard']);

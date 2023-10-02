@@ -10,6 +10,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBar} from '@angular/material/snack-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPinComponent } from './components/login-pin/login-pin.component';
@@ -40,6 +41,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MatFormFieldModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatSidenavModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule

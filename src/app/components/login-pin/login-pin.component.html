@@ -2,7 +2,10 @@
     <form (ngSubmit)="login()" [formGroup]="form">
         <mat-form-field>
             <mat-label>Pin</mat-label>
-            <input matInput [type]="'number'" formControlName="pin" id="pin" readonly>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="pin" id="pin" readonly>
+            <button type='button' mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
         </mat-form-field>
         <button mat-button type="submit">Accedi</button>
         <div id="pinSection">
@@ -16,7 +19,9 @@
                 <button mat-button type="button" class="pinButton" (click) = "append(7)">7</button>
                 <button mat-button type="button" class="pinButton" (click) = "append(8)">8</button>
                 <button mat-button type="button" class="pinButton" (click) = "append(9)">9</button>
-                <button mat-button type="button" class="pinButton" (click) = "clear()" >X</button>
+                <button mat-button type="button" class="pinButton" (click) = "clear()" >
+                    <mat-icon aria-hidden="false" aria-label="Delete icon" fontIcon="cancel"></mat-icon>
+                </button>
                 <button mat-button type="button" class="pinButton" (click) = "append(0)">0</button>
                 <button mat-button type="button" class="pinButton" (click) = "removeLast()" id="del">DEL</button>
             </div>

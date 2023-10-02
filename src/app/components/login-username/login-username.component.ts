@@ -31,13 +31,19 @@ export class LoginUsernameComponent implements OnInit {
   public loading : boolean = false;
 
   /**
-   * Costruttore della classe di login con username e password
+   * Costruttore della classe di login con username e password, evita di renderizzare il form di login qualora vi fosse già un token di autenticazione in localStorage
    * @param formBuilder Variabile atta alla costruzione del form a livello logico
    * @param authService Servizio di autenticazione
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
+   * @param router Router per eseguire dei reindirizzamenti su browser
    */
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) { 
+    if(localStorage.getItem("ADeToken")!= undefined && localStorage.getItem("ADeToken") != ""){
+      this.authInfoService.Token = localStorage.getItem("ADeToken")!;
+      this.router.navigate(['login/pin']);
+    }
+  }
 
   /**
    * Costruzione del form alla creazione del componente
@@ -78,8 +84,6 @@ export class LoginUsernameComponent implements OnInit {
         'password': this.form.controls['password'].value,
         'username': this.form.controls['username'].value
       }};
-
-      this.router.navigate(['login/pin']);
 
     this.authService.login(params)
     .subscribe({
