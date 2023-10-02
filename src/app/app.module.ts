@@ -13,12 +13,24 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBar} from '@angular/material/snac
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPinComponent } from './components/login-pin/login-pin.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LogModifierComponent } from './components/log-modifier/log-modifier.component';
+import { PhasesComponent } from './components/phases/phases.component';
+import { LogViewerComponent } from './components/log-viewer/log-viewer.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginUsernameComponent,
-    LoginPinComponent
+    LoginPinComponent,
+    DashboardComponent,
+    LogModifierComponent,
+    PhasesComponent,
+    LogViewerComponent,
+    SidenavComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

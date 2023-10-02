@@ -49,4 +49,14 @@ export class AuthInformationsService {
    * @param userId Valore del nuovo identificativo dell'utente
    */
   public set UserId(userId: number) {this.userId = userId}
+
+  /**
+   * Metodo per ripristinare a stato di default il token e l'identificativo utente
+   * Rimuove anche il token da localStorage
+   */
+  public clear(): void {
+    this.token = "";
+    this.userId = 0;
+    localStorage.removeItem("ADeToken");
+  }
 }

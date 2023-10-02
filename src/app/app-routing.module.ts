@@ -6,7 +6,8 @@ import { LoginPinComponent } from './components/login-pin/login-pin.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login/username', pathMatch: 'full' },
   { path: 'login/username', component: LoginUsernameComponent},
-  { path: 'login/pin', component: LoginPinComponent}
+  { path: 'login/pin', component: LoginPinComponent},
+  { path: 'dashboard', component: LoginPinComponent}
 ];
 
 @NgModule({
