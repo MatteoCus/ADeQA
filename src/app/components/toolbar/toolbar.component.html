@@ -1,1 +1,15 @@
-<div>Settimana....</div>
+<mat-toolbar id="toolbar">
+    <span>{{today | date:'MMMM'}} {{today | date:'yyyy'}} - Settimana {{today | date: 'ww'}}</span>
+    <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Globe icon for languages">
+            <mat-icon aria-hidden="false" aria-label="Language globe icon" fontIcon="language"></mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let language of languages" [ngStyle]="{'color' : activeLanguage === language ? 'blue' : 'rgba(0,0,0,.54)' }" (click)="changeActiveLanguage(language)">
+              <span>{{language}}</span>
+            </button>
+          </mat-menu>
+        
+    <span>{{user}}</span>
+    <img src="../../../assets/icons/logo.jpg" />
+</mat-toolbar>

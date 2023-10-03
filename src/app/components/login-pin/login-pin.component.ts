@@ -45,8 +45,10 @@ export class LoginPinComponent implements OnInit {
       this.router.navigate(['login/username']);
     }
 
-    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0) {
+    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0
+    && sessionStorage.getItem('ADeUserName')!="" && sessionStorage.getItem('ADeUserName')!= null) {
       this.authInfoService.UserId = sessionStorage.getItem('ADeUserId') as any as number;
+      this.authInfoService.UserName = sessionStorage.getItem('ADeUserName')!;
       this.router.navigate(['dashboard']);
     }
    }
@@ -134,7 +136,14 @@ export class LoginPinComponent implements OnInit {
     this.operatorsService.fetch(params)
     .subscribe({
       next: (response) => {
-          (response.data != undefined && response.data[0] != undefined && response.data[0].ad_user_id != undefined)? this.authInfoService.UserId = response.data[0].ad_user_id : this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X");
+
+          if(response.data != undefined && response.data[0] != undefined && response.data[0].ad_user_id != undefined && response.data[0].name != undefined){ 
+              this.authInfoService.UserName = response.data[0].name;
+              this.authInfoService.UserId = response.data[0].ad_user_id;
+            } 
+            else{
+              this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X")
+            };
           this.loading = false;
           if(this.authInfoService.UserId) {
             this.router.navigate(['dashboard']);

@@ -18,7 +18,7 @@ export class DashboardComponent {
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
   constructor(private authInfoService: AuthInformationsService, private router: Router) {
-    if(this.authInfoService.Token == "" || this.authInfoService.UserId as any as number == 0){
+    if(this.authInfoService.Token == "" || this.authInfoService.UserId as any as number == 0 || this.authInfoService.UserName == ""){
       this.router.navigate(['login/username']);
     }
   }

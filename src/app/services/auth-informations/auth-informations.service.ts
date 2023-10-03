@@ -16,7 +16,12 @@ export class AuthInformationsService {
    /**
    * Id utente per acquisire informazioni da visualizzare a video
    */
-  private userId: number = 0
+  private userId: number = 0;
+
+  /**
+   * Nome dell'utente autenticato
+   */
+  private userName: string = "";
 
   /**
    * Costruttore, cerca di ottenere il token da localStorage qualora l'utente avesse già eseguito l'accesso in precedenza
@@ -24,6 +29,7 @@ export class AuthInformationsService {
   constructor() {
     this.token = localStorage.getItem("ADeToken") || "";
     this.userId = sessionStorage.getItem("ADeUserID") as any as number || 0;
+    this.userName = sessionStorage.getItem("ADeUserName") || "";
   }
 
   /**
@@ -35,6 +41,11 @@ export class AuthInformationsService {
    * Getter dell'id utente
    */
   public get UserId() {return this.userId}
+
+  /**
+   * Getter del nome utente
+   */
+  public get UserName() {return this.userName}
 
   /**
    * Setter del token (con salvataggio in localStorage)
@@ -55,22 +66,32 @@ export class AuthInformationsService {
   }
 
   /**
+   * Setter del nome utente
+   * @param userName Valore del nuovo nome dell'utente
+   */
+  public set UserName(userName: string) {
+    this.userName = userName;
+    sessionStorage.setItem("ADeUserName", this.userName);
+  }
+
+  /**
    * Metodo per ripristinare a stato di default il token e l'identificativo utente
-   * Rimuove il token da localStorage e l'id utente da sessionStorage
+   * Rimuove il token da localStorage e le informazioni da sessionStorage
    */
   public clear(): void {
     this.token = "";
-    this.userId = 0;
     localStorage.removeItem("ADeToken");
-    sessionStorage.removeItem("ADeUserId");
+    this.clearUser();
   }
 
   /**
    * Metodo per eseguire il logout rispetto all'ultimo passo di autenticazione (quando si ottiene l'identificativo utente)
-   * Rimuove l'id utente da sessionStorage
+   * Rimuove l'id ed il nome dell'utente da sessionStorage
    */
   public clearUser(): void {
     this.userId = 0;
+    this.userName = "";
     sessionStorage.removeItem("ADeUserId");
+    sessionStorage.removeItem("ADeUserName");
   }
 }
