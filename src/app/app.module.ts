@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPinComponent } from './components/login-pin/login-pin.component';
@@ -52,6 +53,7 @@ import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule

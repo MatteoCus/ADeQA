@@ -23,29 +23,32 @@ export class AuthInformationsService {
    */
   private userName: string = "";
 
+  private userTheme: "DM" | "WM" = "DM";
+
   /**
    * Costruttore, cerca di ottenere il token da localStorage qualora l'utente avesse già eseguito l'accesso in precedenza
    */
   constructor() {
     this.token = localStorage.getItem("ADeToken") || "";
     this.userId = sessionStorage.getItem("ADeUserID") as any as number || 0;
-    this.userName = sessionStorage.getItem("ADeUserName") || "";
   }
 
   /**
    * Getter del token
    */
-  public get Token() {return this.token}
+  public get Token(): string {return this.token}
 
   /**
    * Getter dell'id utente
    */
-  public get UserId() {return this.userId}
+  public get UserId(): number {return this.userId}
 
   /**
    * Getter del nome utente
    */
-  public get UserName() {return this.userName}
+  public get UserName(): string {return this.userName}
+
+  public get UserTheme(): "DM" | "WM" {return this.userTheme}
 
   /**
    * Setter del token (con salvataggio in localStorage)
@@ -71,7 +74,10 @@ export class AuthInformationsService {
    */
   public set UserName(userName: string) {
     this.userName = userName;
-    sessionStorage.setItem("ADeUserName", this.userName);
+  }
+
+  public set UserTheme(userTheme: "DM" | "WM") {
+    this.userTheme = userTheme;
   }
 
   /**
@@ -92,6 +98,5 @@ export class AuthInformationsService {
     this.userId = 0;
     this.userName = "";
     sessionStorage.removeItem("ADeUserId");
-    sessionStorage.removeItem("ADeUserName");
   }
 }

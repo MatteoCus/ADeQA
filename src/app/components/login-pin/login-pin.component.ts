@@ -5,6 +5,7 @@ import { AuthenticationService, OperatorsService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Fetch$Params } from 'src/app/api/fn/operators/fetch';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -48,7 +49,7 @@ export class LoginPinComponent implements OnInit {
     if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0
     && sessionStorage.getItem('ADeUserName')!="" && sessionStorage.getItem('ADeUserName')!= null) {
       this.authInfoService.UserId = sessionStorage.getItem('ADeUserId') as any as number;
-      this.authInfoService.UserName = sessionStorage.getItem('ADeUserName')!;
+      this.fetchUserInfo();
       this.router.navigate(['dashboard']);
     }
    }
@@ -71,6 +72,23 @@ export class LoginPinComponent implements OnInit {
       this.snackBar.open(message, type, {
         panelClass: ['red-snackbar','login-snackbar'],
         });
+    }
+
+
+    private prepareParams(token: string, fieldName: string, value: string, operator: string): Fetch$Params {
+      return {
+        "AdesuiteToken": token, 
+        "body": {
+          "startRow": 0,
+          "criteria" : [
+            {
+              "fieldName": fieldName as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+              "value": value,
+              "operator": operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+            }
+          ],
+          "endRow": 1
+        }};
     }
 
     /**
@@ -97,6 +115,32 @@ export class LoginPinComponent implements OnInit {
       this.form.setValue({"pin": element.value.substring(0, element.value.length-1)});
     }
 
+
+    private fetchUserInfo(): void {
+
+      const token = this.authInfoService.Token;
+      const ad_user_id = this.authInfoService.UserId.toString();
+
+      // Dichiarazioni dettate dai modelli in /app/api/models
+      const fieldName = "ad_user_id" as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" ;
+      const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
+
+    this.loading = true;
+
+    const params = this.prepareParams(token,fieldName,ad_user_id,operator);
+
+    this.operatorsService.fetch(params)
+    .subscribe(response => {
+      if(response.data != undefined && response.data[0] != undefined && response.data[0].name != undefined && response.data[0].mes_theme != undefined) {
+        this.authInfoService.UserName = response.data[0].name.trim();
+        this.authInfoService.UserTheme = response.data[0].mes_theme.trim() as "DM" | "WM";
+      } else {
+        this.openSnackBar("Errore all'ottenimento delle informazioni utente", "X");
+      }
+    });
+
+    }
+
     /**
      * Metodo per eseguire il login, consente di salvare l'id utente nel servizio authInfoService e passare così alla visualizzazione di fasi e informazioni di controllo qualità
      * In caso di errore, gestisce l'apertura della barra di stato
@@ -114,38 +158,27 @@ export class LoginPinComponent implements OnInit {
     const pin = this.form.controls['pin'].value;
 
     // Dichiarazioni dettate dai modelli in /app/api/models
-    const fieldName = "userpin" as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined;
-    const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined;
+    const fieldName = "userpin" as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" ;
+    const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
 
     this.loading = true;
 
-    const params = {
-      "AdesuiteToken": token, 
-      "body": {
-        "startRow": 0,
-        "criteria" : [
-          {
-            "fieldName": fieldName,
-            "value": pin,
-            "operator": operator
-          }
-        ],
-        "endRow": 1
-      }};
+    const params = this.prepareParams(token,fieldName,pin,operator);
 
     this.operatorsService.fetch(params)
     .subscribe({
       next: (response) => {
 
-          if(response.data != undefined && response.data[0] != undefined && response.data[0].ad_user_id != undefined && response.data[0].name != undefined){ 
-              this.authInfoService.UserName = response.data[0].name;
+          if(response.data != undefined && response.data[0] != undefined && response.data[0].ad_user_id != undefined && response.data[0].name != undefined && response.data[0].mes_theme != undefined){
               this.authInfoService.UserId = response.data[0].ad_user_id;
+              this.authInfoService.UserName = response.data[0].name.trim();
+              this.authInfoService.UserTheme = response.data[0].mes_theme.trim() as "DM" | "WM";
             } 
             else{
               this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X")
             };
           this.loading = false;
-          if(this.authInfoService.UserId) {
+          if(this.authInfoService.UserId && this.authInfoService.UserName) {
             this.router.navigate(['dashboard']);
           }
       },

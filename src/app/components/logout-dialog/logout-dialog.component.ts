@@ -8,8 +8,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class LogoutDialogComponent implements OnInit {
 
-  fromPage!: {title: string, description: string};
-  fromDialog!: string;
+  public fromPage!: {title: string, description: string};
+  public fromDialog!: string;
 
   constructor( public dialogRef: MatDialogRef<LogoutDialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) {}
@@ -19,10 +19,10 @@ export class LogoutDialogComponent implements OnInit {
     this.fromDialog = "";
   }
 
-  stayDialog() {
+  public stayDialog(): void {
     this.dialogRef.close({ event: 'stay-option', data: this.fromDialog });
   }
-  exitDialog() {
+  public exitDialog(): void {
     this.dialogRef.close({ event: 'exit-option', data: this.fromDialog });
   }
 }
