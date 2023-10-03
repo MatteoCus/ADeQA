@@ -7,11 +7,11 @@
         <mat-form-field>
             <mat-label>Password</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-            <button type='button' mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
+            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-button type="submit">Accedi</button>
+        <button type="submit">Accedi</button>
     </form>
     <img src="../../../assets/images/logo-ADeMES.svg" />
 </div>

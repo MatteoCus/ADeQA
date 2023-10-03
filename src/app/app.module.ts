@@ -11,6 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBar} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPinComponent } from './components/login-pin/login-pin.component';
@@ -20,6 +22,7 @@ import { PhasesComponent } from './components/phases/phases.component';
 import { LogViewerComponent } from './components/log-viewer/log-viewer.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     PhasesComponent,
     LogViewerComponent,
     SidenavComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LogoutDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MatIconModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
+    MatDialogModule,
+    MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule

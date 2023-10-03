@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
+import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
 
 /**
  * Classe che gestisce i due tipi di logout:
@@ -19,12 +21,12 @@ export class SidenavComponent {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
-  constructor(private authInfoService: AuthInformationsService, private router: Router) {}
+  constructor(private authInfoService: AuthInformationsService, private router: Router, public dialog: MatDialog) {}
 
-/**
- * Metodo che gestisce il logout completo da parte dell'utente, eliminando anche il token di autenticazione
- */
-  logout(): void {
+  /**
+  * Metodo che gestisce il logout completo da parte dell'utente, eliminando anche il token di autenticazione
+  */
+  private logout(): void {
     this.authInfoService.clear();
     this.router.navigate(['login/username']);
   }
@@ -32,9 +34,51 @@ export class SidenavComponent {
   /**
    * Metodo che gestisce il logout parziale da parte dell'utente, eliminando solo l'identificativo utente
    */
-  logoutUserId(): void {
+  private logoutUserId(): void {
     this.authInfoService.clearUser();
     this.router.navigate(['login/pin']);
+  }
+
+  public openLogoutDialog(): void {
+    const logoutDialog = this.dialog.open(LogoutDialogComponent, {
+      data: {
+        title:'Logout generale',
+        description: 'Occorre reinserire username e pin'
+      }
+    });
+
+    logoutDialog.afterClosed().subscribe((result) => {
+      switch(result.event) {
+        case "exit-option":
+          this.logout();
+          break;
+        case "stay-option":
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
+  public openLogoutUserDialog(): void {
+    const logoutDialog = this.dialog.open(LogoutDialogComponent, {
+      data: {
+        title:'Logout parziale',
+        description: 'Occorre reinserire il pin'
+      }
+    });
+
+    logoutDialog.afterClosed().subscribe((result) => {
+      switch(result.event) {
+        case "exit-option":
+          this.logoutUserId();
+          break;
+        case "stay-option":
+          break;
+        default:
+          break;
+      }
+    });
   }
 
 }

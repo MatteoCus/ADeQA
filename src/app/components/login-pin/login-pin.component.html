@@ -3,27 +3,27 @@
         <mat-form-field>
             <mat-label>Pin</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="pin" id="pin" readonly>
-            <button type='button' mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
+            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-button type="submit">Accedi</button>
+        <button type="submit">Accedi</button>
         <div id="pinSection">
             <div id="pinFrame">
-                <button mat-button type="button" class="pinButton" (click) = "append(1)">1</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(2)">2</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(3)">3</button>
-                <button mat-button type="button" class="pinButton" (click)="append(4)">4</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(5)">5</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(6)">6</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(7)">7</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(8)">8</button>
-                <button mat-button type="button" class="pinButton" (click) = "append(9)">9</button>
-                <button mat-button type="button" class="pinButton" (click) = "clear()" >
+                <button type="button" class="pinButton" (click) = "append(1)">1</button>
+                <button type="button" class="pinButton" (click) = "append(2)">2</button>
+                <button type="button" class="pinButton" (click) = "append(3)">3</button>
+                <button type="button" class="pinButton" (click)="append(4)">4</button>
+                <button type="button" class="pinButton" (click) = "append(5)">5</button>
+                <button type="button" class="pinButton" (click) = "append(6)">6</button>
+                <button type="button" class="pinButton" (click) = "append(7)">7</button>
+                <button type="button" class="pinButton" (click) = "append(8)">8</button>
+                <button type="button" class="pinButton" (click) = "append(9)">9</button>
+                <button type="button" class="pinButton" (click) = "clear()" >
                     <mat-icon aria-hidden="false" aria-label="Delete icon" fontIcon="cancel"></mat-icon>
                 </button>
-                <button mat-button type="button" class="pinButton" (click) = "append(0)">0</button>
-                <button mat-button type="button" class="pinButton" (click) = "removeLast()" id="del">DEL</button>
+                <button type="button" class="pinButton" (click) = "append(0)">0</button>
+                <button type="button" class="pinButton" (click) = "removeLast()" id="del">DEL</button>
             </div>
         </div>
     </form>
