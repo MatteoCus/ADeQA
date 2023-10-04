@@ -74,7 +74,14 @@ export class LoginPinComponent implements OnInit {
         });
     }
 
-
+    /**
+     * Metodo per preparare i parametri per le richieste relative agli operatori
+     * @param token Token di autenticazione per eseguire la chiamata
+     * @param fieldName Campo per il quale filtrare
+     * @param value Valore per il quale filtrare
+     * @param operator Operatore per il quale filtrare
+     * @returns I parametri per una richiesta relativa agli operatori
+     */
     private prepareParams(token: string, fieldName: string, value: string, operator: string): Fetch$Params {
       return {
         "AdesuiteToken": token, 
@@ -115,7 +122,9 @@ export class LoginPinComponent implements OnInit {
       this.form.setValue({"pin": element.value.substring(0, element.value.length-1)});
     }
 
-
+    /**
+     * Metodo per ottenere ulteriori informazioni sull'utente autenticato (nome utente, tema predefinito all'avvio)
+     */
     private fetchUserInfo(): void {
 
       const token = this.authInfoService.Token;

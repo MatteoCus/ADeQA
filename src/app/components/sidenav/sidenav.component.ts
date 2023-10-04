@@ -39,6 +39,10 @@ export class SidenavComponent {
     this.router.navigate(['login/pin']);
   }
 
+  /**
+   * Metodo per gestire le interazioni con il dialog di logout generale 
+   * Occorre reinserire nome utente e password per ri-ottenere il token
+   */
   public openLogoutDialog(): void {
     const logoutDialog = this.dialog.open(LogoutDialogComponent, {
       data: {
@@ -60,6 +64,10 @@ export class SidenavComponent {
     });
   }
 
+  /**
+   * Metodo per gestire le interazioni con il dialog di logout parziale 
+   * Occorre reinserire il pin per ri-accedere ai servizi in qualità di operatore
+   */
   public openLogoutUserDialog(): void {
     const logoutDialog = this.dialog.open(LogoutDialogComponent, {
       data: {

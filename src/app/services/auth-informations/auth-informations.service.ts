@@ -48,6 +48,9 @@ export class AuthInformationsService {
    */
   public get UserName(): string {return this.userName}
 
+  /**
+   * Getter del tema predefinito
+   */
   public get UserTheme(): "DM" | "WM" {return this.userTheme}
 
   /**
@@ -76,6 +79,10 @@ export class AuthInformationsService {
     this.userName = userName;
   }
 
+  /**
+   * Setter del tema predefinito
+   * @param userTheme Nuovo tema
+   */
   public set UserTheme(userTheme: "DM" | "WM") {
     this.userTheme = userTheme;
   }
