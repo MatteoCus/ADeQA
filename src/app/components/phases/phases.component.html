@@ -1,1 +1,17 @@
-<p>phases works!</p>
+<!-- <cdk-virtual-scroll-viewport appendOnly itemSize="100" class="example-viewport">
+    <mat-card class="card" *cdkVirtualFor="let phase of phases">
+        <mat-card-header>
+          <mat-card-title>Ordine {{phase}}</mat-card-title>
+          <mat-card-subtitle>Cliente xxx</mat-card-subtitle>
+        </mat-card-header>
+       <mat-card-content>
+          <p>
+            Quantità: yyyy
+          </p>
+        </mat-card-content>
+    </mat-card>
+</cdk-virtual-scroll-viewport> -->
+
+<mat-card color="primary" class="card" *ngFor="let phase of phases" >
+    <mat-card-content>{{phase}}</mat-card-content>
+</mat-card>

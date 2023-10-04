@@ -13,3 +13,14 @@
     width: 100%;
 }
 
+app-phases{
+    flex: 30%;
+    min-width: 200px;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+#logView{
+    flex: 70%;
+    height: 100%;
+}

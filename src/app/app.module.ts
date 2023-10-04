@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPinComponent } from './components/login-pin/login-pin.component';
@@ -25,6 +26,7 @@ import { PhasesComponent } from './components/phases/phases.component';
 import { LogViewerComponent } from './components/log-viewer/log-viewer.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatCardModule} from '@angular/material/card';
 import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
 
 @NgModule({
@@ -54,6 +56,8 @@ import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.
     MatToolbarModule,
     MatMenuModule,
     MatSlideToggleModule,
+    MatCardModule,
+    ScrollingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule

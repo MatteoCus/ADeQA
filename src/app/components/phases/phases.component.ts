@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class PhasesComponent {
 
+  phases: Array<number> = [...Array(150).keys()];
+
 }
