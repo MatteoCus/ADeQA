@@ -4,6 +4,8 @@
 @use './styles/cards-palettes.scss' as cards;
 @use './styles/header-palettes.scss' as header;
 @use './styles/tables-palettes.scss' as tables;
+@use './styles/sidenav-palettes.scss' as sid;
+@use './app/components/sidenav/sidenav-theme' as sidenav;
 
 @include mat.core();
 
@@ -31,6 +33,12 @@ $header-primary-dark-palette: mat.define-palette(header.$primary-dark);
 $header-primary-light-palette: mat.define-palette(header.$primary-light);
 $header-accent-dark-palette: mat.define-palette(header.$accent-dark);
 $header-accent-light-palette: mat.define-palette(header.$accent-light);
+
+// Sidenav palettes
+$sidenav-primary-dark-palette: mat.define-palette(sid.$black-palette);
+$sidenav-primary-light-palette: mat.define-palette(sid.$white-palette);
+$sidenav-accent-dark-palette: mat.define-palette(sid.$white-palette);
+$sidenav-accent-light-palette: mat.define-palette(sid.$black-palette);
 
 // Definizione dei temi
 
@@ -102,6 +110,23 @@ $header-light-theme : mat.define-light-theme((
   )
 ));
 
+// Sidenav
+$sidenav-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $sidenav-primary-dark-palette,
+    accent: $sidenav-accent-dark-palette,
+    warn: $warn-palette,
+  )
+));
+
+$sidenav-light-theme: mat.define-light-theme((
+  color: (
+    primary: $sidenav-primary-light-palette,
+    accent: $sidenav-accent-light-palette,
+    warn: $warn-palette,
+  )
+));
+
 // Tematizzazione
 
 @include mat.all-component-themes($header-light-theme);
@@ -114,6 +139,7 @@ $header-light-theme : mat.define-light-theme((
   @include mat.toolbar-theme($header-dark-theme);
   @include mat.slide-toggle-theme($header-dark-theme);
   @include mat.menu-theme($header-dark-theme);
+  @include sidenav.theme($sidenav-dark-theme);
 
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-background-dark-palette, 500);
@@ -128,6 +154,10 @@ $header-light-theme : mat.define-light-theme((
     color: white;
   }
 
+  #logo{
+    background-image: url("./assets/images/logo-ADeMES-white.svg");
+  }
+
   background-color: #1A1B2E;
   color: white;
 }
@@ -140,6 +170,7 @@ $header-light-theme : mat.define-light-theme((
   @include mat.toolbar-theme($header-light-theme);
   @include mat.slide-toggle-theme($header-light-theme);
   @include mat.menu-theme($header-light-theme);
+  @include sidenav.theme($sidenav-light-theme);
   
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-background-light-palette, 200);
@@ -152,6 +183,10 @@ $header-light-theme : mat.define-light-theme((
   #nav{
     background-color: white;
     color: black;
+  }
+
+  #logo{
+    background-image: url("./assets/images/logo-ADeMES-dark.svg");
   }
 
   color: black;

@@ -1,28 +1,28 @@
 #nav {
     height: 100%;
     width: 60px;
-    background-color: black;
-    display:list-item;
+    display:flex;
+    flex-direction: column;
 }
 
 #logo {
-    margin-top: 1em;
     margin-bottom: 3em;
-    width: 80%;
-    padding: 0.2em;
+    margin-top: 1em;
+    width: 70%;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .icon {
     width: 100%;
     border: none;
     height: 48px;
-    background-color: black;
-    color: white;
     margin-bottom: 0.5em;
 }
 
 .icon:hover {
-    background-color: white;
-    color: black;
     transition: 500ms;
 }
