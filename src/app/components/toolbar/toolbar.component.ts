@@ -45,8 +45,7 @@ export class ToolbarComponent implements OnInit{
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param themeService Servizio di gestione del tema grafico di interfaccia
    */
-  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService){
-  }
+  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService){}
 
   /**
    * Metodo di inizializzazione per quanto riguarda nome utente e tema all'avvio
@@ -55,6 +54,7 @@ export class ToolbarComponent implements OnInit{
     this.user = this.authInfoService.UserName;
     this.isDark = this.authInfoService.UserTheme == "DM" as "DM" | "WM";
     this.themeService.toggleTheme(this.isDark);
+    setTimeout(function(){ document.body.style.transitionDuration = "200ms"}, 500);
   }
 
   /**

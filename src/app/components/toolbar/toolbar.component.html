@@ -11,7 +11,7 @@
             <mat-icon aria-hidden="false" aria-label="Language globe icon" fontIcon="language"></mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngFor="let language of languages" (click)="changeActiveLanguage(language)">
+            <button mat-menu-item *ngFor="let language of languages" (click)="changeActiveLanguage(language)" color="accent">
               <span class="entry" [ngClass]="{'checkmark' : activeLanguage === language}">{{language}}</span>
             </button>
           </mat-menu>

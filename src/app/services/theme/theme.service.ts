@@ -11,7 +11,7 @@ export class ThemeService {
   /**
    * Costruttore di default
    */
-  constructor() { }
+  constructor() {}
 
   /**
    * Metodo per impostare il tema grafico dell'applicazione 
