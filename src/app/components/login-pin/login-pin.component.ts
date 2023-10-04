@@ -42,7 +42,7 @@ export class LoginPinComponent implements OnInit {
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
   constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) {
-    if(localStorage.getItem('ADeToken') == "") {
+    if(localStorage.getItem('ADeToken') == null ||  localStorage.getItem('ADeToken') == "") {
       this.router.navigate(['login/username']);
     }
 
@@ -192,7 +192,7 @@ export class LoginPinComponent implements OnInit {
           }
       },
       error: response => {
-        const errorDescription = (response.error as ErrorModel).description;
+        const errorDescription = (response.error as ErrorModel) != null? (response.error as ErrorModel).description : "Errore lato server";
         this.openSnackBar(("Error " + response.status + " - " + errorDescription), "X");
         this.loading = false;
       }

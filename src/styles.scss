@@ -1,55 +1,161 @@
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
+@use './styles/buttons-palettes.scss' as buttons;
+@use './styles/cards-palettes.scss' as cards;
+@use './styles/header-palettes.scss' as header;
+@use './styles/tables-palettes.scss' as tables;
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$ADeQA-primary: mat.define-palette(mat.$indigo-palette);
-$ADeQA-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// Definizione delle palettes
+$warn-palette: mat.define-palette(mat.$red-palette);
 
-// The warn palette is optional (defaults to red).
-$ADeQA-warn: mat.define-palette(mat.$red-palette);
+// Tables palettes
+$table-primary-dark-palette: mat.define-palette(tables.$primary-dark);
+$table-background-dark-palette: mat.define-palette(tables.$background-dark);
+$table-primary-light-palette: mat.define-palette(tables.$primary-light);
+$table-background-light-palette: mat.define-palette(tables.$background-light);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$ADeQA-theme: mat.define-light-theme((
+// Buttons palettes
+$buttons-primary-dark-palette: mat.define-palette(buttons.$primary-dark);
+$buttons-primary-light-palette: mat.define-palette(buttons.$primary-light);
+
+// Cards palettes
+$cards-primary-dark-palette: mat.define-palette(cards.$primary-dark);
+$cards-primary-light-palette: mat.define-palette(cards.$primary-light);
+$cards-accent-dark-palette: mat.define-palette(cards.$accent-dark);
+$cards-accent-light-palette: mat.define-palette(cards.$accent-light);
+
+// Header palettes
+$header-primary-dark-palette: mat.define-palette(header.$primary-dark);
+$header-primary-light-palette: mat.define-palette(header.$primary-light);
+$header-accent-dark-palette: mat.define-palette(header.$accent-dark);
+$header-accent-light-palette: mat.define-palette(header.$accent-light);
+
+// Definizione dei temi
+
+// Tables
+$table-dark-theme : mat.define-dark-theme((
   color: (
-    primary: $ADeQA-primary,
-    accent: $ADeQA-accent,
-    warn: $ADeQA-warn,
+    primary: $table-primary-dark-palette,
+    accent: $header-accent-dark-palette,
+    warn: $warn-palette,
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-
-@include mat.all-component-themes($ADeQA-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
-$prova-theme-dark: mat.define-dark-theme((
+$table-light-theme : mat.define-light-theme((
   color: (
-    primary: $ADeQA-primary,
-    accent: $ADeQA-accent,
-    warn: $ADeQA-warn,
+    primary: $table-primary-light-palette,
+    accent: $header-accent-light-palette,
+    warn: $warn-palette,
   )
 ));
+
+// Buttons
+$button-dark-theme : mat.define-dark-theme((
+  color: (
+    primary: $buttons-primary-dark-palette,
+    accent: $header-accent-dark-palette,
+    warn: $warn-palette,
+  )
+));
+
+$button-light-theme : mat.define-light-theme((
+  color: (
+    primary: $buttons-primary-light-palette,
+    accent: $header-accent-light-palette,
+    warn: $warn-palette,
+  )
+));
+
+// Cards
+$card-dark-theme : mat.define-dark-theme((
+  color: (
+    primary: $cards-primary-dark-palette,
+    accent: $cards-accent-dark-palette,
+    warn: $warn-palette,
+  )
+));
+
+$card-light-theme : mat.define-light-theme((
+  color: (
+    primary: $cards-primary-light-palette,
+    accent: $cards-accent-light-palette,
+    warn: $warn-palette,
+  )
+));
+
+// Header
+$header-dark-theme : mat.define-dark-theme((
+  color: (
+    primary: $header-primary-dark-palette,
+    accent: $header-accent-dark-palette,
+    warn: $warn-palette,
+  )
+));
+
+$header-light-theme : mat.define-light-theme((
+  color: (
+    primary: $header-primary-light-palette,
+    accent: $header-accent-light-palette,
+    warn: $warn-palette,
+  )
+));
+
+// Tematizzazione
+
 
 
 .theme-dark{
-  @include mat.all-component-themes($prova-theme-dark);
+  @include mat.core-theme($header-dark-theme);
+  @include mat.table-theme($table-dark-theme);
+  @include mat.card-theme($card-dark-theme);
+  @include mat.button-theme($button-dark-theme);
+  @include mat.toolbar-theme($header-dark-theme);
+  @include mat.slide-toggle-theme($header-dark-theme);
+  @include mat.menu-theme($header-dark-theme);
+
   .mat-mdc-header-row {
-    background-color: mat.get-color-from-palette($ADeQA-accent, 200);
+    background-color: mat.get-color-from-palette($table-background-dark-palette, 500);
   }
+
+  .checkmark {
+    color: white;
+  }
+
+  #nav {
+    background-color: black;
+    color: white;
+  }
+
+  background-color: #1A1B2E;
+  color: white;
+}
+
+.theme-light{
+  @include mat.core-theme($header-light-theme);
+  @include mat.table-theme($table-light-theme);
+  @include mat.card-theme($card-light-theme);
+  @include mat.button-theme($button-light-theme);
+  @include mat.toolbar-theme($header-light-theme);
+  @include mat.slide-toggle-theme($header-light-theme);
+  @include mat.menu-theme($header-light-theme);
+  
+  .mat-mdc-header-row {
+    background-color: mat.get-color-from-palette($table-background-light-palette, 200);
+  }
+
+  .checkmark{
+    color: darkblue;
+  }
+
+  #nav{
+    background-color: white;
+    color: black;
+  }
+
+  color: black;
+  background-color: #F3F5FD;
 }
 
 
