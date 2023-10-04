@@ -23,6 +23,9 @@ export class AuthInformationsService {
    */
   private userName: string = "";
 
+  /**
+   * Tema predefinito dell'utente autenticato
+   */
   private userTheme: "DM" | "WM" = "DM";
 
   /**
