@@ -129,21 +129,24 @@ $sidenav-light-theme: mat.define-light-theme((
 
 // Tematizzazione
 
+// Tema default: serve per component di login, dato che hanno un unico tema
 @include mat.all-component-themes($header-light-theme);
 
+// Stile carte 
 mat-card, mat-card-subtitle{
   color: white !important;
   transition: 150ms;
 }
 
+// Tema scuro
 .theme-dark{
-  @include mat.core-theme($header-dark-theme);
-  @include mat.table-theme($table-dark-theme);
-  @include mat.button-theme($button-dark-theme);
-  @include mat.toolbar-theme($header-dark-theme);
-  @include mat.slide-toggle-theme($header-dark-theme);
-  @include mat.menu-theme($header-dark-theme);
-  @include sidenav.theme($sidenav-dark-theme);
+  @include mat.core-color($header-dark-theme);
+  @include mat.table-color($table-dark-theme);
+  @include mat.button-color($button-dark-theme);
+  @include mat.toolbar-color($header-dark-theme);
+  @include mat.slide-toggle-color($header-dark-theme);
+  @include mat.menu-color($header-dark-theme);
+  @include sidenav.color($sidenav-dark-theme);
 
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-background-dark-palette, 500);
@@ -168,6 +171,10 @@ mat-card, mat-card-subtitle{
     border-right: 1px solid #707286;
   }
 
+  app-log-viewer{
+    border-top: 1px solid #707286;
+  }
+
   .checkmark {
     color: white;
   }
@@ -185,14 +192,15 @@ mat-card, mat-card-subtitle{
   color: white;
 }
 
+// Tema chiaro
 .theme-light{
-  @include mat.core-theme($header-light-theme);
-  @include mat.table-theme($table-light-theme);
-  @include mat.button-theme($button-light-theme);
-  @include mat.toolbar-theme($header-light-theme);
-  @include mat.slide-toggle-theme($header-light-theme);
-  @include mat.menu-theme($header-light-theme);
-  @include sidenav.theme($sidenav-light-theme);
+  @include mat.core-color($header-light-theme);
+  @include mat.table-color($table-light-theme);
+  @include mat.button-color($button-light-theme);
+  @include mat.toolbar-color($header-light-theme);
+  @include mat.slide-toggle-color($header-light-theme);
+  @include mat.menu-color($header-light-theme);
+  @include sidenav.color($sidenav-light-theme);
   
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-background-light-palette, 200);
@@ -216,6 +224,10 @@ mat-card, mat-card-subtitle{
 
   app-phases{
     border-right: 1px solid #ced0db;
+  }
+
+  app-log-viewer{
+    border-top: 1px solid #ced0db;
   }
 
   .checkmark{
