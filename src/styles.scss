@@ -131,10 +131,14 @@ $sidenav-light-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($header-light-theme);
 
+mat-card{
+  color: white;
+  transition: 150ms;
+}
+
 .theme-dark{
   @include mat.core-theme($header-dark-theme);
   @include mat.table-theme($table-dark-theme);
-  @include mat.card-theme($card-dark-theme);
   @include mat.button-theme($button-dark-theme);
   @include mat.toolbar-theme($header-dark-theme);
   @include mat.slide-toggle-theme($header-dark-theme);
@@ -143,6 +147,25 @@ $sidenav-light-theme: mat.define-light-theme((
 
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-background-dark-palette, 500);
+  }
+
+  mat-card {
+    background-color: mat.get-color-from-palette($cards-primary-dark-palette, 500);
+    border: 3px solid #7280f9;
+  }
+
+  mat-card:active {
+    background-color: mat.get-color-from-palette($cards-accent-dark-palette, 500);
+    border: 3px solid #BF71FF;
+  }
+
+  mat-card.selected-card {
+    background-color: mat.get-color-from-palette($cards-accent-dark-palette, 500);
+    border: 3px solid #BF71FF;
+  }
+
+  app-phases{
+    border-right: 1px solid #707286;
   }
 
   .checkmark {
@@ -165,7 +188,6 @@ $sidenav-light-theme: mat.define-light-theme((
 .theme-light{
   @include mat.core-theme($header-light-theme);
   @include mat.table-theme($table-light-theme);
-  @include mat.card-theme($card-light-theme);
   @include mat.button-theme($button-light-theme);
   @include mat.toolbar-theme($header-light-theme);
   @include mat.slide-toggle-theme($header-light-theme);
@@ -174,6 +196,26 @@ $sidenav-light-theme: mat.define-light-theme((
   
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-background-light-palette, 200);
+  }
+
+  mat-card {
+    background-color: mat.get-color-from-palette($cards-primary-light-palette, 500);
+    border: 3px solid #6673db;
+
+  }
+
+  mat-card:active {
+    background-color: mat.get-color-from-palette($cards-accent-light-palette, 500);
+    border: 3px solid #a25dcb;
+  }
+
+  mat-card.selected-card {
+    background-color: mat.get-color-from-palette($cards-accent-light-palette, 500);
+    border: 3px solid #a25dcb;
+  }
+
+  app-phases{
+    border-right: 1px solid #ced0db;
   }
 
   .checkmark{

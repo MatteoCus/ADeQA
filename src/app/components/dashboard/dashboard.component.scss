@@ -11,13 +11,14 @@
 #mainContent{
     display: flex;
     width: 100%;
+    height: calc(100% - 70px);  //70px sono di toolbar
 }
 
 app-phases{
     flex: 30%;
     min-width: 200px;
-    height: 100%;
-    border-right: 1px solid black;
+    max-width: 500px;
+    height: auto;
 }
 
 #logView{

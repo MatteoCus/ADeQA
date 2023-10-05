@@ -1,6 +1,6 @@
 <mat-toolbar id="toolbar" color="primary">
     <span>{{today | date:'MMMM'}} {{today | date:'yyyy'}} - Settimana {{today | date: 'ww'}}</span>
-    <span class="example-spacer"></span>
+    <span class="spacer"></span>
     <div id="dark-theme-slider" title="Cambio tema">
       <mat-icon aria-hidden="false" aria-label="Light mode icon" fontIcon="light_mode"></mat-icon>
       <mat-slide-toggle [(ngModel)]="isDark" (change)="toggleTheme($event)" color="accent"></mat-slide-toggle>
