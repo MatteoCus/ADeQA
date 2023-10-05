@@ -190,11 +190,14 @@ export class LoginPinComponent implements OnInit {
           if(this.authInfoService.UserId && this.authInfoService.UserName) {
             this.router.navigate(['dashboard']);
           }
-      },
-      error: error => {
+    },
+    error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
         this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
         this.loading = false;
+        if(error.status == 401){
+          this.router.navigate(['login/usename']);
+        }
       }
     });
   }
