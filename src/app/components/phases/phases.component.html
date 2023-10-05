@@ -1,13 +1,26 @@
 <cdk-virtual-scroll-viewport appendOnly itemSize="100" class="scroll-viewport">
-    <mat-card color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString())" id="card-{{phases.indexOf(phase)}}">
-      <mat-card-header>
-        <mat-card-title>Fase: {{phase.phasename}}</mat-card-title>
-        <mat-card-subtitle>{{phase.customer}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p> Linea: {{ phase.linename }} </p>
-        <p> Inizio: {{ phase.start_plan }} </p>
-        <p> Fine: {{ phase.end_plan }} </p>
-      </mat-card-content>
-    </mat-card>
+    <div *ngIf="loading">
+      <mat-card *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+        <mat-card-content>
+          <p class="skeleton skeleton-text"></p>
+          <p class="skeleton skeleton-text"> </p>
+          <p class="skeleton skeleton-text"></p>
+          <p class="skeleton skeleton-text"> </p>
+          <p class="skeleton skeleton-text"> </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="!loading">
+      <mat-card  color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString())" id="card-{{phases.indexOf(phase)}}">
+        <mat-card-header>
+          <mat-card-title>Fase: {{phase.phasename}}</mat-card-title>
+          <mat-card-subtitle>{{phase.customer}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p> Linea: {{ phase.linename }} </p>
+          <p> Inizio: {{ phase.start_plan }} </p>
+          <p> Fine: {{ phase.end_plan }} </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 </cdk-virtual-scroll-viewport>

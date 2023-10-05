@@ -16,6 +16,11 @@ import { AuthInformationsService } from 'src/app/services/auth-informations/auth
 export class PhasesComponent implements OnInit {
 
   /**
+   * Variabile booleana per gestire lo "skeleton loading" (il caricamento fittizio di dati)
+   */
+  public loading = true;
+
+  /**
    * Fasi da visualizzare
    */
   public phases: Array<QualityphaseModel> = new Array<QualityphaseModel>();
@@ -87,12 +92,13 @@ export class PhasesComponent implements OnInit {
     .subscribe({
       next: (response) => {
         (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar("Non ci sono fasi da visualizzare!" ,"X");
+        this.loading = false;
       },
       error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
         this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
       }
-    })
+    });
 
   }
 
