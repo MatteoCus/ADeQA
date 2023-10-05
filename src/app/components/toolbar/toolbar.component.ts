@@ -12,8 +12,6 @@ import { ThemeService } from 'src/app/services/theme/theme.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit{
-  @ViewChild('languageSelect') select: any; //prova a eliminare e vedere se funziona lo stesso
-
   /**
    * Attributo per gestire il toggle dello slider all'avvio
    */

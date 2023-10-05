@@ -4,6 +4,10 @@
         <mat-card-title>Fase: {{phase.phasename}}</mat-card-title>
         <mat-card-subtitle>{{phase.customer}}</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content>Linea: {{ phase.linename }}</mat-card-content>
+      <mat-card-content>
+        <p> Linea: {{ phase.linename }} </p>
+        <p> Inizio: {{ phase.start_plan }} </p>
+        <p> Fine: {{ phase.end_plan }} </p>
+      </mat-card-content>
     </mat-card>
 </cdk-virtual-scroll-viewport>

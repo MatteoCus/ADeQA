@@ -4,6 +4,10 @@ import { ErrorModel, QualityphaseModel } from 'src/app/api/models';
 import { QualityPhaseService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 
+/**
+ * Classe di gestione della visualizzazione delle fasi
+ * Le fasi sono presentate come una lista di "carte" da scorrere (verticalmente o orizzontalmente, a seconda della modalità di visualizzazione)
+ */
 @Component({
   selector: 'app-phases',
   templateUrl: './phases.component.html',
@@ -11,10 +15,22 @@ import { AuthInformationsService } from 'src/app/services/auth-informations/auth
 })
 export class PhasesComponent implements OnInit {
 
-  phases: Array<QualityphaseModel> = new Array<QualityphaseModel>();
+  /**
+   * Fasi da visualizzare
+   */
+  public phases: Array<QualityphaseModel> = new Array<QualityphaseModel>();
 
+  /**
+   * Costruttore della classe di visualizzazione fasi
+   * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
+   * @param qualityPhaseService Servizio per l'ottenimento delle fasi
+   * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
+   */
   constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService){}
 
+  /**
+   * Inizializzazione delle fasi: chiamata API per ottenere le fasi
+   */
   ngOnInit(){
 
     const token = this.authInfoService.Token;
@@ -27,7 +43,6 @@ export class PhasesComponent implements OnInit {
     const end_plan_operator = "lessOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
     const status_operator = "greaterOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
     const status_value = "I";
-
     // Date per le quali fare fetch:
     // -) start_plan_date: 30gg prima della data attuale
     // -) end_plan_date: 30gg dopo la data attuale
@@ -37,8 +52,6 @@ export class PhasesComponent implements OnInit {
     const end_plan_date: Date = new Date();
     start_plan_date.setMonth(previousMonth);
     end_plan_date.setMonth(nextMonth);
-
-
 
     const params = {
     "AdesuiteToken": token, 
@@ -61,6 +74,12 @@ export class PhasesComponent implements OnInit {
             "operator": status_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
          ],
+        "orderby": [
+          {
+            "columnname": "end_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            "direction": "ASC" as 'DESC' | 'ASC'
+          }
+        ],
          "endRow": 50
     }};
 
@@ -77,7 +96,6 @@ export class PhasesComponent implements OnInit {
 
   }
 
-
   /**
    * Metodo per l'apertura della barra di visualizzazione di messaggi di stato
    * @param message Messaggio da mostrare
@@ -90,21 +108,28 @@ export class PhasesComponent implements OnInit {
   }
 
   /**
-   * 
-   * @param id 
+   * Metodo che gestisce (graficamente e programmaticamente) la selezione di una fase
+   * @param id Identificativo dell'elemento HTML cliccato
    */
   public select(id: string): void {
     document.getElementsByClassName("selected-card")[0]? document.getElementsByClassName("selected-card")[0].classList.remove("selected-card"): "";
     let activeElement = document.getElementById(id);
     if(activeElement != null && activeElement != undefined && activeElement?.textContent != null && activeElement?.textContent != "") {
       activeElement?.classList.add("selected-card");
+
+      // Cambiare per gestire la selezione
       let text: string = activeElement?.textContent;
       this.setActivePhase(text);
+
     } else {
       this.openSnackBar("La carta selezionata non contiene testo!", "X");
     }
   }
 
+  /**
+   * Metodo per gestire la selezione (programmatica) di una fase
+   * @param phase Nome della fase da impostare come attiva
+   */
   public setActivePhase(phase: string): void {
     
   }

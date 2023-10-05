@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ErrorModel } from 'src/app/api/models';
-import { AuthenticationService, OperatorsService } from 'src/app/api/services';
+import { OperatorsService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -17,10 +17,10 @@ import { Fetch$Params } from 'src/app/api/fn/operators/fetch';
 })
 export class LoginPinComponent implements OnInit {
 
-    /**
-   * Variabile booleana per cambiare l'icona che nasconde il contenuto del campo "password"
-   */
-    public hide: boolean = true;
+  /**
+  * Variabile booleana per cambiare l'icona che nasconde il contenuto del campo "password"
+  */
+  public hide: boolean = true;
 
   /**
    * Form di login

@@ -131,8 +131,8 @@ $sidenav-light-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($header-light-theme);
 
-mat-card{
-  color: white;
+mat-card, mat-card-subtitle{
+  color: white !important;
   transition: 150ms;
 }
 
