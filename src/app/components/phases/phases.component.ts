@@ -1,19 +1,112 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ErrorModel, QualityphaseModel } from 'src/app/api/models';
+import { QualityPhaseService } from 'src/app/api/services';
+import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 
 @Component({
   selector: 'app-phases',
   templateUrl: './phases.component.html',
   styleUrls: ['./phases.component.scss']
 })
-export class PhasesComponent {
+export class PhasesComponent implements OnInit {
 
-  phases: Array<number> = [...Array(150).keys()];
+  phases: Array<QualityphaseModel> = new Array<QualityphaseModel>();
 
-  constructor(){}
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService){}
 
+  ngOnInit(){
+
+    const token = this.authInfoService.Token;
+
+    // Dichiarazioni dettate dai modelli in /app/api/models
+    const start_plan = "start_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id' ;
+    const end_plan = "end_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id' ;
+    const status = "status" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id' ;
+    const start_plan_operator = "greaterOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
+    const end_plan_operator = "lessOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
+    const status_operator = "greaterOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
+    const status_value = "I";
+
+    // Date per le quali fare fetch:
+    // -) start_plan_date: 30gg prima della data attuale
+    // -) end_plan_date: 30gg dopo la data attuale
+    const previousMonth: number = (new Date().getMonth() - 1) % 12;
+    const nextMonth: number = (new Date().getMonth() + 1) % 12;
+    const start_plan_date: Date = new Date();
+    const end_plan_date: Date = new Date();
+    start_plan_date.setMonth(previousMonth);
+    end_plan_date.setMonth(nextMonth);
+
+
+
+    const params = {
+    "AdesuiteToken": token, 
+    "body": {
+         "startRow": 0,
+         "criteria" : [
+           {
+             "fieldName": start_plan as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+             "value": start_plan_date.toISOString().replace("T", " ").replace("Z", "").substring(0,22),
+             "operator": start_plan_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+           },
+           {
+            "fieldName": end_plan as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            "value": end_plan_date.toISOString().replace("T", " ").replace("Z", "").substring(0,22),
+            "operator": end_plan_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+          },
+          {
+            "fieldName": status as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            "value": status_value,
+            "operator": status_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+          }
+         ],
+         "endRow": 50
+    }};
+
+    this.qualityPhaseService.fetch_2(params)
+    .subscribe({
+      next: (response) => {
+        (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar("Non ci sono fasi da visualizzare!" ,"X");
+      },
+      error: (error) => {
+        const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
+        this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
+      }
+    })
+
+  }
+
+
+  /**
+   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato
+   * @param message Messaggio da mostrare
+   * @param type Etichetta del pulsante di chiusura
+  */
+  private openSnackBar(message: string, type: string): void { 
+    this.snackBar.open(message, type, {
+      panelClass: ['red-snackbar','login-snackbar'],
+      });
+  }
+
+  /**
+   * 
+   * @param id 
+   */
   public select(id: string): void {
     document.getElementsByClassName("selected-card")[0]? document.getElementsByClassName("selected-card")[0].classList.remove("selected-card"): "";
-    document.getElementById(id)?.classList.add("selected-card");
+    let activeElement = document.getElementById(id);
+    if(activeElement != null && activeElement != undefined && activeElement?.textContent != null && activeElement?.textContent != "") {
+      activeElement?.classList.add("selected-card");
+      let text: string = activeElement?.textContent;
+      this.setActivePhase(text);
+    } else {
+      this.openSnackBar("La carta selezionata non contiene testo!", "X");
+    }
+  }
+
+  public setActivePhase(phase: string): void {
+    
   }
 
 }

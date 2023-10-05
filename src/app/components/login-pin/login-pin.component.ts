@@ -191,9 +191,9 @@ export class LoginPinComponent implements OnInit {
             this.router.navigate(['dashboard']);
           }
       },
-      error: response => {
-        const errorDescription = (response.error as ErrorModel) != null? (response.error as ErrorModel).description : "Errore lato server";
-        this.openSnackBar(("Error " + response.status + " - " + errorDescription), "X");
+      error: error => {
+        const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
+        this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
         this.loading = false;
       }
     });
