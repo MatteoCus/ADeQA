@@ -11,7 +11,7 @@
       </mat-card>
     </div>
     <div *ngIf="!loading">
-      <mat-card  color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString())" id="card-{{phases.indexOf(phase)}}">
+      <mat-card  color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString()); setActivePhase(phase)" id="card-{{phases.indexOf(phase)}}">
         <mat-card-header>
           <mat-card-title>Fase: {{phase.phasename}}</mat-card-title>
           <mat-card-subtitle>{{phase.customer}}</mat-card-subtitle>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorModel, QualityphaseModel } from 'src/app/api/models';
 import { QualityPhaseService } from 'src/app/api/services';
+import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 
 /**
@@ -31,7 +32,7 @@ export class PhasesComponent implements OnInit {
    * @param qualityPhaseService Servizio per l'ottenimento delle fasi
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    */
-  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService){}
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService){}
 
   /**
    * Inizializzazione delle fasi: chiamata API per ottenere le fasi
@@ -122,11 +123,6 @@ export class PhasesComponent implements OnInit {
     let activeElement = document.getElementById(id);
     if(activeElement != null && activeElement != undefined && activeElement?.textContent != null && activeElement?.textContent != "") {
       activeElement?.classList.add("selected-card");
-
-      // Cambiare per gestire la selezione
-      let text: string = activeElement?.textContent;
-      this.setActivePhase(text);
-
     } else {
       this.openSnackBar("La carta selezionata non contiene testo!", "X");
     }
@@ -136,8 +132,8 @@ export class PhasesComponent implements OnInit {
    * Metodo per gestire la selezione (programmatica) di una fase
    * @param phase Nome della fase da impostare come attiva
    */
-  public setActivePhase(phase: string): void {
-    
+  public setActivePhase(phase: QualityphaseModel): void {
+    this.activePhaseService.update(phase);
   }
 
 }
