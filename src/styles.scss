@@ -183,7 +183,7 @@ button {
   @include sidenav.color($sidenav-dark-theme);
 
   .mat-mdc-header-row {
-    background-color: mat.get-color-from-palette($table-background-dark-palette, 500);
+    background-color: mat.get-color-from-palette($table-primary-dark-palette, 500);
   }
 
   mat-card {
@@ -237,7 +237,8 @@ button {
   @include sidenav.color($sidenav-light-theme);
   
   .mat-mdc-header-row {
-    background-color: mat.get-color-from-palette($table-background-light-palette, 200);
+    background-color: mat.get-color-from-palette($table-primary-light-palette, 500);
+    color: white;
   }
 
   mat-card {
