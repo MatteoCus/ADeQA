@@ -1,5 +1,14 @@
 <div>
-    <table mat-table [dataSource]="activeLog" class="mat-elevation-z8" *ngIf=" displayedColumns.length ">
+
+    <table mat-table [dataSource]="activeLog" class="mat-elevation-z8" *ngIf=" loading">
+      <ng-container [matColumnDef]="column" *ngFor="let column of ['0','1','2','3','4']">
+        <th mat-header-cell *matHeaderCellDef class="skeleton skeleton-text"> {{column}} </th>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="skeleton skeleton-text"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="skeleton skeleton-text"></tr>
+    </table>
+
+    <table mat-table [dataSource]="activeLog" class="mat-elevation-z8" *ngIf=" displayedColumns.length && !loading">
         <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
           <th mat-header-cell *matHeaderCellDef> {{column}} </th>
         </ng-container>
