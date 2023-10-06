@@ -27,6 +27,7 @@ import { LogViewerComponent } from './components/log-viewer/log-viewer.component
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
 
 @NgModule({
@@ -57,6 +58,7 @@ import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.
     MatMenuModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatTableModule,
     ScrollingModule,
     ReactiveFormsModule,
     FormsModule,

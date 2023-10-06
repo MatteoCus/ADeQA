@@ -32,7 +32,8 @@ export class PhasesComponent implements OnInit {
    * @param qualityPhaseService Servizio per l'ottenimento delle fasi
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    */
-  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService){}
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService){
+  }
 
   /**
    * Inizializzazione delle fasi: chiamata API per ottenere le fasi
@@ -93,12 +94,12 @@ export class PhasesComponent implements OnInit {
     .subscribe({
       next: (response) => {
         (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar("Non ci sono fasi da visualizzare!" ,"X");
-        this.loading = false;
       },
       error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
         this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
-      }
+      },
+      complete: () => { this.loading = false; }
     });
 
   }

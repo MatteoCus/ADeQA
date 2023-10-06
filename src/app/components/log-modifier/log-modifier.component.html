@@ -1,1 +1,9 @@
-<p>log-modifier works!</p>
+<div>
+    <table mat-table [dataSource]="activeLog" class="mat-elevation-z8" *ngIf=" displayedColumns.length ">
+        <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>

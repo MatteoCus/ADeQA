@@ -136,6 +136,11 @@ $sidenav-light-theme: mat.define-light-theme((
 mat-card, mat-card-subtitle{
   color: white !important;
   transition: 150ms;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
 
 // Tema scuro

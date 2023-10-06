@@ -48,7 +48,6 @@ export class LoginPinComponent implements OnInit {
 
     if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0) {
       this.authInfoService.UserId = sessionStorage.getItem('ADeUserId') as any as number;
-      this.fetchUserInfo();
       this.router.navigate(['dashboard']);
     }
    }
@@ -122,35 +121,6 @@ export class LoginPinComponent implements OnInit {
     }
 
     /**
-     * Metodo per ottenere ulteriori informazioni sull'utente autenticato (nome utente, tema predefinito all'avvio)
-     * Viene usato quando l'utente è già autenticato (anche con pin) ma serve recuperare il tema predefinito ed il nome utente
-     */
-    private fetchUserInfo(): void {
-
-      const token = this.authInfoService.Token;
-      const ad_user_id = this.authInfoService.UserId.toString();
-
-      // Dichiarazioni dettate dai modelli in /app/api/models
-      const fieldName = "ad_user_id" as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" ;
-      const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
-
-    this.loading = true;
-
-    const params = this.prepareParams(token,fieldName,ad_user_id,operator);
-
-    this.operatorsService.fetch(params)
-    .subscribe(response => {
-      if(response.data != undefined && response.data[0] != undefined && response.data[0].name != undefined && response.data[0].mes_theme != undefined) {
-        this.authInfoService.UserName = response.data[0].name.trim();
-        this.authInfoService.UserTheme = response.data[0].mes_theme.trim() as "DM" | "WM";
-      } else {
-        this.openSnackBar("Errore all'ottenimento delle informazioni utente", "X");
-      }
-    });
-
-    }
-
-    /**
      * Metodo per eseguire il login, consente di salvare l'id utente nel servizio authInfoService e passare così alla visualizzazione di fasi e informazioni di controllo qualità
      * In caso di errore, gestisce l'apertura della barra di stato
      * Gestisce l'apertura della barra di caricamento
@@ -186,7 +156,6 @@ export class LoginPinComponent implements OnInit {
             else{
               this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X")
             };
-          this.loading = false;
           if(this.authInfoService.UserId && this.authInfoService.UserName) {
             this.router.navigate(['dashboard']);
           }
@@ -194,12 +163,12 @@ export class LoginPinComponent implements OnInit {
     error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
         this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
-        this.loading = false;
         if(error.status == 401){
           this.authInfoService.Token = "";
           this.router.navigate(['login/username']);
         }
-      }
+      },
+      complete: () => { this.loading = false;}
     });
   }
 }

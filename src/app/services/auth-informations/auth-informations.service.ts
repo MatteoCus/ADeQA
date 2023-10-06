@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Fetch$Params } from 'src/app/api/fn/operators/fetch';
+import { OperatorsService } from 'src/app/api/services';
 
 /**
  * Classe che contiene le informazioni fondamentali di autenticazione: token e userId
@@ -26,14 +28,16 @@ export class AuthInformationsService {
   /**
    * Tema predefinito dell'utente autenticato
    */
-  private userTheme: "DM" | "WM" = "DM";
+  private userTheme: "DM" | "WM" | undefined = undefined;
 
   /**
    * Costruttore, cerca di ottenere il token da localStorage qualora l'utente avesse già eseguito l'accesso in precedenza
    */
-  constructor() {
+  constructor(private operatorsService: OperatorsService) {
     this.token = localStorage.getItem("ADeToken") || "";
-    this.userId = sessionStorage.getItem("ADeUserID") as any as number || 0;
+    this.userId = sessionStorage.getItem("ADeUserId") as any as number || 0;
+    this.userName = sessionStorage.getItem("ADeUserName") || "";
+    this.userTheme = sessionStorage.getItem("ADeUserTheme") as "DM" | "WM";
   }
 
   /**
@@ -49,12 +53,12 @@ export class AuthInformationsService {
   /**
    * Getter del nome utente
    */
-  public get UserName(): string {return this.userName}
+  public get UserName(): string { return this.userName;}
 
   /**
    * Getter del tema predefinito
    */
-  public get UserTheme(): "DM" | "WM" {return this.userTheme}
+  public get UserTheme(): "DM" | "WM" { return this.userTheme!; }
 
   /**
    * Setter del token (con salvataggio in localStorage)
@@ -80,6 +84,7 @@ export class AuthInformationsService {
    */
   public set UserName(userName: string) {
     this.userName = userName;
+    sessionStorage.setItem("ADeUserName", this.userName);
   }
 
   /**
@@ -88,6 +93,7 @@ export class AuthInformationsService {
    */
   public set UserTheme(userTheme: "DM" | "WM") {
     this.userTheme = userTheme;
+    sessionStorage.setItem("ADeUserTheme", this.userTheme!);
   }
 
   /**
@@ -102,11 +108,12 @@ export class AuthInformationsService {
 
   /**
    * Metodo per eseguire il logout rispetto all'ultimo passo di autenticazione (quando si ottiene l'identificativo utente)
-   * Rimuove l'id ed il nome dell'utente da sessionStorage
+   * Rimuove l'id ed il tema dell'utente da sessionStorage
    */
   public clearUser(): void {
     this.userId = 0;
     this.userName = "";
     sessionStorage.removeItem("ADeUserId");
+    sessionStorage.removeItem("ADeUserTheme");
   }
 }

@@ -89,7 +89,6 @@ export class LoginUsernameComponent implements OnInit {
     .subscribe({
       next: (response) => {
           response.token != undefined? this.authInfoService.Token = response.token : this.openSnackBar("Error 500 - Token nullo", "X");
-          this.loading = false;
 
           if(this.authInfoService.Token) {
             this.router.navigate(['login/pin']);
@@ -98,8 +97,8 @@ export class LoginUsernameComponent implements OnInit {
       error: response => {
         const errorDescription = (response.error as ErrorModel).description;
         this.openSnackBar(("Error " + response.status + " - " + errorDescription), "X");
-        this.loading = false;
-      }
+      },
+      complete: () => { this.loading = false; }
     });
   }
 }
