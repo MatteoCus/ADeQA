@@ -46,8 +46,7 @@ export class LoginPinComponent implements OnInit {
       this.router.navigate(['login/username']);
     }
 
-    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0
-    && sessionStorage.getItem('ADeUserName')!="" && sessionStorage.getItem('ADeUserName')!= null) {
+    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0) {
       this.authInfoService.UserId = sessionStorage.getItem('ADeUserId') as any as number;
       this.fetchUserInfo();
       this.router.navigate(['dashboard']);
@@ -124,6 +123,7 @@ export class LoginPinComponent implements OnInit {
 
     /**
      * Metodo per ottenere ulteriori informazioni sull'utente autenticato (nome utente, tema predefinito all'avvio)
+     * Viene usato quando l'utente è già autenticato (anche con pin) ma serve recuperare il tema predefinito ed il nome utente
      */
     private fetchUserInfo(): void {
 
@@ -196,7 +196,8 @@ export class LoginPinComponent implements OnInit {
         this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
         this.loading = false;
         if(error.status == 401){
-          this.router.navigate(['login/usename']);
+          this.authInfoService.Token = "";
+          this.router.navigate(['login/username']);
         }
       }
     });

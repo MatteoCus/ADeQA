@@ -31,7 +31,6 @@ export class ActivePhaseService {
     if(phase != this.lastValue) {
       this.activePhase.next(phase);
       this.lastValue = phase;
-      console.log(phase);
     }
   }
 
