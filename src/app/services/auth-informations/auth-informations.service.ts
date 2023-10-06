@@ -33,7 +33,7 @@ export class AuthInformationsService {
   /**
    * Costruttore, cerca di ottenere il token da localStorage qualora l'utente avesse già eseguito l'accesso in precedenza
    */
-  constructor(private operatorsService: OperatorsService) {
+  constructor() {
     this.token = localStorage.getItem("ADeToken") || "";
     this.userId = sessionStorage.getItem("ADeUserId") as any as number || 0;
     this.userName = sessionStorage.getItem("ADeUserName") || "";

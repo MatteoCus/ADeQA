@@ -46,8 +46,12 @@ export class LoginPinComponent implements OnInit {
       this.router.navigate(['login/username']);
     }
 
-    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0) {
+    if(sessionStorage.getItem('ADeUserId')!= "" && sessionStorage.getItem('ADeUserId')!= null && sessionStorage.getItem('ADeUserId') as any as number != 0
+      && sessionStorage.getItem('ADeUserName')!= "" && sessionStorage.getItem('ADeUserName')!= null && sessionStorage.getItem('ADeUserName') != ""
+      && sessionStorage.getItem('ADeUserTheme')!= "" && sessionStorage.getItem('ADeUserTheme')!= null && sessionStorage.getItem('ADeUserTheme') as any as "DM" | "WM" | undefined != undefined) {
       this.authInfoService.UserId = sessionStorage.getItem('ADeUserId') as any as number;
+      this.authInfoService.UserName = sessionStorage.getItem("ADeUserName")!;
+      this.authInfoService.UserTheme = sessionStorage.getItem("ADeUserTheme") as "DM" | "WM";
       this.router.navigate(['dashboard']);
     }
    }
