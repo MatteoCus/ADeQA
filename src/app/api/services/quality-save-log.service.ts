@@ -9,12 +9,12 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { Add } from '../fn/quality-save-log/add';
-import { Add$Params } from '../fn/quality-save-log/add';
-import { Delete } from '../fn/quality-save-log/delete';
-import { Delete$Params } from '../fn/quality-save-log/delete';
-import { Update } from '../fn/quality-save-log/update';
-import { Update$Params } from '../fn/quality-save-log/update';
+import { Add } from '../fn/quality-save-log/9000004-add';
+import { Add$Params } from '../fn/quality-save-log/9000004-add';
+import { Delete } from '../fn/quality-save-log/9000004-delete';
+import { Delete$Params } from '../fn/quality-save-log/9000004-delete';
+import { Update } from '../fn/quality-save-log/9000004-update';
+import { Update$Params } from '../fn/quality-save-log/9000004-update';
 import { fetch_1 } from '../fn/quality-save-log/fetch-1';
 import { Fetch_1$Params } from '../fn/quality-save-log/fetch-1';
 import { FetchResponseQualitysavelogModel } from '../models/fetch-response-qualitysavelog-model';
@@ -31,7 +31,7 @@ export class QualitySaveLogService extends BaseService {
   }
 
   /** Path part for operation `Add()` */
-  static readonly AddPath = '//qualitysavelog/add';
+  static readonly AddPath = '/9000004/qualitysavelog/add';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -56,7 +56,7 @@ export class QualitySaveLogService extends BaseService {
   }
 
   /** Path part for operation `Delete()` */
-  static readonly DeletePath = '//qualitysavelog/remove';
+  static readonly DeletePath = '/9000004/qualitysavelog/remove';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -81,7 +81,7 @@ export class QualitySaveLogService extends BaseService {
   }
 
   /** Path part for operation `fetch_1()` */
-  static readonly Fetch_1Path = '//qualitysavelog/fetch';
+  static readonly Fetch_1Path = '/9000004/qualitysavelog/fetch';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -106,7 +106,7 @@ export class QualitySaveLogService extends BaseService {
   }
 
   /** Path part for operation `Update()` */
-  static readonly UpdatePath = '//qualitysavelog/update';
+  static readonly UpdatePath = '/9000004/qualitysavelog/update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

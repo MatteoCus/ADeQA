@@ -13,13 +13,10 @@
     <div *ngIf="!loading">
       <mat-card  color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString()); setActivePhase(phase)" id="card-{{phases.indexOf(phase)}}">
         <mat-card-header>
-          <mat-card-title>Fase: {{phase.phasename}}</mat-card-title>
-          <mat-card-subtitle>{{phase.customer}}</mat-card-subtitle>
+          <mat-card-title>Inizio: {{phase.start_plan}}</mat-card-title>
+          <mat-card-subtitle>Fine: {{phase.end_plan}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-          <p> Linea: {{ phase.linename }} </p>
-          <p> Inizio: {{ phase.start_plan }} </p>
-          <p> Fine: {{ phase.end_plan }} </p>
+        <mat-card-content [innerHTML]="phase.phasetitlehtml">
         </mat-card-content>
       </mat-card>
     </div>

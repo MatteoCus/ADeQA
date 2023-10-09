@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorModel, QualityattributeModel, QualityphaseModel } from 'src/app/api/models';
 import { QualityAttributeService, QualitySaveLogService } from 'src/app/api/services';
@@ -18,12 +19,12 @@ export class LogModifierComponent implements OnInit {
   /**
    * 
    */
-  public activeLog : string [] = [];
+  public activeLog : string [] = ['1', '2', '3', '4'];
 
   /**
    * Le colonne da mostrare (la descrizione degli attributi che caratterizzano un controllo qualità per la fase selezionata)
    */
-  public displayedColumns: string[] = [];
+  public displayedColumns: Array<string> = new Array<string>();
 
   /**
    * Attributo booleano per gestire lo "skeleton loading"
@@ -46,6 +47,15 @@ export class LogModifierComponent implements OnInit {
       });
   }
 
+  contactsFormGroup: FormGroup = this.fb.group({
+    contactsArray: this.fb.array([this.fb.group({
+      contactFirstName: ['', [Validators.required, Validators.maxLength(200)]],
+      contactLastName: ['', [Validators.required, Validators.maxLength(200)]],
+      contactEmail: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
+      contactPhone: ['', [Validators.required, Validators.maxLength(15)]]
+    }, { updateOn: 'blur' })])
+  }, { updateOn: 'blur' });
+
   /**
    * Costruttore della classe che gestisce gli attributi relativi a una fase selezionata ed i loro valori
    * @param activePhaseService Servizio che gestisce la fase attualmente selezionata
@@ -54,7 +64,7 @@ export class LogModifierComponent implements OnInit {
    * @param authInfoService Servizio di gestione delle informazioni di autenticazione utente
    * @param snackBar Barra di notifica eventi
    */
-  constructor(private activePhaseService: ActivePhaseService, private qualityAttributeService: QualityAttributeService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar){}
+  constructor(private fb: FormBuilder, private activePhaseService: ActivePhaseService, private qualityAttributeService: QualityAttributeService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar){}
 
   /**
    * Sottoscrizione allo stream delle fasi selezionate

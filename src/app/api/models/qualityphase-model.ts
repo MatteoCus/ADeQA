@@ -15,6 +15,7 @@ export interface QualityphaseModel {
   m_product_category_id?: number;
   m_product_id?: number;
   phasename?: string;
+  phasetitlehtml?: string;
   projectplan_timeline_id?: number;
   start_plan?: Date;
   status?: 'Y' | 'N';
