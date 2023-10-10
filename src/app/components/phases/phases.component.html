@@ -16,7 +16,7 @@
           <mat-card-title>Inizio: {{phase.start_plan}}</mat-card-title>
           <mat-card-subtitle>Fine: {{phase.end_plan}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content [innerHTML]="phase.phasetitlehtml">
+        <mat-card-content [innerHTML]="phase.phasetitlehtml! | safeHtml">
         </mat-card-content>
       </mat-card>
     </div>

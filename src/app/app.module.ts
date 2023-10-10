@@ -29,6 +29,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
+import { SafePipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.
     LogViewerComponent,
     SidenavComponent,
     ToolbarComponent,
-    LogoutDialogComponent
+    LogoutDialogComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
