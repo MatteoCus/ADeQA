@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ErrorModel, QualityattributeModel, QualityphaseModel } from 'src/app/api/models';
-import { JsonList } from 'src/app/api/models/qualityattribute-model';
-import { QualityAttributeService, QualitySaveLogService } from 'src/app/api/services';
+import { QualityattributeModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
-import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
-import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -53,14 +49,14 @@ export class LogModifierComponent implements OnInit {
 
   /**
    * Costruttore della classe che gestisce gli attributi relativi a una fase selezionata ed i loro valori
-   * @param activePhaseService Servizio che gestisce la fase attualmente selezionata
-   * @param qualityAttributeService Servizio per ottenere gli attributi per la fase selezionata
-   * @param qualitySaveLogService Servizio per eseguire operazioni CRUD relativamente a log di controllo qualità
-   * @param authInfoService Servizio di gestione delle informazioni di autenticazione utente
+   * @param activeAttributesService Servizio che gestisce gli attributi attualmente attivi
    * @param snackBar Barra di notifica eventi
    */
-  constructor(private activeAttributesService: ActiveAttributesService, private qualitySaveLogService: QualitySaveLogService, private snackBar: MatSnackBar){}
+  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar){}
 
+  /**
+   * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
+   */
   ngOnInit() {
     this.activeAttributesService.getActiveAttributes()
     .subscribe( attributes => {

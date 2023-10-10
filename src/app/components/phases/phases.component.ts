@@ -31,6 +31,7 @@ export class PhasesComponent implements OnInit {
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    * @param qualityPhaseService Servizio per l'ottenimento delle fasi
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
+   * @param activePhaseService Servizio per gestire la fase attiva
    */
   constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService){
   }
@@ -57,10 +58,16 @@ export class PhasesComponent implements OnInit {
     // -) status_value: I, L (tutto tranne C)
     const previousMonth: number = (new Date().getMonth() - 1) % 12;
     const nextMonth: number = (new Date().getMonth() + 1) % 12;
+    const previousYear : number = previousMonth == 11? new Date().getFullYear() - 1 : new Date().getFullYear();
+    const nextYear: number = nextMonth == 0? new Date().getFullYear() + 1 : new Date().getFullYear();
+
     const start_plan_date: Date = new Date();
     const end_plan_date: Date = new Date();
+
     start_plan_date.setMonth(previousMonth);
+    start_plan_date.setFullYear(previousYear);
     end_plan_date.setMonth(nextMonth);
+    end_plan_date.setFullYear(nextYear);
 
     const params = {
     "AdesuiteToken": token, 

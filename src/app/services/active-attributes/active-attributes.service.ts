@@ -6,13 +6,26 @@ import { AuthInformationsService } from '../auth-informations/auth-informations.
 import { QualityAttributeService } from 'src/app/api/services';
 import { JsonList } from 'src/app/api/models/qualityattribute-model';
 
+/**
+ * Classe che gestisce gli attributi attivi
+ * Ad ogni cambio di fase, aggiorna gli attributi
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ActiveAttributesService {
 
+  /**
+   * Subject che emette gli attributi attivi dopo ogni cambio di fase attiva
+   */
   private activeAttributes: Subject<Array<QualityattributeModel>> = new Subject<Array<QualityattributeModel>>();
 
+  /**
+   * Costruttore della classe che gestisce gli attributi attivi
+   * @param qualityAttributeService Servizio per l'ottenimento degli attributi attivi
+   * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
+   * @param activePhaseService Servizio per gestire la fase attiva
+   */
   constructor(private qualityAttributeService: QualityAttributeService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService) {
     this.activePhaseService.getActivePhase().subscribe(activePhase => {this.fetchAttributes(activePhase)});
    }
@@ -49,7 +62,7 @@ export class ActiveAttributesService {
     }
 
 
-      /**
+  /**
    * Metodo per ottenere le opzioni per un attributo di tipo "lista"
    * @param attribute Attributo per il quale individuare le varie opzioni di selezione (presenti come stringhe negli array 'key' e 'value' all'avvio)
    * @returns L'attributo in ingresso al quale le opzioni sono state modellate
@@ -106,14 +119,20 @@ export class ActiveAttributesService {
     return array;
   }
 
+  /**
+   * Metodo per aggiornare gli attributi attivi
+   * @param attributes Nuovi attributi attivi
+   */
   public update(attributes: Array<QualityattributeModel>): void {
     this.activeAttributes.next(attributes);
   }
-
+  
+  /**
+   * Metodo per ottenere un oggetto osservabile degli attributi attivi
+   * @returns Oggetto osservabile, serve per eseguire codice al cambiamento degli attributi attivi
+   */
   public getActiveAttributes(): Observable<Array<QualityattributeModel>> {
     return this.activeAttributes;
   }
-
-
 
 }
