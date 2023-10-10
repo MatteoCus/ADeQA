@@ -2,14 +2,14 @@ import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 /**
- * Classe che si occupa della presentazione e degli eventi relativi a un dialog
+ * Classe che gestisce un dialog di conferma per l'aggiornamento/inserimento di log
  */
 @Component({
-  selector: 'app-logout-dialog',
-  templateUrl: './logout-dialog.component.html',
-  styleUrls: ['./logout-dialog.component.scss']
+  selector: 'app-confirm-data-dialog',
+  templateUrl: './confirm-data-dialog.component.html',
+  styleUrls: ['./confirm-data-dialog.component.scss']
 })
-export class LogoutDialogComponent implements OnInit {
+export class ConfirmDataDialogComponent implements OnInit {
 
   /**
    * Attributo che descrive il tipo di dialog (titolo + descrizione)
@@ -21,7 +21,7 @@ export class LogoutDialogComponent implements OnInit {
    * @param dialogRef Riferimento programmatico al dialog grafico (per triggerarne la chiusura)
    * @param mydata Descrizione (titolo + descrizione) del dialog
    */
-  constructor( public dialogRef: MatDialogRef<LogoutDialogComponent>,
+  constructor( public dialogRef: MatDialogRef<ConfirmDataDialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) {}
 
   /**
@@ -32,16 +32,16 @@ export class LogoutDialogComponent implements OnInit {
   }
 
   /**
-   * Metodo che segnala la scelta dell'opzione "Rimani" nel dialog
+   * Metodo che segnala la scelta dell'opzione "Conferma" nel dialog
    */
-  public stay(): void {
-    this.dialogRef.close({ event: 'stay-option' });
+  public confirm(): void {
+    this.dialogRef.close({ event: 'confirm-option' });
   }
 
   /**
-   * Metodo che segnala la scelta dell'opzione "Esci" nel dialog
+   * Metodo che segnala la scelta dell'opzione "Annulla" nel dialog
    */
-  public exit(): void {
-    this.dialogRef.close({ event: 'exit-option' });
+  public cancel(): void {
+    this.dialogRef.close({ event: 'cancel-option' });
   }
 }

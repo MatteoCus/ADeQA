@@ -15,14 +15,14 @@
 }
 
 app-phases{
-    flex: 30%;
+    flex: 20%;
     min-width: 200px;
     max-width: 500px;
     height: auto;
 }
 
 #logView{
-    flex: 70%;
+    flex: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -30,10 +30,10 @@ app-phases{
 
 app-log-modifier {
     width: 100%;
-    flex:30%;
+    flex:40%;
 }
 
 app-log-viewer {
     width: 100%;
-    flex: 70%;
+    flex: 60%;
 }

@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QualityattributeModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
+import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -20,11 +22,6 @@ export class LogModifierComponent implements OnInit {
   public displayedColumns: Array<string> = new Array<string>();
 
   /**
-   * Attributo booleano per gestire lo "skeleton loading"
-   */
-  public loading: boolean = false;
-
-  /**
    * Gli attributi che caratterizzano un controllo qualità per la fase selezionata
    */
   public activeAttributes: Array<QualityattributeModel> = new Array<QualityattributeModel>();
@@ -34,7 +31,7 @@ export class LogModifierComponent implements OnInit {
    */
   public form: FormGroup = new FormGroup({});
 
-  public addLog: boolean = false;
+  public addLog: boolean = true;
 
   /**
    * Metodo per l'apertura della barra di visualizzazione di messaggi di stato
@@ -52,7 +49,7 @@ export class LogModifierComponent implements OnInit {
    * @param activeAttributesService Servizio che gestisce gli attributi attualmente attivi
    * @param snackBar Barra di notifica eventi
    */
-  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar){}
+  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog){}
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
@@ -71,16 +68,71 @@ export class LogModifierComponent implements OnInit {
           this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
         }
       });
+
+      if(this.activeAttributes.length == 0) {
+        this.openSnackBar("Errore: non sono disponibili attributi per la fase selezionata!" ,"X");
+      }
+    });
+  }
+
+  public addDialog(): void {
+
+    let formDescription: string = "";
+    
+    this.displayedColumns.forEach((value, index) => {
+      formDescription += "\n";
+      formDescription += value + ": ";
+      formDescription += this.form.get('control-' + index.toString())?.value ;
+    });
+
+    const logoutDialog = this.dialog.open(ConfirmDataDialogComponent, {
+      data: {
+        title:'Aggiungi un log',
+        description: 'Dati inseriti:' + formDescription
+      }
+    });
+
+    logoutDialog.afterClosed().subscribe((result) => {
+      switch(result.event) {
+        case "confirm-option":
+          this.add();
+          break;
+        case "cancel-option":
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
+  public updateDialog(): void {
+    const logoutDialog = this.dialog.open(ConfirmDataDialogComponent, {
+      data: {
+        title:'Modifica il log selezionato',
+        description: 'Dati aggiornati: ' + this.form.value
+      }
+    });
+
+    logoutDialog.afterClosed().subscribe((result) => {
+      switch(result.event) {
+        case "confirm-option":
+          this.update();
+          break;
+        case "cancel-option":
+          break;
+        default:
+          break;
+      }
     });
   }
   
   // Metodi: uno per update ed uno per add, ognuno di essi è subordinato a una variabile booleana che fa vedere (o meno) i relativi pulsanti
 
-  add() {
+  private add(): void {
     console.info(this.form.value);
   }
 
-  update() {
+  private update(): void {
     console.log(this.form.value);
     this.addLog = true;
   }

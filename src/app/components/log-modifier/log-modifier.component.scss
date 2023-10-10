@@ -12,11 +12,31 @@ table * {
 .header {
     width: 100%;
     text-align: center;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
 }
 
 mat-checkbox {
     transform: scale(1.5);
     margin-bottom: 0.5rem;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#submitButton {
+    margin:auto;
+    height: 100%;
+    height: 2.5em;
+    color: white;
+}
+
+#button-tooltip{
+    display: flex;
+    margin:auto;
+    margin-bottom: 1em;
+    
 }

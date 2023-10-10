@@ -21,7 +21,7 @@ export class SidenavComponent {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
-  constructor(private authInfoService: AuthInformationsService, private router: Router, public dialog: MatDialog) {}
+  constructor(private authInfoService: AuthInformationsService, private router: Router, private dialog: MatDialog) {}
 
   /**
   * Metodo che gestisce il logout completo da parte dell'utente, eliminando anche il token di autenticazione

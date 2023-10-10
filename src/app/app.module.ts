@@ -32,6 +32,9 @@ import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.
 import { SafePipe } from './pipes/safe-html.pipe';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { ConfirmDataDialogComponent } from './components/confirm-data-dialog/confirm-data-dialog.component';
+import { OptionsPipe } from './pipes/options.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     SidenavComponent,
     ToolbarComponent,
     LogoutDialogComponent,
-    SafePipe
+    SafePipe,
+    OptionsPipe,
+    ConfirmDataDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +70,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTableModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatTooltipModule,
     ScrollingModule,
     ReactiveFormsModule,
     FormsModule,

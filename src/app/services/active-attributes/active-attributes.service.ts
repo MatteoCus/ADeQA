@@ -75,10 +75,9 @@ export class ActiveAttributesService {
     };
     if(json != undefined) {
       const parsedJson = JSON.parse(json);
-      const filteredValue = this.removeKeys(parsedJson.value, parsedJson.key);
       dataList = {
           key: parsedJson.key,
-          value: filteredValue,
+          value: parsedJson.value,
         };
     }
 
@@ -100,23 +99,6 @@ export class ActiveAttributesService {
       }
     }
   
-  }
-
-  /**
-   * Metodo per rimuovere le chiavi presenti nelle stringhe salvate nell'array 'values'
-   * @param values Array di stringhe contenente i valori delle varie opzioni da mostrare a video
-   * @param keys Array di stringhe contenente le chiavi identificative dei valori delle opzioni da mostrare a video
-   * @returns L'array values senza le chiavi
-   */
-  private removeKeys(values: string[], keys: string[]): string[] {
-    let array : string[] = [];
-    if(values != null && values.length) {
-      values.forEach((value,index) => {
-        const newValue = value.replaceAll(keys[index],"").replaceAll("-","").trim();
-        array.push(newValue);
-      }, array);
-    }
-    return array;
   }
 
   /**

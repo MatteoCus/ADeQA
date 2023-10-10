@@ -1,6 +1,5 @@
-<div class="header">Attributi</div>
-<div>
-  <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="add()">
+  <div class="header">Attributi</div>
+  <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content">
     <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
         
           <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
@@ -15,7 +14,7 @@
                 <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
                 <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
                     <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary" >
-                        <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{attribute.optionvalue?.value?.key?.at(i)}}">{{option}}</mat-option>
+                        <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}} </mat-option>
                     </mat-select> 
                 </mat-form-field>
             </td>
@@ -24,13 +23,12 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-hint *ngIf="!form.valid">
-        Completa il form per attivare il pulsante
-    </mat-hint>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">Aggiungi</button>
+    <div id="button-tooltip" matTooltip="Compilare tutti i campi" [matTooltipDisabled]="form.valid">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">Aggiungi</button>
+    </div>
   </form>
 
-  <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="update()">
+  <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog()" id="content">
     <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
         
           <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
@@ -45,7 +43,7 @@
                 <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
                 <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
                     <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary" >
-                        <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{attribute.optionvalue?.value?.key?.at(i)}}">{{option}}</mat-option>
+                        <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}} </mat-option>
                     </mat-select> 
                 </mat-form-field>
             </td>
@@ -54,9 +52,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-hint *ngIf="!form.valid">
-        Completa il form per attivare il pulsante
-    </mat-hint>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">Aggiorna</button>
+    <div id="button-tooltip" matTooltip="Compilare tutti i campi" [matTooltipDisabled]="form.valid">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">Aggiorna</button>
+    </div>
   </form>
-</div>
