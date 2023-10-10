@@ -23,8 +23,8 @@ export class ThemeService {
       document.body.classList.remove('theme-light');
       document.body.classList.add('theme-dark');
     } else {
-      document.body.classList.add('theme-light');
       document.body.classList.remove('theme-dark');
+      document.body.classList.add('theme-light');
     }
   }
 }

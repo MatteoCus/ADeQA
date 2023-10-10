@@ -6,4 +6,17 @@ table {
 }
 table * {
     text-align: center;
+    padding-top: 0.5em;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+mat-checkbox {
+    transform: scale(1.5);
+    margin-bottom: 0.5rem;
 }

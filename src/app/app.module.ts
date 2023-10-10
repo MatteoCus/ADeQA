@@ -30,6 +30,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
 import { SafePipe } from './pipes/safe-html.pipe';
+import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { SafePipe } from './pipes/safe-html.pipe';
     MatSlideToggleModule,
     MatCardModule,
     MatTableModule,
+    MatSelectModule,
+    MatCheckboxModule,
     ScrollingModule,
     ReactiveFormsModule,
     FormsModule,

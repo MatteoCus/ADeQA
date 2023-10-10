@@ -17,3 +17,10 @@ mat-card{
 .scroll-viewport::-webkit-scrollbar {
    display: none;
 }
+
+@media only screen and (max-width: 1280px) {
+    mat-card {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+}

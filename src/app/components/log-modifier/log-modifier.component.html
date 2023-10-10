@@ -1,23 +1,32 @@
+<div class="header">Attributi</div>
 <div>
-    <table mat-table [dataSource]="activeLog" class="mat-elevation-z8" *ngIf=" loading">
-      <ng-container [matColumnDef]="column" *ngFor="let column of ['0','1','2','3','4']">
-        <th mat-header-cell *matHeaderCellDef class="skeleton skeleton-text"> {{column}} </th>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="skeleton skeleton-text"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="skeleton skeleton-text"></tr>
+  <form *ngIf="activeAttributes.length" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
+        
+          <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
+            <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label> </th>
+            <td mat-cell *matCellDef="let column">
+                <mat-form-field *ngIf="attribute.attributevaluetype == 'N'">
+                    <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}" color="primary" />
+                </mat-form-field>
+                <mat-form-field *ngIf="attribute.attributevaluetype == 'S'">
+                    <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}" color="primary" />
+                </mat-form-field>
+                <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
+                <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
+                    <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary" >
+                        <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{attribute.optionvalue?.value?.key?.at(i)}}">{{option}}</mat-option>
+                    </mat-select> 
+                </mat-form-field>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-    <table mat-table [dataSource]="activeLog" class="mat-elevation-z8" *ngIf=" displayedColumns.length && !loading">
-      <!-- Columns -->
-        <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
-          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-          <td mat-cell *matCellDef="let attribute">
-            
-          </td>
-        </ng-container>
-
-        <!-- Definition of columns -->
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+    <mat-hint *ngIf="!form.valid">
+        Completa il form per attivare il pulsante
+    </mat-hint>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">Conferma</button>
+  </form>
 </div>

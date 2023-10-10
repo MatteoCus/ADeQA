@@ -176,11 +176,21 @@ button {
 .theme-dark{
   @include mat.core-color($header-dark-theme);
   @include mat.table-color($table-dark-theme);
+  @include mat.input-color($table-dark-theme);
+  @include mat.option-color($table-dark-theme);
+  @include mat.select-color($table-dark-theme);
+  @include mat.checkbox-color($table-dark-theme);
+  @include mat.form-field-color($table-dark-theme);
   @include mat.button-color($button-dark-theme);
   @include mat.toolbar-color($header-dark-theme);
   @include mat.slide-toggle-color($header-dark-theme);
   @include mat.menu-color($header-dark-theme);
   @include sidenav.color($sidenav-dark-theme);
+
+  .header {
+    background-color: #BF71FF;
+    color: white;
+  }
 
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-primary-dark-palette, 500);
@@ -230,12 +240,22 @@ button {
 .theme-light{
   @include mat.core-color($header-light-theme);
   @include mat.table-color($table-light-theme);
+  @include mat.input-color($table-light-theme);
+  @include mat.option-color($table-light-theme);
+  @include mat.select-color($table-light-theme);
+  @include mat.checkbox-color($table-light-theme);
+  @include mat.form-field-color($table-light-theme);
   @include mat.button-color($button-light-theme);
   @include mat.toolbar-color($header-light-theme);
   @include mat.slide-toggle-color($header-light-theme);
   @include mat.menu-color($header-light-theme);
   @include sidenav.color($sidenav-light-theme);
   
+  .header {
+    background-color: #123A83;
+    color: white;
+  }
+
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-primary-light-palette, 500);
     color: white;

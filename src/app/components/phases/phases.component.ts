@@ -50,9 +50,11 @@ export class PhasesComponent implements OnInit {
     const end_plan_operator = "lessOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
     const status_operator = "greaterOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
     const status_value = "I";
-    // Date per le quali fare fetch:
+
+    // Condizioni di fetch:
     // -) start_plan_date: 30gg prima della data attuale
     // -) end_plan_date: 30gg dopo la data attuale
+    // -) status_value: I, L (tutto tranne C)
     const previousMonth: number = (new Date().getMonth() - 1) % 12;
     const nextMonth: number = (new Date().getMonth() + 1) % 12;
     const start_plan_date: Date = new Date();
@@ -109,7 +111,7 @@ export class PhasesComponent implements OnInit {
    * @param message Messaggio da mostrare
    * @param type Etichetta del pulsante di chiusura
   */
-  private openSnackBar(message: string, type: string): void { 
+  private openSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
       panelClass: ['red-snackbar','login-snackbar'],
       });
