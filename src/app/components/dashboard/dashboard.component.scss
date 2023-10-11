@@ -16,7 +16,6 @@
 
 app-phases{
     flex: 20%;
-    min-width: 200px;
     max-width: 500px;
     height: auto;
 }
@@ -26,6 +25,7 @@ app-phases{
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-width: 600px;
 }
 
 app-log-modifier {

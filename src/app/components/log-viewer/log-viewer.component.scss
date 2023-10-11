@@ -1,8 +1,5 @@
 table {
-    width: 90%;
-    min-width: 300px;
-    margin: auto;
-    margin-top: 1em;
+    width: 100%;
 }
 table * {
     text-align: center;
@@ -15,3 +12,12 @@ table * {
     padding-top: 0.75em;
     padding-bottom: 0.75em;
 }
+
+.example-container {
+    position: relative;
+    max-height: 80%;
+    width: 90%;
+    overflow: auto;
+    margin: auto;
+    margin-top: 1em;
+  }
