@@ -16,6 +16,9 @@ export class ActivePhaseService {
    */
   private activePhase : Subject<QualityphaseModel> = new Subject<QualityphaseModel>();
 
+  /**
+   * Ultima fase selezionata, serve per evitare di fare il fetch di attributi se si prova a selezionare la fase già selezionata
+   */
   private lastValue: QualityphaseModel = new Object();
 
   /**

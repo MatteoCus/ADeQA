@@ -21,6 +21,9 @@ export class LogViewerComponent implements OnInit {
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar){}
 
+  /**
+   * Metodo per ottenere colonne e log salvati per la fase attuale
+   */
   ngOnInit(): void {
     this.activeAttributesService.getActiveAttributes()
     .subscribe( attributes => {

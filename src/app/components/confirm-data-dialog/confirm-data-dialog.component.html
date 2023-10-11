@@ -1,6 +1,9 @@
 <div id="dialog">
     <p id="title">{{fromPage.title}}</p>
     <p>{{fromPage.description}}</p>
+    <ul>
+        <li *ngFor="let entry of fromPage.resume">{{entry}}</li>
+    </ul>
     <div id="buttons">
         <button mat-button color="primary" (click)="confirm()">Conferma</button>
         <button mat-button color="accent" (click)="cancel()">Annulla</button>

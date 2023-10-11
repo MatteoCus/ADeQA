@@ -1,4 +1,5 @@
   <div class="header">Attributi</div>
+  <!-- Form di inserimento di un nuovo log -->
   <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content">
     <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
         
@@ -28,6 +29,7 @@
     </div>
   </form>
 
+  <!-- Form di modifica di un log  -->
   <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog()" id="content">
     <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
         
@@ -40,7 +42,7 @@
                 <mat-form-field *ngIf="attribute.attributevaluetype == 'S'">
                     <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}" color="primary" />
                 </mat-form-field>
-                <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
+                <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}" ></mat-checkbox>
                 <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
                     <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary" >
                         <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}} </mat-option>

@@ -5,6 +5,7 @@ import { QualityattributeModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
 import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { OptionsPipe } from 'src/app/pipes/options.pipe';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -31,6 +32,12 @@ export class LogModifierComponent implements OnInit {
    */
   public form: FormGroup = new FormGroup({});
 
+  /**
+   * Attributo booleano per gestire il form da visualizzare
+   * Form possibili:
+   * -) Form di aggiunta log
+   * -) Form di modifica log
+   */
   public addLog: boolean = true;
 
   /**
@@ -41,7 +48,7 @@ export class LogModifierComponent implements OnInit {
   private openSnackBar(message: string, type: string): void { 
     this.snackBar.open(message, type, {
       panelClass: ['red-snackbar','login-snackbar'],
-      });
+    });
   }
 
   /**
@@ -56,39 +63,64 @@ export class LogModifierComponent implements OnInit {
    */
   ngOnInit() {
     this.activeAttributesService.getActiveAttributes()
-    .subscribe( attributes => {
-      this.activeAttributes = attributes;
-      this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributename!);
-      this.form = new FormGroup({});
-
-      this.activeAttributes.forEach((value,index) => {
-        if(value.attributevaluetype == "Y") {
-          this.form.addControl("control-" + index.toString(), new FormControl(false, Validators.required));
-        } else {
-          this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
-        }
+      .subscribe(attributes => {
+        this.activeAttributes = attributes;
+        this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributename!);
+        this.initializeForm();
       });
-
-      if(this.activeAttributes.length == 0) {
-        this.openSnackBar("Errore: non sono disponibili attributi per la fase selezionata!" ,"X");
-      }
-    });
   }
 
+  /**
+   * Metodo per inizializzare il form: 
+   * Si inseriscono nuovi controlli (togliendo i vecchi)
+   * Si assegnano valori di default
+   * Si assegnano dei validatori
+   */
+  private initializeForm(): void {
+        this.form = new FormGroup({});
+
+        this.activeAttributes.forEach((value, index) => {
+          if (value.attributevaluetype == "Y") {
+            this.form.addControl("control-" + index.toString(), new FormControl(false, Validators.required));
+          } else {
+            this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
+          }
+        });
+
+        if (this.activeAttributes.length == 0) {
+          this.openSnackBar("Errore: non sono disponibili attributi per la fase selezionata!", "X");
+        }
+  }
+
+  /**
+   * Metodo per mostrare a video il dialog di conferma dei dati inseriti per l'aggiunta di un nuovo log
+   */
   public addDialog(): void {
 
-    let formDescription: string = "";
+    let formData: string[] = [];
     
-    this.displayedColumns.forEach((value, index) => {
-      formDescription += "\n";
-      formDescription += value + ": ";
-      formDescription += this.form.get('control-' + index.toString())?.value ;
+    this.activeAttributes.forEach((value, index) => {
+      let entry : string = value.attributename! + ": ";
+    
+      if(value.attributevaluetype != "L") {
+        entry += this.form.get('control-' + index.toString())?.value;
+      } else {
+        let position : number = 0;
+        position = value.optionvalue?.value.value.findIndex((value) => {
+          return this.form.get('control-' + index.toString())?.value == value;
+        })!;
+        
+        entry += new OptionsPipe().transform(this.form.get('control-' + index.toString())?.value, value.optionvalue?.value.key.at(position)!);
+      }
+
+      formData.push( entry );
     });
 
     const logoutDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
         title:'Aggiungi un log',
-        description: 'Dati inseriti:' + formDescription
+        description: 'Dati inseriti:',
+        resume: formData
       }
     });
 
@@ -96,6 +128,7 @@ export class LogModifierComponent implements OnInit {
       switch(result.event) {
         case "confirm-option":
           this.add();
+          this.clearDialog();
           break;
         case "cancel-option":
           break;
@@ -105,6 +138,9 @@ export class LogModifierComponent implements OnInit {
     });
   }
 
+  /**
+   * Metodo per mostrare a video il dialog di conferma dei dati inseriti per la modifica di un log
+   */
   public updateDialog(): void {
     const logoutDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
@@ -135,5 +171,13 @@ export class LogModifierComponent implements OnInit {
   private update(): void {
     console.log(this.form.value);
     this.addLog = true;
+  }
+
+  /**
+   * Metodo per ripulire il form dopo il submit dei dati
+   */
+  private clearDialog(): void {
+    this.form.reset();
+    this.initializeForm();
   }
 }

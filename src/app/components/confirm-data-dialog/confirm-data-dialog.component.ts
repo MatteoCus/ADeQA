@@ -12,14 +12,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ConfirmDataDialogComponent implements OnInit {
 
   /**
-   * Attributo che descrive il tipo di dialog (titolo + descrizione)
+   * Attributo che descrive il tipo di dialog (titolo + descrizione + riassunto dei dati)
    */
-  public fromPage!: {title: string, description: string};
+  public fromPage!: {title: string, description: string, resume: string[]};
 
   /**
    * Costruttore della classe di presentazione e gestione degli eventi relativi a un dialog
    * @param dialogRef Riferimento programmatico al dialog grafico (per triggerarne la chiusura)
-   * @param mydata Descrizione (titolo + descrizione) del dialog
+   * @param mydata Descrizione (titolo + descrizione + riassunto dei dati) del dialog
    */
   constructor( public dialogRef: MatDialogRef<ConfirmDataDialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) {}
