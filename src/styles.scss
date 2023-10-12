@@ -188,7 +188,6 @@ $sidenav-light-theme: mat.define-light-theme((
 // Stile carte 
 mat-card, mat-card-subtitle{
   color: white !important;
-  transition: 150ms;
   cursor: pointer;
 }
 
@@ -360,7 +359,7 @@ button {
 
 
 html, body { height: 100%;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif}
 
 .mat-mdc-snack-bar-container .mdc-snackbar__surface {
   background-color: transparent !important;

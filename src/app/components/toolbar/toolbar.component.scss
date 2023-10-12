@@ -52,16 +52,10 @@ img {
     margin-right: 1em;
 }
 
-.icon {
-    border-radius: 100%;
-    border: none;
-}
-
-.icon:hover {
-    transition: 300ms;
-}
-
-.logout-mobile {
+.logout-mobile, #translation {
     width: 48px;
     height: 48px;
+    border-radius: 100%;
+    border: none;
+    transition: 250ms;
 }

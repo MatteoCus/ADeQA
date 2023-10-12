@@ -39,6 +39,10 @@ app-log-viewer {
     flex: 60%;
 }
 
+#menu {
+    transition-duration: 250ms;
+}
+
 @media screen and (max-width: 1200px){
     mat-drawer{
         width: 35%;

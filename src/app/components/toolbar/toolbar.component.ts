@@ -73,7 +73,11 @@ export class ToolbarComponent implements OnInit{
     this.user = this.authInfoService.UserName;
     this.isDark = this.authInfoService.UserTheme == "DM" as "DM" | "WM";
     this.themeService.toggleTheme(this.isDark);
-    setTimeout(function(){ document.body.style.transitionDuration = "150ms"}, 500);
+    setTimeout(function(){ 
+      document.getElementById('mainContent')!.style.transitionDuration = "250ms";
+      document.getElementById('nav')!.style.transitionDuration = "250ms";
+      document.getElementById('side')!.style.transitionDuration = "250ms";
+    }, 500);
   }
 
   /**
