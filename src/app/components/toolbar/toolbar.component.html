@@ -21,10 +21,10 @@
     <span *ngIf="!mobileQuery.matches">{{user}}</span>
     <img *ngIf="!mobileQuery.matches" src="../../../assets/icons/logo.jpg" />
 
-    <button *ngIf="mobileQuery.matches" class="icon" (click)="openLogoutDialog()" title='Logout completo'>
+    <button *ngIf="mobileQuery.matches" class="icon logout-mobile" (click)="openLogoutDialog()" title='Logout completo'>
       <mat-icon aria-hidden="false" aria-label="Logout icon" fontIcon="logout"></mat-icon>
     </button>
-    <button *ngIf="mobileQuery.matches" class="icon" (click)="openLogoutUserDialog()" title='Logout parziale - pin'>
+    <button *ngIf="mobileQuery.matches" class="icon logout-mobile" (click)="openLogoutUserDialog()" title='Logout parziale - pin'>
         <mat-icon aria-hidden="false" aria-label="Change circle icon" fontIcon="change_circle"></mat-icon>
     </button>
 </mat-toolbar>

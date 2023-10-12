@@ -265,6 +265,11 @@ button {
     background-image: url("./assets/images/logo-ADeMES-white.svg");
   }
 
+  #translation:hover, #menu:hover {
+    color: #232f4e;
+    background-color: white;
+  }
+
   background-color: #1A1B2E;
   color: white;
 }
@@ -330,8 +335,6 @@ button {
     color: var(--mat-option-selected-state-label-text-color) !important;
   }
 
-  
-
   #nav{
     background-color: white;
     color: black;
@@ -339,6 +342,16 @@ button {
 
   #logo{
     background-image: url("./assets/images/logo-ADeMES-dark.svg");
+  }
+
+  #translation:hover, .logout-mobile:hover, #menu:hover {
+    color: #0c2656;
+    background-color: white;
+  }
+
+  .logout-mobile{
+    color: white;
+    background-color: #0c2656;
   }
 
   color: black;

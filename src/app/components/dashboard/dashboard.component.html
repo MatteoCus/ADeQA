@@ -2,7 +2,7 @@
     <app-sidenav *ngIf="!mobileQuery.matches"></app-sidenav>
     <div id="mainFrame">
         <app-toolbar>
-            <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+            <button id="menu" mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
         </app-toolbar>
         <mat-drawer-container [hasBackdrop]="tabletQuery.matches" id="mainContent">
             <mat-drawer #drawer [mode]="tabletQuery.matches? 'over' : 'side'" opened>
