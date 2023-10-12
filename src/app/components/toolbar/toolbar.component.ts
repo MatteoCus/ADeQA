@@ -84,9 +84,9 @@ export class ToolbarComponent implements OnInit{
       }
     )
     setTimeout(function(){ 
-      document.getElementById('mainContent')!.style.transitionDuration = "250ms";
-      document.getElementById('nav')!.style.transitionDuration = "250ms";
-      document.getElementById('side')!.style.transitionDuration = "250ms";
+      document.getElementById('mainContent')!.style.transitionDuration = "2500ms";
+      document.getElementById('nav')!.style.transitionDuration = "2500ms";
+      document.getElementById('side')!.style.transitionDuration = "2500ms";
     }, 500);
   }
 
