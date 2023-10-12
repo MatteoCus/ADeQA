@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
-import { LogoutService } from 'src/app/services/logout-service/logout.service';
+import { LogoutService } from 'src/app/services/logout/logout.service';
 
 /**
  * Classe che gestisce i due tipi di logout:

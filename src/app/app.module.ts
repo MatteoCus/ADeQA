@@ -18,7 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginPinComponent } from './components/login-pin/login-pin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogModifierComponent } from './components/log-modifier/log-modifier.component';
@@ -35,6 +35,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ConfirmDataDialogComponent } from './components/confirm-data-dialog/confirm-data-dialog.component';
 import { OptionsPipe } from './pipes/options.pipe';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -74,7 +81,15 @@ import { OptionsPipe } from './pipes/options.pipe';
     ScrollingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      },
+      defaultLanguage: 'it'
+  })
   ],
   providers: [
     MatSnackBar,

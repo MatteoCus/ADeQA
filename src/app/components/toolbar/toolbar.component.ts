@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
-import { LogoutService } from 'src/app/services/logout-service/logout.service';
+import { LogoutService } from 'src/app/services/logout/logout.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
 import { MediaMatcher } from '@angular/cdk/layout';
