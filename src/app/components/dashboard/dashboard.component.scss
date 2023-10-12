@@ -9,23 +9,24 @@
 }
 
 #mainContent{
-    display: flex;
     width: 100%;
     height: calc(100% - 70px);  //70px sono di toolbar
 }
 
+mat-drawer{
+    width: 20%;
+    height: 100%;
+}
+
 app-phases{
-    flex: 20%;
-    max-width: 500px;
-    height: auto;
+    width: 100%;
 }
 
 #logView{
-    flex: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    min-width: 600px;
+    min-width: 400px;
 }
 
 app-log-modifier {
@@ -36,4 +37,10 @@ app-log-modifier {
 app-log-viewer {
     width: 100%;
     flex: 60%;
+}
+
+@media screen and (max-width: 1200px){
+    mat-drawer{
+        width: 35%;
+    }
 }

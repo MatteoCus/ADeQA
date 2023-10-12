@@ -1,4 +1,5 @@
 <mat-toolbar id="toolbar" color="primary">
+    <ng-content></ng-content>
     <span>{{today | date:'MMMM'}} {{today | date:'yyyy'}} - Settimana {{today | date: 'ww'}}</span>
     <span class="spacer"></span>
     <div id="dark-theme-slider" title="Cambio tema">

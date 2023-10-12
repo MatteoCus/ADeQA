@@ -1,24 +1,17 @@
 <div id="container">
     <app-sidenav></app-sidenav>
     <div id="mainFrame">
-        <app-toolbar></app-toolbar>
-        <div id="mainContent">
-            <app-phases></app-phases>
-            <div id="logView">
+        <app-toolbar>
+            <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+        </app-toolbar>
+        <mat-drawer-container [hasBackdrop]="mobileQuery.matches" id="mainContent">
+            <mat-drawer #drawer [mode]="mobileQuery.matches? 'over' : 'side'" opened>
+                <app-phases ></app-phases>
+            </mat-drawer>
+            <mat-drawer-content id="logView">
                 <app-log-modifier></app-log-modifier>
                 <app-log-viewer></app-log-viewer>
-            </div>
-        </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
     </div>
 </div>
-
-<!-- <mat-drawer-container class="example-container" [hasBackdrop]="true" id="mainContent">
-    <mat-drawer #drawer mode="over" opened>
-        <app-phases ></app-phases>
-    </mat-drawer>
-    <mat-drawer-content id="logView">
-        <app-log-modifier></app-log-modifier>
-        <app-log-viewer></app-log-viewer>
-        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
-    </mat-drawer-content>
-</mat-drawer-container> -->

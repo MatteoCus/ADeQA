@@ -1,7 +1,7 @@
   <div class="header">Attributi</div>
   <!-- Form di inserimento di un nuovo log -->
     <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content">
-        <div class="example-container mat-elevation-z8">
+        <div class="container mat-elevation-z8">
             <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
         
                 <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
