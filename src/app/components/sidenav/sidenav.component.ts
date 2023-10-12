@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
 import { LogoutService } from 'src/app/services/logout-service/logout.service';
 
@@ -19,6 +17,7 @@ export class SidenavComponent {
 
   /**
    * Costruttore della classe che gestisce la barra laterale, provvista di tre icone (di cui due per i diversi tipi di logout)
+   * @param logoutService Servizio di gestione logout
    * @param dialog Dialog di logout
    */
   constructor(private logoutService: LogoutService, private dialog: MatDialog) {}

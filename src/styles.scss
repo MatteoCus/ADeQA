@@ -368,3 +368,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: large;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .theme-light #logo {
+    background-image: url('./assets/images/logo-ADeMES-white.svg');
+  }
+
+  .theme-dark .mat-toolbar {
+    background-color: black;
+  }
+}

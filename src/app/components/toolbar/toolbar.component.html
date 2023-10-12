@@ -1,6 +1,7 @@
 <mat-toolbar id="toolbar" color="primary">
+    <div *ngIf="mobileQuery.matches" id="logo"></div>
     <ng-content></ng-content>
-    <span>{{today | date:'MMMM'}} {{today | date:'yyyy'}} - Settimana {{today | date: 'ww'}}</span>
+    <span *ngIf="!mobileQuery.matches">{{today | date:'MMMM'}} {{today | date:'yyyy'}} - Settimana {{today | date: 'ww'}}</span>
     <span class="spacer"></span>
     <div id="dark-theme-slider" title="Cambio tema">
       <mat-icon aria-hidden="false" aria-label="Light mode icon" fontIcon="light_mode"></mat-icon>
@@ -8,7 +9,7 @@
       <mat-icon aria-hidden="false" aria-label="Dark mode icon" fontIcon="dark_mode"></mat-icon>
     </div>
     
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Globe icon for languages" title="Traduzioni">
+        <button id="translation" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Globe icon for languages" title="Traduzioni">
             <mat-icon aria-hidden="false" aria-label="Language globe icon" fontIcon="language"></mat-icon>
           </button>
           <mat-menu #menu="matMenu">
@@ -17,6 +18,13 @@
             </button>
           </mat-menu>
         
-    <span>{{user}}</span>
-    <img src="../../../assets/icons/logo.jpg" />
+    <span *ngIf="!mobileQuery.matches">{{user}}</span>
+    <img *ngIf="!mobileQuery.matches" src="../../../assets/icons/logo.jpg" />
+
+    <button *ngIf="mobileQuery.matches" class="icon" (click)="openLogoutDialog()" title='Logout completo'>
+      <mat-icon aria-hidden="false" aria-label="Logout icon" fontIcon="logout"></mat-icon>
+    </button>
+    <button *ngIf="mobileQuery.matches" class="icon" (click)="openLogoutUserDialog()" title='Logout parziale - pin'>
+        <mat-icon aria-hidden="false" aria-label="Change circle icon" fontIcon="change_circle"></mat-icon>
+    </button>
 </mat-toolbar>

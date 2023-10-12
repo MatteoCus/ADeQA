@@ -1,7 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
+import { LogoutService } from 'src/app/services/logout-service/logout.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
+import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 /**
  * Classe che gestisce l'intestazione della visualizzazione grafica
@@ -38,12 +42,29 @@ export class ToolbarComponent implements OnInit{
    */
   public activeLanguage: string = this.languages[0];
 
+    /**
+   * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]
+   */
+    private queryListener: () => void;
+
+    /**
+     * Lista di query per capire quando cambiare [mode]
+     */
+    public mobileQuery: MediaQueryList;
+
   /**
    * Costruttore della classe che gestisce l'intestazione della visualizzazione grafica 
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param themeService Servizio di gestione del tema grafico di interfaccia
+   * @param logoutService Servizio di gestione logout
+   * @param dialog Dialog di logout
    */
-  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService){}
+  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher){
+
+    this.mobileQuery = media.matchMedia('(max-width: 900px)');
+    this.queryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addEventListener("change", this.queryListener);
+  }
 
   /**
    * Metodo di inizializzazione per quanto riguarda nome utente e tema all'avvio
@@ -53,6 +74,13 @@ export class ToolbarComponent implements OnInit{
     this.isDark = this.authInfoService.UserTheme == "DM" as "DM" | "WM";
     this.themeService.toggleTheme(this.isDark);
     setTimeout(function(){ document.body.style.transitionDuration = "150ms"}, 500);
+  }
+
+  /**
+   * Distruttore per rimuovere gli event listener
+   */
+  ngOnDestroy(): void {
+    this.mobileQuery.removeEventListener("change", this.queryListener);
   }
 
   /**
@@ -72,5 +100,55 @@ export class ToolbarComponent implements OnInit{
     this.isDark = checked;
     this.themeService.toggleTheme(this.isDark);    
   }
+
+    /**
+   * Metodo per gestire le interazioni con il dialog di logout generale 
+   * Occorre reinserire nome utente e password per ri-ottenere il token
+   */
+    public openLogoutDialog(): void {
+      const logoutDialog = this.dialog.open(LogoutDialogComponent, {
+        data: {
+          title:'Logout generale',
+          description: 'Occorre reinserire username e pin'
+        }
+      });
+  
+      logoutDialog.afterClosed().subscribe((result) => {
+        switch(result.event) {
+          case "exit-option":
+            this.logoutService.logout();
+            break;
+          case "stay-option":
+            break;
+          default:
+            break;
+        }
+      });
+    }
+  
+    /**
+     * Metodo per gestire le interazioni con il dialog di logout parziale 
+     * Occorre reinserire il pin per ri-accedere ai servizi in qualità di operatore
+     */
+    public openLogoutUserDialog(): void {
+      const logoutDialog = this.dialog.open(LogoutDialogComponent, {
+        data: {
+          title:'Logout parziale',
+          description: 'Occorre reinserire il pin'
+        }
+      });
+  
+      logoutDialog.afterClosed().subscribe((result) => {
+        switch(result.event) {
+          case "exit-option":
+            this.logoutService.logoutUserId();
+            break;
+          case "stay-option":
+            break;
+          default:
+            break;
+        }
+      });
+    }
 
 }
