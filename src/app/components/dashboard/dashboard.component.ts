@@ -13,9 +13,20 @@ import { AuthInformationsService } from 'src/app/services/auth-informations/auth
 })
 export class DashboardComponent implements OnDestroy {
 
-  private _mobileQueryListener: () => void;
+  /**
+   * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]
+   */
+  private queryListener: () => void;
 
-  public mobileQuery: MediaQueryList;
+  /**
+   * Lista di query per capire quando cambiare [mode]
+   */
+  public tabletQuery: MediaQueryList;
+
+    /**
+   * Lista di query per capire quando nascondere la barra laterale
+   */
+    public mobileQuery: MediaQueryList;
 
   /**
    * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId)
@@ -27,13 +38,20 @@ export class DashboardComponent implements OnDestroy {
       this.router.navigate(['login/username']);
     }
 
-    this.mobileQuery = media.matchMedia('(max-width: 1200px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQuery = media.matchMedia('(max-width: 900px)');
+    this.tabletQuery = media.matchMedia('(max-width: 1200px)');
+
+    this.queryListener = () => changeDetectorRef.detectChanges();
+    
+    this.mobileQuery.addEventListener("change", this.queryListener);
+    this.tabletQuery.addEventListener("change", this.queryListener);
   }
 
+  /**
+   * Distruttore per rimuovere gli event listener
+   */
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.tabletQuery.removeEventListener("change", this.queryListener);
+    this.mobileQuery.removeEventListener("change", this.queryListener);
   }
-
 }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { LogoutService } from 'src/app/services/logout-service/logout.service';
 
 /**
  * Classe che gestisce i due tipi di logout:
@@ -17,27 +18,10 @@ import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component'
 export class SidenavComponent {
 
   /**
-   * Costrutttore della classe che gestisce la barra laterale, provvista di tre icone (di cui due per i diversi tipi di logout)
-   * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
-   * @param router Router per eseguire dei reindirizzamenti su browser
+   * Costruttore della classe che gestisce la barra laterale, provvista di tre icone (di cui due per i diversi tipi di logout)
+   * @param dialog Dialog di logout
    */
-  constructor(private authInfoService: AuthInformationsService, private router: Router, private dialog: MatDialog) {}
-
-  /**
-  * Metodo che gestisce il logout completo da parte dell'utente, eliminando anche il token di autenticazione
-  */
-  private logout(): void {
-    this.authInfoService.clear();
-    this.router.navigate(['login/username']);
-  }
-
-  /**
-   * Metodo che gestisce il logout parziale da parte dell'utente, eliminando solo l'identificativo utente
-   */
-  private logoutUserId(): void {
-    this.authInfoService.clearUser();
-    this.router.navigate(['login/pin']);
-  }
+  constructor(private logoutService: LogoutService, private dialog: MatDialog) {}
 
   /**
    * Metodo per gestire le interazioni con il dialog di logout generale 
@@ -54,7 +38,7 @@ export class SidenavComponent {
     logoutDialog.afterClosed().subscribe((result) => {
       switch(result.event) {
         case "exit-option":
-          this.logout();
+          this.logoutService.logout();
           break;
         case "stay-option":
           break;
@@ -79,7 +63,7 @@ export class SidenavComponent {
     logoutDialog.afterClosed().subscribe((result) => {
       switch(result.event) {
         case "exit-option":
-          this.logoutUserId();
+          this.logoutService.logoutUserId();
           break;
         case "stay-option":
           break;

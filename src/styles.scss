@@ -251,7 +251,8 @@ button {
     color: white;
   }
 
-  .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+  .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after,
+  .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
     color: white !important;
   }
 
