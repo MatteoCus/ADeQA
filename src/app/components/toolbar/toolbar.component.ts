@@ -6,6 +6,7 @@ import { LogoutService } from 'src/app/services/logout/logout.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { LanguageService } from 'src/app/services/language/language.service';
 
 /**
  * Classe che gestisce l'intestazione della visualizzazione grafica
@@ -37,10 +38,12 @@ export class ToolbarComponent implements OnInit{
    */
   public languages: string[] = ["Italiano", "Inglese", "Spagnolo"];
 
+  public strictLang: string[] = ['it', 'en', 'es'];
+
   /**
    * Linguaggio attualmente selezionato dalla lista di linguaggi disponibili
    */
-  public activeLanguage: string = this.languages[0];
+  public activeLanguage: string = "";
 
     /**
    * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]
@@ -59,11 +62,13 @@ export class ToolbarComponent implements OnInit{
    * @param logoutService Servizio di gestione logout
    * @param dialog Dialog di logout
    */
-  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher){
+  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private languageService: LanguageService){
 
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this.queryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener("change", this.queryListener);
+
+    this.activeLanguage = 'it';
   }
 
   /**
@@ -73,6 +78,11 @@ export class ToolbarComponent implements OnInit{
     this.user = this.authInfoService.UserName;
     this.isDark = this.authInfoService.UserTheme == "DM" as "DM" | "WM";
     this.themeService.toggleTheme(this.isDark);
+    this.languageService.activeLanguage.subscribe(
+      language => {
+        this.activeLanguage = language;
+      }
+    )
     setTimeout(function(){ 
       document.getElementById('mainContent')!.style.transitionDuration = "250ms";
       document.getElementById('nav')!.style.transitionDuration = "250ms";
@@ -92,8 +102,7 @@ export class ToolbarComponent implements OnInit{
    * @param language Nuovo linguaggio in cui l'applicazione deve essere tradotta
    */
   public changeActiveLanguage(language: string) : void {
-    this.activeLanguage = language;
-    // servirà inserire qui un'istruzione chiamando un servizio di gestione delle traduzioni
+    this.languageService.changeLanguage(language);
   }
 
   /**

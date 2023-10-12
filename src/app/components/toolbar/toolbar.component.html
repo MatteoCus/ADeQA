@@ -1,7 +1,7 @@
 <mat-toolbar id="toolbar" color="primary">
     <div *ngIf="mobileQuery.matches" id="logo"></div>
     <ng-content></ng-content>
-    <span *ngIf="!mobileQuery.matches">{{today | date:'MMMM'}} {{today | date:'yyyy'}} - Settimana {{today | date: 'ww'}}</span>
+    <span *ngIf="!mobileQuery.matches">{{today | date:'MMMM'}} {{today | date:'yyyy'}} - {{"Settimana" | translate}} {{today | date: 'ww'}}</span>
     <span class="spacer"></span>
     <div id="dark-theme-slider" title="Cambio tema">
       <mat-icon aria-hidden="false" aria-label="Light mode icon" fontIcon="light_mode"></mat-icon>
@@ -13,8 +13,8 @@
             <mat-icon aria-hidden="false" aria-label="Language globe icon" fontIcon="language"></mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngFor="let language of languages" (click)="changeActiveLanguage(language)" color="accent">
-              <span class="entry" [ngClass]="{'checkmark' : activeLanguage === language}">{{language}}</span>
+            <button mat-menu-item *ngFor="let language of languages; let i = index" (click)="changeActiveLanguage(strictLang[i])" color="accent">
+              <span class="entry" [ngClass]="{'checkmark' : activeLanguage === strictLang[i]}" >{{language}}</span>
             </button>
           </mat-menu>
         
