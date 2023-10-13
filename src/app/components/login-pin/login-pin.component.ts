@@ -41,6 +41,7 @@ export class LoginPinComponent implements OnInit {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    * @param router Router per eseguire dei reindirizzamenti su browser
+   * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
   constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) {
     if(localStorage.getItem('ADeToken') == null ||  localStorage.getItem('ADeToken') == "") {

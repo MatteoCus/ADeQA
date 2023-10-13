@@ -56,6 +56,8 @@ export class LogModifierComponent implements OnInit {
    * Costruttore della classe che gestisce gli attributi relativi a una fase selezionata ed i loro valori
    * @param activeAttributesService Servizio che gestisce gli attributi attualmente attivi
    * @param snackBar Barra di notifica eventi
+   * @param dialog Dialog di conferma dei dati inseriti dall'utente
+   * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService){}
 

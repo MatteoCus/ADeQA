@@ -35,6 +35,8 @@ export class PhasesComponent implements OnInit {
    * @param qualityPhaseService Servizio per l'ottenimento delle fasi
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param activePhaseService Servizio per gestire la fase attiva
+   * @param logoutService Servizio di gestione del logout
+   * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
   constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService, private translateService: TranslateService){
   }
