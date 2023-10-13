@@ -3,11 +3,11 @@
         <mat-form-field>
             <mat-label>Pin</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="pin" id="pin" readonly>
-            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
+            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Nascondi password' | translate" [attr.aria-pressed]="hide" id="visibility-button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button type="submit">Accedi</button>
+        <button type="submit">{{"Accedi" | translate}}</button>
         <div id="pinSection">
             <div id="pinFrame">
                 <button type="button" class="pinButton" (click) = "append(1)">1</button>
@@ -20,10 +20,10 @@
                 <button type="button" class="pinButton" (click) = "append(8)">8</button>
                 <button type="button" class="pinButton" (click) = "append(9)">9</button>
                 <button type="button" class="pinButton" (click) = "clear()" >
-                    <mat-icon aria-hidden="false" aria-label="Delete icon" fontIcon="cancel"></mat-icon>
+                    <mat-icon aria-hidden="false" [attr.aria-label]="'Eliminazione di tutto il pin' | translate" fontIcon="cancel"></mat-icon>
                 </button>
                 <button type="button" class="pinButton" (click) = "append(0)">0</button>
-                <button type="button" class="pinButton" (click) = "removeLast()" id="del">DEL</button>
+                <button type="button" class="pinButton" [attr.aria-label]="'Eliminazione ultima cifra pin' | translate" (click) = "removeLast()" id="del">DEL</button>
             </div>
         </div>
     </form>
@@ -31,6 +31,6 @@
 </div>
 <div id="loading-frame" *ngIf="loading">
     <div>
-        <div>Caricamento</div> <mat-spinner [diameter]="30"></mat-spinner>
+        <div>{{"Caricamento" | translate}}</div> <mat-spinner [diameter]="30"></mat-spinner>
     </div>
 </div>

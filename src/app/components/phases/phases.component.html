@@ -15,8 +15,8 @@
         <mat-card  color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString()); setActivePhase(phase)" id="card-{{phases.indexOf(phase)}}" >
           <mat-card-content>
             <p [innerHTML]="phase.phasetitlehtml! | safeHtml"></p>
-            <p>Inizio: {{phase.start_plan}}</p>
-            <p>Fine: {{phase.end_plan}}</p>
+            <p>{{"Inizio" | translate}}: {{phase.start_plan}}</p>
+            <p>{{"Fine" | translate}}: {{phase.end_plan}}</p>
           </mat-card-content>
         </mat-card>
       </div>

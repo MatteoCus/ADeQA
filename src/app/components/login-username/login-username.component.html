@@ -1,22 +1,22 @@
 <div id="form-background">
     <form (ngSubmit)="login()" [formGroup]="form">
         <mat-form-field>
-            <mat-label>Username</mat-label>
+            <mat-label>{{"Nome utente" | translate}}</mat-label>
             <input matInput [type]="'text'" formControlName="username">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Password</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" id="visibility-button">
+            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Nascondi password' | translate" [attr.aria-pressed]="hide" id="visibility-button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button type="submit">Accedi</button>
+        <button type="submit">{{"Accedi" | translate}}</button>
     </form>
     <img src="../../../assets/images/logo-ADeMES.svg" />
 </div>
 <div id="loading-frame" *ngIf="loading">
     <div>
-        <div>Caricamento</div> <mat-spinner [diameter]="30"></mat-spinner>
+        <div>{{"Caricamento" | translate}}</div> <mat-spinner [diameter]="30"></mat-spinner>
     </div>
 </div>

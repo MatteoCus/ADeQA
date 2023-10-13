@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ErrorModel, QualityphaseModel } from 'src/app/api/models';
 import { QualityPhaseService } from 'src/app/api/services';
 import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
+import { LogoutService } from 'src/app/services/logout/logout.service';
 
 /**
  * Classe di gestione della visualizzazione delle fasi
@@ -33,7 +35,7 @@ export class PhasesComponent implements OnInit {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param activePhaseService Servizio per gestire la fase attiva
    */
-  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService){
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService){
   }
 
   /**
@@ -107,6 +109,9 @@ export class PhasesComponent implements OnInit {
       error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
         this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
+        if(error.status == 401){
+          this.logoutService.logout();
+        }
       },
       complete: () => { this.loading = false; }
     });

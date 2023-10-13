@@ -38,6 +38,9 @@ export class ToolbarComponent implements OnInit{
    */
   public languages: string[] = ["Italiano", "Inglese", "Spagnolo"];
 
+  /**
+   * Lista di linguaggi - stringhe da usare con il servizio di traduzione
+   */
   public strictLang: string[] = ['it', 'en', 'es'];
 
   /**
