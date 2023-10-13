@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +37,10 @@ import { ConfirmDataDialogComponent } from './components/confirm-data-dialog/con
 import { OptionsPipe } from './pipes/options.pipe';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import localeIt from '@angular/common/locales/it';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeIt);
+
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -93,7 +97,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     MatSnackBar,
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {horizontalPosition: 'center', verticalPosition: 'top', duration: 3000}}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {horizontalPosition: 'center', verticalPosition: 'top', duration: 3000}},
+    {provide: LOCALE_ID, useValue: 'it-IT' }
   ],
   bootstrap: [AppComponent]
 })
