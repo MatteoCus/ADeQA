@@ -19,6 +19,7 @@ img {
 #dark-theme-slider{
     display: flex;
     align-items: center;
+    transition-duration: 0ms;
 }
 
 #dark-theme-slider > * {
@@ -57,5 +58,4 @@ img {
     height: 48px;
     border-radius: 100%;
     border: none;
-    transition: 250ms;
 }

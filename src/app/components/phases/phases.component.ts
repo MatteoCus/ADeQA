@@ -125,7 +125,7 @@ export class PhasesComponent implements OnInit {
   }
 
   /**
-   * Metodo che gestisce (graficamente e programmaticamente) la selezione di una fase
+   * Metodo che gestisce graficamente la selezione di una fase
    * @param id Identificativo dell'elemento HTML cliccato
    */
   public select(id: string): void {

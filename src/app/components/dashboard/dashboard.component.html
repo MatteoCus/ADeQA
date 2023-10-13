@@ -5,7 +5,7 @@
             <button id="menu" mat-icon-button (click)="drawer.toggle()" title="Fasi di lavorazione"><mat-icon>menu</mat-icon></button>
         </app-toolbar>
         <mat-drawer-container [hasBackdrop]="tabletQuery.matches" id="mainContent">
-            <mat-drawer #drawer [mode]="tabletQuery.matches? 'over' : 'side'" opened >
+            <mat-drawer #drawer [mode]="tabletQuery.matches? 'over' : 'side'" opened>
                 <app-phases></app-phases>
             </mat-drawer>
             <mat-drawer-content id="logView">

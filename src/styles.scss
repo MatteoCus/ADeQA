@@ -215,7 +215,7 @@ button {
     color: white;
   }
 
-  #mainContent, mat-drawer {
+  #mainContent, cdk-virtual-scroll-viewport, mat-drawer {
     background-color: #1A1B2E;
   }
 
@@ -293,7 +293,7 @@ button {
     color: white;
   }
 
-  #mainContent, mat-drawer {
+  #mainContent, cdk-virtual-scroll-viewport, mat-drawer {
     background-color: #F3F5FD;
   }
 
@@ -389,4 +389,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif}
   .theme-dark .mat-toolbar {
     background-color: black;
   }
+}
+
+* {
+  transition: color 250ms, background-color 250ms;
+}
+
+table, tr, td, mat-icon {
+  transition-duration: 0ms;
 }

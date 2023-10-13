@@ -110,7 +110,6 @@ export class AuthInformationsService {
    * Metodo per eseguire il logout rispetto all'ultimo passo di autenticazione (quando si ottiene l'identificativo utente)
    * Rimuove l'id ed il tema dell'utente da sessionStorage
    * Imposta il tema chiaro (evita che i form di login abbiano tema scuro)
-   * Imposta la transitione del body a 0ms (evita che al nuovo login, dopo logout manuale, si veda il toggle da tema chiaro a tema scuro se l'utente usa tema scuro)
    */
   public clearUser(): void {
     this.userId = 0;
@@ -119,7 +118,5 @@ export class AuthInformationsService {
     sessionStorage.removeItem("ADeUserTheme");
 
     document.body.classList.remove('theme-dark');
-
-    document.body.style.transitionDuration = "0ms";
   }
 }

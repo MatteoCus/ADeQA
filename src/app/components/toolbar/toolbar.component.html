@@ -12,7 +12,7 @@
         <button id="translation" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Globe icon for languages" title="Traduzioni">
             <mat-icon aria-hidden="false" aria-label="Language globe icon" fontIcon="language"></mat-icon>
           </button>
-          <mat-menu #menu="matMenu">
+          <mat-menu #menu="matMenu" id="languageMenu">
             <button mat-menu-item *ngFor="let language of languages; let i = index" (click)="changeActiveLanguage(strictLang[i])" color="accent">
               <span class="entry" [ngClass]="{'checkmark' : activeLanguage === strictLang[i]}" >{{language}}</span>
             </button>

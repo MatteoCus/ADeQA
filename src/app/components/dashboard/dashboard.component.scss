@@ -15,7 +15,7 @@
 
 mat-drawer{
     width: 20%;
-    height: 100%;
+    height: auto;
 }
 
 app-phases{
@@ -37,10 +37,6 @@ app-log-modifier {
 app-log-viewer {
     width: 100%;
     flex: 60%;
-}
-
-#menu {
-    transition-duration: 250ms;
 }
 
 @media screen and (max-width: 1200px){

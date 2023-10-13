@@ -83,11 +83,6 @@ export class ToolbarComponent implements OnInit{
         this.activeLanguage = language;
       }
     )
-    setTimeout(function(){ 
-      document.getElementById('mainContent')!.style.transitionDuration = "2500ms";
-      document.getElementById('nav')!.style.transitionDuration = "2500ms";
-      document.getElementById('side')!.style.transitionDuration = "2500ms";
-    }, 500);
   }
 
   /**
