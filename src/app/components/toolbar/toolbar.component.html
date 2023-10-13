@@ -1,7 +1,7 @@
 <mat-toolbar id="toolbar" color="primary">
     <div *ngIf="mobileQuery.matches" id="logo"></div>
     <ng-content></ng-content>
-    <span *ngIf="!mobileQuery.matches">{{today | date:'MMMM' | titlecase }} {{today | date:'yyyy'}} - {{"Settimana" | translate}} {{today | date: 'ww'}}</span>
+    <span *ngIf="!mobileQuery.matches">{{(today  | date:'MMMM')! | titlecase | translate}} {{today | date:'yyyy'}} - {{"Settimana" | translate}} {{today | date: 'ww'}}</span>
     <span class="spacer"></span>
     <div id="dark-theme-slider" title="{{'Cambio tema' | translate}}">
       <mat-icon aria-hidden="false" [attr.aria-label]="'Tema chiaro' | translate" fontIcon="light_mode"></mat-icon>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ErrorModel, QualityphaseModel } from 'src/app/api/models';
 import { QualityPhaseService } from 'src/app/api/services';
 import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
@@ -35,7 +36,7 @@ export class PhasesComponent implements OnInit {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param activePhaseService Servizio per gestire la fase attiva
    */
-  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService){
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService, private translateService: TranslateService){
   }
 
   /**
@@ -104,11 +105,11 @@ export class PhasesComponent implements OnInit {
     this.qualityPhaseService.fetch_2(params)
     .subscribe({
       next: (response) => {
-        (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar("Non ci sono fasi da visualizzare!" ,"X");
+        (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar(this.translateService.instant("Errore: non ci sono fasi da visualizzare!") ,"X");
       },
       error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
-        this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
+        this.openSnackBar(this.translateService.instant("Errore " + error.status + " - " + errorDescription), "X");
         if(error.status == 401){
           this.logoutService.logout();
         }
@@ -139,7 +140,7 @@ export class PhasesComponent implements OnInit {
     if(activeElement != null && activeElement != undefined && activeElement?.textContent != null && activeElement?.textContent != "") {
       activeElement?.classList.add("selected-card");
     } else {
-      this.openSnackBar("La carta selezionata non contiene testo!", "X");
+      this.openSnackBar(this.translateService.instant("La carta selezionata non contiene testo!"), "X");
     }
   }
 

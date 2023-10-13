@@ -1,4 +1,4 @@
-  <div class="header">Attributi</div>
+  <div class="header">{{"Attributi" | translate}}</div>
   <!-- Form di inserimento di un nuovo log -->
     <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content">
         <div class="container mat-elevation-z8">
@@ -26,7 +26,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div id="button-tooltip" matTooltip="Compilare tutti i campi" [matTooltipDisabled]="form.valid">
+    <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
         <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiungi" | translate}}</button>
     </div>
     </form>
@@ -56,7 +56,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <div id="button-tooltip" matTooltip="Compilare tutti i campi" [matTooltipDisabled]="form.valid">
+    <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
         <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiorna" | translate}}</button>
     </div>
   </form>

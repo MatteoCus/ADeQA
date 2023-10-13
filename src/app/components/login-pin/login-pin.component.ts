@@ -6,6 +6,7 @@ import { AuthInformationsService } from 'src/app/services/auth-informations/auth
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Fetch$Params } from 'src/app/api/fn/operators/fetch';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -41,7 +42,7 @@ export class LoginPinComponent implements OnInit {
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
-  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) {
     if(localStorage.getItem('ADeToken') == null ||  localStorage.getItem('ADeToken') == "") {
       this.router.navigate(['login/username']);
     }
@@ -113,7 +114,9 @@ export class LoginPinComponent implements OnInit {
      * Metodo per cancellare il pin inserito, pulendo la casella di testo
      */
     public clear(): void {
-      this.form.setValue({"pin": ""});
+      this.form = this.formBuilder.group({
+        pin: ['', Validators.required]
+      });
     }
 
     /**
@@ -132,7 +135,7 @@ export class LoginPinComponent implements OnInit {
   public login(): void {
 
     if (this.form.invalid) {
-      this.openSnackBar("Il pin inserito non è valido!", "X");
+      this.openSnackBar((this.translateService.instant("Il pin inserito non è valido!")) , "X");
       return;
     }
 
@@ -158,7 +161,7 @@ export class LoginPinComponent implements OnInit {
               this.authInfoService.UserTheme = response.data[0].mes_theme.trim() as "DM" | "WM";
             } 
             else{
-              this.openSnackBar("Il PIN inserito non appartiene ad alcun utente", "X")
+              this.openSnackBar(this.translateService.instant("Il PIN inserito non appartiene ad alcun utente"), "X")
             };
           if(this.authInfoService.UserId && this.authInfoService.UserName) {
             this.router.navigate(['dashboard']);
@@ -166,11 +169,12 @@ export class LoginPinComponent implements OnInit {
     },
     error: (error) => {
         const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
-        this.openSnackBar(("Error " + error.status + " - " + errorDescription), "X");
+        this.openSnackBar(this.translateService.instant("Errore " + error.status + " - " + errorDescription), "X");
         if(error.status == 401){
           this.authInfoService.Token = "";
           this.router.navigate(['login/username']);
         }
+        this.loading = false;
       },
       complete: () => { this.loading = false;}
     });

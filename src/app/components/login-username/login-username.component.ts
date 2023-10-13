@@ -5,6 +5,7 @@ import { AuthenticationService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -38,7 +39,7 @@ export class LoginUsernameComponent implements OnInit {
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) { 
     if(localStorage.getItem("ADeToken")!= undefined && localStorage.getItem("ADeToken") != ""){
       this.authInfoService.Token = localStorage.getItem("ADeToken")!;
       this.router.navigate(['login/pin']);
@@ -73,7 +74,7 @@ export class LoginUsernameComponent implements OnInit {
      */
   public login(): void {
     if (this.form.invalid) {
-      this.openSnackBar("Inserire tutti i dati richiesti", "X");
+      this.openSnackBar(this.translateService.instant("Inserire tutti i dati richiesti"), "X");
       return;
     }
 
@@ -88,7 +89,7 @@ export class LoginUsernameComponent implements OnInit {
     this.authService.login(params)
     .subscribe({
       next: (response) => {
-          response.token != undefined? this.authInfoService.Token = response.token : this.openSnackBar("Error 500 - Token nullo", "X");
+          response.token != undefined? this.authInfoService.Token = response.token : this.openSnackBar(this.translateService.instant("Errore 500 - Token nullo"), "X");
 
           if(this.authInfoService.Token) {
             this.router.navigate(['login/pin']);
@@ -96,7 +97,8 @@ export class LoginUsernameComponent implements OnInit {
       },
       error: response => {
         const errorDescription = (response.error as ErrorModel).description;
-        this.openSnackBar(("Error " + response.status + " - " + errorDescription), "X");
+        this.openSnackBar(this.translateService.instant("Errore " + response.status + " - " + errorDescription), "X");
+        this.loading = false;
       },
       complete: () => { this.loading = false; }
     });

@@ -6,6 +6,7 @@ import { ActiveAttributesService } from 'src/app/services/active-attributes/acti
 import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { OptionsPipe } from 'src/app/pipes/options.pipe';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -56,7 +57,7 @@ export class LogModifierComponent implements OnInit {
    * @param activeAttributesService Servizio che gestisce gli attributi attualmente attivi
    * @param snackBar Barra di notifica eventi
    */
-  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog){}
+  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService){}
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
@@ -88,7 +89,7 @@ export class LogModifierComponent implements OnInit {
         });
 
         if (this.activeAttributes.length == 0) {
-          this.openSnackBar("Errore: non sono disponibili attributi per la fase selezionata!", "X");
+          this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
         }
   }
 

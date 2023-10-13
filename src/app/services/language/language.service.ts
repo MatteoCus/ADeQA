@@ -9,9 +9,7 @@ export class LanguageService {
 
   public activeLanguage: Subject<string> = new Subject<string>();
 
-  constructor(private translateService: TranslateService) {
-    this.activeLanguage.next('it');
-  }
+  constructor(private translateService: TranslateService) {}
 
   public changeLanguage(language: string): void {
 

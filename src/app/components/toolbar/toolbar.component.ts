@@ -71,7 +71,8 @@ export class ToolbarComponent implements OnInit{
     this.queryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener("change", this.queryListener);
 
-    this.activeLanguage = 'it';
+    this.activeLanguage = localStorage.getItem('lang') || 'it';
+    this.languageService.changeLanguage(this.activeLanguage);
   }
 
   /**

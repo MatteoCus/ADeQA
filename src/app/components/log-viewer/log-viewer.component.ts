@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { QualityattributeModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
 
@@ -19,7 +20,7 @@ export class LogViewerComponent implements OnInit {
    * Costruttore della classe che gestisce gli attributi relativi a una fase selezionata ed i loro valori
    * @param activeAttributesService Servizio che gestisce gli attributi attualmente attivi
    */
-  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar){}
+  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private translateService: TranslateService){}
 
   /**
    * Metodo per ottenere colonne e log salvati per la fase attuale
@@ -30,7 +31,7 @@ export class LogViewerComponent implements OnInit {
       this.displayedColumns = attributes.map((attribute) => attribute.attributename!);
 
       if(this.displayedColumns.length == 0) {
-        this.openSnackBar("Errore: non sono disponibili attributi per la fase selezionata!" ,"X");
+        this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!") ,"X");
       }
     });
   }
