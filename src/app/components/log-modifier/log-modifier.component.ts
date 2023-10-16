@@ -119,7 +119,7 @@ export class LogModifierComponent implements OnInit {
       formData.push( entry );
     });
 
-    const logoutDialog = this.dialog.open(ConfirmDataDialogComponent, {
+    const addDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
         title:'Aggiungi un log',
         description: 'Dati inseriti:',
@@ -127,7 +127,7 @@ export class LogModifierComponent implements OnInit {
       }
     });
 
-    logoutDialog.afterClosed().subscribe((result) => {
+    addDialog.afterClosed().subscribe((result) => {
       switch(result.event) {
         case "confirm-option":
           this.add();
@@ -145,17 +145,18 @@ export class LogModifierComponent implements OnInit {
    * Metodo per mostrare a video il dialog di conferma dei dati inseriti per la modifica di un log
    */
   public updateDialog(): void {
-    const logoutDialog = this.dialog.open(ConfirmDataDialogComponent, {
+    const updateDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
         title:'Modifica il log selezionato',
         description: 'Dati aggiornati: ' + this.form.value
       }
     });
 
-    logoutDialog.afterClosed().subscribe((result) => {
+    updateDialog.afterClosed().subscribe((result) => {
       switch(result.event) {
         case "confirm-option":
           this.update();
+          this.clearDialog();
           break;
         case "cancel-option":
           break;
@@ -167,11 +168,11 @@ export class LogModifierComponent implements OnInit {
   
   // Metodi: uno per update ed uno per add, ognuno di essi è subordinato a una variabile booleana che fa vedere (o meno) i relativi pulsanti
 
-  private add(): void {
+  public add(): void {
     console.info(this.form.value);
   }
 
-  private update(): void {
+  public update(): void {
     console.log(this.form.value);
     this.addLog = true;
   }
@@ -179,7 +180,7 @@ export class LogModifierComponent implements OnInit {
   /**
    * Metodo per ripulire il form dopo il submit dei dati
    */
-  private clearDialog(): void {
+  public clearDialog(): void {
     this.form.reset();
     this.initializeForm();
   }
