@@ -58,5 +58,6 @@
     "Errore: non ci sono fasi da visualizzare!": "Error: ¡No hay etapas para mostrar!",
     "La carta selezionata non contiene testo!": "¡La tarjeta seleccionada no contiene texto!",
     "Errore 500 - Username o password errati!": "Error 500 - ¡Nombre de usuario o contraseña incorrectos!",
-    "Icona di scaricamento applicazione": "Descargar icono de la aplicación"
+    "Icona di scaricamento applicazione": "Descargar icono de la aplicación",
+    "Errore 401 - Non autorizzato": "Error 401 - No autorizado"
 }

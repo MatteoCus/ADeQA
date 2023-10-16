@@ -58,5 +58,6 @@
     "Errore: non ci sono fasi da visualizzare!": "Errore: non ci sono fasi da visualizzare!",
     "La carta selezionata non contiene testo!": "La carta selezionata non contiene testo!",
     "Errore 500 - Username o password errati!": "Errore 500 - Username o password errati!",
-    "Icona di scaricamento applicazione": "Icona di scaricamento applicazione"
+    "Icona di scaricamento applicazione": "Icona di scaricamento applicazione",
+    "Errore 401 - Non autorizzato": "Errore 401 - Non autorizzato"
 }
