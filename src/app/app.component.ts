@@ -12,8 +12,8 @@ export class AppComponent {
    * Costruttore della classe di entry point
    * @param translate Servizio di traduzione di ngx-translate
    */
-  constructor(translate: TranslateService) {
-    translate.setDefaultLang('it');
-    translate.use(localStorage.getItem('lang') || 'it');
-  }
+  constructor(private translateService: TranslateService) { 
+    this.translateService.setDefaultLang('it');
+    this.translateService.use(localStorage.getItem('lang') || 'it');
+   }
 }
