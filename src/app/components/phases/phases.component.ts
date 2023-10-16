@@ -30,7 +30,7 @@ export class PhasesComponent implements OnInit {
   public phases: Array<QualityphaseModel> = new Array<QualityphaseModel>();
 
   /**
-   * Costruttore della classe di visualizzazione fasi
+   * Costruttore della classe di visualizzazione fasi, clicca automaticamente sulla prima fase disponibile
    * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
    * @param qualityPhaseService Servizio per l'ottenimento delle fasi
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
@@ -39,6 +39,15 @@ export class PhasesComponent implements OnInit {
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
   constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService, private translateService: TranslateService){
+        // Osserva il rendering del primo pulsante: appena renderizzato, lo preme per far comparire gli attributi
+        var observer = new MutationObserver(function() {
+          if (document.getElementsByClassName('phase').item(0) != null) {
+            let firstCard: HTMLElement = document.getElementsByClassName('phase')[0] as HTMLElement;
+            firstCard.click();
+            observer.disconnect();
+           }
+       });
+       observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true})
   }
 
   /**
