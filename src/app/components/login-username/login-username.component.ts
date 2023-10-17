@@ -4,8 +4,9 @@ import { ErrorModel } from 'src/app/api/models';
 import { AuthenticationService } from 'src/app/api/services';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -40,7 +41,19 @@ export class LoginUsernameComponent implements OnInit {
    * @param router Router per eseguire dei reindirizzamenti su browser
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) { 
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService, private route: ActivatedRoute) { 
+    this.route.queryParams
+    .subscribe(params => {
+      console.log(params);
+      if(params && params['inside']){
+        console.log(params['inside']);
+        if(params['inside'] == "true") {
+          console.log("Inside")
+        }
+      } 
+    }
+  );
+    
     if(localStorage.getItem("ADeToken")!= undefined && localStorage.getItem("ADeToken") != ""){
       this.authInfoService.Token = localStorage.getItem("ADeToken")!;
       this.router.navigate(['login/pin']);

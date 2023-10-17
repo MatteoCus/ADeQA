@@ -102,6 +102,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    DashboardComponent,
     MatSnackBar,
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {horizontalPosition: 'center', verticalPosition: 'top', duration: 3000}},
     {provide: LOCALE_ID, useValue: 'it-IT' }

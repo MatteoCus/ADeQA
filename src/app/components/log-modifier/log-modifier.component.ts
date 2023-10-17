@@ -166,12 +166,16 @@ export class LogModifierComponent implements OnInit {
     });
   }
   
-  // Metodi: uno per update ed uno per add, ognuno di essi è subordinato a una variabile booleana che fa vedere (o meno) i relativi pulsanti
-
+  /**
+   * Metodo per aggiungere un nuovo log relativo alla fase di qualità data
+   */
   public add(): void {
     console.info(this.form.value);
   }
 
+  /**
+   * Metodo per aggiornare un log relativo alla fase di qualità data
+   */
   public update(): void {
     console.log(this.form.value);
     this.addLog = true;

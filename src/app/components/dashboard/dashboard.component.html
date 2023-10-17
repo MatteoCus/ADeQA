@@ -1,5 +1,5 @@
-<div id="container">
-    <app-sidenav *ngIf="!mobileQuery.matches"></app-sidenav>
+<div id="container" *ngIf="!InsideFrame">
+    <app-sidenav *ngIf="!mobileQuery.matches && !InsideFrame"></app-sidenav>
     <div id="mainFrame">
         <app-toolbar>
             <button id="menu" mat-icon-button (click)="drawer.toggle()" title="{{'Fasi di lavorazione' | translate}}"><mat-icon>menu</mat-icon></button>
@@ -13,5 +13,14 @@
                 <app-log-viewer></app-log-viewer>
             </mat-drawer-content>
         </mat-drawer-container>
+    </div>
+</div>
+
+<div id="container"*ngIf="InsideFrame">
+    <div id="mainContent">
+        <div id="logView">
+            <app-log-modifier></app-log-modifier>
+            <app-log-viewer></app-log-viewer>
+        </div>
     </div>
 </div>
