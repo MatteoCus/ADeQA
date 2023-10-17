@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Message } from 'src/app/models/message';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { IframeInitializerService } from 'src/app/services/iframe-initializer/iframe-initializer.service';
 
@@ -59,7 +60,7 @@ export class DashboardComponent implements OnDestroy {
 
         // Accetta i dati in ingresso solo se sono dati dal widget padre
         if (event.source == parent) {
-          const data = event.data;
+          const data: Message = event.data as Message;
 
           // Verifico che i parametri ci siano tutti
           if (data == undefined || data.token == undefined || data.lang == undefined || data.theme == undefined || data.username == undefined

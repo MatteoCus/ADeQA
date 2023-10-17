@@ -8,6 +8,7 @@ import { ThemeService } from '../theme/theme.service';
 import { AuthInformationsService } from '../auth-informations/auth-informations.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorModel } from 'src/app/api/models';
+import { Message } from 'src/app/models/message';
 
 /**
  * Classe di gestione dell'inizializzazione dei servizi se il software esegue all'interno di un <iframe>
@@ -46,7 +47,7 @@ export class IframeInitializerService {
    * Metodo per inizializzare i vari servizi in caso di utilizzo del software all'interno di un <iframe>
    * @param data Dati passati dalla pagina che contiene il software all'interno di un <iframe>
    */
-  public initialize(data: any): void {
+  public initialize(data: Message): void {
 
     //1. Aggiornare AuthInfoService
     this.authInfoService.Token = data.token;
@@ -65,7 +66,7 @@ export class IframeInitializerService {
         "criteria": [
           {
             "fieldName": 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
-            "value": data.c_projectphase_id,
+            "value": data.c_projectphase_id.toString(),
             "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
         ],
