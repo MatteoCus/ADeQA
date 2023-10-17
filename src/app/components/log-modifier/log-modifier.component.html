@@ -4,7 +4,7 @@
     <!-- <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content"> -->
 
 <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="add(); this.clearDialog();" id="content">
-    <div class="container mat-elevation-z8">
+    <div class="container">
         <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
     
             <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
@@ -38,7 +38,7 @@
   <!-- <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog()" id="content"> -->
 
 <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="update(); clearDialog();" id="content">
-    <div class="container mat-elevation-z8">
+    <div class="container">
         <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
             <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
                 <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label> </th>

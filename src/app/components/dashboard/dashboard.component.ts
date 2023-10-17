@@ -34,18 +34,14 @@ export class DashboardComponent implements OnDestroy {
   private insideFrame: boolean = false;
 
   /**
-   * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId)
+   * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId) se non si è all'interno di un <iframe>
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
    * @param router Router per eseguire dei reindirizzamenti su browser
    */
   constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute) {
-    console.log("Entra qui");
-
     this.route.queryParams
     .subscribe(params => {
-      console.log(params);
       if(params && params['inside']){
-        console.log(params['inside']);
         if(params['inside'] == "true") {
           this.insideFrame = true;
         }
@@ -54,9 +50,8 @@ export class DashboardComponent implements OnDestroy {
   );
 
   window.addEventListener("message", (event) => {
-    console.log("Evento: " + event.data.token);
     if(event.source == parent) {
-      // usare event.data per assegnare valore
+      console.log("Dentro")
     }
   });
 

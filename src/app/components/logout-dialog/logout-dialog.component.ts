@@ -21,8 +21,7 @@ export class LogoutDialogComponent implements OnInit {
    * @param dialogRef Riferimento programmatico al dialog grafico (per triggerarne la chiusura)
    * @param mydata Descrizione (titolo + descrizione) del dialog
    */
-  constructor( public dialogRef: MatDialogRef<LogoutDialogComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) {}
+  constructor( public dialogRef: MatDialogRef<LogoutDialogComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) {}
 
   /**
    * Metodo che inizializza titolo e descrizione del dialog

@@ -1,5 +1,5 @@
 <div class="header">{{"Log" | translate}}</div>
-<div class="container mat-elevation-z8">
+<div class="container">
   <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
           
       <ng-container [matColumnDef]="column!" *ngFor="let column of displayedColumns; let i = index">
