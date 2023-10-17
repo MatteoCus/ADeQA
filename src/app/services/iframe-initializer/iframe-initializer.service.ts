@@ -9,11 +9,25 @@ import { AuthInformationsService } from '../auth-informations/auth-informations.
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorModel } from 'src/app/api/models';
 
+/**
+ * Classe di gestione dell'inizializzazione dei servizi se il software esegue all'interno di un <iframe>
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class IframeInitializerService {
 
+  /**
+   * Costruttore della classe relativa all'inizializzazione dei servizi se il software esegue in un <iframe>
+   * @param snackBar Barra di notifica eventi
+   * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
+   * @param languageService Servizio di gestione del linguaggio attivo nell'applicazione
+   * @param activePhaseService Servizio per gestire la fase attiva
+   * @param themeService Servizio di gestione del tema grafico di interfaccia
+   * @param qualityPhaseService Servizio per l'ottenimento delle fasi
+   * @param logoutService Servizio di gestione del logout
+   * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
+   */
   constructor(private snackBar: MatSnackBar, private authInfoService: AuthInformationsService, private languageService: LanguageService, private activePhaseService: ActivePhaseService, private themeService: ThemeService, private qualityPhaseService: QualityPhaseService,
     private logoutService: LogoutService, private translateService: TranslateService) { }
 
@@ -28,6 +42,10 @@ export class IframeInitializerService {
     });
   }
 
+  /**
+   * Metodo per inizializzare i vari servizi in caso di utilizzo del software all'interno di un <iframe>
+   * @param data Dati passati dalla pagina che contiene il software all'interno di un <iframe>
+   */
   public initialize(data: any): void {
 
     //1. Aggiornare AuthInfoService

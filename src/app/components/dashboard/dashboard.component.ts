@@ -39,6 +39,8 @@ export class DashboardComponent implements OnDestroy {
    * Se si è all'interno di un <iframe>, il software viene richiamato con il parametro 'inside=true'
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
    * @param router Router per eseguire dei reindirizzamenti su browser
+   * @param route URL attivo
+   * @param iframeInitService Servizio di inizializzazione dei servizi indispensabili per il funzionamento dell'applicazione in un <iframe>
    */
   constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute, private iframeInitService: IframeInitializerService) {
     this.route.queryParams
@@ -50,8 +52,12 @@ export class DashboardComponent implements OnDestroy {
         }
       }
       );
+
+    // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage
     if (this.insideFrame) {
       window.addEventListener("message", (event) => {
+
+        // Accetta i dati in ingresso solo se sono dati dal widget padre
         if (event.source == parent) {
           const data = event.data;
 
@@ -66,6 +72,7 @@ export class DashboardComponent implements OnDestroy {
       });
     }
 
+    // Se non siamo in un frame e mancano dati (token/id utente), si fa un redirect alle pagine di login
     if (!this.insideFrame && this.authInfoService.Token == "" || !this.insideFrame && this.authInfoService.UserId as any as number == 0) {
       this.router.navigate(['login/username']);
     }
