@@ -170,7 +170,11 @@ export class LogModifierComponent implements OnInit {
    * Metodo per aggiungere un nuovo log relativo alla fase di qualità data
    */
   public add(): void {
-    console.info(this.form.value);
+    console.info(this.activeAttributes.length);
+
+    for(let i=0; i < this.activeAttributes.length; i++) {
+      console.log(this.form.value['control-'+i]);
+    }
   }
 
   /**
