@@ -110,7 +110,7 @@ export class PhasesComponent implements OnInit {
             "direction": "ASC" as 'DESC' | 'ASC'
           }
         ],
-        "endRow": 50
+        "endRow": 100
       }
     };
 
