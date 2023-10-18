@@ -1,5 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
+
+/**
+ * Interfaccia che definisce le caratteristiche di una fase di qualità
+ */
 export interface QualityphaseModel {
   ad_client_id?: number;
   ad_org_id?: number;

@@ -1,16 +1,25 @@
 /* tslint:disable */
 /* eslint-disable */
 
+/**
+ * Interfaccia che definisce le caratteristiche dei valori delle opzioni di un attributo di qualità
+ */
 export interface JsonList {
   key: string[],
   value: string[]
 }
 
+/**
+ * Interfaccia che definisce le caratteristiche delle opzioni di un attributo di qualità
+ */
 export interface optionType {
   type: string,
   value: JsonList
 }
 
+/**
+ * Interfaccia che definisce le caratteristiche di un attributo di qualità
+ */
 export interface QualityattributeModel {
   ad_reference_id?: number;
   attributedescription?: string;

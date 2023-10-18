@@ -1,5 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
+
+/**
+ * Interfaccia che definisce le caratteristiche di un operatore
+ */
 export interface OperatorsModel {
   ad_user_id?: number;
   foto?: number;
