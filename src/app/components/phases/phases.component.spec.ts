@@ -12,12 +12,12 @@ describe('PhasesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         HttpClientTestingModule,
         CdkVirtualScrollViewport
       ],
       declarations: [PhasesComponent],
-      providers: [ MatSnackBar  ]
+      providers: [MatSnackBar]
     });
     fixture = TestBed.createComponent(PhasesComponent);
     component = fixture.componentInstance;

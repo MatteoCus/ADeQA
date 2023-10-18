@@ -8,21 +8,21 @@
     width: 100%;
 }
 
-#mainContent{
+#mainContent {
     width: 100%;
-    height: calc(100% - 70px);  //70px sono di toolbar
+    height: calc(100% - 70px); //70px sono di toolbar
 }
 
-mat-drawer{
+mat-drawer {
     width: 20%;
     height: auto;
 }
 
-app-phases{
+app-phases {
     width: 100%;
 }
 
-#logView{
+#logView {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@ app-phases{
 
 app-log-modifier {
     width: 100%;
-    flex:40%;
+    flex: 40%;
 }
 
 app-log-viewer {
@@ -39,8 +39,8 @@ app-log-viewer {
     flex: 60%;
 }
 
-@media screen and (max-width: 1200px){
-    mat-drawer{
+@media screen and (max-width: 1200px) {
+    mat-drawer {
         width: 35%;
     }
 }

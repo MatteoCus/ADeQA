@@ -14,7 +14,7 @@ import { FetchResponseQualitysavelogModel } from '../../models/fetch-response-qu
  */
 export interface Fetch_1$Params {
   AdesuiteToken: string;
-      body: FetchRequestQualitysavelogModel
+  body: FetchRequestQualitysavelogModel
 }
 
 /**

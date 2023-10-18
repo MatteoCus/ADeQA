@@ -14,7 +14,7 @@ export class ActivePhaseService {
   /**
    * Attributo che contiene un Subject della fase attiva
    */
-  private activePhase : Subject<QualityphaseModel> = new Subject<QualityphaseModel>();
+  private activePhase: Subject<QualityphaseModel> = new Subject<QualityphaseModel>();
 
   /**
    * Ultima fase selezionata, serve per evitare di fare il fetch di attributi se si prova a selezionare la fase già selezionata
@@ -31,7 +31,7 @@ export class ActivePhaseService {
    * @param phase Nuova fase selezionata
    */
   public update(phase: QualityphaseModel): void {
-    if(phase != this.lastValue) {
+    if (phase != this.lastValue) {
       this.activePhase.next(phase);
       this.lastValue = phase;
     }

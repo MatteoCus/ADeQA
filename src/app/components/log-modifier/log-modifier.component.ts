@@ -37,8 +37,8 @@ export class LogModifierComponent implements OnInit {
   /**
    * Attributo booleano per gestire il form da visualizzare
    * Form possibili:
-   * -) Form di aggiunta log
-   * -) Form di modifica log
+   * -) Form di aggiunta log: true
+   * -) Form di modifica log: false
    */
   public addLog: boolean = true;
 
@@ -47,9 +47,9 @@ export class LogModifierComponent implements OnInit {
    * @param message Messaggio da mostrare
    * @param type Etichetta del pulsante di chiusura
   */
-  private openSnackBar(message: string, type: string): void { 
+  private openSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
-      panelClass: ['red-snackbar','login-snackbar'],
+      panelClass: ['red-snackbar', 'login-snackbar'],
     });
   }
 
@@ -61,7 +61,7 @@ export class LogModifierComponent implements OnInit {
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
-    private authInfoService: AuthInformationsService){}
+    private authInfoService: AuthInformationsService) { }
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
@@ -82,19 +82,19 @@ export class LogModifierComponent implements OnInit {
    * Si assegnano dei validatori
    */
   private initializeForm(): void {
-        this.form = new FormGroup({});
+    this.form = new FormGroup({});
 
-        this.activeAttributes.forEach((value, index) => {
-          if (value.attributevaluetype == "Y") {
-            this.form.addControl("control-" + index.toString(), new FormControl(false, Validators.required));
-          } else {
-            this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
-          }
-        });
+    this.activeAttributes.forEach((value, index) => {
+      if (value.attributevaluetype == "Y") {
+        this.form.addControl("control-" + index.toString(), new FormControl(false, Validators.required));
+      } else {
+        this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
+      }
+    });
 
-        if (this.activeAttributes.length == 0) {
-          this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
-        }
+    if (this.activeAttributes.length == 0) {
+      this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
+    }
   }
 
   /**
@@ -103,34 +103,34 @@ export class LogModifierComponent implements OnInit {
   public addDialog(): void {
 
     let formData: string[] = [];
-    
+
     this.activeAttributes.forEach((value, index) => {
-      let entry : string = value.attributename! + ": ";
-    
-      if(value.attributevaluetype != "L") {
+      let entry: string = value.attributename! + ": ";
+
+      if (value.attributevaluetype != "L") {
         entry += this.form.get('control-' + index.toString())?.value;
       } else {
-        let position : number = 0;
+        let position: number = 0;
         position = value.optionvalue?.value.value.findIndex((value) => {
           return this.form.get('control-' + index.toString())?.value == value;
         })!;
-        
+
         entry += new OptionsPipe().transform(this.form.get('control-' + index.toString())?.value, value.optionvalue?.value.key.at(position)!);
       }
 
-      formData.push( entry );
+      formData.push(entry);
     });
 
     const addDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
-        title:'Aggiungi un log',
+        title: 'Aggiungi un log',
         description: 'Dati inseriti:',
         resume: formData
       }
     });
 
     addDialog.afterClosed().subscribe((result) => {
-      switch(result.event) {
+      switch (result.event) {
         case "confirm-option":
           this.add();
           this.clearDialog();
@@ -149,13 +149,13 @@ export class LogModifierComponent implements OnInit {
   public updateDialog(): void {
     const updateDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
-        title:'Modifica il log selezionato',
+        title: 'Modifica il log selezionato',
         description: 'Dati aggiornati: ' + this.form.value
       }
     });
 
     updateDialog.afterClosed().subscribe((result) => {
-      switch(result.event) {
+      switch (result.event) {
         case "confirm-option":
           this.update();
           this.clearDialog();
@@ -167,22 +167,22 @@ export class LogModifierComponent implements OnInit {
       }
     });
   }
-  
+
   /**
-   * Metodo per aggiungere un nuovo log relativo alla fase di qualità data
+   * Metodo per aggiungere un nuovo log relativo alla fase di qualità attiva
    */
   public add(): void {
 
     const token: string = this.authInfoService.Token;
     let qualityvalue: string = "{\"";
 
-    for(let i=0; i < this.activeAttributes.length; i++) {
+    for (let i = 0; i < this.activeAttributes.length; i++) {
       qualityvalue += this.activeAttributes.at(i)?.attributename;
       qualityvalue += "\": \"";
-      qualityvalue += this.form.value['control-'+i];
+      qualityvalue += this.form.value['control-' + i];
       qualityvalue += "\"";
 
-      if(i != this.activeAttributes.length -1){
+      if (i != this.activeAttributes.length - 1) {
         qualityvalue += ","
       }
     }
@@ -192,7 +192,7 @@ export class LogModifierComponent implements OnInit {
   }
 
   /**
-   * Metodo per aggiornare un log relativo alla fase di qualità data
+   * Metodo per aggiornare un log relativo alla fase di qualità attiva
    */
   public update(): void {
     console.log(this.form.value);

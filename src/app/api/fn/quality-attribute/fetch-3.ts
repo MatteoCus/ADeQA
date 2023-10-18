@@ -14,7 +14,7 @@ import { FetchResponseQualityattributeModel } from '../../models/fetch-response-
  */
 export interface Fetch_3$Params {
   AdesuiteToken: string;
-      body: FetchRequestQualityattributeModel
+  body: FetchRequestQualityattributeModel
 }
 
 /**

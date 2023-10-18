@@ -10,7 +10,7 @@ import { RequestBuilder } from '../../request-builder';
  * Interfaccia che definisce i parametri per il logout
  */
 export interface Logout$Params {
-      body: any
+  body: any
 }
 
 /**
@@ -22,7 +22,7 @@ export interface Logout$Params {
  * @returns Oggetto Observable contenete il body della risposta
  */
 export function logout(http: HttpClient, rootUrl: string, params: Logout$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-'status'?: string;
+  'status'?: string;
 }>> {
   const rb = new RequestBuilder(rootUrl, logout.PATH, 'post');
   if (params) {
@@ -35,7 +35,7 @@ export function logout(http: HttpClient, rootUrl: string, params: Logout$Params,
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
       return r as StrictHttpResponse<{
-      'status'?: string;
+        'status'?: string;
       }>;
     })
   );

@@ -1,22 +1,22 @@
 @import "../../variables.scss";
 
-#visibility-button{
+#visibility-button {
     border: 0px;
     height: 40px;
     width: 40px;
     border-radius: 20px
 }
-  
+
 input.example-right-align::-webkit-outer-spin-button,
 input.example-right-align::-webkit-inner-spin-button {
     display: none;
 }
-  
+
 input.example-right-align {
     -moz-appearance: textfield;
 }
 
-#form-background{
+#form-background {
     background-color: $backgroundColor;
     width: 100%;
     height: 100%;
@@ -41,7 +41,7 @@ form {
     padding-bottom: 2.5em;
 }
 
-form > * {
+form>* {
     height: 80px;
     min-height: 80px;
 }
@@ -51,16 +51,16 @@ form button {
     background-color: $backgroundColor;
 }
 
-form > button {
-    width:auto;
+form>button {
+    width: auto;
     border-radius: 5px;
     height: 50px;
     min-height: 40px;
-    margin-bottom:3%;
+    margin-bottom: 3%;
     font-size: large;
 }
 
-form button:hover{
+form button:hover {
     background-color: white;
     color: $backgroundColor;
     border: 1px solid black;
@@ -86,11 +86,11 @@ img {
     left: 50%;
     color: darkblue;
     font-size: large;
-    font-weight:500;
+    font-weight: 500;
     transform: translate(-50%, 0);
 }
 
-#loading-frame > * {
+#loading-frame>* {
     display: flex;
     gap: 15px;
     padding: 15px;
@@ -116,6 +116,7 @@ img {
         height: 8%;
         width: 15%;
     }
+
     form {
         height: 50%;
         padding: 1.5em;
@@ -130,8 +131,9 @@ img {
     }
 }
 
-@media only screen and (max-height : 600px ) and (max-width : 1920px), (max-width: 500px) {
-    img{
+@media only screen and (max-height : 600px) and (max-width : 1920px),
+(max-width: 500px) {
+    img {
         height: 8%;
         width: 15%;
         position: absolute;

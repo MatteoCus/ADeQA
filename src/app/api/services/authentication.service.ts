@@ -30,8 +30,8 @@ export class AuthenticationService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   login$Response(params: Login$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-'token'?: string;
-}>> {
+    'token'?: string;
+  }>> {
     return login(this.http, this.rootUrl, params, context);
   }
 
@@ -42,14 +42,14 @@ export class AuthenticationService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   login(params: Login$Params, context?: HttpContext): Observable<{
-'token'?: string;
-}> {
+    'token'?: string;
+  }> {
     return this.login$Response(params, context).pipe(
       map((r: StrictHttpResponse<{
-'token'?: string;
-}>): {
-'token'?: string;
-} => r.body)
+        'token'?: string;
+      }>): {
+        'token'?: string;
+      } => r.body)
     );
   }
 
@@ -63,8 +63,8 @@ export class AuthenticationService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   logout$Response(params: Logout$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-'status'?: string;
-}>> {
+    'status'?: string;
+  }>> {
     return logout(this.http, this.rootUrl, params, context);
   }
 
@@ -75,14 +75,14 @@ export class AuthenticationService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   logout(params: Logout$Params, context?: HttpContext): Observable<{
-'status'?: string;
-}> {
+    'status'?: string;
+  }> {
     return this.logout$Response(params, context).pipe(
       map((r: StrictHttpResponse<{
-'status'?: string;
-}>): {
-'status'?: string;
-} => r.body)
+        'status'?: string;
+      }>): {
+        'status'?: string;
+      } => r.body)
     );
   }
 

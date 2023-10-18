@@ -16,7 +16,7 @@ describe('LoginPinComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LoginPinComponent],
-      imports: [ 
+      imports: [
         HttpClientTestingModule,
         MatFormFieldModule,
         MatIconModule,

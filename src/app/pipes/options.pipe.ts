@@ -3,13 +3,13 @@ import { Pipe, PipeTransform } from "@angular/core";
 /**
  * Classe che gestisce il filtraggio delle opzioni
  */
-@Pipe({name: 'optionsTrim'})
+@Pipe({ name: 'optionsTrim' })
 export class OptionsPipe implements PipeTransform {
 
   /**
    * Costruttore della classe che gestisce il filtro delle opzioni
    */
-  constructor(){}
+  constructor() { }
 
   /**
    * Metodo per togliere le chiavi alle opzioni degli attributi da mostrare a video
@@ -18,6 +18,6 @@ export class OptionsPipe implements PipeTransform {
    * @returns L'opzione modificata senza la chiave
    */
   public transform(option: string, key: string): string {
-    return option.replaceAll(key,"").replaceAll("-","").trim();
+    return option.replaceAll(key, "").replaceAll("-", "").trim();
   }
 }

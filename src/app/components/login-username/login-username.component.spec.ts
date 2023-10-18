@@ -16,7 +16,7 @@ describe('LoginUsernameComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         HttpClientTestingModule,
         MatFormFieldModule,
         MatIconModule,
@@ -26,7 +26,7 @@ describe('LoginUsernameComponent', () => {
         BrowserAnimationsModule
       ],
       declarations: [LoginUsernameComponent],
-      providers: [ MatSnackBar ]
+      providers: [MatSnackBar]
     });
     fixture = TestBed.createComponent(LoginUsernameComponent);
     component = fixture.componentInstance;

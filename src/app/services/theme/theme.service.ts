@@ -11,7 +11,7 @@ export class ThemeService {
   /**
    * Costruttore di default
    */
-  constructor() {}
+  constructor() { }
 
   /**
    * Metodo per impostare il tema grafico dell'applicazione 
@@ -19,7 +19,7 @@ export class ThemeService {
    */
   public toggleTheme(dark: boolean) {
 
-    if(dark){
+    if (dark) {
       document.body.classList.remove('theme-light');
       document.body.classList.add('theme-dark');
     } else {

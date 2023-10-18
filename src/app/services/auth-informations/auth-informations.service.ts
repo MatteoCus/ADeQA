@@ -10,14 +10,14 @@ import { OperatorsService } from 'src/app/api/services';
 })
 export class AuthInformationsService {
 
-   /**
-   * Token per l'autenticazione durante l'uso delle API
-   */
+  /**
+  * Token per l'autenticazione durante l'uso delle API
+  */
   private token: string = "";
 
-   /**
-   * Id utente per acquisire informazioni da visualizzare a video
-   */
+  /**
+  * Id utente per acquisire informazioni da visualizzare a video
+  */
   private userId: number = 0;
 
   /**
@@ -43,17 +43,17 @@ export class AuthInformationsService {
   /**
    * Getter del token
    */
-  public get Token(): string {return this.token}
+  public get Token(): string { return this.token }
 
   /**
    * Getter dell'id utente
    */
-  public get UserId(): number {return this.userId}
+  public get UserId(): number { return this.userId }
 
   /**
    * Getter del nome utente
    */
-  public get UserName(): string { return this.userName;}
+  public get UserName(): string { return this.userName; }
 
   /**
    * Getter del tema predefinito

@@ -1,6 +1,7 @@
 table {
     width: 100%;
 }
+
 table * {
     text-align: center;
     padding-top: 0.5em;
@@ -25,16 +26,16 @@ mat-checkbox {
 }
 
 #submitButton {
-    margin:auto;
+    margin: auto;
     height: 2.5em;
     color: white;
 }
 
-#button-tooltip{
+#button-tooltip {
     display: flex;
-    margin:auto;
+    margin: auto;
     margin-bottom: 1em;
-    
+
 }
 
 .container {
@@ -44,4 +45,4 @@ mat-checkbox {
     overflow: auto;
     margin: auto;
     margin-top: 1em;
-  }
+}

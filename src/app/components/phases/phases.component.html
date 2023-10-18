@@ -1,24 +1,26 @@
-<cdk-virtual-scroll-viewport itemSize="100" class="scroll-viewport" >
+<cdk-virtual-scroll-viewport itemSize="100" class="scroll-viewport">
   <div>
-      <div *ngIf="loading">
-        <mat-card *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
-          <mat-card-content>
-            <p class="skeleton skeleton-text"></p>
-            <p class="skeleton skeleton-text"> </p>
-            <p class="skeleton skeleton-text"></p>
-            <p class="skeleton skeleton-text"> </p>
-            <p class="skeleton skeleton-text"> </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div *ngIf="!loading">
-        <mat-card class="phase"  color="primary" *ngFor="let phase of phases" (click)=" select('card-' + phases.indexOf(phase).toString()); setActivePhase(phase)" id="card-{{phases.indexOf(phase)}}" >
-          <mat-card-content>
-            <p [innerHTML]="phase.phasetitlehtml! | safeHtml"></p>
-            <p>{{"Inizio" | translate}}: {{phase.start_plan | date:'dd/MM/yyyy HH:mm'}}</p>
-            <p>{{"Fine" | translate}}: {{phase.end_plan | date:'dd/MM/yyyy HH:mm'}}</p>
-          </mat-card-content>
-        </mat-card>
-      </div>
+    <div *ngIf="loading">
+      <mat-card *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+        <mat-card-content>
+          <p class="skeleton skeleton-text"></p>
+          <p class="skeleton skeleton-text"> </p>
+          <p class="skeleton skeleton-text"></p>
+          <p class="skeleton skeleton-text"> </p>
+          <p class="skeleton skeleton-text"> </p>
+        </mat-card-content>
+      </mat-card>
     </div>
+    <div *ngIf="!loading">
+      <mat-card class="phase" color="primary" *ngFor="let phase of phases"
+        (click)=" select('card-' + phases.indexOf(phase).toString()); setActivePhase(phase)"
+        id="card-{{phases.indexOf(phase)}}">
+        <mat-card-content>
+          <p [innerHTML]="phase.phasetitlehtml! | safeHtml"></p>
+          <p>{{"Inizio" | translate}}: {{phase.start_plan | date:'dd/MM/yyyy HH:mm'}}</p>
+          <p>{{"Fine" | translate}}: {{phase.end_plan | date:'dd/MM/yyyy HH:mm'}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </cdk-virtual-scroll-viewport>

@@ -6,15 +6,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: DashboardComponent, 
+  {
+    path: '',
+    component: DashboardComponent,
     pathMatch: 'full',
   },
-  { path: 'login/username', component: LoginUsernameComponent},
-  { path: 'login/pin', component: LoginPinComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  
+  { path: 'login/username', component: LoginUsernameComponent },
+  { path: 'login/pin', component: LoginPinComponent },
+  { path: 'dashboard', component: DashboardComponent },
+
 ];
 
 @NgModule({

@@ -10,10 +10,10 @@ import { RequestBuilder } from '../../request-builder';
  * Interfaccia che definisce i parametri per il login - username
  */
 export interface Login$Params {
-      body: {
-'password'?: string;
-'username'?: string;
-}
+  body: {
+    'password'?: string;
+    'username'?: string;
+  }
 }
 
 /**
@@ -25,7 +25,7 @@ export interface Login$Params {
  * @returns Oggetto Observable contenete il body della risposta
  */
 export function login(http: HttpClient, rootUrl: string, params: Login$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-'token'?: string;
+  'token'?: string;
 }>> {
   const rb = new RequestBuilder(rootUrl, login.PATH, 'post');
   if (params) {
@@ -38,7 +38,7 @@ export function login(http: HttpClient, rootUrl: string, params: Login$Params, c
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
       return r as StrictHttpResponse<{
-      'token'?: string;
+        'token'?: string;
       }>;
     })
   );

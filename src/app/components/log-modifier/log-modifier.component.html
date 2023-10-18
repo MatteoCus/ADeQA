@@ -1,26 +1,33 @@
 <div class="header">{{"Attributi" | translate}}</div>
-    <!-- Form di inserimento di un nuovo log -->
-    <!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
-    <!-- <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content"> -->
+<!-- Form di inserimento di un nuovo log -->
+<!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
+<!-- <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content"> -->
 
 <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="add(); this.clearDialog();" id="content">
     <div class="container">
         <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
-    
-            <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
-                <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label> </th>
+
+            <ng-container [matColumnDef]="attribute.attributename!"
+                *ngFor="let attribute of activeAttributes; let i = index">
+                <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label>
+                </th>
                 <td mat-cell *matCellDef="let column">
                     <mat-form-field *ngIf="attribute.attributevaluetype == 'N'">
-                        <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}" color="primary" />
+                        <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}"
+                            color="primary" />
                     </mat-form-field>
                     <mat-form-field *ngIf="attribute.attributevaluetype == 'S'">
-                        <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}" color="primary" />
+                        <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}"
+                            color="primary" />
                     </mat-form-field>
-                    <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
+                    <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'"
+                        formControlName="control-{{i}}"></mat-checkbox>
                     <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
-                        <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary" >
-                            <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}} </mat-option>
-                        </mat-select> 
+                        <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary">
+                            <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index"
+                                value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </td>
             </ng-container>
@@ -29,31 +36,39 @@
         </table>
     </div>
     <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
-        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiungi" | translate}}</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiungi"
+            | translate}}</button>
     </div>
 </form>
 
-  <!-- Form di modifica di un log  -->
-  <!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
-  <!-- <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog()" id="content"> -->
+<!-- Form di modifica di un log  -->
+<!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
+<!-- <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog()" id="content"> -->
 
 <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="update(); clearDialog();" id="content">
     <div class="container">
         <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
-            <ng-container [matColumnDef]="attribute.attributename!" *ngFor="let attribute of activeAttributes; let i = index">
-                <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label> </th>
+            <ng-container [matColumnDef]="attribute.attributename!"
+                *ngFor="let attribute of activeAttributes; let i = index">
+                <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label>
+                </th>
                 <td mat-cell *matCellDef="let column">
                     <mat-form-field *ngIf="attribute.attributevaluetype == 'N'">
-                        <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}" color="primary" />
+                        <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}"
+                            color="primary" />
                     </mat-form-field>
                     <mat-form-field *ngIf="attribute.attributevaluetype == 'S'">
-                        <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}" color="primary" />
+                        <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}"
+                            color="primary" />
                     </mat-form-field>
-                    <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}" ></mat-checkbox>
+                    <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'"
+                        formControlName="control-{{i}}"></mat-checkbox>
                     <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
-                        <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary" >
-                            <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index" value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}} </mat-option>
-                        </mat-select> 
+                        <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary">
+                            <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index"
+                                value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </td>
             </ng-container>
@@ -62,6 +77,7 @@
         </table>
     </div>
     <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
-        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiorna" | translate}}</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiorna"
+            | translate}}</button>
     </div>
 </form>

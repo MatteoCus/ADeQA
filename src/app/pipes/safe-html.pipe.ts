@@ -4,14 +4,14 @@ import { DomSanitizer } from "@angular/platform-browser";
 /**
  * Classe che gestisce la sanificazione di input HTML
  */
-@Pipe({name: 'safeHtml'})
+@Pipe({ name: 'safeHtml' })
 export class SafePipe implements PipeTransform {
 
   /**
    * Costruttore della classe che gestisce la sanificazione di input HTML
    * @param sanitizer Oggetto che sanifica gli input
    */
-  constructor(private sanitizer: DomSanitizer){}
+  constructor(private sanitizer: DomSanitizer) { }
 
   /**
    * Metodo per sanificare una stringa contenente HTML

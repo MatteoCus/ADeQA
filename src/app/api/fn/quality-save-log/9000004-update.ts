@@ -13,7 +13,7 @@ import { QualitysavelogModel } from '../../models/qualitysavelog-model';
  */
 export interface Update$Params {
   AdesuiteToken: string;
-      body: QualitysavelogModel
+  body: QualitysavelogModel
 }
 
 /**

@@ -1,4 +1,4 @@
-export interface Message{
+export interface Message {
     token: string,
     lang: string,
     theme: 'DM' | 'WM',

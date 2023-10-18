@@ -13,8 +13,7 @@ $primary-dark: (
     A200 : #305cff,
     A400 : #0035fc,
     A700 : #0030e3,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #ffffff,
@@ -46,8 +45,7 @@ $primary-light: (
     A200 : #3255ff,
     A400 : #002cfe,
     A700 : #0027e5,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #ffffff,
@@ -64,8 +62,7 @@ $primary-light: (
     )
 );
 
-$accent-dark : (
-    50 : #f7eeff,
+$accent-dark : (50 : #f7eeff,
     100 : #ecd4ff,
     200 : #dfb8ff,
     300 : #d29cff,
@@ -79,8 +76,7 @@ $accent-dark : (
     A200 : #ffffff,
     A400 : #f3eaff,
     A700 : #e5d0ff,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #000000,
@@ -94,10 +90,9 @@ $accent-dark : (
         A200 : #000000,
         A400 : #000000,
         A700 : #000000,
-    )
-);
+    ));
 
-$accent-light:  (
+$accent-light: (
     50 : #e3e7f0,
     100 : #b8c4da,
     200 : #899dc1,
@@ -112,8 +107,7 @@ $accent-light:  (
     A200 : #5372ff,
     A400 : #2048ff,
     A700 : #0733ff,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #ffffff,

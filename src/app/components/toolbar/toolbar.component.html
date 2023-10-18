@@ -1,30 +1,35 @@
 <mat-toolbar id="toolbar" color="primary">
-    <div *ngIf="mobileQuery.matches" id="logo"></div>
-    <ng-content></ng-content>
-    <span *ngIf="!mobileQuery.matches">{{(today  | date:'MMMM')! | titlecase | translate}} {{today | date:'yyyy'}} - {{"Settimana" | translate}} {{today | date: 'ww'}}</span>
-    <span class="spacer"></span>
-    <div id="dark-theme-slider" title="{{'Cambio tema' | translate}}">
-      <mat-icon aria-hidden="false" [attr.aria-label]="'Tema chiaro' | translate" fontIcon="light_mode"></mat-icon>
-      <mat-slide-toggle [(ngModel)]="isDark" (change)="toggleTheme($event)" color="accent"></mat-slide-toggle>
-      <mat-icon aria-hidden="false" [attr.aria-label]="'Tema scuro' | translate" fontIcon="dark_mode"></mat-icon>
-    </div>
-    
-        <button id="translation" mat-icon-button [matMenuTriggerFor]="menu" [attr.aria-label]="'Cambio di linguaggio' | translate" title="{{'Traduzioni' | translate}}">
-            <mat-icon aria-hidden="false" fontIcon="language"></mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" id="languageMenu">
-            <button mat-menu-item *ngFor="let language of languages; let i = index" (click)="changeActiveLanguage(strictLang[i])" color="accent">
-              <span class="entry" [ngClass]="{'checkmark' : activeLanguage === strictLang[i]}" >{{language | translate}}</span>
-            </button>
-          </mat-menu>
-        
-    <span *ngIf="!mobileQuery.matches">{{user}}</span>
-    <img *ngIf="!mobileQuery.matches" src="../../../assets/icons/logo.jpg" />
+  <div *ngIf="mobileQuery.matches" id="logo"></div>
+  <ng-content></ng-content>
+  <span *ngIf="!mobileQuery.matches">{{(today | date:'MMMM')! | titlecase | translate}} {{today | date:'yyyy'}} -
+    {{"Settimana" | translate}} {{today | date: 'ww'}}</span>
+  <span class="spacer"></span>
+  <div id="dark-theme-slider" title="{{'Cambio tema' | translate}}">
+    <mat-icon aria-hidden="false" [attr.aria-label]="'Tema chiaro' | translate" fontIcon="light_mode"></mat-icon>
+    <mat-slide-toggle [(ngModel)]="isDark" (change)="toggleTheme($event)" color="accent"></mat-slide-toggle>
+    <mat-icon aria-hidden="false" [attr.aria-label]="'Tema scuro' | translate" fontIcon="dark_mode"></mat-icon>
+  </div>
 
-    <button *ngIf="mobileQuery.matches" [attr.aria-label]="'Logout completo' | translate" class="icon logout-mobile" (click)="openLogoutDialog()" title="{{'Logout completo' | translate}}">
-      <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
+  <button id="translation" mat-icon-button [matMenuTriggerFor]="menu"
+    [attr.aria-label]="'Cambio di linguaggio' | translate" title="{{'Traduzioni' | translate}}">
+    <mat-icon aria-hidden="false" fontIcon="language"></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" id="languageMenu">
+    <button mat-menu-item *ngFor="let language of languages; let i = index"
+      (click)="changeActiveLanguage(strictLang[i])" color="accent">
+      <span class="entry" [ngClass]="{'checkmark' : activeLanguage === strictLang[i]}">{{language | translate}}</span>
     </button>
-    <button *ngIf="mobileQuery.matches" [attr.aria-label]="'Logout parziale'  | translate" class="icon logout-mobile" (click)="openLogoutUserDialog()" title="{{'Logout parziale' | translate}}">
-        <mat-icon aria-hidden="false" fontIcon="change_circle"></mat-icon>
-    </button>
+  </mat-menu>
+
+  <span *ngIf="!mobileQuery.matches">{{user}}</span>
+  <img *ngIf="!mobileQuery.matches" src="../../../assets/icons/logo.jpg" />
+
+  <button *ngIf="mobileQuery.matches" [attr.aria-label]="'Logout completo' | translate" class="icon logout-mobile"
+    (click)="openLogoutDialog()" title="{{'Logout completo' | translate}}">
+    <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
+  </button>
+  <button *ngIf="mobileQuery.matches" [attr.aria-label]="'Logout parziale'  | translate" class="icon logout-mobile"
+    (click)="openLogoutUserDialog()" title="{{'Logout parziale' | translate}}">
+    <mat-icon aria-hidden="false" fontIcon="change_circle"></mat-icon>
+  </button>
 </mat-toolbar>

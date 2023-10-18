@@ -27,39 +27,40 @@ export class ActiveAttributesService {
    * @param activePhaseService Servizio per gestire la fase attiva
    */
   constructor(private qualityAttributeService: QualityAttributeService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService) {
-    this.activePhaseService.getActivePhase().subscribe(activePhase => {this.fetchAttributes(activePhase)});
-   }
+    this.activePhaseService.getActivePhase().subscribe(activePhase => { this.fetchAttributes(activePhase) });
+  }
 
-    /**
-   * Metodo per ottenere gli attributi relativi alla fase attualmente attiva
-   * @param activePhase Fase attualmente attiva
-   */
-    private fetchAttributes(activePhase: QualityphaseModel): void {
-  
-      const fieldName = "m_product_category_id" as 'optionvalue' | 'groupname' | 'groupdescription' | 'c_project_attribute_group_id' | 'attributeseqno' | 'attributedescription' | 'ad_reference_id' | 'm_product_category_id' | 'm_product_id' | 'attributevaluetype' | 'attributevalue' | 'attributename'
-      const value = activePhase.m_product_category_id;
-      const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined;
-      const token = this.authInfoService.Token;
-  
-      const params = {
-        "AdesuiteToken": token, 
-        "body": {
-             "startRow": 0,
-             "criteria" : [
-               {
-                 "fieldName": fieldName as 'optionvalue' | 'groupname' | 'groupdescription' | 'c_project_attribute_group_id' | 'attributeseqno' | 'attributedescription' | 'ad_reference_id' | 'm_product_category_id' | 'm_product_id' | 'attributevaluetype' | 'attributevalue' | 'attributename',
-                 "value": value?.toString(),
-                 "operator": operator as 'iNotContains' | 'iContains' | 'greaterOrEqual' | 'lessOrEqual' | 'equals'
-               },
-            ],
-             "endRow": 50
-        }};
-  
-      this.qualityAttributeService.fetch_3(params)
-      .subscribe( (response) => {
-          this.update(response.data!.map<QualityattributeModel>((attribute) => {return this.filterJsonOptions(attribute)}));
+  /**
+ * Metodo per ottenere gli attributi relativi alla fase attualmente attiva
+ * @param activePhase Fase attualmente attiva
+ */
+  private fetchAttributes(activePhase: QualityphaseModel): void {
+
+    const fieldName = "m_product_category_id" as 'optionvalue' | 'groupname' | 'groupdescription' | 'c_project_attribute_group_id' | 'attributeseqno' | 'attributedescription' | 'ad_reference_id' | 'm_product_category_id' | 'm_product_id' | 'attributevaluetype' | 'attributevalue' | 'attributename'
+    const value = activePhase.m_product_category_id;
+    const operator = "equals" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined;
+    const token = this.authInfoService.Token;
+
+    const params = {
+      "AdesuiteToken": token,
+      "body": {
+        "startRow": 0,
+        "criteria": [
+          {
+            "fieldName": fieldName as 'optionvalue' | 'groupname' | 'groupdescription' | 'c_project_attribute_group_id' | 'attributeseqno' | 'attributedescription' | 'ad_reference_id' | 'm_product_category_id' | 'm_product_id' | 'attributevaluetype' | 'attributevalue' | 'attributename',
+            "value": value?.toString(),
+            "operator": operator as 'iNotContains' | 'iContains' | 'greaterOrEqual' | 'lessOrEqual' | 'equals'
+          },
+        ],
+        "endRow": 50
+      }
+    };
+
+    this.qualityAttributeService.fetch_3(params)
+      .subscribe((response) => {
+        this.update(response.data!.map<QualityattributeModel>((attribute) => { return this.filterJsonOptions(attribute) }));
       });
-    }
+  }
 
 
   /**
@@ -73,12 +74,12 @@ export class ActiveAttributesService {
       key: [],
       value: []
     };
-    if(json != undefined) {
+    if (json != undefined) {
       const parsedJson = JSON.parse(json);
       dataList = {
-          key: parsedJson.key,
-          value: parsedJson.value,
-        };
+        key: parsedJson.key,
+        value: parsedJson.value,
+      };
     }
 
     return {
@@ -98,7 +99,7 @@ export class ActiveAttributesService {
         value: dataList
       }
     }
-  
+
   }
 
   /**
@@ -108,7 +109,7 @@ export class ActiveAttributesService {
   public update(attributes: Array<QualityattributeModel>): void {
     this.activeAttributes.next(attributes);
   }
-  
+
   /**
    * Metodo per ottenere un oggetto osservabile degli attributi attivi
    * @returns Oggetto osservabile, serve per eseguire codice al cambiamento degli attributi attivi

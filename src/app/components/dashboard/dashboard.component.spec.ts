@@ -10,7 +10,7 @@ describe('DashboardComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      providers: [ SidenavComponent ] //fare mock
+      providers: [SidenavComponent] //fare mock
     });
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;

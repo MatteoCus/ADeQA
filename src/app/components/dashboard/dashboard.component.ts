@@ -16,17 +16,17 @@ import { IframeInitializerService } from 'src/app/services/iframe-initializer/if
 export class DashboardComponent implements OnDestroy {
 
   /**
-   * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]
+   * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode] (possibili valori: 'over', 'push', 'side')
    */
   private queryListener: () => void;
 
   /**
-   * Lista di query per capire quando cambiare [mode]
+   * Lista di query per capire quando cambiare [mode] al menù delle fasi
    */
   public tabletQuery: MediaQueryList;
 
   /**
-   * Lista di query per capire quando nascondere la barra laterale
+   * Lista di query per capire quando nascondere la barra laterale e incorporarla alla barra del titolo
    */
   public mobileQuery: MediaQueryList;
 
@@ -54,7 +54,7 @@ export class DashboardComponent implements OnDestroy {
       }
       );
 
-    // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage
+    // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage (dall'applicazione contenitrice)
     if (this.insideFrame) {
       window.addEventListener("message", (event) => {
 

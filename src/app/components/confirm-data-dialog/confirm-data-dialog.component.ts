@@ -14,15 +14,15 @@ export class ConfirmDataDialogComponent implements OnInit {
   /**
    * Attributo che descrive il tipo di dialog (titolo + descrizione + riassunto dei dati)
    */
-  public fromPage!: {title: string, description: string, resume: string[]};
+  public fromPage!: { title: string, description: string, resume: string[] };
 
   /**
    * Costruttore della classe di presentazione e gestione degli eventi relativi a un dialog
    * @param dialogRef Riferimento programmatico al dialog grafico (per triggerarne la chiusura)
    * @param mydata Descrizione (titolo + descrizione + riassunto dei dati) del dialog
    */
-  constructor( public dialogRef: MatDialogRef<ConfirmDataDialogComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) {}
+  constructor(public dialogRef: MatDialogRef<ConfirmDataDialogComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any) { }
 
   /**
    * Metodo che inizializza titolo e descrizione del dialog

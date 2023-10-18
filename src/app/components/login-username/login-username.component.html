@@ -7,7 +7,8 @@
         <mat-form-field>
             <mat-label>Password</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Nascondi password' | translate" [attr.aria-pressed]="hide" id="visibility-button">
+            <button type='button' matSuffix (click)="hide = !hide" [attr.aria-label]="'Nascondi password' | translate"
+                [attr.aria-pressed]="hide" id="visibility-button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>

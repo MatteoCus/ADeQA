@@ -16,11 +16,11 @@ import { LanguageService } from 'src/app/services/language/language.service';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent implements OnInit{
+export class ToolbarComponent implements OnInit {
   /**
    * Attributo per gestire il toggle dello slider all'avvio
    */
-  public isDark : boolean = false;
+  public isDark: boolean = false;
 
   /**
    * Attributo contenente la data odierna (giorno in cui il component viene generato)
@@ -48,15 +48,15 @@ export class ToolbarComponent implements OnInit{
    */
   public activeLanguage: string = "";
 
-    /**
-   * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]
-   */
-    private queryListener: () => void;
+  /**
+ * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]
+ */
+  private queryListener: () => void;
 
-    /**
-     * Lista di query per capire quando cambiare [mode]
-     */
-    public mobileQuery: MediaQueryList;
+  /**
+   * Lista di query per capire quando cambiare [mode]
+   */
+  public mobileQuery: MediaQueryList;
 
   /**
    * Costruttore della classe che gestisce l'intestazione della visualizzazione grafica 
@@ -65,7 +65,7 @@ export class ToolbarComponent implements OnInit{
    * @param logoutService Servizio di gestione logout
    * @param dialog Dialog di logout
    */
-  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private languageService: LanguageService){
+  constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private languageService: LanguageService) {
 
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this.queryListener = () => changeDetectorRef.detectChanges();
@@ -100,7 +100,7 @@ export class ToolbarComponent implements OnInit{
    * Metodo per cambiare linguaggio di traduzione dell'applicazione
    * @param language Nuovo linguaggio in cui l'applicazione deve essere tradotta
    */
-  public changeActiveLanguage(language: string) : void {
+  public changeActiveLanguage(language: string): void {
     this.languageService.changeLanguage(language);
   }
 
@@ -108,59 +108,59 @@ export class ToolbarComponent implements OnInit{
    * Metodo per cambiare tema dell'applicazione
    * @param checked Indica se il nuovo tema è scuro o chiaro
    */
-  public toggleTheme({checked}: MatSlideToggleChange): void {
+  public toggleTheme({ checked }: MatSlideToggleChange): void {
     this.isDark = checked;
-    this.themeService.toggleTheme(this.isDark);    
+    this.themeService.toggleTheme(this.isDark);
   }
 
-    /**
-   * Metodo per gestire le interazioni con il dialog di logout generale 
-   * Occorre reinserire nome utente e password per ri-ottenere il token
+  /**
+ * Metodo per gestire le interazioni con il dialog di logout generale 
+ * Occorre reinserire nome utente e password per ri-ottenere il token
+ */
+  public openLogoutDialog(): void {
+    const logoutDialog = this.dialog.open(LogoutDialogComponent, {
+      data: {
+        title: 'Logout generale',
+        description: 'Occorre reinserire username e pin'
+      }
+    });
+
+    logoutDialog.afterClosed().subscribe((result) => {
+      switch (result.event) {
+        case "exit-option":
+          this.logoutService.logout();
+          break;
+        case "stay-option":
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
+  /**
+   * Metodo per gestire le interazioni con il dialog di logout parziale 
+   * Occorre reinserire il pin per ri-accedere ai servizi in qualità di operatore
    */
-    public openLogoutDialog(): void {
-      const logoutDialog = this.dialog.open(LogoutDialogComponent, {
-        data: {
-          title:'Logout generale',
-          description: 'Occorre reinserire username e pin'
-        }
-      });
-  
-      logoutDialog.afterClosed().subscribe((result) => {
-        switch(result.event) {
-          case "exit-option":
-            this.logoutService.logout();
-            break;
-          case "stay-option":
-            break;
-          default:
-            break;
-        }
-      });
-    }
-  
-    /**
-     * Metodo per gestire le interazioni con il dialog di logout parziale 
-     * Occorre reinserire il pin per ri-accedere ai servizi in qualità di operatore
-     */
-    public openLogoutUserDialog(): void {
-      const logoutDialog = this.dialog.open(LogoutDialogComponent, {
-        data: {
-          title:'Logout parziale',
-          description: 'Occorre reinserire il pin'
-        }
-      });
-  
-      logoutDialog.afterClosed().subscribe((result) => {
-        switch(result.event) {
-          case "exit-option":
-            this.logoutService.logoutUserId();
-            break;
-          case "stay-option":
-            break;
-          default:
-            break;
-        }
-      });
-    }
+  public openLogoutUserDialog(): void {
+    const logoutDialog = this.dialog.open(LogoutDialogComponent, {
+      data: {
+        title: 'Logout parziale',
+        description: 'Occorre reinserire il pin'
+      }
+    });
+
+    logoutDialog.afterClosed().subscribe((result) => {
+      switch (result.event) {
+        case "exit-option":
+          this.logoutService.logoutUserId();
+          break;
+        case "stay-option":
+          break;
+        default:
+          break;
+      }
+    });
+  }
 
 }

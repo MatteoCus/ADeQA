@@ -2,7 +2,8 @@
     <app-sidenav *ngIf="!mobileQuery.matches && !InsideFrame"></app-sidenav>
     <div id="mainFrame">
         <app-toolbar>
-            <button id="menu" mat-icon-button (click)="drawer.toggle()" title="{{'Fasi di lavorazione' | translate}}"><mat-icon>menu</mat-icon></button>
+            <button id="menu" mat-icon-button (click)="drawer.toggle()"
+                title="{{'Fasi di lavorazione' | translate}}"><mat-icon>menu</mat-icon></button>
         </app-toolbar>
         <mat-drawer-container [hasBackdrop]="tabletQuery.matches" id="mainContent">
             <mat-drawer #drawer [mode]="tabletQuery.matches? 'over' : 'side'" opened>
@@ -16,7 +17,7 @@
     </div>
 </div>
 
-<div id="container"*ngIf="InsideFrame">
+<div id="container" *ngIf="InsideFrame">
     <div id="mainFrame">
         <div id="mainContent">
             <div id="logView">

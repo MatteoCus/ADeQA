@@ -38,29 +38,29 @@ export class PhasesComponent implements OnInit {
    * @param logoutService Servizio di gestione del logout
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService, private translateService: TranslateService){
-        // Osserva il rendering del primo pulsante: appena renderizzato, lo preme per far comparire gli attributi
-        var observer = new MutationObserver(function() {
-          if (document.getElementsByClassName('phase').item(0) != null) {
-            let firstCard: HTMLElement = document.getElementsByClassName('phase')[0] as HTMLElement;
-            firstCard.click();
-            observer.disconnect();
-           }
-       });
-       observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true})
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService, private translateService: TranslateService) {
+    // Osserva il rendering del primo pulsante: appena renderizzato, lo preme per far comparire gli attributi
+    var observer = new MutationObserver(function () {
+      if (document.getElementsByClassName('phase').item(0) != null) {
+        let firstCard: HTMLElement = document.getElementsByClassName('phase')[0] as HTMLElement;
+        firstCard.click();
+        observer.disconnect();
+      }
+    });
+    observer.observe(document, { attributes: false, childList: true, characterData: false, subtree: true })
   }
 
   /**
    * Inizializzazione delle fasi: chiamata API per ottenere le fasi
    */
-  ngOnInit(){
+  ngOnInit() {
 
     const token = this.authInfoService.Token;
 
     // Dichiarazioni dettate dai modelli in /app/api/models
-    const start_plan = "start_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id' ;
-    const end_plan = "end_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id' ;
-    const status = "status" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id' ;
+    const start_plan = "start_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id';
+    const end_plan = "end_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id';
+    const status = "status" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id';
     const start_plan_operator = "greaterOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
     const end_plan_operator = "lessOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
     const status_operator = "greaterOrEqual" as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual";
@@ -72,8 +72,8 @@ export class PhasesComponent implements OnInit {
     // -) status_value: I, L (tutto tranne C)
     const previousMonth: number = (new Date().getMonth() - 1) % 12;
     const nextMonth: number = (new Date().getMonth() + 1) % 12;
-    const previousYear : number = previousMonth == 11? new Date().getFullYear() - 1 : new Date().getFullYear();
-    const nextYear: number = nextMonth == 0? new Date().getFullYear() + 1 : new Date().getFullYear();
+    const previousYear: number = previousMonth == 11 ? new Date().getFullYear() - 1 : new Date().getFullYear();
+    const nextYear: number = nextMonth == 0 ? new Date().getFullYear() + 1 : new Date().getFullYear();
 
     const start_plan_date: Date = new Date();
     const end_plan_date: Date = new Date();
@@ -84,18 +84,18 @@ export class PhasesComponent implements OnInit {
     end_plan_date.setFullYear(nextYear);
 
     const params = {
-    "AdesuiteToken": token, 
-    "body": {
-         "startRow": 0,
-         "criteria" : [
-           {
-             "fieldName": start_plan as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
-             "value": start_plan_date.toISOString().replace("T", " ").replace("Z", "").substring(0,22),
-             "operator": start_plan_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
-           },
-           {
+      "AdesuiteToken": token,
+      "body": {
+        "startRow": 0,
+        "criteria": [
+          {
+            "fieldName": start_plan as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            "value": start_plan_date.toISOString().replace("T", " ").replace("Z", "").substring(0, 22),
+            "operator": start_plan_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+          },
+          {
             "fieldName": end_plan as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
-            "value": end_plan_date.toISOString().replace("T", " ").replace("Z", "").substring(0,22),
+            "value": end_plan_date.toISOString().replace("T", " ").replace("Z", "").substring(0, 22),
             "operator": end_plan_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           },
           {
@@ -103,30 +103,31 @@ export class PhasesComponent implements OnInit {
             "value": status_value,
             "operator": status_operator as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
-         ],
+        ],
         "orderby": [
           {
             "columnname": "end_plan" as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             "direction": "ASC" as 'DESC' | 'ASC'
           }
         ],
-         "endRow": 50
-    }};
+        "endRow": 50
+      }
+    };
 
     this.qualityPhaseService.fetch_2(params)
-    .subscribe({
-      next: (response) => {
-        (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar(this.translateService.instant("Errore: non ci sono fasi da visualizzare!") ,"X");
-      },
-      error: (error) => {
-        const errorDescription = (error.error as ErrorModel) != null? (error.error as ErrorModel).description : ( error.status == 401? "Non autorizzato" : "Errore lato server");
-        this.openSnackBar(this.translateService.instant("Errore " + error.status + " - " + errorDescription), "X");
-        if(error.status == 401){
-          this.logoutService.logout();
-        }
-      },
-      complete: () => { this.loading = false; }
-    });
+      .subscribe({
+        next: (response) => {
+          (response.data != undefined && response.data != null && response.data.length != 0) ? this.phases = response.data : this.openSnackBar(this.translateService.instant("Errore: non ci sono fasi da visualizzare!"), "X");
+        },
+        error: (error) => {
+          const errorDescription = (error.error as ErrorModel) != null ? (error.error as ErrorModel).description : (error.status == 401 ? "Non autorizzato" : "Errore lato server");
+          this.openSnackBar(this.translateService.instant("Errore " + error.status + " - " + errorDescription), "X");
+          if (error.status == 401) {
+            this.logoutService.logout();
+          }
+        },
+        complete: () => { this.loading = false; }
+      });
 
   }
 
@@ -137,8 +138,8 @@ export class PhasesComponent implements OnInit {
   */
   private openSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
-      panelClass: ['red-snackbar','login-snackbar'],
-      });
+      panelClass: ['red-snackbar', 'login-snackbar'],
+    });
   }
 
   /**
@@ -146,9 +147,9 @@ export class PhasesComponent implements OnInit {
    * @param id Identificativo dell'elemento HTML cliccato
    */
   public select(id: string): void {
-    document.getElementsByClassName("selected-card")[0]? document.getElementsByClassName("selected-card")[0].classList.remove("selected-card"): "";
+    document.getElementsByClassName("selected-card")[0] ? document.getElementsByClassName("selected-card")[0].classList.remove("selected-card") : "";
     let activeElement = document.getElementById(id);
-    if(activeElement != null && activeElement != undefined && activeElement?.textContent != null && activeElement?.textContent != "") {
+    if (activeElement != null && activeElement != undefined && activeElement?.textContent != null && activeElement?.textContent != "") {
       activeElement?.classList.add("selected-card");
     } else {
       this.openSnackBar(this.translateService.instant("La carta selezionata non contiene testo!"), "X");

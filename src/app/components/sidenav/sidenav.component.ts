@@ -20,7 +20,7 @@ export class SidenavComponent {
    * @param logoutService Servizio di gestione logout
    * @param dialog Dialog di logout
    */
-  constructor(private logoutService: LogoutService, private dialog: MatDialog) {}
+  constructor(private logoutService: LogoutService, private dialog: MatDialog) { }
 
   /**
    * Metodo per gestire le interazioni con il dialog di logout generale 
@@ -29,13 +29,13 @@ export class SidenavComponent {
   public openLogoutDialog(): void {
     const logoutDialog = this.dialog.open(LogoutDialogComponent, {
       data: {
-        title:'Logout generale',
+        title: 'Logout generale',
         description: 'Occorre reinserire username e pin'
       }
     });
 
     logoutDialog.afterClosed().subscribe((result) => {
-      switch(result.event) {
+      switch (result.event) {
         case "exit-option":
           this.logoutService.logout();
           break;
@@ -54,13 +54,13 @@ export class SidenavComponent {
   public openLogoutUserDialog(): void {
     const logoutDialog = this.dialog.open(LogoutDialogComponent, {
       data: {
-        title:'Logout parziale',
+        title: 'Logout parziale',
         description: 'Occorre reinserire il pin'
       }
     });
 
     logoutDialog.afterClosed().subscribe((result) => {
-      switch(result.event) {
+      switch (result.event) {
         case "exit-option":
           this.logoutService.logoutUserId();
           break;

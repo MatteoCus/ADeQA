@@ -5,55 +5,56 @@
 
 .spacer {
     flex: 1 1 auto;
-  }
+}
 
 img {
     width: 40px;
     border-radius: 40px;
 }
 
-#toolbar > * {
+#toolbar>* {
     margin-left: 1em;
 }
 
-#dark-theme-slider{
+#dark-theme-slider {
     display: flex;
     align-items: center;
     transition-duration: 0ms;
 }
 
-#dark-theme-slider > * {
+#dark-theme-slider>* {
     margin-left: 0.2em;
 }
 
 .checkmark:before {
-    content:'L';
+    content: 'L';
     font-family: arial;
     transform: scaleX(-1) rotate(-35deg);
-    display:inline-block;
+    display: inline-block;
     vertical-align: top;
     line-height: 1em;
     width: 1em;
-    height:1em;
+    height: 1em;
     margin-left: 0.5em;
     text-align: center;
     position: absolute;
     left: 0;
-  }
+}
 
-  .entry{
+.entry {
     margin-left: 1em;
-  }
+}
 
-  #logo {
+#logo {
     flex: 0 0 60px;
     height: 30px;
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size: contain;
     margin-right: 1em;
 }
 
-.logout-mobile, #translation {
+.logout-mobile,
+#translation {
     width: 48px;
     height: 48px;
     border-radius: 100%;

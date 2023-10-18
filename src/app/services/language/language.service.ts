@@ -19,7 +19,7 @@ export class LanguageService {
    * Costruttore della classe di gestione del linguaggio attivo
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private translateService: TranslateService) {}
+  constructor(private translateService: TranslateService) { }
 
   /**
    * Metodo per cambiare il linguaggio attivo
@@ -27,7 +27,7 @@ export class LanguageService {
    */
   public changeLanguage(language: string): void {
 
-    if(language != 'it' && language != 'es' && language != 'en') {
+    if (language != 'it' && language != 'es' && language != 'en') {
       language = 'it'
     }
 
