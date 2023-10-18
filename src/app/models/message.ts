@@ -1,3 +1,6 @@
+/**
+ * Interfaccia che modella il messaggio in ingresso all'applicazione se esegue in un iframe
+ */
 export interface Message {
     token: string,
     lang: string,

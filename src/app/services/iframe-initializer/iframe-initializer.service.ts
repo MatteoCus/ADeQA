@@ -11,7 +11,7 @@ import { ErrorModel } from 'src/app/api/models';
 import { Message } from 'src/app/models/message';
 
 /**
- * Classe di gestione dell'inizializzazione dei servizi se il software esegue all'interno di un <iframe>
+ * Classe di gestione dell'inizializzazione dei servizi se il software esegue all'interno di un iframe
  */
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ import { Message } from 'src/app/models/message';
 export class IframeInitializerService {
 
   /**
-   * Costruttore della classe relativa all'inizializzazione dei servizi se il software esegue in un <iframe>
+   * Costruttore della classe relativa all'inizializzazione dei servizi se il software esegue in un iframe
    * @param snackBar Barra di notifica eventi
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param languageService Servizio di gestione del linguaggio attivo nell'applicazione
@@ -44,8 +44,8 @@ export class IframeInitializerService {
   }
 
   /**
-   * Metodo per inizializzare i vari servizi in caso di utilizzo del software all'interno di un <iframe>
-   * @param data Dati passati dalla pagina che contiene il software all'interno di un <iframe>
+   * Metodo per inizializzare i vari servizi in caso di utilizzo del software all'interno di un iframe
+   * @param data Dati passati dalla pagina che contiene il software all'interno di un iframe
    */
   public initialize(data: Message): void {
 

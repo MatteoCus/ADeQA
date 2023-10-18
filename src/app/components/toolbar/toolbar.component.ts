@@ -64,6 +64,7 @@ export class ToolbarComponent implements OnInit {
    * @param themeService Servizio di gestione del tema grafico di interfaccia
    * @param logoutService Servizio di gestione logout
    * @param dialog Dialog di logout
+   * @param languageService Servizio di gestione del linguaggio attivo nell'applicazione
    */
   constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private languageService: LanguageService) {
 
@@ -114,9 +115,9 @@ export class ToolbarComponent implements OnInit {
   }
 
   /**
- * Metodo per gestire le interazioni con il dialog di logout generale 
- * Occorre reinserire nome utente e password per ri-ottenere il token
- */
+   * Metodo per gestire le interazioni con il dialog di logout generale 
+   * Occorre reinserire nome utente e password per ri-ottenere il token
+   */
   public openLogoutDialog(): void {
     const logoutDialog = this.dialog.open(LogoutDialogComponent, {
       data: {

@@ -31,17 +31,17 @@ export class DashboardComponent implements OnDestroy {
   public mobileQuery: MediaQueryList;
 
   /**
-   * Attributo booleano che indica se l'interfaccia viene visualizzata all'interno di un <iframe>
+   * Attributo booleano che indica se l'interfaccia viene visualizzata all'interno di un iframe
    */
   private insideFrame: boolean = false;
 
   /**
-   * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId) se non si è all'interno di un <iframe>
-   * Se si è all'interno di un <iframe>, il software viene richiamato con il parametro 'inside=true'
+   * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId) se non si è all'interno di un iframe
+   * Se si è all'interno di un iframe, il software viene richiamato con il parametro 'inside=true'
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
    * @param router Router per eseguire dei reindirizzamenti su browser
    * @param route URL attivo
-   * @param iframeInitService Servizio di inizializzazione dei servizi indispensabili per il funzionamento dell'applicazione in un <iframe>
+   * @param iframeInitService Servizio di inizializzazione dei servizi indispensabili per il funzionamento dell'applicazione in un iframe
    */
   constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute, private iframeInitService: IframeInitializerService) {
     this.route.queryParams
