@@ -6,7 +6,9 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-
+/**
+ * Interfaccia che definisce i parametri per il login - username
+ */
 export interface Login$Params {
       body: {
 'password'?: string;
@@ -14,6 +16,14 @@ export interface Login$Params {
 }
 }
 
+/**
+ * Funzione di utilità per il login - username
+ * @param http Servizio di utilità per eseguire chiamate HTTP
+ * @param rootUrl URL di base della richiesta
+ * @param params Parametri per effettuare la richiesta
+ * @param context Contesto HTTP della richiesta
+ * @returns Oggetto Observable contenete il body della risposta
+ */
 export function login(http: HttpClient, rootUrl: string, params: Login$Params, context?: HttpContext): Observable<StrictHttpResponse<{
 'token'?: string;
 }>> {
@@ -34,4 +44,7 @@ export function login(http: HttpClient, rootUrl: string, params: Login$Params, c
   );
 }
 
+/**
+ * Path relativo in cui trovare l'API relativa al login - username
+ */
 login.PATH = '/login';

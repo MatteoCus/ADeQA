@@ -7,6 +7,7 @@ import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-
 import { MatDialog } from '@angular/material/dialog';
 import { OptionsPipe } from 'src/app/pipes/options.pipe';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -59,7 +60,8 @@ export class LogModifierComponent implements OnInit {
    * @param dialog Dialog di conferma dei dati inseriti dall'utente
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService){}
+  constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
+    private authInfoService: AuthInformationsService){}
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
@@ -170,11 +172,23 @@ export class LogModifierComponent implements OnInit {
    * Metodo per aggiungere un nuovo log relativo alla fase di qualità data
    */
   public add(): void {
-    console.info(this.activeAttributes.length);
+
+    const token: string = this.authInfoService.Token;
+    let qualityvalue: string = "{\"";
 
     for(let i=0; i < this.activeAttributes.length; i++) {
-      console.log(this.form.value['control-'+i]);
+      qualityvalue += this.activeAttributes.at(i)?.attributename;
+      qualityvalue += "\": \"";
+      qualityvalue += this.form.value['control-'+i];
+      qualityvalue += "\"";
+
+      if(i != this.activeAttributes.length -1){
+        qualityvalue += ","
+      }
     }
+    qualityvalue += "}";
+
+    console.log(this.form.value);
   }
 
   /**
