@@ -13,10 +13,6 @@ import { fetch } from '../fn/operators/fetch';
 import { Fetch$Params } from '../fn/operators/fetch';
 import { FetchResponseOperatorsModel } from '../models/fetch-response-operators-model';
 
-
-/**
- * Lista degli operatori con PIN
- */
 @Injectable({ providedIn: 'root' })
 export class OperatorsService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
