@@ -1,0 +1,1461 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ade-qa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ade-qa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginPinComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/login-pin/login-pin.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Classe che gestisce il form di login con username e password</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login-pin</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login-pin.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login-pin.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hide" >hide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#append" >append</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clear" >clear</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#login" >login</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openSnackBar" >openSnackBar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#prepareParams" >prepareParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeLast" >removeLast</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: FormBuilder, operatorsService: <a href="../injectables/OperatorsService.html" target="_self">OperatorsService</a>, authInfoService: <a href="../injectables/AuthInformationsService.html" target="_self">AuthInformationsService</a>, snackBar: MatSnackBar, router: Router, translateService: TranslateService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Costruttore della classe di login con pin: evita di renderizzare la pagina se non si è prima ottenuto il token
+Reindirizza alla dashboard qualora vi fosse già una sessione attiva</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Variabile atta alla costruzione del form a livello logico</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>operatorsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OperatorsService.html" target="_self" >OperatorsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per ottenere gli operatori attivi</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>authInfoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthInformationsService.html" target="_self" >AuthInformationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per gestire le informazioni relative all&#39;autenticazione</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Barra di visualizzazione di messaggi di stato (ex. login fallito)</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Router per eseguire dei reindirizzamenti su browser</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="append"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>append</b></span>
+                        <a href="#append"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>append(input: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per appendere l&#39;ultimo numero inserito dall&#39;utente nella casella di testo riservata al pin</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>input</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Numero da aggiungere alla stringa numerica che rappresenta il pin immesso dall&#39;utente</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clear"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>clear</b></span>
+                        <a href="#clear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clear()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per cancellare il pin inserito, pulendo la casella di testo</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>login()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per eseguire il login, consente di salvare l&#39;id utente nel servizio authInfoService e passare così alla visualizzazione di fasi e informazioni di controllo qualità
+In caso di errore, gestisce l&#39;apertura della barra di stato
+Gestisce l&#39;apertura della barra di caricamento</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Costruzione del form alla creazione del componente</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>openSnackBar</b></span>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per l&#39;apertura della barra di visualizzazione di messaggi di stato</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Messaggio da mostrare</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Etichetta del pulsante di chiusura</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>prepareParams</b></span>
+                        <a href="#prepareParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>prepareParams(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, operator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per preparare i parametri per le richieste relative agli operatori</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Token di autenticazione per eseguire la chiamata</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fieldName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Campo per il quale filtrare</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Valore per il quale filtrare</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>operator</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Operatore per il quale filtrare</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Fetch$Params.html" target="_self" >Fetch$Params</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>I parametri per una richiesta relativa agli operatori</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeLast"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeLast</b></span>
+                        <a href="#removeLast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeLast()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per rimuovere l&#39;ultima cifra del pin inserito</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form di login</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hide"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>hide</b></span>
+                        <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variabile booleana per cambiare l&#39;icona che nasconde il contenuto del campo &quot;password&quot;</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/login-pin/login-pin.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variabile booleana per far comparire la rotellina di caricamento qualora la richiesta di login impiegasse più tempo del normale</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ErrorModel } from &#x27;src/app/api/models&#x27;;
+import { OperatorsService } from &#x27;src/app/api/services&#x27;;
+import { AuthInformationsService } from &#x27;src/app/services/auth-informations/auth-informations.service&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Fetch$Params } from &#x27;src/app/api/fn/operators/fetch&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+
+/**
+ * Classe che gestisce il form di login con username e password
+ */
+@Component({
+  selector: &#x27;app-login-pin&#x27;,
+  templateUrl: &#x27;./login-pin.component.html&#x27;,
+  styleUrls: [&#x27;./login-pin.component.scss&#x27;]
+})
+export class LoginPinComponent implements OnInit {
+
+  /**
+  * Variabile booleana per cambiare l&#x27;icona che nasconde il contenuto del campo &quot;password&quot;
+  */
+  public hide: boolean &#x3D; true;
+
+  /**
+   * Form di login
+   */
+  public form!: FormGroup;
+
+  /**
+   * Variabile booleana per far comparire la rotellina di caricamento qualora la richiesta di login impiegasse più tempo del normale
+   */
+  public loading: boolean &#x3D; false;
+
+  /**
+   * Costruttore della classe di login con pin: evita di renderizzare la pagina se non si è prima ottenuto il token
+   * Reindirizza alla dashboard qualora vi fosse già una sessione attiva
+   * @param formBuilder Variabile atta alla costruzione del form a livello logico
+   * @param operatorsService Servizio per ottenere gli operatori attivi
+   * @param authInfoService Servizio per gestire le informazioni relative all&#x27;autenticazione
+   * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
+   * @param router Router per eseguire dei reindirizzamenti su browser
+   * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
+   */
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) {
+    if (localStorage.getItem(&#x27;ADeToken&#x27;) &#x3D;&#x3D; null || localStorage.getItem(&#x27;ADeToken&#x27;) &#x3D;&#x3D; &quot;&quot;) {
+      this.router.navigate([&#x27;login/username&#x27;]);
+    }
+
+    if (sessionStorage.getItem(&#x27;ADeUserId&#x27;) !&#x3D; &quot;&quot; &amp;&amp; sessionStorage.getItem(&#x27;ADeUserId&#x27;) !&#x3D; null &amp;&amp; sessionStorage.getItem(&#x27;ADeUserId&#x27;) as any as number !&#x3D; 0
+      &amp;&amp; sessionStorage.getItem(&#x27;ADeUserName&#x27;) !&#x3D; &quot;&quot; &amp;&amp; sessionStorage.getItem(&#x27;ADeUserName&#x27;) !&#x3D; null &amp;&amp; sessionStorage.getItem(&#x27;ADeUserName&#x27;) !&#x3D; &quot;&quot;
+      &amp;&amp; sessionStorage.getItem(&#x27;ADeUserTheme&#x27;) !&#x3D; &quot;&quot; &amp;&amp; sessionStorage.getItem(&#x27;ADeUserTheme&#x27;) !&#x3D; null &amp;&amp; sessionStorage.getItem(&#x27;ADeUserTheme&#x27;) as any as &quot;DM&quot; | &quot;WM&quot; | undefined !&#x3D; undefined) {
+      this.authInfoService.UserId &#x3D; sessionStorage.getItem(&#x27;ADeUserId&#x27;) as any as number;
+      this.authInfoService.UserName &#x3D; sessionStorage.getItem(&quot;ADeUserName&quot;)!;
+      this.authInfoService.UserTheme &#x3D; sessionStorage.getItem(&quot;ADeUserTheme&quot;) as &quot;DM&quot; | &quot;WM&quot;;
+      this.router.navigate([&#x27;dashboard&#x27;]);
+    }
+  }
+
+  /**
+   * Costruzione del form alla creazione del componente
+   */
+  ngOnInit() {
+    this.form &#x3D; this.formBuilder.group({
+      pin: [&#x27;&#x27;, Validators.required]
+    });
+  }
+
+  /**
+   * Metodo per l&#x27;apertura della barra di visualizzazione di messaggi di stato
+   * @param message Messaggio da mostrare
+   * @param type Etichetta del pulsante di chiusura
+   */
+  private openSnackBar(message: string, type: string): void {
+    this.snackBar.open(message, type, {
+      panelClass: [&#x27;red-snackbar&#x27;, &#x27;login-snackbar&#x27;],
+    });
+  }
+
+  /**
+   * Metodo per preparare i parametri per le richieste relative agli operatori
+   * @param token Token di autenticazione per eseguire la chiamata
+   * @param fieldName Campo per il quale filtrare
+   * @param value Valore per il quale filtrare
+   * @param operator Operatore per il quale filtrare
+   * @returns I parametri per una richiesta relativa agli operatori
+   */
+  private prepareParams(token: string, fieldName: string, value: string, operator: string): Fetch$Params {
+    return {
+      &quot;AdesuiteToken&quot;: token,
+      &quot;body&quot;: {
+        &quot;startRow&quot;: 0,
+        &quot;criteria&quot;: [
+          {
+            &quot;fieldName&quot;: fieldName as &quot;userpin&quot; | &quot;mes_theme_display&quot; | &quot;mes_theme&quot; | &quot;note&quot; | &quot;name&quot; | &quot;ismobileuser&quot; | &quot;numero_matricola&quot; | &quot;isactive&quot; | &quot;foto&quot; | &quot;ad_user_id&quot; | undefined,
+            &quot;value&quot;: value,
+            &quot;operator&quot;: operator as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot; | undefined
+          }
+        ],
+        &quot;endRow&quot;: 1
+      }
+    };
+  }
+
+  /**
+   * Metodo per appendere l&#x27;ultimo numero inserito dall&#x27;utente nella casella di testo riservata al pin 
+   * @param input Numero da aggiungere alla stringa numerica che rappresenta il pin immesso dall&#x27;utente
+   */
+  public append(input: number): void {
+    const previous &#x3D; this.form.get(&#x27;pin&#x27;)?.value;
+    this.form.setValue({ &quot;pin&quot;: previous + input });
+  }
+
+  /**
+   * Metodo per cancellare il pin inserito, pulendo la casella di testo
+   */
+  public clear(): void {
+    this.form &#x3D; this.formBuilder.group({
+      pin: [&#x27;&#x27;, Validators.required]
+    });
+  }
+
+  /**
+   * Metodo per rimuovere l&#x27;ultima cifra del pin inserito
+   */
+  public removeLast(): void {
+    const element &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&quot;pin&quot;));
+    this.form.setValue({ &quot;pin&quot;: element.value.substring(0, element.value.length - 1) });
+  }
+
+  /**
+   * Metodo per eseguire il login, consente di salvare l&#x27;id utente nel servizio authInfoService e passare così alla visualizzazione di fasi e informazioni di controllo qualità
+   * In caso di errore, gestisce l&#x27;apertura della barra di stato
+   * Gestisce l&#x27;apertura della barra di caricamento
+   */
+  public login(): void {
+
+    if (this.form.invalid) {
+      this.openSnackBar((this.translateService.instant(&quot;Il pin inserito non è valido!&quot;)), &quot;X&quot;);
+      return;
+    }
+
+    // Dichiarazioni dati di autenticazione
+    const token &#x3D; this.authInfoService.Token;
+    const pin &#x3D; this.form.controls[&#x27;pin&#x27;].value;
+
+    // Dichiarazioni dettate dai modelli in /app/api/models
+    const fieldName &#x3D; &quot;userpin&quot; as &quot;userpin&quot; | &quot;mes_theme_display&quot; | &quot;mes_theme&quot; | &quot;note&quot; | &quot;name&quot; | &quot;ismobileuser&quot; | &quot;numero_matricola&quot; | &quot;isactive&quot; | &quot;foto&quot; | &quot;ad_user_id&quot;;
+    const operator &#x3D; &quot;equals&quot; as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot;;
+
+    this.loading &#x3D; true;
+
+    const params &#x3D; this.prepareParams(token, fieldName, pin, operator);
+
+    this.operatorsService.fetch(params)
+      .subscribe({
+        next: (response) &#x3D;&gt; {
+
+          if (response.data !&#x3D; undefined &amp;&amp; response.data[0] !&#x3D; undefined &amp;&amp; response.data[0].ad_user_id !&#x3D; undefined &amp;&amp; response.data[0].name !&#x3D; undefined &amp;&amp; response.data[0].mes_theme !&#x3D; undefined) {
+            this.authInfoService.UserId &#x3D; response.data[0].ad_user_id;
+            this.authInfoService.UserName &#x3D; response.data[0].name.trim();
+            this.authInfoService.UserTheme &#x3D; response.data[0].mes_theme.trim() as &quot;DM&quot; | &quot;WM&quot;;
+          }
+          else {
+            this.openSnackBar(this.translateService.instant(&quot;Il PIN inserito non appartiene ad alcun utente&quot;), &quot;X&quot;)
+          };
+          if (this.authInfoService.UserId &amp;&amp; this.authInfoService.UserName) {
+            this.router.navigate([&#x27;dashboard&#x27;]);
+          }
+        },
+        error: (error) &#x3D;&gt; {
+          const errorDescription &#x3D; (error.error as ErrorModel) !&#x3D; null ? (error.error as ErrorModel).description : (error.status &#x3D;&#x3D; 401 ? &quot;Non autorizzato&quot; : &quot;Errore lato server&quot;);
+          this.openSnackBar(this.translateService.instant(&quot;Errore &quot; + error.status + &quot; - &quot; + errorDescription), &quot;X&quot;);
+          if (error.status &#x3D;&#x3D; 401) {
+            this.authInfoService.Token &#x3D; &quot;&quot;;
+            this.router.navigate([&#x27;login/username&#x27;]);
+          }
+          this.loading &#x3D; false;
+        },
+        complete: () &#x3D;&gt; { this.loading &#x3D; false; }
+      });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;form-background&quot;&gt;
+    &lt;form (ngSubmit)&#x3D;&quot;login()&quot; [formGroup]&#x3D;&quot;form&quot;&gt;
+        &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Pin&lt;/mat-label&gt;
+            &lt;input matInput [type]&#x3D;&quot;hide ? &#x27;password&#x27; : &#x27;text&#x27;&quot; formControlName&#x3D;&quot;pin&quot; id&#x3D;&quot;pin&quot; readonly&gt;
+            &lt;button type&#x3D;&#x27;button&#x27; matSuffix (click)&#x3D;&quot;hide &#x3D; !hide&quot; [attr.aria-label]&#x3D;&quot;&#x27;Nascondi password&#x27; | translate&quot;
+                [attr.aria-pressed]&#x3D;&quot;hide&quot; id&#x3D;&quot;visibility-button&quot;&gt;
+                &lt;mat-icon&gt;{{hide ? &#x27;visibility_off&#x27; : &#x27;visibility&#x27;}}&lt;/mat-icon&gt;
+            &lt;/button&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button type&#x3D;&quot;submit&quot;&gt;{{&quot;Accedi&quot; | translate}}&lt;/button&gt;
+        &lt;div id&#x3D;&quot;pinSection&quot;&gt;
+            &lt;div id&#x3D;&quot;pinFrame&quot;&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(1)&quot;&gt;1&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(2)&quot;&gt;2&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(3)&quot;&gt;3&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(4)&quot;&gt;4&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(5)&quot;&gt;5&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(6)&quot;&gt;6&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(7)&quot;&gt;7&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(8)&quot;&gt;8&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(9)&quot;&gt;9&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;clear()&quot;&gt;
+                    &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; [attr.aria-label]&#x3D;&quot;&#x27;Eliminazione di tutto il pin&#x27; | translate&quot;
+                        fontIcon&#x3D;&quot;cancel&quot;&gt;&lt;/mat-icon&gt;
+                &lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; (click)&#x3D;&quot;append(0)&quot;&gt;0&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pinButton&quot; [attr.aria-label]&#x3D;&quot;&#x27;Eliminazione ultima cifra pin&#x27; | translate&quot;
+                    (click)&#x3D;&quot;removeLast()&quot; id&#x3D;&quot;del&quot;&gt;DEL&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;img src&#x3D;&quot;../../../assets/images/logo-ADeMES.svg&quot; /&gt;
+&lt;/div&gt;
+&lt;div id&#x3D;&quot;loading-frame&quot; *ngIf&#x3D;&quot;loading&quot;&gt;
+    &lt;div&gt;
+        &lt;div&gt;{{&quot;Caricamento&quot; | translate}}&lt;/div&gt; &lt;mat-spinner [diameter]&#x3D;&quot;30&quot;&gt;&lt;/mat-spinner&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./login-pin.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../variables.scss&quot;;
+
+#visibility-button {
+    border: 0px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+
+#form-background {
+    background-color: $backgroundColor;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    width: 45%;
+    height: 30%;
+    max-height: 500px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    gap: 1em;
+    flex-basis: 60%;
+    padding: 3em;
+    padding-bottom: 2.5em;
+}
+
+form&gt;* {
+    height: 80px;
+    min-height: 80px;
+}
+
+form button {
+    color: white;
+    background-color: $backgroundColor;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: white;
+    color: $backgroundColor;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+form&gt;button {
+    width: auto;
+    height: 50px;
+    min-height: 60px;
+    margin-bottom: 3%;
+    font-size: 30px;
+    padding: 10px;
+}
+
+img {
+    width: 20%;
+    height: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    flex-basis: 25%;
+}
+
+#pin {
+    font-size: 25px;
+}
+
+#loading-frame {
+    min-width: 100px;
+    width: fit-content;
+    margin: auto;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    color: darkblue;
+    font-size: large;
+    font-weight: 500;
+    transform: translate(-50%, 0);
+}
+
+#loading-frame&gt;* {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    position: relative;
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 5px white;
+}
+
+#pinFrame {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    min-width: 240px;
+    max-width: 400px;
+    margin: 0 auto 0 auto;
+}
+
+.pinButton {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#del {
+    padding: 0;
+}
+
+.mat-icon {
+    margin-top: 0.2em;
+}
+
+
+@media only screen and (max-height: 800px) {
+    img {
+        height: 8%;
+        width: 15%;
+    }
+
+    form {
+        height: 50%;
+        padding: 1.5em;
+        padding-bottom: 1em;
+    }
+}
+
+@media only screen and (max-height: 800px),
+(max-width: 1000px) {
+
+    .pinButton {
+        font-size: 30px;
+    }
+
+    form&gt;button {
+        font-size: 20px;
+        min-height: 30px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-height : 700px) and (max-width : 1920px),
+(max-width: 600px) {
+    img {
+        height: 8%;
+        width: 15%;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    #form-background {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    form {
+        margin: auto 0 auto 0;
+        width: auto;
+        height: auto;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="form-background">    <form (ngSubmit)="login()" [formGroup]="form">        <mat-form-field>            <mat-label>Pin</mat-label>            <input matInput [type]="hide ? \'password\' : \'text\'" formControlName="pin" id="pin" readonly>            <button type=\'button\' matSuffix (click)="hide = !hide" [attr.aria-label]="\'Nascondi password\' | translate"                [attr.aria-pressed]="hide" id="visibility-button">                <mat-icon>{{hide ? \'visibility_off\' : \'visibility\'}}</mat-icon>            </button>        </mat-form-field>        <button type="submit">{{"Accedi" | translate}}</button>        <div id="pinSection">            <div id="pinFrame">                <button type="button" class="pinButton" (click)="append(1)">1</button>                <button type="button" class="pinButton" (click)="append(2)">2</button>                <button type="button" class="pinButton" (click)="append(3)">3</button>                <button type="button" class="pinButton" (click)="append(4)">4</button>                <button type="button" class="pinButton" (click)="append(5)">5</button>                <button type="button" class="pinButton" (click)="append(6)">6</button>                <button type="button" class="pinButton" (click)="append(7)">7</button>                <button type="button" class="pinButton" (click)="append(8)">8</button>                <button type="button" class="pinButton" (click)="append(9)">9</button>                <button type="button" class="pinButton" (click)="clear()">                    <mat-icon aria-hidden="false" [attr.aria-label]="\'Eliminazione di tutto il pin\' | translate"                        fontIcon="cancel"></mat-icon>                </button>                <button type="button" class="pinButton" (click)="append(0)">0</button>                <button type="button" class="pinButton" [attr.aria-label]="\'Eliminazione ultima cifra pin\' | translate"                    (click)="removeLast()" id="del">DEL</button>            </div>        </div>    </form>    <img src="../../../assets/images/logo-ADeMES.svg" /></div><div id="loading-frame" *ngIf="loading">    <div>        <div>{{"Caricamento" | translate}}</div> <mat-spinner [diameter]="30"></mat-spinner>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDataDialogComponent', 'selector': 'app-confirm-data-dialog'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'LoginPinComponent', 'selector': 'app-login-pin'},{'name': 'LoginUsernameComponent', 'selector': 'app-login-username'},{'name': 'LogModifierComponent', 'selector': 'app-log-modifier'},{'name': 'LogoutDialogComponent', 'selector': 'app-logout-dialog'},{'name': 'LogViewerComponent', 'selector': 'app-log-viewer'},{'name': 'PhasesComponent', 'selector': 'app-phases'},{'name': 'SidenavComponent', 'selector': 'app-sidenav'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginPinComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginPinComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1041 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ade-qa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ade-qa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PhasesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/phases/phases.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Classe di gestione della visualizzazione delle fasi
+Le fasi sono presentate come una lista di &quot;carte&quot; da scorrere (verticalmente o orizzontalmente, a seconda della modalità di visualizzazione)</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-phases</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./phases.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./phases.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#phases" >phases</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openSnackBar" >openSnackBar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#select" >select</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setActivePhase" >setActivePhase</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(snackBar: MatSnackBar, qualityPhaseService: <a href="../injectables/QualityPhaseService.html" target="_self">QualityPhaseService</a>, authInfoService: <a href="../injectables/AuthInformationsService.html" target="_self">AuthInformationsService</a>, activePhaseService: <a href="../injectables/ActivePhaseService.html" target="_self">ActivePhaseService</a>, logoutService: <a href="../injectables/LogoutService.html" target="_self">LogoutService</a>, translateService: TranslateService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/phases/phases.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Costruttore della classe di visualizzazione fasi, clicca automaticamente sulla prima fase disponibile</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Barra di visualizzazione di messaggi di stato (ex. login fallito)</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>qualityPhaseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QualityPhaseService.html" target="_self" >QualityPhaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per l&#39;ottenimento delle fasi</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>authInfoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthInformationsService.html" target="_self" >AuthInformationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per gestire le informazioni relative all&#39;autenticazione</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>activePhaseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ActivePhaseService.html" target="_self" >ActivePhaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per gestire la fase attiva</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>logoutService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LogoutService.html" target="_self" >LogoutService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio di gestione del logout</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/components/phases/phases.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Inizializzazione delle fasi: chiamata API per ottenere le fasi</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>openSnackBar</b></span>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/app/components/phases/phases.component.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per l&#39;apertura della barra di visualizzazione di messaggi di stato</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Messaggio da mostrare</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Etichetta del pulsante di chiusura</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="select"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>select</b></span>
+                        <a href="#select"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>select(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/app/components/phases/phases.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo che gestisce graficamente la selezione di una fase</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Identificativo dell&#39;elemento HTML cliccato</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActivePhase"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setActivePhase</b></span>
+                        <a href="#setActivePhase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setActivePhase(phase: <a href="../interfaces/QualityphaseModel.html" target="_self">QualityphaseModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/components/phases/phases.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo per gestire la selezione (programmatica) di una fase</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>phase</td>
+                                            <td>
+                                                            <code><a href="../interfaces/QualityphaseModel.html" target="_self" >QualityphaseModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nome della fase da impostare come attiva</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/phases/phases.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variabile booleana per gestire lo &quot;skeleton loading&quot; (il caricamento fittizio di dati)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="phases"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>phases</b></span>
+                        <a href="#phases"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/QualityphaseModel.html" target="_self" >Array&lt;QualityphaseModel&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;QualityphaseModel&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/phases/phases.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Fasi da visualizzare</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { ErrorModel, QualityphaseModel } from &#x27;src/app/api/models&#x27;;
+import { QualityPhaseService } from &#x27;src/app/api/services&#x27;;
+import { ActivePhaseService } from &#x27;src/app/services/active-phase/active-phase.service&#x27;;
+import { AuthInformationsService } from &#x27;src/app/services/auth-informations/auth-informations.service&#x27;;
+import { LogoutService } from &#x27;src/app/services/logout/logout.service&#x27;;
+
+/**
+ * Classe di gestione della visualizzazione delle fasi
+ * Le fasi sono presentate come una lista di &quot;carte&quot; da scorrere (verticalmente o orizzontalmente, a seconda della modalità di visualizzazione)
+ */
+@Component({
+  selector: &#x27;app-phases&#x27;,
+  templateUrl: &#x27;./phases.component.html&#x27;,
+  styleUrls: [&#x27;./phases.component.scss&#x27;]
+})
+export class PhasesComponent implements OnInit {
+
+  /**
+   * Variabile booleana per gestire lo &quot;skeleton loading&quot; (il caricamento fittizio di dati)
+   */
+  public loading &#x3D; true;
+
+  /**
+   * Fasi da visualizzare
+   */
+  public phases: Array&lt;QualityphaseModel&gt; &#x3D; new Array&lt;QualityphaseModel&gt;();
+
+  /**
+   * Costruttore della classe di visualizzazione fasi, clicca automaticamente sulla prima fase disponibile
+   * @param snackBar Barra di visualizzazione di messaggi di stato (ex. login fallito)
+   * @param qualityPhaseService Servizio per l&#x27;ottenimento delle fasi
+   * @param authInfoService Servizio per gestire le informazioni relative all&#x27;autenticazione
+   * @param activePhaseService Servizio per gestire la fase attiva
+   * @param logoutService Servizio di gestione del logout
+   * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
+   */
+  constructor(private snackBar: MatSnackBar, private qualityPhaseService: QualityPhaseService, private authInfoService: AuthInformationsService, private activePhaseService: ActivePhaseService, private logoutService: LogoutService, private translateService: TranslateService) {
+    // Osserva il rendering del primo pulsante: appena renderizzato, lo preme per far comparire gli attributi
+    var observer &#x3D; new MutationObserver(function () {
+      if (document.getElementsByClassName(&#x27;phase&#x27;).item(0) !&#x3D; null) {
+        let firstCard: HTMLElement &#x3D; document.getElementsByClassName(&#x27;phase&#x27;)[0] as HTMLElement;
+        firstCard.click();
+        observer.disconnect();
+      }
+    });
+    observer.observe(document, { attributes: false, childList: true, characterData: false, subtree: true })
+  }
+
+  /**
+   * Inizializzazione delle fasi: chiamata API per ottenere le fasi
+   */
+  ngOnInit() {
+
+    const token &#x3D; this.authInfoService.Token;
+
+    // Dichiarazioni dettate dai modelli in /app/api/models
+    const start_plan &#x3D; &quot;start_plan&quot; as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;;
+    const end_plan &#x3D; &quot;end_plan&quot; as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;;
+    const status &#x3D; &quot;status&quot; as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;;
+    const start_plan_operator &#x3D; &quot;greaterOrEqual&quot; as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot;;
+    const end_plan_operator &#x3D; &quot;lessOrEqual&quot; as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot;;
+    const status_operator &#x3D; &quot;greaterOrEqual&quot; as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot;;
+    const status_value &#x3D; &quot;I&quot;;
+
+    // Condizioni di fetch:
+    // -) start_plan_date: 30gg prima della data attuale
+    // -) end_plan_date: 30gg dopo la data attuale
+    // -) status_value: I, L (tutto tranne C)
+    const previousMonth: number &#x3D; (new Date().getMonth() - 1) % 12;
+    const nextMonth: number &#x3D; (new Date().getMonth() + 1) % 12;
+    const previousYear: number &#x3D; previousMonth &#x3D;&#x3D; 11 ? new Date().getFullYear() - 1 : new Date().getFullYear();
+    const nextYear: number &#x3D; nextMonth &#x3D;&#x3D; 0 ? new Date().getFullYear() + 1 : new Date().getFullYear();
+
+    const start_plan_date: Date &#x3D; new Date();
+    const end_plan_date: Date &#x3D; new Date();
+
+    start_plan_date.setMonth(previousMonth);
+    start_plan_date.setFullYear(previousYear);
+    end_plan_date.setMonth(nextMonth);
+    end_plan_date.setFullYear(nextYear);
+
+    const params &#x3D; {
+      &quot;AdesuiteToken&quot;: token,
+      &quot;body&quot;: {
+        &quot;startRow&quot;: 0,
+        &quot;criteria&quot;: [
+          {
+            &quot;fieldName&quot;: start_plan as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;,
+            &quot;value&quot;: start_plan_date.toISOString().replace(&quot;T&quot;, &quot; &quot;).replace(&quot;Z&quot;, &quot;&quot;).substring(0, 22),
+            &quot;operator&quot;: start_plan_operator as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot; | undefined
+          },
+          {
+            &quot;fieldName&quot;: end_plan as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;,
+            &quot;value&quot;: end_plan_date.toISOString().replace(&quot;T&quot;, &quot; &quot;).replace(&quot;Z&quot;, &quot;&quot;).substring(0, 22),
+            &quot;operator&quot;: end_plan_operator as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot; | undefined
+          },
+          {
+            &quot;fieldName&quot;: status as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;,
+            &quot;value&quot;: status_value,
+            &quot;operator&quot;: status_operator as &quot;equals&quot; | &quot;iNotContains&quot; | &quot;iContains&quot; | &quot;greaterOrEqual&quot; | &quot;lessOrEqual&quot; | undefined
+          }
+        ],
+        &quot;orderby&quot;: [
+          {
+            &quot;columnname&quot;: &quot;end_plan&quot; as &#x27;c_phase_id&#x27; | &#x27;m_product_category_id&#x27; | &#x27;m_product_id&#x27; | &#x27;status&#x27; | &#x27;projectplan_timeline_id&#x27; | &#x27;isglobal&#x27; | &#x27;c_projectphase_id&#x27; | &#x27;c_bpartner_id&#x27; | &#x27;linename&#x27; | &#x27;color&#x27; | &#x27;start_plan&#x27; | &#x27;phasename&#x27; | &#x27;end_plan&#x27; | &#x27;customer&#x27; | &#x27;c_projectline_id&#x27; | &#x27;ad_org_id&#x27; | &#x27;ad_client_id&#x27;,
+            &quot;direction&quot;: &quot;ASC&quot; as &#x27;DESC&#x27; | &#x27;ASC&#x27;
+          }
+        ],
+        &quot;endRow&quot;: 100
+      }
+    };
+
+    this.qualityPhaseService.fetch_2(params)
+      .subscribe({
+        next: (response) &#x3D;&gt; {
+          (response.data !&#x3D; undefined &amp;&amp; response.data !&#x3D; null &amp;&amp; response.data.length !&#x3D; 0) ? this.phases &#x3D; response.data : this.openSnackBar(this.translateService.instant(&quot;Errore: non ci sono fasi da visualizzare!&quot;), &quot;X&quot;);
+        },
+        error: (error) &#x3D;&gt; {
+          const errorDescription &#x3D; (error.error as ErrorModel) !&#x3D; null ? (error.error as ErrorModel).description : (error.status &#x3D;&#x3D; 401 ? &quot;Non autorizzato&quot; : &quot;Errore lato server&quot;);
+          this.openSnackBar(this.translateService.instant(&quot;Errore &quot; + error.status + &quot; - &quot; + errorDescription), &quot;X&quot;);
+          if (error.status &#x3D;&#x3D; 401) {
+            this.logoutService.logout();
+          }
+        },
+        complete: () &#x3D;&gt; { this.loading &#x3D; false; }
+      });
+
+  }
+
+  /**
+   * Metodo per l&#x27;apertura della barra di visualizzazione di messaggi di stato
+   * @param message Messaggio da mostrare
+   * @param type Etichetta del pulsante di chiusura
+  */
+  private openSnackBar(message: string, type: string): void {
+    this.snackBar.open(message, type, {
+      panelClass: [&#x27;red-snackbar&#x27;, &#x27;login-snackbar&#x27;],
+    });
+  }
+
+  /**
+   * Metodo che gestisce graficamente la selezione di una fase
+   * @param id Identificativo dell&#x27;elemento HTML cliccato
+   */
+  public select(id: string): void {
+    document.getElementsByClassName(&quot;selected-card&quot;)[0] ? document.getElementsByClassName(&quot;selected-card&quot;)[0].classList.remove(&quot;selected-card&quot;) : &quot;&quot;;
+    let activeElement &#x3D; document.getElementById(id);
+    if (activeElement !&#x3D; null &amp;&amp; activeElement !&#x3D; undefined &amp;&amp; activeElement?.textContent !&#x3D; null &amp;&amp; activeElement?.textContent !&#x3D; &quot;&quot;) {
+      activeElement?.classList.add(&quot;selected-card&quot;);
+    } else {
+      this.openSnackBar(this.translateService.instant(&quot;La carta selezionata non contiene testo!&quot;), &quot;X&quot;);
+    }
+  }
+
+  /**
+   * Metodo per gestire la selezione (programmatica) di una fase
+   * @param phase Nome della fase da impostare come attiva
+   */
+  public setActivePhase(phase: QualityphaseModel): void {
+    this.activePhaseService.update(phase);
+  }
+
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;cdk-virtual-scroll-viewport itemSize&#x3D;&quot;100&quot; class&#x3D;&quot;scroll-viewport&quot;&gt;
+  &lt;div&gt;
+    &lt;div *ngIf&#x3D;&quot;loading&quot;&gt;
+      &lt;mat-card *ngFor&#x3D;&quot;let i of [1,2,3,4,5,6,7,8,9,10]&quot;&gt;
+        &lt;mat-card-content&gt;
+          &lt;p class&#x3D;&quot;skeleton skeleton-text&quot;&gt;&lt;/p&gt;
+          &lt;p class&#x3D;&quot;skeleton skeleton-text&quot;&gt; &lt;/p&gt;
+          &lt;p class&#x3D;&quot;skeleton skeleton-text&quot;&gt;&lt;/p&gt;
+          &lt;p class&#x3D;&quot;skeleton skeleton-text&quot;&gt; &lt;/p&gt;
+          &lt;p class&#x3D;&quot;skeleton skeleton-text&quot;&gt; &lt;/p&gt;
+        &lt;/mat-card-content&gt;
+      &lt;/mat-card&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;!loading&quot;&gt;
+      &lt;mat-card class&#x3D;&quot;phase&quot; color&#x3D;&quot;primary&quot; *ngFor&#x3D;&quot;let phase of phases&quot;
+        (click)&#x3D;&quot; select(&#x27;card-&#x27; + phases.indexOf(phase).toString()); setActivePhase(phase)&quot;
+        id&#x3D;&quot;card-{{phases.indexOf(phase)}}&quot;&gt;
+        &lt;mat-card-content&gt;
+          &lt;p [innerHTML]&#x3D;&quot;phase.phasetitlehtml! | safeHtml&quot;&gt;&lt;/p&gt;
+          &lt;p&gt;{{&quot;Inizio&quot; | translate}}: {{phase.start_plan | date:&#x27;dd/MM/yyyy HH:mm&#x27;}}&lt;/p&gt;
+          &lt;p&gt;{{&quot;Fine&quot; | translate}}: {{phase.end_plan | date:&#x27;dd/MM/yyyy HH:mm&#x27;}}&lt;/p&gt;
+        &lt;/mat-card-content&gt;
+      &lt;/mat-card&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/cdk-virtual-scroll-viewport&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./phases.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">mat-card {
+    min-width: 150px;
+    margin: 1em;
+}
+
+.scroll-viewport {
+    width: 100%;
+    height: calc(100% - 2em);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scroll-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width: 1920px) {
+    mat-card {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><cdk-virtual-scroll-viewport itemSize="100" class="scroll-viewport">  <div>    <div *ngIf="loading">      <mat-card *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">        <mat-card-content>          <p class="skeleton skeleton-text"></p>          <p class="skeleton skeleton-text"> </p>          <p class="skeleton skeleton-text"></p>          <p class="skeleton skeleton-text"> </p>          <p class="skeleton skeleton-text"> </p>        </mat-card-content>      </mat-card>    </div>    <div *ngIf="!loading">      <mat-card class="phase" color="primary" *ngFor="let phase of phases"        (click)=" select(\'card-\' + phases.indexOf(phase).toString()); setActivePhase(phase)"        id="card-{{phases.indexOf(phase)}}">        <mat-card-content>          <p [innerHTML]="phase.phasetitlehtml! | safeHtml"></p>          <p>{{"Inizio" | translate}}: {{phase.start_plan | date:\'dd/MM/yyyy HH:mm\'}}</p>          <p>{{"Fine" | translate}}: {{phase.end_plan | date:\'dd/MM/yyyy HH:mm\'}}</p>        </mat-card-content>      </mat-card>    </div>  </div></cdk-virtual-scroll-viewport></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDataDialogComponent', 'selector': 'app-confirm-data-dialog'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'LoginPinComponent', 'selector': 'app-login-pin'},{'name': 'LoginUsernameComponent', 'selector': 'app-login-username'},{'name': 'LogModifierComponent', 'selector': 'app-log-modifier'},{'name': 'LogoutDialogComponent', 'selector': 'app-logout-dialog'},{'name': 'LogViewerComponent', 'selector': 'app-log-viewer'},{'name': 'PhasesComponent', 'selector': 'app-phases'},{'name': 'SidenavComponent', 'selector': 'app-sidenav'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PhasesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PhasesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
