@@ -59,6 +59,11 @@ export class ToolbarComponent implements OnInit {
   public mobileQuery: MediaQueryList;
 
   /**
+   * Lista di query per capire quando nascondere l'icona del prodotto
+   */
+  public iconMobileQuery: MediaQueryList;
+
+  /**
    * Costruttore della classe che gestisce l'intestazione della visualizzazione grafica 
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param themeService Servizio di gestione del tema grafico di interfaccia
@@ -68,8 +73,10 @@ export class ToolbarComponent implements OnInit {
    */
   constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private languageService: LanguageService) {
 
+    this.iconMobileQuery = media.matchMedia('(max-width: 500px)');
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this.queryListener = () => changeDetectorRef.detectChanges();
+    this.iconMobileQuery.addEventListener("change", this.queryListener);
     this.mobileQuery.addEventListener("change", this.queryListener);
 
     this.activeLanguage = localStorage.getItem('lang') || 'it';
@@ -94,6 +101,7 @@ export class ToolbarComponent implements OnInit {
    * Distruttore per rimuovere gli event listener
    */
   ngOnDestroy(): void {
+    this.iconMobileQuery.removeEventListener("change", this.queryListener);
     this.mobileQuery.removeEventListener("change", this.queryListener);
   }
 

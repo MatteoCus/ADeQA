@@ -1,5 +1,5 @@
 <mat-toolbar id="toolbar" color="primary">
-  <div *ngIf="mobileQuery.matches" id="logo"></div>
+  <div *ngIf="mobileQuery.matches && !iconMobileQuery.matches" id="logo"></div>
   <ng-content></ng-content>
   <span *ngIf="!mobileQuery.matches">{{(today | date:'MMMM')! | titlecase | translate}} {{today | date:'yyyy'}} -
     {{"Settimana" | translate}} {{today | date: 'ww'}}</span>
