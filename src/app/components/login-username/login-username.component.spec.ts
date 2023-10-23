@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('LoginUsernameComponent', () => {
   let component: LoginUsernameComponent;
@@ -23,7 +24,8 @@ describe('LoginUsernameComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TranslateModule.forRoot()
       ],
       declarations: [LoginUsernameComponent],
       providers: [MatSnackBar]

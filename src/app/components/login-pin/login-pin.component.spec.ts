@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('LoginPinComponent', () => {
   let component: LoginPinComponent;
@@ -23,7 +24,8 @@ describe('LoginPinComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TranslateModule.forRoot(),
       ],
       providers: [
         MatSnackBar

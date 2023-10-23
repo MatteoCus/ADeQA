@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LogViewerComponent } from './log-viewer.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('LogViewerComponent', () => {
   let component: LogViewerComponent;
@@ -13,15 +13,12 @@ describe('LogViewerComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LogViewerComponent],
-      imports: [HttpClientTestingModule, TranslateModule],
+      imports: [
+        HttpClientTestingModule, 
+        TranslateModule.forRoot()
+      ],
       providers: [
-        MatSnackBar,
-        TranslateService,
-        TranslateStore,
-        TranslateLoader,
-        TranslateCompiler,
-        TranslateModule,
-        TranslateParser
+        MatSnackBar
       ]
     });
     fixture = TestBed.createComponent(LogViewerComponent);
