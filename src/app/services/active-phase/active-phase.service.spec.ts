@@ -44,6 +44,7 @@ describe('ActivePhaseService', () => {
   });
 
   it('should not emit if the phase is the same', () => {
+    const phase: QualityphaseModel = { /* create a QualityphaseModel object here */ };
     const spy = spyOn(service['activePhase'], 'next');
 
     service.update(phase);

@@ -114,6 +114,7 @@ export class AuthInformationsService {
   public clearUser(): void {
     this.userId = 0;
     this.userName = "";
+    this.userTheme = undefined;
     sessionStorage.removeItem("ADeUserId");
     sessionStorage.removeItem("ADeUserTheme");
 
