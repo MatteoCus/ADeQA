@@ -133,7 +133,7 @@ describe('IframeInitializerService', () => {
 
   it('should fetch quality phase and update active phase when initializing services', () => {
     const data: Message = {
-      token: 'sampleToken',
+      token: '',
       username: 'user123',
       theme: 'DM',
       lang: 'en',
