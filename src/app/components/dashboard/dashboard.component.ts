@@ -51,8 +51,7 @@ export class DashboardComponent implements OnDestroy {
             this.insideFrame = true;
           }
         }
-      }
-      );
+      });
 
     // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage (dall'applicazione contenitrice)
     if (this.insideFrame) {

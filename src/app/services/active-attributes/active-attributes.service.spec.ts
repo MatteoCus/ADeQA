@@ -44,8 +44,6 @@ describe('ActiveAttributesService', () => {
     service.update = jasmine.createSpy('update');
 
     activePhaseService.getActivePhase().subscribe(() => {
-      // You don't need to make an actual HTTP call in your tests, so we mock the response above.
-      // Expect that the fetch_3 method is called.
       activePhaseService.update(activePhase);
 
       expect(qualityAttributeService.fetch_3).toHaveBeenCalledWith(jasmine.objectContaining({
@@ -71,6 +69,48 @@ describe('ActiveAttributesService', () => {
     service.getActiveAttributes().subscribe((updatedAttributes) => {
       expect(updatedAttributes).toEqual(attributes);
     });
+  });
+
+  it('should filter JSON response', () => {
+    const response = {
+      ad_reference_id: 123123123,
+      attributedescription: "descrizione",
+      attributename: "nome attributo",
+      attributeseqno: 90909090,
+      attributevalue: "valore attributo",
+      attributevaluetype: "Y" as 'Y' | 'N' | 'S' | 'L',
+      c_project_attribute_group_id: 9000000,
+      groupdescription: "descrizione gruppo",
+      groupname: "nome gruppo",
+      m_product_category_id: 9000000,
+      m_product_id: 9000000,
+      optionvalue: {
+        type: "tipo",
+        value: "{ \"key\": [\"chiave1\", \"chiave2\"], \"value\": [\"chiave1 - valore 1\", \"chiave2 - valore2\"]}"
+      }
+    };
+
+    const expected: QualityattributeModel = {
+      ad_reference_id: 123123123,
+      attributedescription: 'descrizione',
+      attributename: 'nome attributo',
+      attributeseqno: 90909090,
+      attributevalue: 'valore attributo',
+      attributevaluetype: 'Y' as 'Y' | 'N' | 'S' | 'L',
+      c_project_attribute_group_id: 9000000,
+      groupdescription: 'descrizione gruppo',
+      groupname: 'nome gruppo',
+      m_product_category_id: 9000000,
+      m_product_id: 9000000,
+      optionvalue: {
+        type: 'tipo',
+        value: { key: ["chiave1", "chiave2"], value: ["chiave1 - valore 1", "chiave2 - valore2"]}
+      }
+    };
+
+    expect(service['filterJsonOptions'](response as any as QualityattributeModel )).toEqual(expected);
+
+
   });
 
 });
