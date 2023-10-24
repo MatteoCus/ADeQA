@@ -29,7 +29,7 @@ describe('AuthInformationsService', () => {
   });
 
   it('should set and get the user ID', () => {
-    const userId = 123;
+    const userId = 9000000;
     service.UserId = userId;
     expect(service.UserId).toBe(userId);
   });
@@ -48,7 +48,7 @@ describe('AuthInformationsService', () => {
 
   it('should clear the token and user info', () => {
     service.Token = '';
-    service.UserId = 123;
+    service.UserId = 9000000;
     service.UserName = 'John Doe';
     service.UserTheme = 'DM';
 
@@ -61,7 +61,7 @@ describe('AuthInformationsService', () => {
   });
 
   it('should clear user info', () => {
-    service.UserId = 123;
+    service.UserId = 9000000;
     service.UserName = 'John Doe';
     service.UserTheme = 'DM';
 

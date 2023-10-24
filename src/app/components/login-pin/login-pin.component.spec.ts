@@ -23,9 +23,100 @@ describe('LoginPinComponent', () => {
   let router: Router;
   let httpTestingController: HttpTestingController;
 
-  const operatorsServiceSpy = jasmine.createSpyObj('OperatorsService', ['fetch']);
-  operatorsServiceSpy.fetch.and.returnValue(of({ data: [{ ad_user_id: 123, name: 'John Doe', mes_theme: 'DM' }] } as FetchResponseOperatorsModel));
+  const params_success = {
+    "AdesuiteToken": '',
+    "body": {
+      "startRow": 0,
+      "criteria": [
+        {
+          "fieldName": 'userpin' as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+          "value": 12345,
+          "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+        }
+      ],
+      "endRow": 1
+    }
+  };
 
+  const params_fail_401 = {
+    "AdesuiteToken": '',
+    "body": {
+      "startRow": 0,
+      "criteria": [
+        {
+          "fieldName": 'userpin' as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+          "value": 12346,
+          "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+        }
+      ],
+      "endRow": 1
+    }
+  };
+
+  const params_fail_500 = {
+    "AdesuiteToken": '',
+    "body": {
+      "startRow": 0,
+      "criteria": [
+        {
+          "fieldName": 'userpin' as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+          "value": 12347,
+          "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+        }
+      ],
+      "endRow": 1
+    }
+  };
+
+  const params_fail_401_empty = {
+    "AdesuiteToken": '',
+    "body": {
+      "startRow": 0,
+      "criteria": [
+        {
+          "fieldName": 'userpin' as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+          "value": 12348,
+          "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+        }
+      ],
+      "endRow": 1
+    }
+  };
+
+  const params_fail_500_empty = {
+    "AdesuiteToken": '',
+    "body": {
+      "startRow": 0,
+      "criteria": [
+        {
+          "fieldName": 'userpin' as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+          "value": 12349,
+          "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+        }
+      ],
+      "endRow": 1
+    }
+  };
+
+  const params_fail_undefined_response = {
+    "AdesuiteToken": '',
+    "body": {
+      "startRow": 0,
+      "criteria": [
+        {
+          "fieldName": 'userpin' as "userpin" | "mes_theme_display" | "mes_theme" | "note" | "name" | "ismobileuser" | "numero_matricola" | "isactive" | "foto" | "ad_user_id" | undefined,
+          "value": 12350,
+          "operator": 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
+        }
+      ],
+      "endRow": 1
+    }
+  };
+
+  const errorResponse401 = { error: { description: 'Non autorizzato!' }, status: 401 };
+  const errorResponse500 = { error: { description: 'Errore server' }, status: 500 };
+  const errorResponse401_empty = { error: null, status: 401 };
+  const errorResponse500_empty = { error: null, status: 500 };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -42,7 +133,7 @@ describe('LoginPinComponent', () => {
       ],
       providers: [
         FormBuilder,
-        { provide: OperatorsService, useValue: operatorsServiceSpy },
+        OperatorsService,
         {
           provide: AuthInformationsService,
           useValue: {
@@ -114,10 +205,15 @@ describe('LoginPinComponent', () => {
     const navigateSpy = spyOn(router, 'navigate');
     component.form.get('pin')!.setValue(12345);
 
+    spyOn(operatorsService, 'fetch')
+    .withArgs(params_success as any)
+    .and.returnValue(of({ data: [{ ad_user_id: 9000000, name: 'John Doe', mes_theme: 'DM' }] } as FetchResponseOperatorsModel));
+
+
     component.login();
 
     expect(operatorsService.fetch).toHaveBeenCalled();
-    expect(authInfoService.UserId).toBe(123);
+    expect(authInfoService.UserId).toBe(9000000);
     expect(authInfoService.UserName).toBe('John Doe');
     expect(authInfoService.UserTheme).toBe('DM');
     expect(navigateSpy).toHaveBeenCalledWith(['dashboard']);
@@ -132,19 +228,73 @@ describe('LoginPinComponent', () => {
     expect(openSnackBarSpy).toHaveBeenCalledWith('Il pin inserito non è valido!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
   });
 
-  it('should handle login error', () => {
-    const errorResponse = { error: { description: 'Some error description' }, status: 500 };
-    spyOn(operatorsService, 'fetch').and.returnValue(throwError( () => errorResponse));
+  it('should handle login error - 401', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
+    const navigateSpy = spyOn(router, 'navigate');
+    component.form.get('pin')!.setValue(12346);
 
-    component.form.get('pin')!.setValue(12345);
+    spyOn(operatorsService, 'fetch')
+    .withArgs(params_fail_401 as any)
+    .and.returnValue(throwError(() => errorResponse401));
 
     component.login();
-
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Translated Message', 'X');
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Translated Message', 'X');
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
     expect(authInfoService.Token).toBe('');
-    expect(router.navigate).toHaveBeenCalledWith(['login/username']);
+    expect(navigateSpy).toHaveBeenCalledWith(['login/username']);
+  });
+
+  it('should handle login error - 500', () => {
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    component.form.get('pin')!.setValue(12347);
+
+    spyOn(operatorsService, 'fetch')
+    .withArgs(params_fail_500 as any)
+    .and.returnValue(throwError(() => errorResponse500));
+
+    component.login();
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore server', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(authInfoService.Token).toBe('');
+  });
+
+  it('should handle login error - 401 empty', () => {
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    const navigateSpy = spyOn(router, 'navigate');
+    component.form.get('pin')!.setValue(12348);
+
+    spyOn(operatorsService, 'fetch')
+    .withArgs(params_fail_401_empty as any)
+    .and.returnValue(throwError(() => errorResponse401_empty));
+
+    component.login();
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(authInfoService.Token).toBe('');
+    expect(navigateSpy).toHaveBeenCalledWith(['login/username']);
+  });
+
+  it('should handle login error - 500 empty', () => {
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    component.form.get('pin')!.setValue(12349);
+
+    spyOn(operatorsService, 'fetch')
+    .withArgs(params_fail_500_empty as any)
+    .and.returnValue(throwError(() => errorResponse500_empty));
+
+    component.login();
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(authInfoService.Token).toBe('');
+  });
+
+  it('should handle login error - undefined response', () => {
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    component.form.get('pin')!.setValue(12350);
+
+    spyOn(operatorsService, 'fetch')
+    .withArgs(params_fail_undefined_response as any)
+    .and.returnValue(of({ data: [{ undefined }] } as any as FetchResponseOperatorsModel));
+
+    component.login();
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Il PIN inserito non appartiene ad alcun utente', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(authInfoService.Token).toBe('');
   });
 
 });
