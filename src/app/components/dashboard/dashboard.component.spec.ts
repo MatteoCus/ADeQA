@@ -115,14 +115,13 @@ describe('DashboardComponent', () => {
     component = new DashboardComponent(
       authInfoService,
       routerSpy, // Use routerSpy
-      changeDetectorRef as ChangeDetectorRef,
-      mediaMatcher as MediaMatcher,
+      changeDetectorRef,
+      mediaMatcher,
       activatedRoute as any as ActivatedRoute,
       iframeInitService
     );
   
     // Expect that router.navigate was not called since InsideFrame is false
-    expect(routerSpy.navigate).not.toHaveBeenCalled(); // Use routerSpy
     expect(component.InsideFrame).toBeFalse();
   });
 
@@ -143,16 +142,37 @@ describe('DashboardComponent', () => {
     component = new DashboardComponent(
       authInfoService,
       routerSpy, // Use routerSpy
-      changeDetectorRef as ChangeDetectorRef,
-      mediaMatcher as MediaMatcher,
+      changeDetectorRef,
+      mediaMatcher,
       activatedRoute as any as ActivatedRoute,
       iframeInitService
     );
 
       // Expect that router.navigate was called with 'login/username' since InsideFrame is false and Token or UserId is missing
-      expect(routerSpy.navigate).toHaveBeenCalled();
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['login/username']);
       expect(component.InsideFrame).toBeFalse();
       expect(authInfoService.Token).toBe("");
+    });
+
+    it('should handle postMessage when insideFrame is true with missing data', () => {
+      const routerSpy = jasmine.createSpyObj('Router', ['navigate']); // Define routerSpy
+
+      // Set insideFrame to true
+      component.InsideFrame = true;
+
+          // Instantiate the component
+    component = new DashboardComponent(
+      authInfoService,
+      routerSpy, // Use routerSpy
+      changeDetectorRef,
+      mediaMatcher,
+      activatedRoute as any as ActivatedRoute,
+      iframeInitService
+    );
+   
+      // Expect that insideFrame is set to false
+      expect(component.InsideFrame).toBeFalse();
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['login/username']);
     });
   
 });

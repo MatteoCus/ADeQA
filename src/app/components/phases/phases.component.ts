@@ -125,6 +125,7 @@ export class PhasesComponent implements OnInit {
           if (error.status == 401) {
             this.logoutService.logout();
           }
+          this.loading = false;
         },
         complete: () => { this.loading = false; }
       });
