@@ -86,7 +86,7 @@ export class LogModifierComponent implements OnInit {
     this.form = new FormGroup({});
 
     this.activeAttributes.forEach((value, index) => {
-      if (value.attributevaluetype == "Y") {
+      if (value.attributevaluetype == 'Y') {
         this.form.addControl("control-" + index.toString(), new FormControl(false, Validators.required));
       } else {
         this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
@@ -148,10 +148,30 @@ export class LogModifierComponent implements OnInit {
    * Metodo per mostrare a video il dialog di conferma dei dati inseriti per la modifica di un log
    */
   public updateDialog(): void {
+    let formData: string[] = [];
+
+    this.activeAttributes.forEach((value, index) => {
+      let entry: string = value.attributename! + ": ";
+
+      if (value.attributevaluetype != "L") {
+        entry += this.form.get('control-' + index.toString())?.value;
+      } else {
+        let position: number = 0;
+        position = value.optionvalue?.value.value.findIndex((value) => {
+          return this.form.get('control-' + index.toString())?.value == value;
+        })!;
+
+        entry += new OptionsPipe().transform(this.form.get('control-' + index.toString())?.value, value.optionvalue?.value.key.at(position)!);
+      }
+
+      formData.push(entry);
+    });
+    
     const updateDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
         title: 'Modifica il log selezionato',
-        description: 'Dati aggiornati: ' + this.form.value
+        description: 'Dati aggiornati:',
+        resume: formData
       }
     });
 
