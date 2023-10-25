@@ -60,7 +60,6 @@ export class DashboardComponent implements OnDestroy {
         // Accetta i dati in ingresso solo se sono dati dal widget padre
         if (event.source == parent) {
           const data: Message = event.data as Message;
-          console.log(data);
 
           // Verifico che i parametri ci siano tutti
           if (data == undefined || data.token == undefined || data.lang == undefined || data.theme == undefined || data.username == undefined

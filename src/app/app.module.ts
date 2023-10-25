@@ -40,6 +40,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import localeIt from '@angular/common/locales/it';
 import { registerLocaleData } from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 registerLocaleData(localeIt);
 
 
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LogoutDialogComponent,
     SafePipe,
     OptionsPipe,
-    ConfirmDataDialogComponent
+    ConfirmDataDialogComponent,
+    SplashScreenComponent
   ],
   imports: [
     BrowserModule,

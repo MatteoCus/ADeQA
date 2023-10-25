@@ -1,4 +1,5 @@
 <div id="container" *ngIf="!InsideFrame">
+    <app-splash-screen></app-splash-screen>
     <app-sidenav *ngIf="!mobileQuery.matches && !InsideFrame"></app-sidenav>
     <div id="mainFrame">
         <app-toolbar>
