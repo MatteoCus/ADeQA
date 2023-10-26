@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { OptionsPipe } from 'src/app/pipes/options.pipe';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
+import { LoadingService } from 'src/app/services/loading/loading.service';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -62,17 +63,19 @@ export class LogModifierComponent implements OnInit {
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
-    private authInfoService: AuthInformationsService) { }
+    private authInfoService: AuthInformationsService, private loadingService: LoadingService) { }
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
    */
-  ngOnInit() {
+  ngOnInit() {    
+
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
         this.activeAttributes = attributes;
         this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributename!);
         this.initializeForm();
+        this.loadingService.stopModifierLoading();
       });
   }
 

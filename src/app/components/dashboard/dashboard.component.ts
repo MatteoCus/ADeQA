@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Message } from 'src/app/models/message';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { IframeInitializerService } from 'src/app/services/iframe-initializer/iframe-initializer.service';
+import { LoadingService } from 'src/app/services/loading/loading.service';
 
 /**
  * Classe che gestisce la visualizzazione principale
@@ -43,7 +44,8 @@ export class DashboardComponent implements OnDestroy {
    * @param route URL attivo
    * @param iframeInitService Servizio di inizializzazione dei servizi indispensabili per il funzionamento dell'applicazione in un iframe
    */
-  constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute, private iframeInitService: IframeInitializerService) {
+  constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute, 
+    private iframeInitService: IframeInitializerService) {
     this.route.queryParams
       .subscribe(params => {
         if (params && params['inside']) {

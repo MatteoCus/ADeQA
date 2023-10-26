@@ -7,6 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Fetch$Params } from 'src/app/api/fn/operators/fetch';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingService } from 'src/app/services/loading/loading.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -14,7 +16,13 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login-pin',
   templateUrl: './login-pin.component.html',
-  styleUrls: ['./login-pin.component.scss']
+  styleUrls: ['./login-pin.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [style({ opacity: 0 }), animate('0.25s ease-out')]),
+    ]),
+  ],
 })
 export class LoginPinComponent implements OnInit {
 
@@ -33,6 +41,8 @@ export class LoginPinComponent implements OnInit {
    */
   public loading: boolean = false;
 
+  public opacityChange: 'in' | '' = '';
+
   /**
    * Costruttore della classe di login con pin: evita di renderizzare la pagina se non si è prima ottenuto il token
    * Reindirizza alla dashboard qualora vi fosse già una sessione attiva
@@ -43,7 +53,10 @@ export class LoginPinComponent implements OnInit {
    * @param router Router per eseguire dei reindirizzamenti su browser
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) {
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, 
+    private router: Router, private translateService: TranslateService, private loadingService: LoadingService) {
+    
+      this.loadingService.reset();
     if (localStorage.getItem('ADeToken') == null || localStorage.getItem('ADeToken') == "") {
       this.router.navigate(['login/username']);
     }
@@ -62,6 +75,8 @@ export class LoginPinComponent implements OnInit {
    * Costruzione del form alla creazione del componente
    */
   ngOnInit() {
+    this.opacityChange = 'in';
+
     this.form = this.formBuilder.group({
       pin: ['', Validators.required]
     });

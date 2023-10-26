@@ -6,6 +6,8 @@ import { AuthInformationsService } from 'src/app/services/auth-informations/auth
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingService } from 'src/app/services/loading/loading.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 /**
  * Classe che gestisce il form di login con username e password
@@ -13,7 +15,13 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login-username',
   templateUrl: './login-username.component.html',
-  styleUrls: ['./login-username.component.scss']
+  styleUrls: ['./login-username.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [style({ opacity: 0 }), animate('0.25s ease-out')]),
+    ]),
+  ],
 })
 export class LoginUsernameComponent implements OnInit {
   /**
@@ -31,6 +39,8 @@ export class LoginUsernameComponent implements OnInit {
    */
   public loading: boolean = false;
 
+  public opacityChange: 'in' | '' = '';
+
   /**
    * Costruttore della classe di login con username e password, evita di renderizzare il form di login qualora vi fosse già un token di autenticazione in localStorage
    * @param formBuilder Variabile atta alla costruzione del form a livello logico
@@ -40,7 +50,10 @@ export class LoginUsernameComponent implements OnInit {
    * @param router Router per eseguire dei reindirizzamenti su browser
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, private router: Router, private translateService: TranslateService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, 
+    private router: Router, private translateService: TranslateService, private loadingService: LoadingService) {
+      this.loadingService.reset();
+
     if (localStorage.getItem("ADeToken") != undefined && localStorage.getItem("ADeToken") != "") {
       this.authInfoService.Token = localStorage.getItem("ADeToken")!;
       this.router.navigate(['login/pin']);
@@ -51,6 +64,7 @@ export class LoginUsernameComponent implements OnInit {
    * Costruzione del form alla creazione del componente
    */
   ngOnInit() {
+    this.opacityChange = 'in';
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]

@@ -1,5 +1,5 @@
 <div id="form-background">
-    <form (ngSubmit)="login()" [formGroup]="form">
+    <form (ngSubmit)="login()" [formGroup]="form" [@fadeInOut]="opacityChange">
         <mat-form-field>
             <mat-label>Pin</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="pin" id="pin" readonly>
@@ -30,7 +30,7 @@
             </div>
         </div>
     </form>
-    <img src="../../../assets/images/logo-ADeQA.svg" />
+    <img [@fadeInOut]="opacityChange" src="../../../assets/images/logo-ADeQA.svg" />
 </div>
 <div id="loading-frame" *ngIf="loading">
     <div>

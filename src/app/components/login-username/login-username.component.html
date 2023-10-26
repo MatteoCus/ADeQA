@@ -1,5 +1,5 @@
 <div id="form-background">
-    <form (ngSubmit)="login()" [formGroup]="form">
+    <form (ngSubmit)="login()" [@fadeInOut]="opacityChange" [formGroup]="form">
         <mat-form-field>
             <mat-label>{{"Nome utente" | translate}}</mat-label>
             <input matInput [type]="'text'" formControlName="username">
@@ -14,7 +14,7 @@
         </mat-form-field>
         <button type="submit">{{"Accedi" | translate}}</button>
     </form>
-    <img src="../../../assets/images/logo-ADeQA.svg" />
+    <img [@fadeInOut]="opacityChange" src="../../../assets/images/logo-ADeQA.svg" />
 </div>
 <div id="loading-frame" *ngIf="loading">
     <div>
