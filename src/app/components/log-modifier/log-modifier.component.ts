@@ -60,7 +60,8 @@ export class LogModifierComponent implements OnInit {
    * @param snackBar Barra di notifica eventi
    * @param dialog Dialog di conferma dei dati inseriti dall'utente
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
-   * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
+   * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
+   * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
     private authInfoService: AuthInformationsService, private loadingService: LoadingService) { }

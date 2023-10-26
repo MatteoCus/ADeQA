@@ -24,11 +24,12 @@ export class LogViewerComponent implements OnInit {
    * @param activeAttributesService Servizio che gestisce gli attributi attualmente attivi
    * @param snackBar Barra di notifica eventi
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
+   * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private translateService: TranslateService, private loadingService: LoadingService) { }
 
   /**
-   * Metodo per ottenere colonne e log salvati per la fase attuale
+   * Metodo per ottenere colonne e log salvati per la fase attuale, indica quando il caricamento è terminato (per far sparire lo splash-screen)
    */
   ngOnInit(): void {
 

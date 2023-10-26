@@ -39,6 +39,9 @@ export class LoginUsernameComponent implements OnInit {
    */
   public loading: boolean = false;
 
+  /**
+   * Attributo per la gestione dell'animazione di fadeInOut al caricamento del form e dell'immagine
+   */
   public opacityChange: 'in' | '' = '';
 
   /**
