@@ -77,6 +77,8 @@ export class DashboardComponent implements OnDestroy {
     // Se non siamo in un frame e mancano dati (token/id utente), si fa un redirect alle pagine di login
     if (!this.insideFrame && this.authInfoService.Token == "" || !this.insideFrame && this.authInfoService.UserId as any as number == 0) {
       this.router.navigate(['login/username']);
+    } else {
+      this.router.navigate(['dashboard']);
     }
 
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
