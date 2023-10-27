@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1698402358178,
+  "timestamp": 1698409497586,
   "index": "/ADeQA/index.html",
   "assetGroups": [
     {
@@ -64,12 +64,12 @@
     "/ADeQA/assets/i18n/en.json": "21667264d7bff6e850696e23734d7c742077bef6",
     "/ADeQA/assets/i18n/es.json": "709c7a18c142841d7a9f122da16608b1cb6067ae",
     "/ADeQA/assets/i18n/it.json": "2b0399bdfe05a84f2f86e5a51a28af313fa7be5f",
-    "/ADeQA/assets/icons/launchericon-144-144.png": "5fd9e64ff7f9cdec58a684011d8eed72c5f491b3",
-    "/ADeQA/assets/icons/launchericon-192-192.png": "9e1d37877268b5cbb619e4f54f03d1c665f6cabb",
-    "/ADeQA/assets/icons/launchericon-48-48.png": "99a5311d968d55fd9581bac7a0d35fd3e42fe78e",
-    "/ADeQA/assets/icons/launchericon-512-512.png": "d93b19a72ce280f5bc78c4ef220f32df3990a982",
-    "/ADeQA/assets/icons/launchericon-72-72.png": "b344646d90d01c5e4f4eb9dc33f00a25caf221e7",
-    "/ADeQA/assets/icons/launchericon-96-96.png": "9e4ada00dfb8703df0061f3ab50ffe19b7d0971e",
+    "/ADeQA/assets/icons/launchericon-144-144.png": "1ab9071db4b746a155c6ceabbcfaf4c48f48f3ed",
+    "/ADeQA/assets/icons/launchericon-192-192.png": "60f00b4b11ac8e76c75b017596a67a3b01cb7ec3",
+    "/ADeQA/assets/icons/launchericon-48-48.png": "95fd92e2b233b87b142927a1c533f0c7676bd14a",
+    "/ADeQA/assets/icons/launchericon-512-512.png": "34c3669b5f2ec2972deb6d5cf1e1834d5ef7a3bb",
+    "/ADeQA/assets/icons/launchericon-72-72.png": "eca113ad779aa5773593f19d747cb402c3863a74",
+    "/ADeQA/assets/icons/launchericon-96-96.png": "f05eb64b70b1d941946a55d2761572fd8bccffab",
     "/ADeQA/assets/icons/logo.jpg": "ffb6d14a512b867d36dd82d0ad8aa3c867354659",
     "/ADeQA/assets/images/dashboard-mobile.png": "a2fc494111a9801741b89f6cc43b0f3de36bcbaa",
     "/ADeQA/assets/images/dashboard-tablet.png": "199afa96d208c0a71e6e2d8e5514307b2a56abff",
