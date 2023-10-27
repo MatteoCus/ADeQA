@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 import { Message } from 'src/app/models/message';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { IframeInitializerService } from 'src/app/services/iframe-initializer/iframe-initializer.service';
@@ -14,7 +15,7 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnDestroy {
+export class DashboardComponent implements OnDestroy, OnInit {
 
   /**
    * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode] (possibili valori: 'over', 'push', 'side')
@@ -34,7 +35,7 @@ export class DashboardComponent implements OnDestroy {
   /**
    * Attributo booleano che indica se l'interfaccia viene visualizzata all'interno di un iframe
    */
-  private insideFrame: boolean = true;
+  private insideFrame: boolean = false;
 
   /**
    * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId) se non si è all'interno di un iframe
@@ -46,14 +47,13 @@ export class DashboardComponent implements OnDestroy {
    */
   constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute, 
     private iframeInitService: IframeInitializerService) {
-    this.route.queryParams
+
+      this.route.queryParams.pipe(take(1))    //problemi di emissioni multiple di parametri
       .subscribe(params => {
-        if (params && params['inside']) {
-          this.insideFrame = params['inside'] == "true";
-        }
+        this.insideFrame = params['inside'] == "true"
       });
 
-    // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage (dall'applicazione contenitrice)
+      // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage (dall'applicazione contenitrice)
     if (this.insideFrame) {
       window.addEventListener("message", (event) => {
 
@@ -86,6 +86,10 @@ export class DashboardComponent implements OnDestroy {
 
     this.mobileQuery.addEventListener("change", this.queryListener);
     this.tabletQuery.addEventListener("change", this.queryListener);
+  }
+
+  ngOnInit(): void {
+    
   }
 
   /**
