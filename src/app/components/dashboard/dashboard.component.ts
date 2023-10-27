@@ -34,7 +34,7 @@ export class DashboardComponent implements OnDestroy {
   /**
    * Attributo booleano che indica se l'interfaccia viene visualizzata all'interno di un iframe
    */
-  private insideFrame: boolean = false;
+  private insideFrame: boolean = true;
 
   /**
    * Costruttore della classe che gestisce la vista principale, reindirizza al login con username in assenza delle informazioni di autenticazione necessarie (token, userId) se non si è all'interno di un iframe
@@ -49,12 +49,7 @@ export class DashboardComponent implements OnDestroy {
     this.route.queryParams
       .subscribe(params => {
         if (params && params['inside']) {
-          if (params['inside'] == "true") {
-            this.insideFrame = true;
-            console.log("inside");
-          } else {
-            console.log("outside")
-          }
+          this.insideFrame = params['inside'] == "true";
         }
       });
 
