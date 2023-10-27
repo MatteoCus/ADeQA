@@ -12,16 +12,16 @@
                 <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label>
                 </th>
                 <td mat-cell *matCellDef="let column">
-                    <mat-form-field *ngIf="attribute.attributevaluetype == 'N'">
+                    <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'N'">
                         <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}"
                             color="primary" />
                     </mat-form-field>
-                    <mat-form-field *ngIf="attribute.attributevaluetype == 'S'">
+                    <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'S'">
                         <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}"
                             color="primary" />
                     </mat-form-field>
                     <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
-                    <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
+                    <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'L'">
                         <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary">
                             <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index"
                                 value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}}
@@ -34,7 +34,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div id="button-tooltip" (click)="tooltip.toggle()" #tooltip="matTooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
+    <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
         <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiungi"
             | translate}}</button>
     </div>
@@ -52,16 +52,16 @@
                 <th mat-header-cell *matHeaderCellDef> <label for="control-{{i}}">{{attribute.attributename}}</label>
                 </th>
                 <td mat-cell *matCellDef="let column">
-                    <mat-form-field *ngIf="attribute.attributevaluetype == 'N'">
+                    <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'N'">
                         <input id="control-{{i}}" matInput type="number" formControlName="control-{{i}}"
                             color="primary" />
                     </mat-form-field>
-                    <mat-form-field *ngIf="attribute.attributevaluetype == 'S'">
+                    <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'S'">
                         <input id="control-{{i}}" matInput type="text" formControlName="control-{{i}}"
                             color="primary" />
                     </mat-form-field>
                     <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'" formControlName="control-{{i}}"></mat-checkbox>
-                    <mat-form-field *ngIf="attribute.attributevaluetype == 'L'">
+                    <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'L'">
                         <mat-select id="control-{{i}}" formControlName="control-{{i}}" color="primary">
                             <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index"
                                 value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}}
@@ -74,7 +74,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div id="button-tooltip" (click)="tooltip.toggle()" #tooltip="matTooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
+    <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
         <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiorna"
             | translate}}</button>
     </div>

@@ -9,6 +9,7 @@ import { OptionsPipe } from 'src/app/pipes/options.pipe';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori

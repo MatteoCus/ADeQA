@@ -46,3 +46,13 @@ mat-checkbox {
     margin: auto;
     margin-top: 1em;
 }
+
+@media screen and (max-width: 1200px) {
+    mat-form-field.mat-mdc-form-field {
+        max-width: 150px;
+    }
+
+    mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-select {
+        max-width: 180px;
+    }
+}
