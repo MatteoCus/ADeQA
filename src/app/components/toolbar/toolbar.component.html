@@ -22,7 +22,7 @@
   </mat-menu>
 
   <span *ngIf="!mobileQuery.matches">{{user}}</span>
-  <img *ngIf="!mobileQuery.matches" src="../../../assets/icons/logo.jpg" />
+  <img *ngIf="!mobileQuery.matches" src="assets/icons/logo.jpg" />
 
   <button *ngIf="mobileQuery.matches" [attr.aria-label]="'Logout completo' | translate" class="icon logout-mobile"
     (click)="openLogoutDialog()" title="{{'Logout completo' | translate}}">
