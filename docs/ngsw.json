@@ -1,0 +1,115 @@
+{
+  "configVersion": 1,
+  "timestamp": 1698393822645,
+  "index": "/ADeQA/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ADeQA/favicon.ico",
+        "/ADeQA/index.html",
+        "/ADeQA/main.191e03720c31dc85.js",
+        "/ADeQA/manifest.webmanifest",
+        "/ADeQA/polyfills.5c95952700adb1aa.js",
+        "/ADeQA/runtime.7df2c404d1216bfc.js",
+        "/ADeQA/styles.a431867e95709d9b.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ADeQA/assets/api-config.json",
+        "/ADeQA/assets/i18n/en.json",
+        "/ADeQA/assets/i18n/es.json",
+        "/ADeQA/assets/i18n/it.json",
+        "/ADeQA/assets/icons/launchericon-144-144.png",
+        "/ADeQA/assets/icons/launchericon-192-192.png",
+        "/ADeQA/assets/icons/launchericon-48-48.png",
+        "/ADeQA/assets/icons/launchericon-512-512.png",
+        "/ADeQA/assets/icons/launchericon-72-72.png",
+        "/ADeQA/assets/icons/launchericon-96-96.png",
+        "/ADeQA/assets/icons/logo.jpg",
+        "/ADeQA/assets/images/dashboard-mobile.png",
+        "/ADeQA/assets/images/dashboard-tablet.png",
+        "/ADeQA/assets/images/dashboard.png",
+        "/ADeQA/assets/images/login-pin-narrow.png",
+        "/ADeQA/assets/images/login-pin.png",
+        "/ADeQA/assets/images/login-username-narrow.png",
+        "/ADeQA/assets/images/login-username.png",
+        "/ADeQA/assets/images/logo-ADeQA-dark.svg",
+        "/ADeQA/assets/images/logo-ADeQA-white.svg",
+        "/ADeQA/assets/images/logo-ADeQA.svg",
+        "/ADeQA/assets/images/three-dots.svg",
+        "/ADeQA/logo-ADeQA-dark.c177c62037bf58d3.svg",
+        "/ADeQA/logo-ADeQA-white.3d93ec274a9c24e2.svg",
+        "/ADeQA/three-dots.08232105049052c6.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/ADeQA/assets/api-config.json": "4de49199d1653ffff22c6da1a97512dddee8b82c",
+    "/ADeQA/assets/i18n/en.json": "21667264d7bff6e850696e23734d7c742077bef6",
+    "/ADeQA/assets/i18n/es.json": "709c7a18c142841d7a9f122da16608b1cb6067ae",
+    "/ADeQA/assets/i18n/it.json": "2b0399bdfe05a84f2f86e5a51a28af313fa7be5f",
+    "/ADeQA/assets/icons/launchericon-144-144.png": "5fd9e64ff7f9cdec58a684011d8eed72c5f491b3",
+    "/ADeQA/assets/icons/launchericon-192-192.png": "9e1d37877268b5cbb619e4f54f03d1c665f6cabb",
+    "/ADeQA/assets/icons/launchericon-48-48.png": "99a5311d968d55fd9581bac7a0d35fd3e42fe78e",
+    "/ADeQA/assets/icons/launchericon-512-512.png": "d93b19a72ce280f5bc78c4ef220f32df3990a982",
+    "/ADeQA/assets/icons/launchericon-72-72.png": "b344646d90d01c5e4f4eb9dc33f00a25caf221e7",
+    "/ADeQA/assets/icons/launchericon-96-96.png": "9e4ada00dfb8703df0061f3ab50ffe19b7d0971e",
+    "/ADeQA/assets/icons/logo.jpg": "ffb6d14a512b867d36dd82d0ad8aa3c867354659",
+    "/ADeQA/assets/images/dashboard-mobile.png": "a2fc494111a9801741b89f6cc43b0f3de36bcbaa",
+    "/ADeQA/assets/images/dashboard-tablet.png": "199afa96d208c0a71e6e2d8e5514307b2a56abff",
+    "/ADeQA/assets/images/dashboard.png": "e1a13e5b184fa1ed3a29e6dd4a3ac3ce55eef153",
+    "/ADeQA/assets/images/login-pin-narrow.png": "47b675f9e3128fef3c40d348c7d99fbd8bf7f21b",
+    "/ADeQA/assets/images/login-pin.png": "0831056e0af2b1404b773d3486e0a1430055e643",
+    "/ADeQA/assets/images/login-username-narrow.png": "eb22083626227b2b2b6e1afdda3cba0a1b0ea505",
+    "/ADeQA/assets/images/login-username.png": "9c0bfde9eb8f85ec1db6b60d839fbc518bb151a7",
+    "/ADeQA/assets/images/logo-ADeQA-dark.svg": "f10e4e4a5def2c7c1a29eac60551d11fbd242645",
+    "/ADeQA/assets/images/logo-ADeQA-white.svg": "06a653be0daa19fbec9f6b5da5225c7075681b0a",
+    "/ADeQA/assets/images/logo-ADeQA.svg": "9d84c77fdb11d6b2d6620f2bf22afce5451e817d",
+    "/ADeQA/assets/images/three-dots.svg": "cbaccc5fca9ace5932090df8ceaa194744c202b3",
+    "/ADeQA/favicon.ico": "380f2366819e2b5f9caae9324c652eb79f98e5b2",
+    "/ADeQA/index.html": "38a7fd4a1a39437bec0637dd9161cb3dbcdb6a8b",
+    "/ADeQA/logo-ADeQA-dark.c177c62037bf58d3.svg": "f10e4e4a5def2c7c1a29eac60551d11fbd242645",
+    "/ADeQA/logo-ADeQA-white.3d93ec274a9c24e2.svg": "06a653be0daa19fbec9f6b5da5225c7075681b0a",
+    "/ADeQA/main.191e03720c31dc85.js": "4b76bf65851d55f21173ff683165b071e74e22fd",
+    "/ADeQA/manifest.webmanifest": "2c49bb5e161307bf1d6894efe8dce4a0406fecb8",
+    "/ADeQA/polyfills.5c95952700adb1aa.js": "d34802f3eb302c9009ac1bf59824a07c6625f42c",
+    "/ADeQA/runtime.7df2c404d1216bfc.js": "0ea03cd35ec44fc5ad5cd1d07138f1c5e1f3f9bd",
+    "/ADeQA/styles.a431867e95709d9b.css": "285dc5814817a22149ab1eb5b88b9eb1654455c6",
+    "/ADeQA/three-dots.08232105049052c6.svg": "cbaccc5fca9ace5932090df8ceaa194744c202b3"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
