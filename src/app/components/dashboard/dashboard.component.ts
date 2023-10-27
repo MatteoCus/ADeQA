@@ -51,6 +51,9 @@ export class DashboardComponent implements OnDestroy {
         if (params && params['inside']) {
           if (params['inside'] == "true") {
             this.insideFrame = true;
+            console.log("inside");
+          } else {
+            console.log("outside")
           }
         }
       });
