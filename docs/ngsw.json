@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1698394928600,
+  "timestamp": 1698397313185,
   "index": "/ADeQA/index.html",
   "assetGroups": [
     {
@@ -87,7 +87,7 @@
     "/ADeQA/logo-ADeQA-dark.c177c62037bf58d3.svg": "f10e4e4a5def2c7c1a29eac60551d11fbd242645",
     "/ADeQA/logo-ADeQA-white.3d93ec274a9c24e2.svg": "06a653be0daa19fbec9f6b5da5225c7075681b0a",
     "/ADeQA/main.b2360c52e986a78c.js": "a0712bd34f2f01bb6b67f07bd2f07b628d382df3",
-    "/ADeQA/manifest.webmanifest": "2c49bb5e161307bf1d6894efe8dce4a0406fecb8",
+    "/ADeQA/manifest.webmanifest": "bdd3896bdc57b439a4b3a7f16fdca8861c5581c8",
     "/ADeQA/polyfills.5c95952700adb1aa.js": "d34802f3eb302c9009ac1bf59824a07c6625f42c",
     "/ADeQA/runtime.7df2c404d1216bfc.js": "0ea03cd35ec44fc5ad5cd1d07138f1c5e1f3f9bd",
     "/ADeQA/styles.a431867e95709d9b.css": "285dc5814817a22149ab1eb5b88b9eb1654455c6",

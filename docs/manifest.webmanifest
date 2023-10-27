@@ -8,7 +8,7 @@
   "short_name": "ADeQA",
   "theme_color": "#1A1B2E",
   "background_color": "#fafafa",
-  "orientation": "landscape-primary",
+  "orientation": "any",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
