@@ -34,7 +34,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
+    <div id="button-tooltip" (click)="tooltip.toggle()" #tooltip="matTooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
         <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiungi"
             | translate}}</button>
     </div>
@@ -74,7 +74,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div id="button-tooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
+    <div id="button-tooltip" (click)="tooltip.toggle()" #tooltip="matTooltip" [matTooltip]="'Compilare tutti i campi' | translate" [matTooltipDisabled]="form.valid">
         <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" id="submitButton">{{"Aggiorna"
             | translate}}</button>
     </div>
