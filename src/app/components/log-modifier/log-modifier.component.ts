@@ -249,17 +249,27 @@ export class LogModifierComponent implements OnInit {
   private buildQualityValue() {
     let qualityvalue: string = "{";
 
-    for (let i = 0; i < this.activeAttributes.length; i++) {
+    this.activeAttributes.forEach((value, i) => {
       qualityvalue += "\"";
-      qualityvalue += this.activeAttributes.at(i)?.attributename;
+      qualityvalue += this.activeAttributes.at(i)?.attributevalue;
       qualityvalue += "\": \"";
-      qualityvalue += this.form.value['control-' + i];
+
+      if(value.attributevaluetype == "L"){
+        let position: number = 0;
+        position = value.optionvalue?.value.value.findIndex((value) => {
+          return this.form.get('control-' + i.toString())?.value == value;
+        })!;
+        qualityvalue += new OptionsPipe().transform(this.form.get('control-' + i.toString())?.value, value.optionvalue?.value.key.at(position)!);
+        qualityvalue += "\", \"_id\": \"" + value.optionvalue?.value.key.at(position);
+      } else {
+        qualityvalue += this.form.value['control-' + i];
+      }
       qualityvalue += "\"";
 
       if (i != this.activeAttributes.length - 1) {
         qualityvalue += ", ";
       }
-    }
+    });
     qualityvalue += "}";
     return qualityvalue;
   }
