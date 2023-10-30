@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1698658939913,
+  "timestamp": 1698659422753,
   "index": "/ADeQA/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "/ADeQA/manifest.webmanifest",
         "/ADeQA/polyfills.5c95952700adb1aa.js",
         "/ADeQA/runtime.7df2c404d1216bfc.js",
-        "/ADeQA/styles.2b72fc7a0f782149.css"
+        "/ADeQA/styles.d414b652c85e431b.css"
       ],
       "patterns": []
     },
@@ -83,14 +83,14 @@
     "/ADeQA/assets/images/logo-ADeQA.svg": "9d84c77fdb11d6b2d6620f2bf22afce5451e817d",
     "/ADeQA/assets/images/three-dots.svg": "cbaccc5fca9ace5932090df8ceaa194744c202b3",
     "/ADeQA/favicon.ico": "380f2366819e2b5f9caae9324c652eb79f98e5b2",
-    "/ADeQA/index.html": "c9cd062e72ba33793963e50267cc251650b9f919",
+    "/ADeQA/index.html": "65b844424c2e8915637fa1706d818d086153c63d",
     "/ADeQA/logo-ADeQA-dark.c177c62037bf58d3.svg": "f10e4e4a5def2c7c1a29eac60551d11fbd242645",
     "/ADeQA/logo-ADeQA-white.3d93ec274a9c24e2.svg": "06a653be0daa19fbec9f6b5da5225c7075681b0a",
     "/ADeQA/main.554d1001ca3e66e5.js": "5ee199a4df5aa28e8955174cc2f52b1e4fb9e957",
     "/ADeQA/manifest.webmanifest": "bdd3896bdc57b439a4b3a7f16fdca8861c5581c8",
     "/ADeQA/polyfills.5c95952700adb1aa.js": "d34802f3eb302c9009ac1bf59824a07c6625f42c",
     "/ADeQA/runtime.7df2c404d1216bfc.js": "0ea03cd35ec44fc5ad5cd1d07138f1c5e1f3f9bd",
-    "/ADeQA/styles.2b72fc7a0f782149.css": "6acaec7b2e9a2193e4eb4bf339617b2a82146433",
+    "/ADeQA/styles.d414b652c85e431b.css": "e4278047db068e72ba4311bfe8155d25f75238c8",
     "/ADeQA/three-dots.08232105049052c6.svg": "cbaccc5fca9ace5932090df8ceaa194744c202b3"
   },
   "navigationUrls": [
