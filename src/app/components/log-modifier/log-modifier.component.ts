@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { QualityattributeModel } from 'src/app/api/models';
+import { QualityattributeModel, QualityphaseModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
 import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,6 +10,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { QualitySaveLogService } from 'src/app/api/services';
+import { Add$Params } from 'src/app/api/fn/quality-save-log/9000004-add';
+import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
+import { take } from 'rxjs';
+import { Update$Params } from 'src/app/api/fn/quality-save-log/9000004-update';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -20,6 +25,8 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
   styleUrls: ['./log-modifier.component.scss']
 })
 export class LogModifierComponent implements OnInit {
+
+  private activePhase: QualityphaseModel = new Object();
 
   /**
    * Le colonne da mostrare (la descrizione degli attributi che caratterizzano un controllo qualità per la fase selezionata)
@@ -49,9 +56,14 @@ export class LogModifierComponent implements OnInit {
    * @param message Messaggio da mostrare
    * @param type Etichetta del pulsante di chiusura
   */
-  private openSnackBar(message: string, type: string): void {
+  private openFailSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
-      panelClass: ['red-snackbar', 'login-snackbar'],
+      panelClass: ['red-snackbar'],
+    });
+  }
+  private openSuccessSnackBar(message: string, type: string): void {
+    this.snackBar.open(message, type, {
+      panelClass: ['green-snackbar'],
     });
   }
 
@@ -65,12 +77,16 @@ export class LogModifierComponent implements OnInit {
    * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
-    private authInfoService: AuthInformationsService, private loadingService: LoadingService) { }
+    private authInfoService: AuthInformationsService, private loadingService: LoadingService, private qualitySaveLogService: QualitySaveLogService, private activePhaseService: ActivePhaseService) { }
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
    */
   ngOnInit() {    
+
+    this.activePhaseService.getActivePhase().subscribe( phase => {
+      this.activePhase = phase;
+    })
 
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
@@ -79,6 +95,26 @@ export class LogModifierComponent implements OnInit {
         this.initializeForm();
         this.loadingService.stopModifierLoading();
       });
+  }
+
+  private prepareAddParams(token: string, c_projectphase_id: number, qualityvalue: string): Add$Params{
+    return {
+      "AdesuiteToken": token,
+      "body": {
+        "c_projectphase_id": c_projectphase_id,
+        "qualityvalue": qualityvalue
+      }
+    };
+  }
+
+  private prepareUpdateParams(token: string, c_projectphase_id: number, qualityvalue: string): Update$Params{
+    return {
+      "AdesuiteToken": token,
+      "body": {
+        "c_projectphase_id": c_projectphase_id,     // modificare con l'identificativo del log
+        "qualityvalue": qualityvalue
+      }
+    };
   }
 
   /**
@@ -99,7 +135,7 @@ export class LogModifierComponent implements OnInit {
     });
 
     if (this.activeAttributes.length == 0) {
-      this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
+      this.openFailSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
     }
   }
 
@@ -200,28 +236,51 @@ export class LogModifierComponent implements OnInit {
   public add(): void {
 
     const token: string = this.authInfoService.Token;
-    let qualityvalue: string = "{\"";
+    const qualityvalue: string = this.buildQualityValue();
+
+    const params = this.prepareAddParams(token, this.activePhase.c_projectphase_id!, qualityvalue)
+
+    this.qualitySaveLogService.Add(params).subscribe({
+      next: () => this.openSuccessSnackBar("Inserimento avvenuto correttamente!", "X"),
+      error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
+    })
+  }
+
+  private buildQualityValue() {
+    let qualityvalue: string = "{";
 
     for (let i = 0; i < this.activeAttributes.length; i++) {
+      qualityvalue += "\"";
       qualityvalue += this.activeAttributes.at(i)?.attributename;
       qualityvalue += "\": \"";
       qualityvalue += this.form.value['control-' + i];
       qualityvalue += "\"";
 
       if (i != this.activeAttributes.length - 1) {
-        qualityvalue += ","
+        qualityvalue += ", ";
       }
     }
     qualityvalue += "}";
-
-    console.log(this.form.value);
+    return qualityvalue;
   }
 
   /**
    * Metodo per aggiornare un log relativo alla fase di qualità attiva
    */
   public update(): void {
+
+    // const token: string = this.authInfoService.Token;
+    // const qualityValue = this.buildQualityValue();
+
+    // const params = this.prepareUpdateParams(token, , qualityValue);
+
+    // this.qualitySaveLogService.Update(params).subscribe({
+    //   next: () => this.openSuccessSnackBar("Aggiornamento avvenuto correttamente!", "X"),
+    //   error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
+    // });
+
     console.log(this.form.value);
+
     this.addLog = true;
   }
 

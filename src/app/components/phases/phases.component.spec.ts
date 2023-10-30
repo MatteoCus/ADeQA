@@ -83,7 +83,7 @@ describe('PhasesComponent', () => {
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
     
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Internal Server Error', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Internal Server Error', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should handle loading when fetching phases fails with error 401', () => {
@@ -98,7 +98,7 @@ describe('PhasesComponent', () => {
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
     
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Expired token', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Expired token', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(logoutSpy).toHaveBeenCalled();
   });
 
@@ -114,7 +114,7 @@ describe('PhasesComponent', () => {
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
     
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(logoutSpy).toHaveBeenCalled();
   });
 
@@ -129,7 +129,7 @@ describe('PhasesComponent', () => {
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
     
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should handle empty response', () => {
@@ -142,7 +142,7 @@ describe('PhasesComponent', () => {
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
     
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should set the active phase', () => {
@@ -157,6 +157,6 @@ describe('PhasesComponent', () => {
 
     component.select("a");
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('La carta selezionata non contiene testo!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('La carta selezionata non contiene testo!', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 });

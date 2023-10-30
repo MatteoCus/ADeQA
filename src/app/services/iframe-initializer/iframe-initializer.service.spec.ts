@@ -221,7 +221,7 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should handle error - 401', () => {
@@ -270,7 +270,7 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Il token di accesso non è più valido', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Il token di accesso non è più valido', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(logoutServiceSpy).toHaveBeenCalled();
   });
 
@@ -319,7 +319,7 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server generico', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server generico', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should handle error - 401 null error body', () => {
@@ -368,7 +368,7 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(logoutServiceSpy).toHaveBeenCalled();
   });
 
@@ -417,7 +417,7 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar' ] });
   });
   
 });

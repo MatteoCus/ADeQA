@@ -225,7 +225,7 @@ describe('LoginPinComponent', () => {
 
     component.login();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Il pin inserito non è valido!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Il pin inserito non è valido!', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should handle login error - 401', () => {
@@ -238,7 +238,7 @@ describe('LoginPinComponent', () => {
     .and.returnValue(throwError(() => errorResponse401));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato!', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(authInfoService.Token).toBe('');
     expect(navigateSpy).toHaveBeenCalledWith(['login/username']);
   });
@@ -252,7 +252,7 @@ describe('LoginPinComponent', () => {
     .and.returnValue(throwError(() => errorResponse500));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore server', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore server', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(authInfoService.Token).toBe('');
   });
 
@@ -266,7 +266,7 @@ describe('LoginPinComponent', () => {
     .and.returnValue(throwError(() => errorResponse401_empty));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(authInfoService.Token).toBe('');
     expect(navigateSpy).toHaveBeenCalledWith(['login/username']);
   });
@@ -280,7 +280,7 @@ describe('LoginPinComponent', () => {
     .and.returnValue(throwError(() => errorResponse500_empty));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(authInfoService.Token).toBe('');
   });
 
@@ -293,7 +293,7 @@ describe('LoginPinComponent', () => {
     .and.returnValue(of({ data: [{ undefined }] } as any as FetchResponseOperatorsModel));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Il PIN inserito non appartiene ad alcun utente', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Il PIN inserito non appartiene ad alcun utente', 'X', { panelClass: [ 'red-snackbar' ] });
     expect(authInfoService.Token).toBe('');
   });
 

@@ -105,7 +105,7 @@ describe('LoginUsernameComponent', () => {
 
     component.login();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Inserire tutti i dati richiesti', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Inserire tutti i dati richiesti', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should perform login - undefined token', () => {
@@ -135,7 +135,7 @@ describe('LoginUsernameComponent', () => {
       },
     });
     expect(authInfoService.Token).toBeUndefined();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Token nullo', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Token nullo', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
   it('should handle error response', () => {
@@ -159,7 +159,7 @@ describe('LoginUsernameComponent', () => {
 
     component.login();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Utente non trovato', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Utente non trovato', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 
 });

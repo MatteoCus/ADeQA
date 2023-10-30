@@ -81,7 +81,7 @@ export class LoginUsernameComponent implements OnInit {
    */
   private openSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
-      panelClass: ['red-snackbar', 'login-snackbar'],
+      panelClass: ['red-snackbar'],
     });
   }
 

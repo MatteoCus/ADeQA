@@ -55,6 +55,6 @@ describe('LogViewerComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: [ 'red-snackbar', 'login-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: [ 'red-snackbar' ] });
   });
 });

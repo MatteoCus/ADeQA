@@ -376,6 +376,16 @@ body {
   color: white !important;
 }
 
+.green-snackbar {
+  background-color: #2f861e !important;
+  color: white !important;
+  box-shadow: 0px 0px 5px white;
+}
+
+.green-snackbar button {
+  color: white !important;
+}
+
 @media screen and (min-width: 1920px) {
   * {
     font-size: large;
