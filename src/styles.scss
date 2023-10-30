@@ -148,6 +148,10 @@ $sidenav-light-theme: mat.define-light-theme((color: (primary: $sidenav-primary-
 // Tema default: serve per component di login, dato che hanno un unico tema
 @include mat.all-component-themes($header-light-theme);
 
+mat-form-field{
+  @include mat.all-component-densities(-1);
+}
+
 // Stile carte 
 mat-card,
 mat-card-subtitle {
@@ -386,6 +390,11 @@ body {
   .theme-dark .mat-toolbar {
     background-color: black;
   }
+
+}
+
+mat-form-field * {
+  font-size: large;
 }
 
 * {
