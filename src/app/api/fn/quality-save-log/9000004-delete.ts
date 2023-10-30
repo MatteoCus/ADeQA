@@ -14,7 +14,7 @@ import { QualitysavelogModel } from '../../models/qualitysavelog-model';
 export interface Delete$Params {
   AdesuiteToken: string;
   body: {
-    'c_projectphase_id'?: number;
+    'c_projectphase_quality_log_id'?: number;
   }
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 /**
- * Interfaccia che definisce le caratteristiche di un log di qualità
+ * Interfaccia che definisce le caratteristiche di una richiesta CRUD per un log di qualità
  */
 export interface QualitysavelogModel {
   c_projectphase_id?: number;
