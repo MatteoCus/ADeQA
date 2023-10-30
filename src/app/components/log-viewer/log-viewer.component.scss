@@ -12,6 +12,7 @@ table * {
     text-align: center;
     padding-top: 0.75em;
     padding-bottom: 0.75em;
+    margin-bottom: 2em;
 }
 
 .container {
@@ -20,5 +21,10 @@ table * {
     width: 90%;
     overflow: auto;
     margin: auto;
-    margin-top: 1em;
+}
+
+@media screen and (max-height: 900px) {
+    .header {
+        margin-bottom: 1em;
+    }
 }

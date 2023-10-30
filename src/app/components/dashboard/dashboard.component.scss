@@ -26,6 +26,7 @@ app-phases {
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 1em;
 }
 
 app-log-modifier {
@@ -35,7 +36,7 @@ app-log-modifier {
 
 app-log-viewer {
     width: 100%;
-    flex: 60%;
+    flex: 59%;
 }
 
 @media screen and (max-width: 1200px) {
@@ -53,5 +54,15 @@ app-log-viewer {
 @media screen and (max-width: 500px) {
     mat-drawer {
         width: 70%;
+    }
+}
+
+@media screen and (max-height: 900px) {
+    app-log-modifier {
+        flex: 50%;
+    }
+    
+    app-log-viewer {
+        flex: 50%;
     }
 }
