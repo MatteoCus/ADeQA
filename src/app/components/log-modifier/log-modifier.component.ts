@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { QualityattributeModel, QualityphaseModel } from 'src/app/api/models';
+import { QualityattributeModel, QualityphaseModel, QualitysavelogModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
 import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -42,6 +42,8 @@ export class LogModifierComponent implements OnInit {
    */
   public form: FormGroup = new FormGroup({});
 
+  public updateDataSource: any[] = [];
+
   /**
    * Attributo booleano per gestire il form da visualizzare
    * Form possibili:
@@ -49,6 +51,10 @@ export class LogModifierComponent implements OnInit {
    * -) Form di modifica log: false
    */
   public addLog: boolean = true;
+
+  public defaultOption: string = "";
+
+  private logToUpdate: QualitysavelogModel = new Object();
 
   /**
    * Metodo per l'apertura della barra di visualizzazione di messaggi di stato
@@ -89,13 +95,42 @@ export class LogModifierComponent implements OnInit {
     });
 
     this.mainViewCommunicationsService.updateLog.subscribe((toUpdateLog) => {
-      console.log(toUpdateLog);
+      this.logToUpdate = toUpdateLog;
+      this.updateDataSource = [];
+
+      const actualQualityValue: { type: string; value: string; } = toUpdateLog.qualityvalue! as any;
+      const json = JSON.parse(actualQualityValue.value);
+      this.form = new FormGroup({});
+
+      this.activeAttributes.forEach(value => {
+        if(value.attributevaluetype == "L") {
+          json[value.attributevalue!] = (json[value.attributevalue!.toString() + '_id' as any] + " - " + json[value.attributevalue! as any]);
+          this.defaultOption = json[value.attributevalue!];
+        }
+
+        if(value.attributevaluetype == "Y") {
+          json[value.attributevalue!] = json[value.attributevalue!] == "true";
+        }
+      });
+
+      this.updateDataSource.push(json);
+
+      this.activeAttributes.forEach((value, index) => {
+
+        const formValue: any = this.updateDataSource.at(0)[value.attributevalue!];
+        if (value.attributevaluetype != undefined) {
+          this.form.addControl("control-" + index.toString(), new FormControl(formValue, Validators.required));
+        }
+      });
+
+    
+    this.addLog = false;
     })
 
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
         this.activeAttributes = attributes;
-        this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributename!);
+        this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributevalue!);
         this.initializeForm();
         this.loadingService.stopModifierLoading();
       });
@@ -136,7 +171,7 @@ export class LogModifierComponent implements OnInit {
       } else {
         this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
       }
-    });
+    }); 
 
     if (this.activeAttributes.length == 0) {
       this.openFailSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
@@ -256,27 +291,28 @@ export class LogModifierComponent implements OnInit {
   private buildQualityValue() {
     let qualityvalue: string = "{";
 
+    const removeIndex = this.activeAttributes.findIndex(attribute => {return attribute.attributevalue == "Actions"});
+    this.activeAttributes.splice(removeIndex,1);
     this.activeAttributes.forEach((value, i) => {
-      qualityvalue += "\"";
-      qualityvalue += this.activeAttributes.at(i)?.attributevalue;
-      qualityvalue += "\": \"";
+        qualityvalue += "\"";
+        qualityvalue += this.activeAttributes.at(i)?.attributevalue;
+        qualityvalue += "\": \"";
 
-      if(value.attributevaluetype == "L"){
-        let position: number = 0;
-        position = value.optionvalue?.value.value.findIndex((value) => {
-          return this.form.get('control-' + i.toString())?.value == value;
-        })!;
-        qualityvalue += new OptionsPipe().transform(this.form.get('control-' + i.toString())?.value, value.optionvalue?.value.key.at(position)!);
-        qualityvalue += "\", \"" + value.attributevalue + "_id\": \"" + value.optionvalue?.value.key.at(position);
-      } else {
-        qualityvalue += this.form.value['control-' + i];
-      }
-      qualityvalue += "\"";
-
+        if(value.attributevaluetype == "L"){
+          let position: number = 0;
+          position = value.optionvalue?.value.value.findIndex((value) => {
+            return this.form.get('control-' + i.toString())?.value == value;
+          })!;
+          qualityvalue += new OptionsPipe().transform(this.form.get('control-' + i.toString())?.value, value.optionvalue?.value.key.at(position)!);
+          qualityvalue += "\", \"" + value.attributevalue + "_id\": \"" + value.optionvalue?.value.key.at(position);
+        } else {
+          qualityvalue += this.form.value['control-' + i];
+        }
+        qualityvalue += "\"";
       if (i != this.activeAttributes.length - 1) {
         qualityvalue += ", ";
       }
-    });
+      });
     qualityvalue += "}";
     return qualityvalue;
   }
@@ -286,15 +322,18 @@ export class LogModifierComponent implements OnInit {
    */
   public update(): void {
 
-    // const token: string = this.authInfoService.Token;
-    // const qualityValue = this.buildQualityValue();
+    const token: string = this.authInfoService.Token;
+    const qualityValue = this.buildQualityValue();
 
-    // const params = this.prepareUpdateParams(token, , qualityValue);
+    const params = this.prepareUpdateParams(token, this.logToUpdate.c_projectphase_quality_log_id!, qualityValue);
 
-    // this.qualitySaveLogService.Update(params).subscribe({
-    //   next: () => this.openSuccessSnackBar("Aggiornamento avvenuto correttamente!", "X"),
-    //   error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
-    // });
+    this.qualitySaveLogService.Update(params).subscribe({
+      next: () => {
+        this.openSuccessSnackBar("Aggiornamento avvenuto correttamente!", "X")
+        this.mainViewCommunicationsService.viewUpdate.next(true);
+      },
+      error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
+    });
 
     console.log(this.form.value);
 

@@ -22,6 +22,8 @@ export class LogViewerComponent implements OnInit {
 
   private lastPhase: QualityphaseModel = new Object();
 
+  private activeLogs: QualitysavelogModel[] = [];
+
   public logs: Subject<any[]> = new Subject<any[]>();
 
   /**
@@ -63,13 +65,14 @@ export class LogViewerComponent implements OnInit {
       .subscribe(attributes => {
         this.displayedColumns = attributes.map((attribute) => attribute.attributevalue!);
         this.attributes = attributes;
+        this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
 
         if (this.displayedColumns.length == 0) {
-          this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
+          this.openFailSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
         } 
-        // else {
-        //   this.displayedColumns.push("Azioni");
-        // }
+        else {
+          this.displayedColumns.push("Actions");
+        }
         this.loadingService.stopViewerLoading();
       });
   }
@@ -95,14 +98,19 @@ export class LogViewerComponent implements OnInit {
     this.qualitySaveLogService.fetch_1(params).subscribe({
       next: (response) => {
         let logs: any[] = [];
+        this.activeLogs = response.data!;
         response.data?.map((log) => {
           const actualQualityValue: { type: string; value: string; } = log.qualityvalue! as any;
-          logs.push(JSON.parse(actualQualityValue.value));
+          let aux = JSON.parse(actualQualityValue.value);
+          aux.Actions = " ";
+          aux.c_projectphase_quality_log_id = log.c_projectphase_quality_log_id;
+          logs.push(aux);
         });
+        console.log(logs);
         this.logs.next(logs);
       },
       error: (error) => {
-        this.openSnackBar("Errore " + error.status + " - " + error.error.description, "X");
+        this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X");
       }
     });
   }
@@ -112,14 +120,44 @@ export class LogViewerComponent implements OnInit {
    * @param message Messaggio da mostrare
    * @param type Etichetta del pulsante di chiusura
   */
-  private openSnackBar(message: string, type: string): void {
+  private openFailSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
       panelClass: ['red-snackbar'],
     });
   }
+  private openSuccessSnackBar(message: string, type: string): void {
+    this.snackBar.open(message, type, {
+      panelClass: ['green-snackbar'],
+    });
+  }
 
-  public edit(event: any): void {
-    // this.mainViewCommunicationsService.updateLog.next()
+  public edit(selectedLog: any): void {
+    const logToUpdate = this.activeLogs.find((log) => log.c_projectphase_quality_log_id == selectedLog.c_projectphase_quality_log_id);
+    if (logToUpdate != undefined) {
+      console.log(logToUpdate);
+      this.mainViewCommunicationsService.updateLog.next(logToUpdate);
+    }
+  }
+
+  public delete(selectedLog: any): void {
+    const token = this.authInfoService.Token;
+
+    const params = {
+      "AdesuiteToken": token,
+      "body":{
+        "c_projectphase_quality_log_id": selectedLog.c_projectphase_quality_log_id
+      }
+    }
+
+    this.qualitySaveLogService.Delete(params).subscribe({
+      next: () => {
+        this.openSuccessSnackBar("Eliminazione avvenuta correttamente!", "X")
+        this.mainViewCommunicationsService.viewUpdate.next(true);  
+      },
+      error: (error) => {
+        this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X");
+      }
+    })
   }
 
 }
