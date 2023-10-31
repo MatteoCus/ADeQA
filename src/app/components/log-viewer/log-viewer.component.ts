@@ -56,7 +56,10 @@ export class LogViewerComponent implements OnInit {
 
         if (this.displayedColumns.length == 0) {
           this.openSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
-        }
+        } 
+        // else {
+        //   this.displayedColumns.push("Azioni");
+        // }
         this.loadingService.stopViewerLoading();
       });
   }
@@ -103,6 +106,10 @@ export class LogViewerComponent implements OnInit {
     this.snackBar.open(message, type, {
       panelClass: ['red-snackbar'],
     });
+  }
+
+  public edit(event: any): void {
+    console.log(event);
   }
 
 }

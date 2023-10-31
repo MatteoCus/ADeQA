@@ -260,7 +260,7 @@ export class LogModifierComponent implements OnInit {
           return this.form.get('control-' + i.toString())?.value == value;
         })!;
         qualityvalue += new OptionsPipe().transform(this.form.get('control-' + i.toString())?.value, value.optionvalue?.value.key.at(position)!);
-        qualityvalue += "\", \"_id\": \"" + value.optionvalue?.value.key.at(position);
+        qualityvalue += "\", \"" + value.attributevalue + "_id\": \"" + value.optionvalue?.value.key.at(position);
       } else {
         qualityvalue += this.form.value['control-' + i];
       }
