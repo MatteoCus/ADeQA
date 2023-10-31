@@ -49,18 +49,6 @@ export class LogViewerComponent implements OnInit {
    */
   ngOnInit(): void {
 
-    this.activePhaseService.getActivePhase().subscribe( phase => {
-      this.lastPhase = phase;
-      this.updateTable(phase);
-    });
-
-    this.mainViewCommunicationsService.viewUpdate.subscribe( () => {
-        if(this.lastPhase != Object()) {
-          this.updateTable(this.lastPhase);
-        }
-      }
-    )
-
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
         this.displayedColumns = attributes.map((attribute) => attribute.attributevalue!);
@@ -73,11 +61,21 @@ export class LogViewerComponent implements OnInit {
         else {
           this.displayedColumns.push("Actions");
         }
-        this.loadingService.stopViewerLoading();
       });
+
+      this.mainViewCommunicationsService.viewUpdate.subscribe( () => {
+        this.updateTable(this.lastPhase);
+    });
+
+    this.activePhaseService.getActivePhase().subscribe( phase => {
+      this.lastPhase = phase;
+      this.updateTable(phase);
+      this.loadingService.stopViewerLoading();
+    });
   }
 
   private updateTable(phase: QualityphaseModel) {
+
     const token = this.authInfoService.Token;
 
     const params = {
@@ -97,15 +95,28 @@ export class LogViewerComponent implements OnInit {
 
     this.qualitySaveLogService.fetch_1(params).subscribe({
       next: (response) => {
+
+        console.log(response);
+        
         let logs: any[] = [];
         this.activeLogs = response.data!;
-        response.data?.map((log) => {
+        response.data?.forEach((log) => {
+
           const actualQualityValue: { type: string; value: string; } = log.qualityvalue! as any;
           let aux = JSON.parse(actualQualityValue.value);
-          aux.Actions = " ";
+          aux.Actions = "";
           aux.c_projectphase_quality_log_id = log.c_projectphase_quality_log_id;
           logs.push(aux);
         });
+        const index = this.attributes.findIndex(value => {
+          const actionsAttribute = {attributename: 'Azioni', attributevalue: 'Actions'};
+          return value.attributename ==  actionsAttribute.attributename && value.attributevalue == value.attributevalue;
+        });
+
+        if(index == -1) {
+          this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
+        }
+
         console.log(logs);
         this.logs.next(logs);
       },
@@ -113,6 +124,7 @@ export class LogViewerComponent implements OnInit {
         this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X");
       }
     });
+
   }
 
   /**
@@ -134,7 +146,6 @@ export class LogViewerComponent implements OnInit {
   public edit(selectedLog: any): void {
     const logToUpdate = this.activeLogs.find((log) => log.c_projectphase_quality_log_id == selectedLog.c_projectphase_quality_log_id);
     if (logToUpdate != undefined) {
-      console.log(logToUpdate);
       this.mainViewCommunicationsService.updateLog.next(logToUpdate);
     }
   }
