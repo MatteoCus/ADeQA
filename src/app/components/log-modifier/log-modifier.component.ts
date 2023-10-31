@@ -9,12 +9,11 @@ import { OptionsPipe } from 'src/app/pipes/options.pipe';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { QualitySaveLogService } from 'src/app/api/services';
 import { Add$Params } from 'src/app/api/fn/quality-save-log/9000004-add';
 import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
-import { take } from 'rxjs';
 import { Update$Params } from 'src/app/api/fn/quality-save-log/9000004-update';
+import { MainViewCommunicationsService } from 'src/app/services/main-view-communications/main-view-communications.service';
 
 /**
  * Classe che gestisce gli attributi relativi a una determinata fase selezionata ed i loro valori
@@ -77,7 +76,8 @@ export class LogModifierComponent implements OnInit {
    * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
-    private authInfoService: AuthInformationsService, private loadingService: LoadingService, private qualitySaveLogService: QualitySaveLogService, private activePhaseService: ActivePhaseService) { }
+    private authInfoService: AuthInformationsService, private loadingService: LoadingService, private qualitySaveLogService: QualitySaveLogService, private activePhaseService: ActivePhaseService,
+    private mainViewCommunicationsService: MainViewCommunicationsService) { }
 
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
@@ -86,6 +86,10 @@ export class LogModifierComponent implements OnInit {
 
     this.activePhaseService.getActivePhase().subscribe( phase => {
       this.activePhase = phase;
+    });
+
+    this.mainViewCommunicationsService.updateLog.subscribe((toUpdateLog) => {
+      console.log(toUpdateLog);
     })
 
     this.activeAttributesService.getActiveAttributes()
@@ -107,11 +111,11 @@ export class LogModifierComponent implements OnInit {
     };
   }
 
-  private prepareUpdateParams(token: string, c_projectphase_id: number, qualityvalue: string): Update$Params{
+  private prepareUpdateParams(token: string, c_projectphase_quality_log_id: number, qualityvalue: string): Update$Params{
     return {
       "AdesuiteToken": token,
       "body": {
-        "c_projectphase_id": c_projectphase_id,     // modificare con l'identificativo del log
+        "c_projectphase_quality_log_id": c_projectphase_quality_log_id,
         "qualityvalue": qualityvalue
       }
     };
@@ -241,7 +245,10 @@ export class LogModifierComponent implements OnInit {
     const params = this.prepareAddParams(token, this.activePhase.c_projectphase_id!, qualityvalue)
 
     this.qualitySaveLogService.Add(params).subscribe({
-      next: () => this.openSuccessSnackBar("Inserimento avvenuto correttamente!", "X"),
+      next: () => {
+        this.openSuccessSnackBar("Inserimento avvenuto correttamente!", "X")
+        this.mainViewCommunicationsService.viewUpdate.next(true);
+      },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
     })
   }

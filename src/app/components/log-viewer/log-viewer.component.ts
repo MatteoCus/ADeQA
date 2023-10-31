@@ -8,6 +8,7 @@ import { ActiveAttributesService } from 'src/app/services/active-attributes/acti
 import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.service';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
+import { MainViewCommunicationsService } from 'src/app/services/main-view-communications/main-view-communications.service';
 
 /**
  * Classe di visualizzazione dei log inseriti
@@ -18,6 +19,8 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
   styleUrls: ['./log-viewer.component.scss']
 })
 export class LogViewerComponent implements OnInit {
+
+  private lastPhase: QualityphaseModel = new Object();
 
   public logs: Subject<any[]> = new Subject<any[]>();
 
@@ -36,7 +39,8 @@ export class LogViewerComponent implements OnInit {
    * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private translateService: TranslateService, private loadingService: LoadingService,
-    private activePhaseService: ActivePhaseService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService) { }
+    private activePhaseService: ActivePhaseService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService,
+    private mainViewCommunicationsService: MainViewCommunicationsService) { }
 
   /**
    * Metodo per ottenere colonne e log salvati per la fase attuale, indica quando il caricamento è terminato (per far sparire lo splash-screen)
@@ -44,10 +48,16 @@ export class LogViewerComponent implements OnInit {
   ngOnInit(): void {
 
     this.activePhaseService.getActivePhase().subscribe( phase => {
-
+      this.lastPhase = phase;
       this.updateTable(phase);
-      
-    })
+    });
+
+    this.mainViewCommunicationsService.viewUpdate.subscribe( () => {
+        if(this.lastPhase != Object()) {
+          this.updateTable(this.lastPhase);
+        }
+      }
+    )
 
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
@@ -109,7 +119,7 @@ export class LogViewerComponent implements OnInit {
   }
 
   public edit(event: any): void {
-    console.log(event);
+    // this.mainViewCommunicationsService.updateLog.next()
   }
 
 }
