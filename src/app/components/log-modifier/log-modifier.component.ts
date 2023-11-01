@@ -291,6 +291,7 @@ export class LogModifierComponent implements OnInit {
   private buildQualityValue() {
     let qualityvalue: string = "{";
 
+    // modificare qui
     const removeIndex = this.activeAttributes.findIndex(attribute => {return attribute.attributevalue == "Actions"});
     this.activeAttributes.splice(removeIndex,1);
     this.activeAttributes.forEach((value, i) => {
@@ -314,6 +315,9 @@ export class LogModifierComponent implements OnInit {
       }
       });
     qualityvalue += "}";
+
+    console.log('Log di qualita');
+    console.log(qualityvalue);
     return qualityvalue;
   }
 
