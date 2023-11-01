@@ -129,7 +129,7 @@ export class LogModifierComponent implements OnInit {
 
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
-        this.activeAttributes = attributes;
+        this.activeAttributes = attributes.slice();
         this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributevalue!);
         this.initializeForm();
         this.loadingService.stopModifierLoading();
@@ -280,7 +280,7 @@ export class LogModifierComponent implements OnInit {
     const params = this.prepareAddParams(token, this.activePhase.c_projectphase_id!, qualityvalue)
 
     this.qualitySaveLogService.Add(params).subscribe({
-      next: (value) => {
+      next: () => {
         this.openSuccessSnackBar("Inserimento avvenuto correttamente!", "X");
         this.mainViewCommunicationsService.viewUpdate.next(true);
       },
@@ -293,7 +293,9 @@ export class LogModifierComponent implements OnInit {
 
     // modificare qui
     const removeIndex = this.activeAttributes.findIndex(attribute => {return attribute.attributevalue == "Actions"});
-    this.activeAttributes.splice(removeIndex,1);
+    if(removeIndex != -1){
+      this.activeAttributes = this.activeAttributes.splice(removeIndex,1);
+    }
     this.activeAttributes.forEach((value, i) => {
         qualityvalue += "\"";
         qualityvalue += this.activeAttributes.at(i)?.attributevalue;

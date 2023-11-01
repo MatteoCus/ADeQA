@@ -59,5 +59,6 @@
     "La carta selezionata non contiene testo!": "The selected card contains no text!",
     "Errore 500 - Username o password errati!": "Error 500 - Wrong username or password!",
     "Icona di scaricamento applicazione": "Download application icon",
-    "Errore 401 - Non autorizzato": "Error 401 - Not authorized"
+    "Errore 401 - Non autorizzato": "Error 401 - Not authorized",
+    "Azioni": "Actions"
 }

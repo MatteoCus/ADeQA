@@ -40,7 +40,7 @@ export class SplashScreenComponent implements OnInit {
         if(!show) {
           this.opacityChange = 0;
           setTimeout(() => {
-            this.showSplash = !this.showSplash;
+            this.showSplash = false;
           }, this.animationDuration * 1000);
         }
       }

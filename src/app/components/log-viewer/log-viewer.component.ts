@@ -52,15 +52,15 @@ export class LogViewerComponent implements OnInit {
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
         this.displayedColumns = attributes.map((attribute) => attribute.attributevalue!);
-        this.attributes = attributes;
-        // this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
+        this.attributes = attributes.slice();
+        this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
 
         if (this.displayedColumns.length == 0) {
           this.openFailSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
         } 
-        // else {
-        //   this.displayedColumns.push("Actions");
-        // }
+        else if(this.displayedColumns.findIndex(value => value == 'Actions') == -1){
+          this.displayedColumns.push("Actions");
+        }
       });
 
       this.mainViewCommunicationsService.viewUpdate.subscribe( () => {
@@ -113,9 +113,9 @@ export class LogViewerComponent implements OnInit {
           return value.attributename ==  actionsAttribute.attributename && value.attributevalue == value.attributevalue;
         });
 
-        // if(index == -1) {
-        //   this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
-        // }
+        if(index == -1) {
+          this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
+        }
 
         console.log(logs);
         this.logs.next(logs);

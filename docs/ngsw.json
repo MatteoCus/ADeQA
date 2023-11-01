@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1698681410419,
+  "timestamp": 1698848354228,
   "index": "/ADeQA/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/ADeQA/favicon.ico",
         "/ADeQA/index.html",
-        "/ADeQA/main.6d3ab5351c7df900.js",
+        "/ADeQA/main.c65efe044a67b7e2.js",
         "/ADeQA/manifest.webmanifest",
         "/ADeQA/polyfills.5c95952700adb1aa.js",
         "/ADeQA/runtime.7df2c404d1216bfc.js",
-        "/ADeQA/styles.6e8082d112c4875f.css"
+        "/ADeQA/styles.e04dd30a54506646.css"
       ],
       "patterns": []
     },
@@ -51,19 +51,19 @@
         "/ADeQA/assets/images/logo-ADeQA-white.svg",
         "/ADeQA/assets/images/logo-ADeQA.svg",
         "/ADeQA/assets/images/three-dots.svg",
-        "/ADeQA/logo-ADeQA-dark.c177c62037bf58d3.svg",
-        "/ADeQA/logo-ADeQA-white.3d93ec274a9c24e2.svg",
-        "/ADeQA/three-dots.08232105049052c6.svg"
+        "/ADeQA/logo-ADeQA-dark.ac5f23808bbae946.svg",
+        "/ADeQA/logo-ADeQA-white.7022ada73c8d47c9.svg",
+        "/ADeQA/three-dots.111df02d12dd0063.svg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/ADeQA/assets/api-config.json": "4de49199d1653ffff22c6da1a97512dddee8b82c",
-    "/ADeQA/assets/i18n/en.json": "21667264d7bff6e850696e23734d7c742077bef6",
-    "/ADeQA/assets/i18n/es.json": "709c7a18c142841d7a9f122da16608b1cb6067ae",
-    "/ADeQA/assets/i18n/it.json": "2b0399bdfe05a84f2f86e5a51a28af313fa7be5f",
+    "/ADeQA/assets/api-config.json": "04aa266e42b8f946b192578c0803176c0b6dbc15",
+    "/ADeQA/assets/i18n/en.json": "32d2be09877e9798714a415addf1814c2ae21a2a",
+    "/ADeQA/assets/i18n/es.json": "75683b6812e15ad263767aeded1de8c2db496f57",
+    "/ADeQA/assets/i18n/it.json": "affd4738358a7dce41699f253b3dbb6b842d7255",
     "/ADeQA/assets/icons/launchericon-144-144.png": "1ab9071db4b746a155c6ceabbcfaf4c48f48f3ed",
     "/ADeQA/assets/icons/launchericon-192-192.png": "60f00b4b11ac8e76c75b017596a67a3b01cb7ec3",
     "/ADeQA/assets/icons/launchericon-48-48.png": "95fd92e2b233b87b142927a1c533f0c7676bd14a",
@@ -78,20 +78,20 @@
     "/ADeQA/assets/images/login-pin.png": "0831056e0af2b1404b773d3486e0a1430055e643",
     "/ADeQA/assets/images/login-username-narrow.png": "eb22083626227b2b2b6e1afdda3cba0a1b0ea505",
     "/ADeQA/assets/images/login-username.png": "9c0bfde9eb8f85ec1db6b60d839fbc518bb151a7",
-    "/ADeQA/assets/images/logo-ADeQA-dark.svg": "f10e4e4a5def2c7c1a29eac60551d11fbd242645",
-    "/ADeQA/assets/images/logo-ADeQA-white.svg": "06a653be0daa19fbec9f6b5da5225c7075681b0a",
-    "/ADeQA/assets/images/logo-ADeQA.svg": "9d84c77fdb11d6b2d6620f2bf22afce5451e817d",
-    "/ADeQA/assets/images/three-dots.svg": "cbaccc5fca9ace5932090df8ceaa194744c202b3",
+    "/ADeQA/assets/images/logo-ADeQA-dark.svg": "a9483c8193a831f11e77cd43f89f7d575210ac22",
+    "/ADeQA/assets/images/logo-ADeQA-white.svg": "fc1b95fa065fc76d73c02d5f8d0ef4c2b68260b9",
+    "/ADeQA/assets/images/logo-ADeQA.svg": "9fd80c93844437a076c75dec557ef525932f63a0",
+    "/ADeQA/assets/images/three-dots.svg": "b638e975a151ce064cd63d5e155228a280ca6f84",
     "/ADeQA/favicon.ico": "380f2366819e2b5f9caae9324c652eb79f98e5b2",
-    "/ADeQA/index.html": "c722ec7e76c875eb9aab55be52ca011ce14768ee",
-    "/ADeQA/logo-ADeQA-dark.c177c62037bf58d3.svg": "f10e4e4a5def2c7c1a29eac60551d11fbd242645",
-    "/ADeQA/logo-ADeQA-white.3d93ec274a9c24e2.svg": "06a653be0daa19fbec9f6b5da5225c7075681b0a",
-    "/ADeQA/main.6d3ab5351c7df900.js": "952de7e0920ae59280eb22bf9f6bfb6f4a7edca9",
-    "/ADeQA/manifest.webmanifest": "bdd3896bdc57b439a4b3a7f16fdca8861c5581c8",
+    "/ADeQA/index.html": "2d36a217b140b68d719a20ae7fc2f6aa346a707e",
+    "/ADeQA/logo-ADeQA-dark.ac5f23808bbae946.svg": "a9483c8193a831f11e77cd43f89f7d575210ac22",
+    "/ADeQA/logo-ADeQA-white.7022ada73c8d47c9.svg": "fc1b95fa065fc76d73c02d5f8d0ef4c2b68260b9",
+    "/ADeQA/main.c65efe044a67b7e2.js": "1e392d4003064e33531fa4eef74dd8a6892db2f6",
+    "/ADeQA/manifest.webmanifest": "73af43591a4d0358dcd6c509e784526675f72d87",
     "/ADeQA/polyfills.5c95952700adb1aa.js": "d34802f3eb302c9009ac1bf59824a07c6625f42c",
     "/ADeQA/runtime.7df2c404d1216bfc.js": "0ea03cd35ec44fc5ad5cd1d07138f1c5e1f3f9bd",
-    "/ADeQA/styles.6e8082d112c4875f.css": "7e44aeda99e238fd8ad5f9b61a7be85e7c2df8af",
-    "/ADeQA/three-dots.08232105049052c6.svg": "cbaccc5fca9ace5932090df8ceaa194744c202b3"
+    "/ADeQA/styles.e04dd30a54506646.css": "1f647b72300bb1773d429459f3b704d963cb82d3",
+    "/ADeQA/three-dots.111df02d12dd0063.svg": "b638e975a151ce064cd63d5e155228a280ca6f84"
   },
   "navigationUrls": [
     {
