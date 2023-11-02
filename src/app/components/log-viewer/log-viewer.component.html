@@ -8,8 +8,8 @@
         <div *ngIf="column.attributevalue != 'Actions'">
           {{element[column.attributevalue!]}}
         </div>
-        <button *ngIf="column.attributevalue == 'Actions'" md-raised-button (click)="edit(element)" >Edit</button>
-        <button *ngIf="column.attributevalue == 'Actions'" md-raised-button (click)="delete(element)" >Delete</button> 
+          <button id="edit" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="edit(element)" >{{"Modifica" | translate}}</button>
+          <button id="delete" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="delete(element)" >{{"Elimina" | translate}}</button> 
       </td>
 
       <tr id="noDataRow" class="mat-row" *matNoDataRow>
