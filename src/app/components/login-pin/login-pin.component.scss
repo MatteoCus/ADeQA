@@ -142,11 +142,20 @@ img {
     margin-top: 0.2em;
 }
 
+#mobile-logo {
+    height: 8%;
+    width: 15%;
+    display: none;
+}
+
 
 @media only screen and (max-height: 800px) {
-    img {
-        height: 8%;
-        width: 15%;
+    #mobile-logo {
+        display: block;
+    }
+
+    #desktop-logo {
+        display: none;
     }
 
     form {
@@ -172,12 +181,17 @@ img {
 
 @media only screen and (max-height : 700px) and (max-width : 1920px),
 (max-width: 600px) {
-    img {
+    #mobile-logo {
+        display: block;
         height: 8%;
         width: 15%;
         position: absolute;
         top: 20px;
-        right: 20px;
+        right: 50px;
+    }
+
+    #desktop-logo {
+        display: none;
     }
 
     #form-background {

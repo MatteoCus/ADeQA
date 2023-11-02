@@ -79,7 +79,7 @@ form button:hover {
     transition: 250ms;
 }
 
-img {
+#desktop-logo {
     width: 20%;
     height: 10%;
     margin-left: auto;
@@ -115,17 +115,26 @@ img {
     margin-top: 0.2em;
 }
 
+#mobile-logo {
+    display: none;
+}
+
 @media only screen and (max-width: 1200px) {
-    img {
+    #desktop-logo {
         width: 40%;
         height: 20%;
     }
 }
 
 @media only screen and (max-height: 700px) {
-    img {
+    #mobile-logo {
+        display: block;
         height: 8%;
         width: 15%;
+    }
+
+    #desktop-logo {
+        display: none;
     }
 
     form {
@@ -136,7 +145,7 @@ img {
 }
 
 @media only screen and (max-height: 700px) and (max-width: 1000px) {
-    img {
+    #desktop-logo {
         height: 15%;
         width: 30%;
     }
@@ -144,12 +153,17 @@ img {
 
 @media only screen and (max-height : 600px) and (max-width : 1920px),
 (max-width: 500px) {
-    img {
+    #mobile-logo {
+        display: block;
         height: 8%;
         width: 15%;
         position: absolute;
         top: 20px;
-        right: 20px;
+        right: 50px;
+    }
+
+    #desktop-logo {
+        display: none;
     }
 
     #form-background {
