@@ -6,7 +6,7 @@
   ],
   "description": "Applicazione per il controllo qualità manuale in filiere produttive industriali",
   "short_name": "ADeQA",
-  "theme_color": "#1A1B2E",
+  "theme_color": "#fafafa",
   "background_color": "#fafafa",
   "orientation": "any",
   "display": "standalone",
