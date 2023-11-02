@@ -63,5 +63,8 @@
     "Azioni": "Actions",
     "Non ci sono log di qualità per questa fase!": "There are no quality logs for this phase!",
     "Modifica": "Edit",
-    "Elimina": "Delete"
+    "Elimina": "Delete",
+    "Inserimento avvenuto correttamente!": "Inserted correctly!",
+    "Aggiornamento avvenuto correttamente!": "Update successful!",
+    "Eliminazione avvenuta correttamente!": "Successfully deleted!"
 }

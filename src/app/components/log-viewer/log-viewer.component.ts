@@ -42,7 +42,15 @@ export class LogViewerComponent implements OnInit {
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private translateService: TranslateService, private loadingService: LoadingService,
     private activePhaseService: ActivePhaseService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService,
-    private mainViewCommunicationsService: MainViewCommunicationsService) { }
+    private mainViewCommunicationsService: MainViewCommunicationsService) { 
+
+      this.activePhaseService.getActivePhase().subscribe( phase => {
+        this.lastPhase = phase;
+        this.updateTable(phase);
+        this.loadingService.stopViewerLoading();
+      });
+
+    }
 
   /**
    * Metodo per ottenere colonne e log salvati per la fase attuale, indica quando il caricamento è terminato (per far sparire lo splash-screen)
@@ -65,12 +73,6 @@ export class LogViewerComponent implements OnInit {
 
       this.mainViewCommunicationsService.viewUpdate.subscribe( () => {
         this.updateTable(this.lastPhase);
-    });
-
-    this.activePhaseService.getActivePhase().subscribe( phase => {
-      this.lastPhase = phase;
-      this.updateTable(phase);
-      this.loadingService.stopViewerLoading();
     });
   }
 
@@ -106,14 +108,7 @@ export class LogViewerComponent implements OnInit {
           aux.c_projectphase_quality_log_id = log.c_projectphase_quality_log_id;
           logs.push(aux);
         });
-        const index = this.attributes.findIndex(value => {
-          const actionsAttribute = {attributename: 'Azioni', attributevalue: 'Actions'};
-          return value.attributename ==  actionsAttribute.attributename && value.attributevalue == value.attributevalue;
-        });
-
-        if(index == -1) {
-          this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
-        }
+        
         this.logs.next(logs);
       },
       error: (error) => {
