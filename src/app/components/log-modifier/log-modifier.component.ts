@@ -284,7 +284,7 @@ export class LogModifierComponent implements OnInit {
 
     this.qualitySaveLogService.Add(params).subscribe({
       next: () => {
-        this.openSuccessSnackBar("Inserimento avvenuto correttamente!", "X");
+        this.openSuccessSnackBar(this.translateService.instant("Inserimento avvenuto correttamente!"), "X");
         this.mainViewCommunicationsService.viewUpdate.next(true);
       },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
@@ -335,7 +335,7 @@ export class LogModifierComponent implements OnInit {
 
     this.qualitySaveLogService.Update(params).subscribe({
       next: () => {
-        this.openSuccessSnackBar("Aggiornamento avvenuto correttamente!", "X")
+        this.openSuccessSnackBar(this.translateService.instant("Aggiornamento avvenuto correttamente!"), "X")
         this.mainViewCommunicationsService.viewUpdate.next(true);
       },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")

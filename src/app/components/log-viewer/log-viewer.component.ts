@@ -56,7 +56,7 @@ export class LogViewerComponent implements OnInit {
         this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
 
         if (this.displayedColumns.length == 0) {
-          this.openFailSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
+          this.openFailSnackBar("Errore: non sono disponibili attributi per la fase selezionata!", "X");
         } 
         else if(this.displayedColumns.findIndex(value => value == 'Actions') == -1){
           this.displayedColumns.push("Actions");
@@ -129,12 +129,12 @@ export class LogViewerComponent implements OnInit {
    * @param type Etichetta del pulsante di chiusura
   */
   private openFailSnackBar(message: string, type: string): void {
-    this.snackBar.open(message, type, {
+    this.snackBar.open(this.translateService.instant(message), type, {
       panelClass: ['red-snackbar'],
     });
   }
   private openSuccessSnackBar(message: string, type: string): void {
-    this.snackBar.open(message, type, {
+    this.snackBar.open(this.translateService.instant(message), type, {
       panelClass: ['green-snackbar'],
     });
   }
