@@ -27,6 +27,12 @@ button {
     width: 48px;
 }
 
+#buttons {
+    text-wrap: nowrap;
+    align-items: center;
+    margin: auto;
+}
+
 #edit {
     background-color: green;
     color: white;
