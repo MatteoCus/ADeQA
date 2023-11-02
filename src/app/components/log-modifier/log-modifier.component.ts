@@ -317,9 +317,6 @@ export class LogModifierComponent implements OnInit {
       }
       });
     qualityvalue += "}";
-
-    console.log('Log di qualita');
-    console.log(qualityvalue);
     return qualityvalue;
   }
 

@@ -43,8 +43,6 @@ export class LoadingService {
     this.logModifierLoading = false;
 
     if(this.logModifierLoading == this.logViewerLoading) {
-
-      console.log('emitted - modifier');
       this.loading.next(false);
     }
   }
@@ -56,8 +54,6 @@ export class LoadingService {
     this.logViewerLoading = false;
 
     if(this.logModifierLoading == this.logViewerLoading) {
-
-      console.log('emitted - viewer');
       this.loading.next(false);
     }
   }

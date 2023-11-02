@@ -95,8 +95,6 @@ export class LogViewerComponent implements OnInit {
 
     this.qualitySaveLogService.fetch_1(params).subscribe({
       next: (response) => {
-
-        console.log(response);
         
         let logs: any[] = [];
         this.activeLogs = response.data!;
@@ -116,8 +114,6 @@ export class LogViewerComponent implements OnInit {
         if(index == -1) {
           this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
         }
-
-        console.log(logs);
         this.logs.next(logs);
       },
       error: (error) => {
