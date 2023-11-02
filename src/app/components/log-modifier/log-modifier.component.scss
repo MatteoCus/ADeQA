@@ -43,7 +43,8 @@ mat-checkbox {
 
 .container {
     width: 90%;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     margin: auto;
 }
 
