@@ -94,6 +94,8 @@ export class LogModifierComponent implements OnInit {
       this.activePhase = phase;
     });
 
+    this.mainViewCommunicationsService.viewUpdate.subscribe(() => this.clearDialog() )
+
     this.mainViewCommunicationsService.updateLog.subscribe((toUpdateLog) => {
       this.logToUpdate = toUpdateLog;
       this.updateDataSource = [];
@@ -129,6 +131,7 @@ export class LogModifierComponent implements OnInit {
 
     this.activeAttributesService.getActiveAttributes()
       .subscribe(attributes => {
+        this.addLog = true;
         this.activeAttributes = attributes.slice();
         this.displayedColumns = this.activeAttributes.map((attribute) => attribute.attributevalue!);
         this.initializeForm();
@@ -338,7 +341,8 @@ export class LogModifierComponent implements OnInit {
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
     });
 
-    this.addLog = true;
+    this.clearDialog();
+    
   }
 
   /**
@@ -347,5 +351,6 @@ export class LogModifierComponent implements OnInit {
   public clearDialog(): void {
     this.form.reset();
     this.initializeForm();
+    this.addLog = true;
   }
 }
