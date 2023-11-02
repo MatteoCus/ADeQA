@@ -148,16 +148,7 @@ img {
     display: none;
 }
 
-
 @media only screen and (max-height: 800px) {
-    #mobile-logo {
-        display: block;
-    }
-
-    #desktop-logo {
-        display: none;
-    }
-
     form {
         height: 50%;
         padding: 1.5em;
