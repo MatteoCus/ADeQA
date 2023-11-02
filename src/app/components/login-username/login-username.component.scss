@@ -7,15 +7,24 @@
     border-radius: 20px
 }
 
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
+/* Hide the password reveal button in modern browsers */
+input[type="password"]::-webkit-inner-spin-button,
+input[type="password"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Hide the password reveal button in Firefox */
+input[type="password"]::-moz-eye {
     display: none;
 }
 
-input.example-right-align {
-    -moz-appearance: textfield;
-    appearance: textfield;
+/* Hide the password reveal button in Microsoft Edge */
+input[type="password"]::-ms-reveal {
+    display: none;
 }
+
 
 #form-background {
     background-color: $backgroundColor;
