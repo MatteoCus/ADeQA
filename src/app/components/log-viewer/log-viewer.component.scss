@@ -23,17 +23,18 @@ table * {
 }
 
 button {
-    color: white;
     margin: 0.3em;
     width: 48px;
 }
 
 #edit {
     background-color: green;
+    color: white;
 }
 
 #delete {
     background-color: red;
+    color: white;
 }
 
 #noDataRow, #noDataRow * {
