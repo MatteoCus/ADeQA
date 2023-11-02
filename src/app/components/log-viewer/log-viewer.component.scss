@@ -28,7 +28,8 @@ button {
 }
 
 #buttons {
-    text-wrap: nowrap;
+    white-space: nowrap; /* To prevent text from wrapping */
+    overflow-wrap: break-word; /* To allow word breaking within the text */
     align-items: center;
     margin: auto;
 }
