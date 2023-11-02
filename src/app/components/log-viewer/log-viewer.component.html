@@ -11,6 +11,12 @@
         <button *ngIf="column.attributevalue == 'Actions'" md-raised-button (click)="edit(element)" >Edit</button>
         <button *ngIf="column.attributevalue == 'Actions'" md-raised-button (click)="delete(element)" >Delete</button> 
       </td>
+
+      <tr id="noDataRow" class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          {{"Non ci sono log di qualità per questa fase!" | translate}}
+        </td>
+      </tr>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

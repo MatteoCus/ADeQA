@@ -178,6 +178,10 @@ button {
   @include mat.menu-color($header-dark-theme);
   @include sidenav.color($sidenav-dark-theme);
 
+  #noDataRow {
+    color: white;
+  }
+
   .header {
     background-color: #BF71FF;
     color: white;
@@ -268,6 +272,10 @@ button {
   @include mat.slide-toggle-color($header-light-theme);
   @include mat.menu-color($header-light-theme);
   @include sidenav.color($sidenav-light-theme);
+
+  #noDataRow {
+    color: black;
+  }
 
   .header {
     background-color: #123A83;
