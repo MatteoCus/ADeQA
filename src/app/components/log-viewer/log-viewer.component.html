@@ -5,12 +5,20 @@
     <ng-container [matColumnDef]="column.attributevalue!" *ngFor="let column of attributes; let i = index">
       <th mat-header-cell *matHeaderCellDef> <label>{{column.attributename}}</label> </th>
       <td mat-cell *matCellDef="let element"> 
-        <div *ngIf="column.attributevalue != 'Actions'">
+        <div *ngIf="column.attributevalue != 'Actions' && column.attributevaluetype != 'Y'">
           {{element[column.attributevalue!]}}
         </div>
+
+        <mat-icon *ngIf="column.attributevaluetype == 'Y' && element[column.attributevalue!] == 'true'" aria-hidden="false" [attr.aria-label]="'Vero' | translate" fontIcon="check"></mat-icon>
+        <mat-icon *ngIf="column.attributevaluetype == 'Y' && element[column.attributevalue!] == 'false'" aria-hidden="false" [attr.aria-label]="'Falso' | translate" fontIcon="close"></mat-icon>
+
         <div id="buttons">
-          <button id="edit" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="edit(element)" >{{"Modifica" | translate}}</button>
-          <button id="delete" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="deleteDialog(element)" >{{"Elimina" | translate}}</button>
+          <button id="edit" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="edit(element)" >
+            <mat-icon aria-hidden="false" [attr.aria-label]="'Modifica' | translate" fontIcon="edit"></mat-icon>
+          </button>
+          <button id="delete" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="deleteDialog(element)" >
+            <mat-icon aria-hidden="false" [attr.aria-label]="'Elimina' | translate" fontIcon="delete"></mat-icon>
+          </button>
         </div>
       </td>
 

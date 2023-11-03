@@ -66,5 +66,7 @@
     "Elimina": "Delete",
     "Inserimento avvenuto correttamente!": "Inserted correctly!",
     "Aggiornamento avvenuto correttamente!": "Update successful!",
-    "Eliminazione avvenuta correttamente!": "Successfully deleted!"
+    "Eliminazione avvenuta correttamente!": "Successfully deleted!",
+    "Falso": "True",
+    "Vero": "False"
 }
