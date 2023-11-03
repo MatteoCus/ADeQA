@@ -207,8 +207,8 @@ export class LogModifierComponent implements OnInit {
 
     const addDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
-        title: 'Aggiungi un log',
-        description: 'Dati inseriti:',
+        title: this.translateService.instant('Aggiungi un log'),
+        description: this.translateService.instant('Dati inseriti:'),
         resume: formData
       }
     });
@@ -252,8 +252,8 @@ export class LogModifierComponent implements OnInit {
     
     const updateDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
-        title: 'Modifica il log selezionato',
-        description: 'Dati aggiornati:',
+        title: this.translateService.instant('Modifica il log selezionato'),
+        description: this.translateService.instant('Dati aggiornati:'),
         resume: formData
       }
     });

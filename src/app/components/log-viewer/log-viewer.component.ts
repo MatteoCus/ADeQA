@@ -175,8 +175,8 @@ export class LogViewerComponent implements OnInit {
     
     const deleteDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
-        title: 'Eliminazione',
-        description: 'Vuoi eliminare il seguente log?',
+        title: this.translateService.instant('Eliminazione'),
+        description: this.translateService.instant('Vuoi eliminare il seguente log?'),
         resume: formData
       }
     });
