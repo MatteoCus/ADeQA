@@ -1,7 +1,7 @@
 <div class="header">{{"Attributi" | translate}}</div>
 <!-- Form di inserimento di un nuovo log -->
 <!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
-<!-- <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content"> -->
+<!-- <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog(); this.clearDialog(formDirective)" id="content" #formDirective="ngForm"> -->
 
 <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="add(); this.clearDialog(formDirective);" id="content"  #formDirective="ngForm">
     <div class="container">
@@ -43,7 +43,7 @@
 
 <!-- Form di modifica di un log  -->
 <!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
-<!-- <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog()" id="content"> -->
+<!-- <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="updateDialog(); this.clearDialog(formDirective)" id="content" #formDirective="ngForm"> -->
 
 <form *ngIf="activeAttributes.length && !addLog" [formGroup]="form" (ngSubmit)="update(); clearDialog();" id="content">
     <div class="container">

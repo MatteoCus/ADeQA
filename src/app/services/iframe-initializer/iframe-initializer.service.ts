@@ -49,6 +49,8 @@ export class IframeInitializerService {
    */
   public initialize(data: Message): void {
 
+    this.authInfoService.clear();
+
     //1. Aggiornare AuthInfoService
     this.authInfoService.Token = data.token;
     this.authInfoService.UserName = data.username;

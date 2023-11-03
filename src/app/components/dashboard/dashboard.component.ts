@@ -15,7 +15,7 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnDestroy, OnInit {
+export class DashboardComponent implements OnDestroy {
 
   /**
    * Query listener: consente di capire quando il menù delle fasi deve cambiare [mode] (possibili valori: 'over', 'push', 'side')
@@ -86,10 +86,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     this.mobileQuery.addEventListener("change", this.queryListener);
     this.tabletQuery.addEventListener("change", this.queryListener);
-  }
-
-  ngOnInit(): void {
-    
   }
 
   /**

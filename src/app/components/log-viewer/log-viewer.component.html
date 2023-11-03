@@ -10,7 +10,7 @@
         </div>
         <div id="buttons">
           <button id="edit" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="edit(element)" >{{"Modifica" | translate}}</button>
-          <button id="delete" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="delete(element)" >{{"Elimina" | translate}}</button>
+          <button id="delete" *ngIf="column.attributevalue == 'Actions'" mat-raised-button (click)="deleteDialog(element)" >{{"Elimina" | translate}}</button>
         </div>
       </td>
 

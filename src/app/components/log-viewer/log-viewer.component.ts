@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
@@ -9,6 +10,7 @@ import { ActivePhaseService } from 'src/app/services/active-phase/active-phase.s
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
 import { MainViewCommunicationsService } from 'src/app/services/main-view-communications/main-view-communications.service';
+import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-dialog.component';
 
 /**
  * Classe di visualizzazione dei log inseriti
@@ -42,7 +44,7 @@ export class LogViewerComponent implements OnInit {
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private translateService: TranslateService, private loadingService: LoadingService,
     private activePhaseService: ActivePhaseService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService,
-    private mainViewCommunicationsService: MainViewCommunicationsService) { 
+    private mainViewCommunicationsService: MainViewCommunicationsService, private dialog: MatDialog) { 
 
       this.activePhaseService.getActivePhase().subscribe( phase => {
         this.lastPhase = phase;
@@ -139,6 +141,41 @@ export class LogViewerComponent implements OnInit {
     if (logToUpdate != undefined) {
       this.mainViewCommunicationsService.updateLog.next(logToUpdate);
     }
+  }
+
+  public deleteDialog(selectedLog: any): void {
+     const tableAttributes = this.attributes.slice().map(attribute => attribute.attributename).filter(attribute => attribute != "Azioni");
+     const tableColumns = this.displayedColumns.filter(column => column != "Actions");
+     
+     let formData: string[] = [];
+
+     // PRECONDIZIONE: tableColumns e tableAttributes hanno lo stesso numero di elementi
+     tableAttributes.forEach( (attribute, index) => {
+      const entry : string = attribute + ": " + selectedLog[tableColumns.at(index)!];
+      formData.push(entry);
+     });
+
+   
+    
+    const deleteDialog = this.dialog.open(ConfirmDataDialogComponent, {
+      data: {
+        title: 'Eliminazione',
+        description: 'Vuoi eliminare il seguente log?',
+        resume: formData
+      }
+    });
+
+    deleteDialog.afterClosed().subscribe((result) => {
+      switch (result.event) {
+        case "confirm-option":
+          this.delete(selectedLog);
+          break;
+        case "cancel-option":
+          break;
+        default:
+          break;
+      }
+    });
   }
 
   public delete(selectedLog: any): void {
