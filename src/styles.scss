@@ -193,6 +193,23 @@ button {
     background-color: #1A1B2E;
   }
 
+  .highlighted {
+    background-color: mat.get-color-from-palette($table-background-dark-palette, 300);
+  }
+
+  .blink {
+    animation-name: color;
+    animation-duration: 1s;
+    animation-iteration-count: 5;
+    animation-direction: alternate-reverse;
+  }
+
+  @keyframes color {
+    to {
+      background-color: mat.get-color-from-palette($table-background-dark-palette, 300);
+      }
+  }
+
   .mat-mdc-header-row {
     background-color: mat.get-color-from-palette($table-primary-dark-palette, 500);
   }
@@ -286,6 +303,23 @@ button {
   cdk-virtual-scroll-viewport,
   mat-drawer {
     background-color: #F3F5FD;
+  }
+
+  .highlighted {
+    background-color: #ccd9ff;
+  }
+
+  .blink {
+    animation-name: color2;
+    animation-duration: 1s;
+    animation-iteration-count: 5;
+    animation-direction: alternate-reverse;
+  }
+
+  @keyframes color2 {
+    to {
+      background-color: #ccd9ff;
+      }
   }
 
   .mat-mdc-header-row {

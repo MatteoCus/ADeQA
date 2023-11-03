@@ -262,7 +262,6 @@ export class LogModifierComponent implements OnInit {
       switch (result.event) {
         case "confirm-option":
           this.update();
-          this.clearDialog();
           break;
         case "cancel-option":
           break;
@@ -283,9 +282,9 @@ export class LogModifierComponent implements OnInit {
     const params = this.prepareAddParams(token, this.activePhase.c_projectphase_id!, qualityvalue)
 
     this.qualitySaveLogService.Add(params).subscribe({
-      next: () => {
+      next: (log) => {
         this.openSuccessSnackBar(this.translateService.instant("Inserimento avvenuto correttamente!"), "X");
-        this.mainViewCommunicationsService.viewUpdate.next(true);
+        this.mainViewCommunicationsService.viewUpdate.next(log);
       },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
     })
@@ -334,9 +333,9 @@ export class LogModifierComponent implements OnInit {
     const params = this.prepareUpdateParams(token, this.logToUpdate.c_projectphase_quality_log_id!, qualityValue);
 
     this.qualitySaveLogService.Update(params).subscribe({
-      next: () => {
+      next: (log) => {
         this.openSuccessSnackBar(this.translateService.instant("Aggiornamento avvenuto correttamente!"), "X")
-        this.mainViewCommunicationsService.viewUpdate.next(true);
+        this.mainViewCommunicationsService.viewUpdate.next(log);
       },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
     });

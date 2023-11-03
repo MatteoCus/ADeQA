@@ -9,7 +9,7 @@ export class MainViewCommunicationsService {
 
   public updateLog: Subject<QualitysavelogModel> = new Subject<QualitysavelogModel>();
 
-  public viewUpdate: Subject<boolean> = new Subject<boolean>();
+  public viewUpdate: Subject<QualitysavelogModel> = new Subject<QualitysavelogModel>();
 
   constructor() { }
 }

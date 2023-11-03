@@ -28,6 +28,10 @@ export class LogViewerComponent implements OnInit {
 
   public logs: Subject<any[]> = new Subject<any[]>();
 
+  public highlighted: QualitysavelogModel = new Object();
+
+  public blinkLogId: number = 0;
+
   /**
    * Le colonne da mostrare (la descrizione degli attributi che caratterizzano un controllo qualità per la fase selezionata)
    */
@@ -73,8 +77,15 @@ export class LogViewerComponent implements OnInit {
         }
       });
 
-      this.mainViewCommunicationsService.viewUpdate.subscribe( () => {
+      this.mainViewCommunicationsService.viewUpdate.subscribe((updatedLog) => {
+        this.highlighted = {};
         this.updateTable(this.lastPhase);
+        this.blinkLogId = updatedLog.c_projectphase_quality_log_id!;
+
+        // Rimuove dopo 5 secondi la classe 'blink' (evita che ad ogni cambio di tema l'ultima fase aggiunta / modificata venga evidenziata)
+        setTimeout( () => {
+          this.blinkLogId = 0;
+        }, 5500);
     });
   }
 
@@ -136,6 +147,11 @@ export class LogViewerComponent implements OnInit {
     });
   }
 
+  public highlight(selected: QualitysavelogModel): void {
+    this.highlighted = selected;
+    this.blinkLogId = 0;
+  }
+
   public edit(selectedLog: any): void {
     const logToUpdate = this.activeLogs.find((log) => log.c_projectphase_quality_log_id == selectedLog.c_projectphase_quality_log_id);
     if (logToUpdate != undefined) {
@@ -189,9 +205,9 @@ export class LogViewerComponent implements OnInit {
     }
 
     this.qualitySaveLogService.Delete(params).subscribe({
-      next: () => {
+      next: (log) => {
         this.openSuccessSnackBar("Eliminazione avvenuta correttamente!", "X")
-        this.mainViewCommunicationsService.viewUpdate.next(true);  
+        this.mainViewCommunicationsService.viewUpdate.next(log);  
       },
       error: (error) => {
         this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X");
