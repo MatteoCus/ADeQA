@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QualityattributeModel, QualityphaseModel, QualitysavelogModel } from 'src/app/api/models';
 import { ActiveAttributesService } from 'src/app/services/active-attributes/active-attributes.service';
@@ -340,17 +340,18 @@ export class LogModifierComponent implements OnInit {
       },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
     });
-
-    this.clearDialog();
     
   }
 
   /**
    * Metodo per ripulire il form dopo il submit dei dati
    */
-  public clearDialog(): void {
+  public clearDialog(formDirective?: FormGroupDirective): void {
     this.form.reset();
     this.initializeForm();
+    if(formDirective != undefined) {
+      formDirective.resetForm();
+    }
     this.addLog = true;
   }
 }

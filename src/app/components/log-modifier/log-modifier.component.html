@@ -3,7 +3,7 @@
 <!-- Per usare un dialog di riepilogo e conferma dei dati inseriti, decommentare la riga sotto (e commentare la riga attualmente attiva) -->
 <!-- <form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="addDialog()" id="content"> -->
 
-<form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="add(); this.clearDialog();" id="content">
+<form *ngIf="activeAttributes.length && addLog" [formGroup]="form" (ngSubmit)="add(); this.clearDialog(formDirective);" id="content"  #formDirective="ngForm">
     <div class="container">
         <table mat-table [dataSource]="[displayedColumns]" class="mat-elevation-z8" *ngIf="displayedColumns.length">
 
