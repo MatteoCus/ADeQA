@@ -67,6 +67,8 @@
     "Inserimento avvenuto correttamente!": "Inserted correctly!",
     "Aggiornamento avvenuto correttamente!": "Update successful!",
     "Eliminazione avvenuta correttamente!": "Successfully deleted!",
-    "Falso": "True",
-    "Vero": "False"
+    "Falso": "False",
+    "Vero": "True",
+    "Eliminazione": "Elimination",
+    "Vuoi eliminare il seguente log?": "Do you want to delete the following log?"
 }

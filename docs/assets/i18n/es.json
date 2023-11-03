@@ -68,5 +68,7 @@
     "Aggiornamento avvenuto correttamente!": "¡Actualización exitosa!",
     "Eliminazione avvenuta correttamente!": "¡Eliminado con éxito!",
     "Falso": "Falso",
-    "Vero": "Verdadero"
+    "Vero": "Verdadero",
+    "Eliminazione": "Eliminación",
+    "Vuoi eliminare il seguente log?": "¿Desea eliminar el siguiente registro?"
 }

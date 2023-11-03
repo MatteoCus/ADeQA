@@ -121,6 +121,8 @@ export class LogViewerComponent implements OnInit {
           aux.c_projectphase_quality_log_id = log.c_projectphase_quality_log_id;
           logs.push(aux);
         });
+
+        logs.sort( (firstLog, secondLog) => { return firstLog.c_projectphase_quality_log_id - secondLog.c_projectphase_quality_log_id })
         
         this.logs.next(logs);
       },
