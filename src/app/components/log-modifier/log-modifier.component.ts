@@ -60,9 +60,9 @@ export class LogModifierComponent implements OnInit {
   public addLog: boolean = true;
 
   /**
-   * Attributo che indica l'opzione selezionata per un attributo di tipo "lista" in un log da modificare
+   * Attributo che indica le opzioni selezionate per gli attributi di tipo "lista" in un log da modificare
    */
-  public defaultOption: string = "";
+  public defaultOption: string[] = [];
 
   /**
    * Log di qualità da modificare
@@ -127,9 +127,12 @@ export class LogModifierComponent implements OnInit {
       this.form = new FormGroup({});
 
       this.activeAttributes.forEach(value => {
+        this.defaultOption = [];
         if (value.attributevaluetype == "L") {
           json[value.attributevalue!] = (json[value.attributevalue!.toString() + '_id' as any] + " - " + json[value.attributevalue! as any]);
-          this.defaultOption = json[value.attributevalue!];
+          this.defaultOption.push(json[value.attributevalue!]);
+        } else {
+          this.defaultOption.push("");
         }
 
         if (value.attributevaluetype == "Y") {

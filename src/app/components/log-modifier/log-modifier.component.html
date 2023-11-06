@@ -68,7 +68,7 @@
                     <mat-checkbox id="control-{{i}}" *ngIf="attribute.attributevaluetype == 'Y'"
                         formControlName="control-{{i}}"></mat-checkbox>
                     <mat-form-field appearance="outline" *ngIf="attribute.attributevaluetype == 'L'">
-                        <mat-select [(value)]="defaultOption" id="control-{{i}}" formControlName="control-{{i}}"
+                        <mat-select [(value)]="defaultOption[i]" id="control-{{i}}" formControlName="control-{{i}}"
                             color="primary">
                             <mat-option *ngFor="let option of attribute.optionvalue?.value?.value; let i = index"
                                 value="{{option}}">{{option | optionsTrim: attribute.optionvalue?.value?.key?.at(i)!}}
