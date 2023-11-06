@@ -35,15 +35,15 @@ export class SplashScreenComponent implements OnInit {
    * Costruttore della classe di gestione dello splash-screen
    * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
    */
-  constructor(private loadingService: LoadingService){
-    this.loadingService.Loading.subscribe( show => {
-        if(!show) {
-          this.opacityChange = 0;
-          setTimeout(() => {
-            this.showSplash = false;
-          }, this.animationDuration * 1000);
-        }
+  constructor(private loadingService: LoadingService) {
+    this.loadingService.Loading.subscribe(show => {
+      if (!show) {
+        this.opacityChange = 0;
+        setTimeout(() => {
+          this.showSplash = false;
+        }, this.animationDuration * 1000);
       }
+    }
     )
   }
 
@@ -51,6 +51,6 @@ export class SplashScreenComponent implements OnInit {
    * Inizializzazione della transizione
    */
   ngOnInit(): void {
-      this.splashTransition = "opacity " + this.animationDuration + "s";
+    this.splashTransition = "opacity " + this.animationDuration + "s";
   }
 }

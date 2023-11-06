@@ -48,7 +48,7 @@ describe('LogModifierComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        { provide: MatSnackBar, useValue: { open: () => {} } },
+        { provide: MatSnackBar, useValue: { open: () => { } } },
         { provide: MatDialog, useValue: mockMatDialog },
         { provide: ActiveAttributesService, useValue: activeAttributesService }
       ]
@@ -111,7 +111,7 @@ describe('LogModifierComponent', () => {
     } as any);
 
     component.addLog = true;
-    
+
     component.form.setControl('control-0', new FormControl('TestValue', Validators.required));
     component.form.setControl('control-1', new FormControl(42, Validators.required));
 
@@ -145,7 +145,7 @@ describe('LogModifierComponent', () => {
       data: {
         title: 'Modifica il log selezionato',
         description: 'Dati aggiornati:',
-        resume:  formData
+        resume: formData
       },
     });
 
@@ -164,7 +164,7 @@ describe('LogModifierComponent', () => {
     } as any);
 
     component.addLog = false;
-    
+
     component.form.setControl('control-0', new FormControl('UpdatedValue', Validators.required));
     component.form.setControl('control-1', new FormControl(45, Validators.required));
 
@@ -174,7 +174,7 @@ describe('LogModifierComponent', () => {
       data: {
         title: 'Modifica il log selezionato',
         description: 'Dati aggiornati:',
-        resume:  formData
+        resume: formData
       },
     });
 
@@ -201,7 +201,7 @@ describe('LogModifierComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: ['red-snackbar'] });
   });
 
 });

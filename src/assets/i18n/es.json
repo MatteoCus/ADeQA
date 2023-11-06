@@ -70,5 +70,7 @@
     "Falso": "Falso",
     "Vero": "Verdadero",
     "Eliminazione": "Eliminación",
-    "Vuoi eliminare il seguente log?": "¿Desea eliminar el siguiente registro?"
+    "Vuoi eliminare il seguente log?": "¿Desea eliminar el siguiente registro?",
+    "false": "falso",
+    "true": "verdadero"
 }

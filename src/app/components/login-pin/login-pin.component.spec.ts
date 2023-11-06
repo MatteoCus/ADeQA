@@ -146,13 +146,13 @@ describe('LoginPinComponent', () => {
         {
           provide: MatSnackBar,
           useValue: {
-            open: () => {},
+            open: () => { },
           },
         },
         {
           provide: Router,
           useValue: {
-            navigate: () => {},
+            navigate: () => { },
           },
         },
         MatSnackBar
@@ -206,8 +206,8 @@ describe('LoginPinComponent', () => {
     component.form.get('pin')!.setValue(12345);
 
     spyOn(operatorsService, 'fetch')
-    .withArgs(params_success as any)
-    .and.returnValue(of({ data: [{ ad_user_id: 9000000, name: 'John Doe', mes_theme: 'DM' }] } as FetchResponseOperatorsModel));
+      .withArgs(params_success as any)
+      .and.returnValue(of({ data: [{ ad_user_id: 9000000, name: 'John Doe', mes_theme: 'DM' }] } as FetchResponseOperatorsModel));
 
 
     component.login();
@@ -225,7 +225,7 @@ describe('LoginPinComponent', () => {
 
     component.login();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Il pin inserito non è valido!', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Il pin inserito non è valido!', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should handle login error - 401', () => {
@@ -234,11 +234,11 @@ describe('LoginPinComponent', () => {
     component.form.get('pin')!.setValue(12346);
 
     spyOn(operatorsService, 'fetch')
-    .withArgs(params_fail_401 as any)
-    .and.returnValue(throwError(() => errorResponse401));
+      .withArgs(params_fail_401 as any)
+      .and.returnValue(throwError(() => errorResponse401));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato!', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato!', 'X', { panelClass: ['red-snackbar'] });
     expect(authInfoService.Token).toBe('');
     expect(navigateSpy).toHaveBeenCalledWith(['login/username']);
   });
@@ -248,11 +248,11 @@ describe('LoginPinComponent', () => {
     component.form.get('pin')!.setValue(12347);
 
     spyOn(operatorsService, 'fetch')
-    .withArgs(params_fail_500 as any)
-    .and.returnValue(throwError(() => errorResponse500));
+      .withArgs(params_fail_500 as any)
+      .and.returnValue(throwError(() => errorResponse500));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore server', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore server', 'X', { panelClass: ['red-snackbar'] });
     expect(authInfoService.Token).toBe('');
   });
 
@@ -262,11 +262,11 @@ describe('LoginPinComponent', () => {
     component.form.get('pin')!.setValue(12348);
 
     spyOn(operatorsService, 'fetch')
-    .withArgs(params_fail_401_empty as any)
-    .and.returnValue(throwError(() => errorResponse401_empty));
+      .withArgs(params_fail_401_empty as any)
+      .and.returnValue(throwError(() => errorResponse401_empty));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: ['red-snackbar'] });
     expect(authInfoService.Token).toBe('');
     expect(navigateSpy).toHaveBeenCalledWith(['login/username']);
   });
@@ -276,11 +276,11 @@ describe('LoginPinComponent', () => {
     component.form.get('pin')!.setValue(12349);
 
     spyOn(operatorsService, 'fetch')
-    .withArgs(params_fail_500_empty as any)
-    .and.returnValue(throwError(() => errorResponse500_empty));
+      .withArgs(params_fail_500_empty as any)
+      .and.returnValue(throwError(() => errorResponse500_empty));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: ['red-snackbar'] });
     expect(authInfoService.Token).toBe('');
   });
 
@@ -289,11 +289,11 @@ describe('LoginPinComponent', () => {
     component.form.get('pin')!.setValue(12350);
 
     spyOn(operatorsService, 'fetch')
-    .withArgs(params_fail_undefined_response as any)
-    .and.returnValue(of({ data: [{ undefined }] } as any as FetchResponseOperatorsModel));
+      .withArgs(params_fail_undefined_response as any)
+      .and.returnValue(of({ data: [{ undefined }] } as any as FetchResponseOperatorsModel));
 
     component.login();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Il PIN inserito non appartiene ad alcun utente', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Il PIN inserito non appartiene ad alcun utente', 'X', { panelClass: ['red-snackbar'] });
     expect(authInfoService.Token).toBe('');
   });
 

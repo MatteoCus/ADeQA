@@ -34,8 +34,10 @@ button {
 }
 
 #buttons {
-    white-space: nowrap; /* To prevent text from wrapping */
-    overflow-wrap: break-word; /* To allow word breaking within the text */
+    white-space: nowrap;
+    /* To prevent text from wrapping */
+    overflow-wrap: break-word;
+    /* To allow word breaking within the text */
     align-items: center;
     margin: auto;
 }
@@ -58,7 +60,8 @@ mat-icon {
     color: white;
 }
 
-#noDataRow, #noDataRow * {
+#noDataRow,
+#noDataRow * {
     padding: 1em;
 }
 

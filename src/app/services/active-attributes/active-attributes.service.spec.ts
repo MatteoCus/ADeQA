@@ -104,11 +104,11 @@ describe('ActiveAttributesService', () => {
       m_product_id: 9000000,
       optionvalue: {
         type: 'tipo',
-        value: { key: ["chiave1", "chiave2"], value: ["chiave1 - valore 1", "chiave2 - valore2"]}
+        value: { key: ["chiave1", "chiave2"], value: ["chiave1 - valore 1", "chiave2 - valore2"] }
       }
     };
 
-    expect(service['filterJsonOptions'](response as any as QualityattributeModel )).toEqual(expected);
+    expect(service['filterJsonOptions'](response as any as QualityattributeModel)).toEqual(expected);
 
 
   });

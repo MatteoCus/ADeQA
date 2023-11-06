@@ -72,16 +72,16 @@ describe('ToolbarComponent', () => {
   it('should toggle theme', () => {
     const initialTheme = component.isDark;
 
-    component.toggleTheme({source: null as any as MatSlideToggle, checked: !initialTheme});
+    component.toggleTheme({ source: null as any as MatSlideToggle, checked: !initialTheme });
     expect(component.isDark).toEqual(!initialTheme);
   });
 
   it('should open a general logout dialog', () => {
     const dialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
     dialogRef.afterClosed.and.returnValue(of({ event: 'exit-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
@@ -93,9 +93,9 @@ describe('ToolbarComponent', () => {
   it('should open a user logout dialog', () => {
     const dialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
     dialogRef.afterClosed.and.returnValue(of({ event: 'exit-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutUserDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
@@ -107,9 +107,9 @@ describe('ToolbarComponent', () => {
   it('should open a general logout dialog - and choose the "stay" option', () => {
     const dialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
     dialogRef.afterClosed.and.returnValue(of({ event: 'stay-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
@@ -121,9 +121,9 @@ describe('ToolbarComponent', () => {
   it('should open a user logout dialog - and choose the "stay" option', () => {
     const dialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
     dialogRef.afterClosed.and.returnValue(of({ event: 'stay-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutUserDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
@@ -137,9 +137,9 @@ describe('ToolbarComponent', () => {
     // stay
     const dialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
     dialogRef.afterClosed.and.returnValue(of({ event: 'stay-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
@@ -149,9 +149,9 @@ describe('ToolbarComponent', () => {
 
     // exit
     dialogRef.afterClosed.and.returnValue(of({ event: 'exit-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutDialog();
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
       data: { title: 'Logout generale', description: 'Occorre reinserire username e pin' }
@@ -165,9 +165,9 @@ describe('ToolbarComponent', () => {
     // stay
     const dialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
     dialogRef.afterClosed.and.returnValue(of({ event: 'stay-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutUserDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {
@@ -177,9 +177,9 @@ describe('ToolbarComponent', () => {
 
     //exit
     dialogRef.afterClosed.and.returnValue(of({ event: 'exit-option' }));
-  
+
     mockMatDialog.open.and.returnValue(dialogRef);
-  
+
     component.openLogoutUserDialog();
 
     expect(mockMatDialog.open).toHaveBeenCalledWith(jasmine.any(Function), {

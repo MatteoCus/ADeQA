@@ -93,7 +93,7 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-.breadcrumb > li + li:before {
+.breadcrumb>li+li:before {
     content: '»\00a0';
 }
 
@@ -226,13 +226,16 @@ hue-6-2: #c18401
 .dark .content {
     background: none;
 }
+
 .dark code {
     background: none;
     color: #e09393;
 }
+
 .dark .menu ul.list li.chapter a.active {
     color: #ffde00;
 }
+
 .dark .menu {
     background: #272525;
 }

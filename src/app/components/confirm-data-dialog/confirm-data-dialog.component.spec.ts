@@ -20,7 +20,7 @@ describe('ConfirmDataDialogComponent', () => {
       imports: [TranslateModule.forRoot()],
       declarations: [ConfirmDataDialogComponent],
       providers: [
-        { provide: MatDialogRef, useValue: { close: () => {} }}, { provide: MAT_DIALOG_DATA, useValue: dialogData }
+        { provide: MatDialogRef, useValue: { close: () => { } } }, { provide: MAT_DIALOG_DATA, useValue: dialogData }
       ]
     });
     fixture = TestBed.createComponent(ConfirmDataDialogComponent);

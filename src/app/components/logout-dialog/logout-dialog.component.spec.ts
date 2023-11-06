@@ -16,7 +16,7 @@ describe('LogoutDialogComponent', () => {
         MatDialogModule,
         TranslateModule.forRoot()
       ],
-      providers: [{ provide: MatDialogRef, useValue: { close: () => {} }}, { provide: MAT_DIALOG_DATA, useValue: { title: "Titolo", description: "Descrizione" } }]
+      providers: [{ provide: MatDialogRef, useValue: { close: () => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "Titolo", description: "Descrizione" } }]
     });
     fixture = TestBed.createComponent(LogoutDialogComponent);
     component = fixture.componentInstance;

@@ -148,7 +148,7 @@ $sidenav-light-theme: mat.define-light-theme((color: (primary: $sidenav-primary-
 // Tema default: serve per component di login, dato che hanno un unico tema
 @include mat.all-component-themes($header-light-theme);
 
-mat-form-field{
+mat-form-field {
   @include mat.all-component-densities(-1);
 }
 
@@ -207,7 +207,7 @@ button {
   @keyframes color {
     to {
       background-color: mat.get-color-from-palette($table-background-dark-palette, 300);
-      }
+    }
   }
 
   .mat-mdc-header-row {
@@ -319,7 +319,7 @@ button {
   @keyframes color2 {
     to {
       background-color: #ccd9ff;
-      }
+    }
   }
 
   .mat-mdc-header-row {

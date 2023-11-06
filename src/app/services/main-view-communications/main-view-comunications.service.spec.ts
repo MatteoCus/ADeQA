@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MainViewComunicationsService } from './main-view-communications.service';
+import { MainViewCommunicationsService } from './main-view-communications.service';
 
 describe('MainViewComunicationsService', () => {
-  let service: MainViewComunicationsService;
+  let service: MainViewCommunicationsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MainViewComunicationsService);
+    service = TestBed.inject(MainViewCommunicationsService);
   });
 
   it('should be created', () => {

@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var tabs = document.getElementsByClassName('nav-tabs')[0],
         tabsCollection = tabs.getElementsByTagName('A'),
         treeTab;
     var len = tabsCollection.length;
-    for(var i = 0; i < len; i++) {
+    for (var i = 0; i < len; i++) {
         if (tabsCollection[i].getAttribute('id') === 'tree-tab') {
             treeTab = tabsCollection[i];
         }
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // short-circuit if no tree tab
     if (!treeTab) return;
 
-    var handler = new Tautologistics.NodeHtmlParser.HtmlBuilder(function(error, dom) {
+    var handler = new Tautologistics.NodeHtmlParser.HtmlBuilder(function (error, dom) {
         if (error) {
             console.log('handler ko');
         }
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
         type: parsedHtml.type
     })
     //Add id for nodes
-    var traverseIds = function(o) {
+    var traverseIds = function (o) {
         for (i in o) {
-            if (!!o[i] && typeof(o[i]) == "object") {
+            if (!!o[i] && typeof (o[i]) == "object") {
                 if (!o[i].length && o[i].type === 'tag') {
                     nodeCount += 1;
                     o[i]._id = nodeCount;
@@ -51,19 +51,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var DeepIterator = deepIterator.default,
         it = DeepIterator(parsedHtml);
     for (let {
-            value,
-            parent,
-            parentNode,
-            key,
-            type
-        } of it) {
+        value,
+        parent,
+        parentNode,
+        key,
+        type
+    } of it) {
         if (type === 'NonIterableObject' && typeof key !== 'undefined' && value.type === 'tag') {
             var newNode = {
                 id: value._id,
                 label: value.name,
                 type: value.type
             };
-            for(var i = 0; i < COMPONENTS.length; i++) {
+            for (var i = 0; i < COMPONENTS.length; i++) {
                 if (COMPONENTS[i].selector === value.name) {
                     newNode.font = {
                         multi: 'html'
@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     newNode.name = COMPONENTS[i].name;
                 }
             }
-            for(var i = 0; i < DIRECTIVES.length; i++) {
+            for (var i = 0; i < DIRECTIVES.length; i++) {
                 if (value.attributes) {
-                    for(attr in value.attributes) {
+                    for (attr in value.attributes) {
                         if (DIRECTIVES[i].selector.indexOf(attr) !== -1) {
                             newNode.font = {
                                 multi: 'html'
@@ -116,13 +116,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
 
-        handleClickNode = function(params) {
+        handleClickNode = function (params) {
             var clickeNodeId;
             if (params.nodes.length > 0) {
                 clickeNodeId = params.nodes[0];
-                for(var i = 0; i < newNodes.length; i++) {
+                for (var i = 0; i < newNodes.length; i++) {
                     if (newNodes[i].id === clickeNodeId) {
-                        for(var j = 0; j < COMPONENTS.length; j++) {
+                        for (var j = 0; j < COMPONENTS.length; j++) {
                             if (COMPONENTS[j].name === newNodes[i].name) {
                                 document.location.href = currentLocation.origin + currentLocation.pathname.replace(ACTUAL_COMPONENT.name, newNodes[i].name);
                             }
@@ -131,9 +131,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         },
-        
+
         loadTree = function () {
-            setTimeout(function() {
+            setTimeout(function () {
                 container.style.height = document.getElementsByClassName('content')[0].offsetHeight - 140 + 'px';
                 var network = new vis.Network(container, data, options);
                 network.on('click', handleClickNode);
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
     loadTree();
-    treeTab.addEventListener('click', function() {
+    treeTab.addEventListener('click', function () {
         loadTree();
     });
 });

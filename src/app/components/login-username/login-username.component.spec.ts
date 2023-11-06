@@ -40,8 +40,8 @@ describe('LoginUsernameComponent', () => {
         FormBuilder,
         AuthenticationService,
         { provide: AuthInformationsService, useValue: {} },
-        { provide: MatSnackBar, useValue: { open: () => {} } },
-        { provide: Router, useValue: { navigate: () => {} } },
+        { provide: MatSnackBar, useValue: { open: () => { } } },
+        { provide: Router, useValue: { navigate: () => { } } },
       ]
     });
     fixture = TestBed.createComponent(LoginUsernameComponent);
@@ -81,8 +81,8 @@ describe('LoginUsernameComponent', () => {
     };
 
     spyOn(authService, 'login')
-    .withArgs(params as any)
-    .and.returnValue(of({ token: 'mockToken' }));
+      .withArgs(params as any)
+      .and.returnValue(of({ token: 'mockToken' }));
 
 
     component.login();
@@ -105,7 +105,7 @@ describe('LoginUsernameComponent', () => {
 
     component.login();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Inserire tutti i dati richiesti', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Inserire tutti i dati richiesti', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should perform login - undefined token', () => {
@@ -122,8 +122,8 @@ describe('LoginUsernameComponent', () => {
     };
 
     spyOn(authService, 'login')
-    .withArgs(params as any)
-    .and.returnValue(of({ token: undefined }));
+      .withArgs(params as any)
+      .and.returnValue(of({ token: undefined }));
 
 
     component.login();
@@ -135,7 +135,7 @@ describe('LoginUsernameComponent', () => {
       },
     });
     expect(authInfoService.Token).toBeUndefined();
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Token nullo', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Token nullo', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should handle error response', () => {
@@ -154,12 +154,12 @@ describe('LoginUsernameComponent', () => {
     };
 
     spyOn(authService, 'login')
-    .withArgs(params as any)
-    .and.returnValue(throwError(() => errorResponse) );
+      .withArgs(params as any)
+      .and.returnValue(throwError(() => errorResponse));
 
     component.login();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Utente non trovato', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Utente non trovato', 'X', { panelClass: ['red-snackbar'] });
   });
 
 });

@@ -35,6 +35,7 @@ a {
     color: #0094bf;
     text-decoration: underline;
 }
+
 a:hover {
     color: #f1362f;
 }
@@ -70,6 +71,7 @@ a:hover {
     font-weight: 300;
     text-decoration: none;
 }
+
 .menu ul.list li a.active {
     color: white;
     font-weight: bold;
@@ -104,6 +106,7 @@ pre {
 .dark body {
     color: #fafafa;
 }
+
 .dark .content h1,
 .dark .content h2,
 .dark .content h3,

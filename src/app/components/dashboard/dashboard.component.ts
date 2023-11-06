@@ -5,7 +5,6 @@ import { take } from 'rxjs';
 import { Message } from 'src/app/models/message';
 import { AuthInformationsService } from 'src/app/services/auth-informations/auth-informations.service';
 import { IframeInitializerService } from 'src/app/services/iframe-initializer/iframe-initializer.service';
-import { LoadingService } from 'src/app/services/loading/loading.service';
 
 /**
  * Classe che gestisce la visualizzazione principale
@@ -42,18 +41,20 @@ export class DashboardComponent implements OnDestroy {
    * Se si è all'interno di un iframe, il software viene richiamato con il parametro 'inside=true'
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione 
    * @param router Router per eseguire dei reindirizzamenti su browser
+   * @param changeDetectorRef oggetto che serve per individuare cambiamenti nell'interfaccia grafica
+   * @param media oggetto che serve per eseguire delle media query
    * @param route URL attivo
    * @param iframeInitService Servizio di inizializzazione dei servizi indispensabili per il funzionamento dell'applicazione in un iframe
    */
-  constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute, 
+  constructor(private authInfoService: AuthInformationsService, private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route: ActivatedRoute,
     private iframeInitService: IframeInitializerService) {
 
-      this.route.queryParams.pipe(take(1))    //problemi di emissioni multiple di parametri
+    this.route.queryParams.pipe(take(1))    //problemi di emissioni multiple di parametri
       .subscribe(params => {
         this.insideFrame = params['inside'] == "true"
       });
 
-      // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage (dall'applicazione contenitrice)
+    // Se siamo dentro a un frame, aggiungo un event listener per acquisire i parametri in ingresso tramite postMessage (dall'applicazione contenitrice)
     if (this.insideFrame) {
       window.addEventListener("message", (event) => {
 

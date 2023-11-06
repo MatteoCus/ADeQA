@@ -56,10 +56,10 @@ export class LoginPinComponent implements OnInit {
    * @param router Router per eseguire dei reindirizzamenti su browser
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    */
-  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar, 
+  constructor(private formBuilder: FormBuilder, private operatorsService: OperatorsService, private authInfoService: AuthInformationsService, private snackBar: MatSnackBar,
     private router: Router, private translateService: TranslateService, private loadingService: LoadingService) {
-    
-      this.loadingService.reset();
+
+    this.loadingService.reset();
     if (localStorage.getItem('ADeToken') == null || localStorage.getItem('ADeToken') == "") {
       this.router.navigate(['login/username']);
     }

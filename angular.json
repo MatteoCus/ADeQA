@@ -99,7 +99,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "codeCoverageExclude": ["src/app/api/**/*"],
+            "codeCoverageExclude": [
+              "src/app/api/**/*"
+            ],
             "scripts": []
           }
         }

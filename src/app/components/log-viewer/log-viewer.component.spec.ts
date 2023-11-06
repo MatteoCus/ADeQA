@@ -21,12 +21,12 @@ describe('LogViewerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LogViewerComponent],
       imports: [
-        HttpClientTestingModule, 
+        HttpClientTestingModule,
         TranslateModule.forRoot(),
         MatTableModule,
       ],
       providers: [
-        { provide: MatSnackBar, useValue: { open: () => {} } },
+        { provide: MatSnackBar, useValue: { open: () => { } } },
         { provide: ActiveAttributesService, useValue: activeAttributesService }
       ]
     });
@@ -55,6 +55,6 @@ describe('LogViewerComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: ['red-snackbar'] });
   });
 });

@@ -42,7 +42,7 @@ export class LoadingService {
   public stopModifierLoading(): void {
     this.logModifierLoading = false;
 
-    if(this.logModifierLoading == this.logViewerLoading) {
+    if (this.logModifierLoading == this.logViewerLoading) {
       this.loading.next(false);
     }
   }
@@ -53,7 +53,7 @@ export class LoadingService {
   public stopViewerLoading(): void {
     this.logViewerLoading = false;
 
-    if(this.logModifierLoading == this.logViewerLoading) {
+    if (this.logModifierLoading == this.logViewerLoading) {
       this.loading.next(false);
     }
   }

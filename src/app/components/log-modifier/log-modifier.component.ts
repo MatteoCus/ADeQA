@@ -88,13 +88,13 @@ export class LogModifierComponent implements OnInit {
   /**
    * Metodo che consente di aggiornare la tabella ad ogni cambio degli attributi attivi (avviene quando si aggiorna la fase attiva)
    */
-  ngOnInit() {    
+  ngOnInit() {
 
-    this.activePhaseService.getActivePhase().subscribe( phase => {
+    this.activePhaseService.getActivePhase().subscribe(phase => {
       this.activePhase = phase;
     });
 
-    this.mainViewCommunicationsService.viewUpdate.subscribe(() => this.clearDialog() )
+    this.mainViewCommunicationsService.viewUpdate.subscribe(() => this.clearDialog())
 
     this.mainViewCommunicationsService.updateLog.subscribe((toUpdateLog) => {
       this.logToUpdate = toUpdateLog;
@@ -105,12 +105,12 @@ export class LogModifierComponent implements OnInit {
       this.form = new FormGroup({});
 
       this.activeAttributes.forEach(value => {
-        if(value.attributevaluetype == "L") {
+        if (value.attributevaluetype == "L") {
           json[value.attributevalue!] = (json[value.attributevalue!.toString() + '_id' as any] + " - " + json[value.attributevalue! as any]);
           this.defaultOption = json[value.attributevalue!];
         }
 
-        if(value.attributevaluetype == "Y") {
+        if (value.attributevaluetype == "Y") {
           json[value.attributevalue!] = json[value.attributevalue!] == "true";
         }
       });
@@ -125,8 +125,8 @@ export class LogModifierComponent implements OnInit {
         }
       });
 
-    
-    this.addLog = false;
+
+      this.addLog = false;
     })
 
     this.activeAttributesService.getActiveAttributes()
@@ -139,7 +139,7 @@ export class LogModifierComponent implements OnInit {
       });
   }
 
-  private prepareAddParams(token: string, c_projectphase_id: number, qualityvalue: string): Add$Params{
+  private prepareAddParams(token: string, c_projectphase_id: number, qualityvalue: string): Add$Params {
     return {
       "AdesuiteToken": token,
       "body": {
@@ -149,7 +149,7 @@ export class LogModifierComponent implements OnInit {
     };
   }
 
-  private prepareUpdateParams(token: string, c_projectphase_quality_log_id: number, qualityvalue: string): Update$Params{
+  private prepareUpdateParams(token: string, c_projectphase_quality_log_id: number, qualityvalue: string): Update$Params {
     return {
       "AdesuiteToken": token,
       "body": {
@@ -174,7 +174,7 @@ export class LogModifierComponent implements OnInit {
       } else {
         this.form.addControl("control-" + index.toString(), new FormControl('', Validators.required));
       }
-    }); 
+    });
 
     if (this.activeAttributes.length == 0) {
       this.openFailSnackBar(this.translateService.instant("Errore: non sono disponibili attributi per la fase selezionata!"), "X");
@@ -249,7 +249,7 @@ export class LogModifierComponent implements OnInit {
 
       formData.push(entry);
     });
-    
+
     const updateDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
         title: this.translateService.instant('Modifica il log selezionato'),
@@ -294,30 +294,30 @@ export class LogModifierComponent implements OnInit {
     let qualityvalue: string = "{";
 
     // modificare qui
-    const removeIndex = this.activeAttributes.findIndex(attribute => {return attribute.attributevalue == "Actions"});
-    if(removeIndex != -1){
-      this.activeAttributes = this.activeAttributes.splice(removeIndex,1);
+    const removeIndex = this.activeAttributes.findIndex(attribute => { return attribute.attributevalue == "Actions" });
+    if (removeIndex != -1) {
+      this.activeAttributes = this.activeAttributes.splice(removeIndex, 1);
     }
     this.activeAttributes.forEach((value, i) => {
-        qualityvalue += "\"";
-        qualityvalue += this.activeAttributes.at(i)?.attributevalue;
-        qualityvalue += "\": \"";
+      qualityvalue += "\"";
+      qualityvalue += this.activeAttributes.at(i)?.attributevalue;
+      qualityvalue += "\": \"";
 
-        if(value.attributevaluetype == "L"){
-          let position: number = 0;
-          position = value.optionvalue?.value.value.findIndex((value) => {
-            return this.form.get('control-' + i.toString())?.value == value;
-          })!;
-          qualityvalue += new OptionsPipe().transform(this.form.get('control-' + i.toString())?.value, value.optionvalue?.value.key.at(position)!);
-          qualityvalue += "\", \"" + value.attributevalue + "_id\": \"" + value.optionvalue?.value.key.at(position);
-        } else {
-          qualityvalue += this.form.value['control-' + i];
-        }
-        qualityvalue += "\"";
+      if (value.attributevaluetype == "L") {
+        let position: number = 0;
+        position = value.optionvalue?.value.value.findIndex((value) => {
+          return this.form.get('control-' + i.toString())?.value == value;
+        })!;
+        qualityvalue += new OptionsPipe().transform(this.form.get('control-' + i.toString())?.value, value.optionvalue?.value.key.at(position)!);
+        qualityvalue += "\", \"" + value.attributevalue + "_id\": \"" + value.optionvalue?.value.key.at(position);
+      } else {
+        qualityvalue += this.form.value['control-' + i];
+      }
+      qualityvalue += "\"";
       if (i != this.activeAttributes.length - 1) {
         qualityvalue += ", ";
       }
-      });
+    });
     qualityvalue += "}";
     return qualityvalue;
   }
@@ -339,7 +339,7 @@ export class LogModifierComponent implements OnInit {
       },
       error: (error) => this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X")
     });
-    
+
   }
 
   /**
@@ -348,7 +348,7 @@ export class LogModifierComponent implements OnInit {
   public clearDialog(formDirective?: FormGroupDirective): void {
     this.form.reset();
     this.initializeForm();
-    if(formDirective != undefined) {
+    if (formDirective != undefined) {
       formDirective.resetForm();
     }
     this.addLog = true;

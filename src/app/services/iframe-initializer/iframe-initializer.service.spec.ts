@@ -36,7 +36,7 @@ describe('IframeInitializerService', () => {
         ThemeService,
         QualityPhaseService,
         LogoutService,
-        { provide: MatSnackBar, useValue: { open: () => {} } }
+        { provide: MatSnackBar, useValue: { open: () => { } } }
       ]
     });
     service = TestBed.inject(IframeInitializerService);
@@ -96,7 +96,7 @@ describe('IframeInitializerService', () => {
         startRow: 0,
         criteria: [
           {
-            fieldName:  'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            fieldName: 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             value: data.c_projectphase_id.toString(),
             operator: 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
@@ -120,9 +120,9 @@ describe('IframeInitializerService', () => {
       user_id: 9000000
     };
     spyOn(languageService, 'changeLanguage').and.stub();
-  
+
     service.initialize(data);
-  
+
     expect(languageService.changeLanguage).toHaveBeenCalledWith(data.lang);
     expect(authInfoService.Token).toEqual('');
     expect(authInfoService.UserId).toEqual(9000000);
@@ -140,7 +140,7 @@ describe('IframeInitializerService', () => {
       m_product_id: 111222333,
       user_id: 9000000
     };
-  
+
     const phaseData = {
       data: [
         {
@@ -148,12 +148,12 @@ describe('IframeInitializerService', () => {
         }
       ]
     };
-  
+
     spyOn(qualityPhaseService, 'fetch_2').and.returnValue(of(phaseData));
     spyOn(activePhaseService, 'update').and.stub();
-  
+
     service.initialize(data);
-  
+
     const qualityPhaseParams = {
       AdesuiteToken: data.token,
       body: {
@@ -168,14 +168,14 @@ describe('IframeInitializerService', () => {
         endRow: 1
       }
     };
-  
+
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
     expect(activePhaseService.update).toHaveBeenCalledWith(phaseData.data[0]);
   });
-  
+
   it('should have no phases to show', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
-    
+
     const data: Message = {
       token: '',
       username: 'John Doe',
@@ -190,7 +190,7 @@ describe('IframeInitializerService', () => {
     spyOn(languageService, 'changeLanguage').and.stub();
 
     const phaseData = {
-      data: [ undefined ]
+      data: [undefined]
     };
 
     spyOn(qualityPhaseService, 'fetch_2').and.returnValue(of(phaseData as any));
@@ -211,7 +211,7 @@ describe('IframeInitializerService', () => {
         startRow: 0,
         criteria: [
           {
-            fieldName:  'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            fieldName: 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             value: data.c_projectphase_id.toString(),
             operator: 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
@@ -221,14 +221,14 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should handle error - 401', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
     const errorResponse = { error: { description: 'Utente non autorizzato' }, status: 401 };
     const logoutServiceSpy = spyOn(logoutService, 'logout');
-    
+
     const data: Message = {
       token: '',
       username: 'John Doe',
@@ -260,7 +260,7 @@ describe('IframeInitializerService', () => {
         startRow: 0,
         criteria: [
           {
-            fieldName:  'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            fieldName: 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             value: data.c_projectphase_id.toString(),
             operator: 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
@@ -270,14 +270,14 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Il token di accesso non è più valido', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Il token di accesso non è più valido', 'X', { panelClass: ['red-snackbar'] });
     expect(logoutServiceSpy).toHaveBeenCalled();
   });
 
   it('should handle error - 500', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
     const errorResponse = { error: { description: 'Errore lato server generico' }, status: 500 };
-    
+
     const data: Message = {
       token: '',
       username: 'John Doe',
@@ -309,7 +309,7 @@ describe('IframeInitializerService', () => {
         startRow: 0,
         criteria: [
           {
-            fieldName:  'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            fieldName: 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             value: data.c_projectphase_id.toString(),
             operator: 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
@@ -319,14 +319,14 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server generico', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server generico', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should handle error - 401 null error body', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
     const errorResponse = { error: null, status: 401 };
     const logoutServiceSpy = spyOn(logoutService, 'logout');
-    
+
     const data: Message = {
       token: '',
       username: 'John Doe',
@@ -358,7 +358,7 @@ describe('IframeInitializerService', () => {
         startRow: 0,
         criteria: [
           {
-            fieldName:  'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            fieldName: 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             value: data.c_projectphase_id.toString(),
             operator: 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
@@ -368,14 +368,14 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: ['red-snackbar'] });
     expect(logoutServiceSpy).toHaveBeenCalled();
   });
 
   it('should handle error - 500 null error body', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
     const errorResponse = { error: null, status: 500 };
-    
+
     const data: Message = {
       token: '',
       username: 'John Doe',
@@ -407,7 +407,7 @@ describe('IframeInitializerService', () => {
         startRow: 0,
         criteria: [
           {
-            fieldName:  'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
+            fieldName: 'c_projectphase_id' as 'c_phase_id' | 'm_product_category_id' | 'm_product_id' | 'status' | 'projectplan_timeline_id' | 'isglobal' | 'c_projectphase_id' | 'c_bpartner_id' | 'linename' | 'color' | 'start_plan' | 'phasename' | 'end_plan' | 'customer' | 'c_projectline_id' | 'ad_org_id' | 'ad_client_id',
             value: data.c_projectphase_id.toString(),
             operator: 'equals' as "equals" | "iNotContains" | "iContains" | "greaterOrEqual" | "lessOrEqual" | undefined
           }
@@ -417,7 +417,7 @@ describe('IframeInitializerService', () => {
     };
 
     expect(qualityPhaseService.fetch_2).toHaveBeenCalledWith(qualityPhaseParams);
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: ['red-snackbar'] });
   });
-  
+
 });

@@ -48,15 +48,15 @@ export class LogViewerComponent implements OnInit {
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private translateService: TranslateService, private loadingService: LoadingService,
     private activePhaseService: ActivePhaseService, private qualitySaveLogService: QualitySaveLogService, private authInfoService: AuthInformationsService,
-    private mainViewCommunicationsService: MainViewCommunicationsService, private dialog: MatDialog) { 
+    private mainViewCommunicationsService: MainViewCommunicationsService, private dialog: MatDialog) {
 
-      this.activePhaseService.getActivePhase().subscribe( phase => {
-        this.lastPhase = phase;
-        this.updateTable(phase);
-        this.loadingService.stopViewerLoading();
-      });
+    this.activePhaseService.getActivePhase().subscribe(phase => {
+      this.lastPhase = phase;
+      this.updateTable(phase);
+      this.loadingService.stopViewerLoading();
+    });
 
-    }
+  }
 
   /**
    * Metodo per ottenere colonne e log salvati per la fase attuale, indica quando il caricamento è terminato (per far sparire lo splash-screen)
@@ -67,25 +67,25 @@ export class LogViewerComponent implements OnInit {
       .subscribe(attributes => {
         this.displayedColumns = attributes.map((attribute) => attribute.attributevalue!);
         this.attributes = attributes.slice();
-        this.attributes.push({attributename: 'Azioni', attributevalue: 'Actions'});
+        this.attributes.push({ attributename: 'Azioni', attributevalue: 'Actions' });
 
         if (this.displayedColumns.length == 0) {
           this.openFailSnackBar("Errore: non sono disponibili attributi per la fase selezionata!", "X");
-        } 
-        else if(this.displayedColumns.findIndex(value => value == 'Actions') == -1){
+        }
+        else if (this.displayedColumns.findIndex(value => value == 'Actions') == -1) {
           this.displayedColumns.push("Actions");
         }
       });
 
-      this.mainViewCommunicationsService.viewUpdate.subscribe((updatedLog) => {
-        this.highlighted = {};
-        this.updateTable(this.lastPhase);
-        this.blinkLogId = updatedLog.c_projectphase_quality_log_id!;
+    this.mainViewCommunicationsService.viewUpdate.subscribe((updatedLog) => {
+      this.highlighted = {};
+      this.updateTable(this.lastPhase);
+      this.blinkLogId = updatedLog.c_projectphase_quality_log_id!;
 
-        // Rimuove dopo 5 secondi la classe 'blink' (evita che ad ogni cambio di tema l'ultima fase aggiunta / modificata venga evidenziata)
-        setTimeout( () => {
-          this.blinkLogId = 0;
-        }, 5500);
+      // Rimuove dopo 5 secondi la classe 'blink' (evita che ad ogni cambio di tema l'ultima fase aggiunta / modificata venga evidenziata)
+      setTimeout(() => {
+        this.blinkLogId = 0;
+      }, 5500);
     });
   }
 
@@ -110,7 +110,7 @@ export class LogViewerComponent implements OnInit {
 
     this.qualitySaveLogService.fetch_1(params).subscribe({
       next: (response) => {
-        
+
         let logs: any[] = [];
         this.activeLogs = response.data!;
         response.data?.forEach((log) => {
@@ -122,8 +122,8 @@ export class LogViewerComponent implements OnInit {
           logs.push(aux);
         });
 
-        logs.sort( (firstLog, secondLog) => { return firstLog.c_projectphase_quality_log_id - secondLog.c_projectphase_quality_log_id })
-        
+        logs.sort((firstLog, secondLog) => { return secondLog.c_projectphase_quality_log_id - firstLog.c_projectphase_quality_log_id })
+
         this.logs.next(logs);
       },
       error: (error) => {
@@ -162,19 +162,24 @@ export class LogViewerComponent implements OnInit {
   }
 
   public deleteDialog(selectedLog: any): void {
-     const tableAttributes = this.attributes.slice().map(attribute => attribute.attributename).filter(attribute => attribute != "Azioni");
-     const tableColumns = this.displayedColumns.filter(column => column != "Actions");
-     
-     let formData: string[] = [];
+    const tableAttributes = this.attributes.slice().map(attribute => attribute.attributename).filter(attribute => attribute != "Azioni");
+    const tableColumns = this.displayedColumns.filter(column => column != "Actions");
 
-     // PRECONDIZIONE: tableColumns e tableAttributes hanno lo stesso numero di elementi
-     tableAttributes.forEach( (attribute, index) => {
-      const entry : string = attribute + ": " + selectedLog[tableColumns.at(index)!];
+    let formData: string[] = [];
+
+    // PRECONDIZIONE: tableColumns e tableAttributes hanno lo stesso numero di elementi
+    tableAttributes.forEach((attribute, index) => {
+      let booleanTranslated: string = selectedLog[tableColumns.at(index)!];
+
+      if (booleanTranslated == "true" || booleanTranslated == "false") {
+        booleanTranslated = this.translateService.instant(booleanTranslated);
+      }
+      const entry: string = attribute + ": " + booleanTranslated;
       formData.push(entry);
-     });
+    });
 
-   
-    
+
+
     const deleteDialog = this.dialog.open(ConfirmDataDialogComponent, {
       data: {
         title: this.translateService.instant('Eliminazione'),
@@ -201,7 +206,7 @@ export class LogViewerComponent implements OnInit {
 
     const params = {
       "AdesuiteToken": token,
-      "body":{
+      "body": {
         "c_projectphase_quality_log_id": selectedLog.c_projectphase_quality_log_id
       }
     }
@@ -209,7 +214,7 @@ export class LogViewerComponent implements OnInit {
     this.qualitySaveLogService.Delete(params).subscribe({
       next: (log) => {
         this.openSuccessSnackBar("Eliminazione avvenuta correttamente!", "X")
-        this.mainViewCommunicationsService.viewUpdate.next(log);  
+        this.mainViewCommunicationsService.viewUpdate.next(log);
       },
       error: (error) => {
         this.openFailSnackBar("Errore " + error.status + " - " + error.error.description, "X");

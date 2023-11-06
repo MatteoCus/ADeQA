@@ -1,4 +1,4 @@
-.nav-tabs > li > a {
+.nav-tabs>li>a {
     text-decoration: none;
 }
 
@@ -31,6 +31,7 @@ a {
     color: #f4645f;
     text-decoration: underline;
 }
+
 a:hover {
     color: #f1362f;
 }
@@ -49,6 +50,7 @@ a:hover {
     color: #f4645f;
     text-decoration: none;
 }
+
 .menu ul.list li a.active {
     color: #f4645f;
     font-weight: bold;
@@ -80,6 +82,7 @@ pre {
 .dark body {
     color: #fafafa;
 }
+
 .dark .content h1,
 .dark .content h2,
 .dark .content h3,
@@ -108,6 +111,7 @@ pre {
 .dark .menu ul.list li a {
     color: #fafafa;
 }
+
 .dark .menu ul.list li a.active {
     color: #7fc9ff;
 }

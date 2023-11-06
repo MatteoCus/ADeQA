@@ -46,8 +46,8 @@ describe('PhasesComponent', () => {
         TranslateModule.forRoot()
       ],
       declarations: [PhasesComponent],
-      providers: [{ provide: MatSnackBar, useValue: { open: () => {} } },],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      providers: [{ provide: MatSnackBar, useValue: { open: () => { } } },],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
     fixture = TestBed.createComponent(PhasesComponent);
     mockActivePhaseService = TestBed.inject(ActivePhaseService);
@@ -63,10 +63,10 @@ describe('PhasesComponent', () => {
   });
 
   it('should fetch phases and handle loading', () => {
-    
+
     const req = httpTestingController.expectOne(`https://test.adesuite.com/faltracco/rest/openapi/operation/9000005/qualityphase/fetch`);
     expect(req.request.method).toBe("POST");
-    req.flush({"data": mockPhases, "startRow":0, "endRow":1, "totalRows": 1});
+    req.flush({ "data": mockPhases, "startRow": 0, "endRow": 1, "totalRows": 1 });
 
     expect(component.loading).toBeFalse();
     expect(component.phases).toEqual(mockPhases);
@@ -75,30 +75,30 @@ describe('PhasesComponent', () => {
   it('should handle loading when fetching phases fails', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
 
-    const errorResponse = { status: 500, statusText:''  };
+    const errorResponse = { status: 500, statusText: '' };
     const req = httpTestingController.expectOne(`https://test.adesuite.com/faltracco/rest/openapi/operation/9000005/qualityphase/fetch`);
     expect(req.request.method).toBe("POST");
-    req.flush({description: 'Internal Server Error'}, errorResponse);
+    req.flush({ description: 'Internal Server Error' }, errorResponse);
 
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
-    
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Internal Server Error', 'X', { panelClass: [ 'red-snackbar' ] });
+
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Internal Server Error', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should handle loading when fetching phases fails with error 401', () => {
     const logoutSpy = spyOn(mockLogoutService, 'logout');
     const openSnackBarSpy = spyOn(snackBar, 'open');
 
-    const errorResponse = { status: 401, statusText:''  };
+    const errorResponse = { status: 401, statusText: '' };
     const req = httpTestingController.expectOne(`https://test.adesuite.com/faltracco/rest/openapi/operation/9000005/qualityphase/fetch`);
     expect(req.request.method).toBe("POST");
-    req.flush({description: 'Expired token'}, errorResponse);
+    req.flush({ description: 'Expired token' }, errorResponse);
 
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
-    
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Expired token', 'X', { panelClass: [ 'red-snackbar' ] });
+
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Expired token', 'X', { panelClass: ['red-snackbar'] });
     expect(logoutSpy).toHaveBeenCalled();
   });
 
@@ -106,30 +106,30 @@ describe('PhasesComponent', () => {
     const logoutSpy = spyOn(mockLogoutService, 'logout');
     const openSnackBarSpy = spyOn(snackBar, 'open');
 
-    const errorResponse = { status: 401, statusText:''  };
+    const errorResponse = { status: 401, statusText: '' };
     const req = httpTestingController.expectOne(`https://test.adesuite.com/faltracco/rest/openapi/operation/9000005/qualityphase/fetch`);
     expect(req.request.method).toBe("POST");
     req.flush(null, errorResponse);
 
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
-    
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: [ 'red-snackbar' ] });
+
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 401 - Non autorizzato', 'X', { panelClass: ['red-snackbar'] });
     expect(logoutSpy).toHaveBeenCalled();
   });
 
   it('should handle loading when fetching phases fails - empty description', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
 
-    const errorResponse = { status: 500, statusText:''  };
+    const errorResponse = { status: 500, statusText: '' };
     const req = httpTestingController.expectOne(`https://test.adesuite.com/faltracco/rest/openapi/operation/9000005/qualityphase/fetch`);
     expect(req.request.method).toBe("POST");
     req.flush(null, errorResponse);
 
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
-    
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: [ 'red-snackbar' ] });
+
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore 500 - Errore lato server', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should handle empty response', () => {
@@ -141,8 +141,8 @@ describe('PhasesComponent', () => {
 
     expect(component.loading).toBeFalse();
     expect(component.phases.length).toBe(0);
-    
-    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: [ 'red-snackbar' ] });
+
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non ci sono fasi da visualizzare!', 'X', { panelClass: ['red-snackbar'] });
   });
 
   it('should set the active phase', () => {
@@ -152,11 +152,11 @@ describe('PhasesComponent', () => {
     expect(phaseUpdateSpy).toHaveBeenCalledWith(phase);
   });
 
-  it('should handle erratic card selection',() => {
+  it('should handle erratic card selection', () => {
     const openSnackBarSpy = spyOn(snackBar, 'open');
 
     component.select("a");
 
-    expect(openSnackBarSpy).toHaveBeenCalledWith('La carta selezionata non contiene testo!', 'X', { panelClass: [ 'red-snackbar' ] });
+    expect(openSnackBarSpy).toHaveBeenCalledWith('La carta selezionata non contiene testo!', 'X', { panelClass: ['red-snackbar'] });
   });
 });
