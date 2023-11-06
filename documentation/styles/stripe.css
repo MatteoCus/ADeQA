@@ -29,7 +29,6 @@ a {
     color: #0099e5;
     text-decoration: none;
 }
-
 a:hover {
     color: #292e31;
     text-decoration: none;
@@ -74,7 +73,6 @@ pre {
 .dark body {
     color: #fafafa;
 }
-
 .dark .content h1,
 .dark .content h2,
 .dark .content h3,
@@ -103,7 +101,6 @@ pre {
 .dark .menu ul.list li a {
     color: #fafafa;
 }
-
 .dark .menu ul.list li a.active {
     color: #7fc9ff;
 }

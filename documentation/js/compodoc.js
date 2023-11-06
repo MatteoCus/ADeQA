@@ -5,9 +5,9 @@ var compodoc = {
     }
 };
 
-Object.assign(compodoc, EventDispatcher.prototype);
+Object.assign( compodoc, EventDispatcher.prototype );
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     compodoc.dispatchEvent({
         type: compodoc.EVENTS.READY
     });

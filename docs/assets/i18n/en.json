@@ -70,5 +70,7 @@
     "Falso": "False",
     "Vero": "True",
     "Eliminazione": "Elimination",
-    "Vuoi eliminare il seguente log?": "Do you want to delete the following log?"
+    "Vuoi eliminare il seguente log?": "Do you want to delete the following log?",
+    "false": "false",
+    "true": "true"
 }

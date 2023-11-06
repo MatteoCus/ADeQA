@@ -1,1080 +1,1045 @@
 <!doctype html>
 <html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ade-qa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ade-qa documentation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
 
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/dark.css">
-</head>
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ade-qa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
 
-<body>
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
 
-    <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-        <a href="../" class="navbar-brand">ade-qa documentation</a>
-        <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
-    </div>
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
 
-    <div class="xs-menu menu" id="mobile-menu">
-        <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>
-        <compodoc-menu></compodoc-menu>
-    </div>
 
-    <div class="container-fluid main">
-        <div class="row main">
-            <div class="hidden-xs menu">
-                <compodoc-menu mode="normal"></compodoc-menu>
-            </div>
-            <!-- START CONTENT -->
-            <div class="content component">
-                <div class="content-data">
 
 
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ToolbarComponent</li>
+</ol>
 
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
 
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Components</li>
-                        <li class="breadcrumb-item">
-                            ToolbarComponent</li>
-                    </ol>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/toolbar/toolbar.component.ts</code>
+</p>
 
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a href="#info" class="nav-link active" role="tab" id="info-tab" data-bs-toggle="tab"
-                                data-link="info">Info</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#source" class="nav-link" role="tab" id="source-tab" data-bs-toggle="tab"
-                                data-link="source">Source</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#templateData" class="nav-link" role="tab" id="templateData-tab"
-                                data-bs-toggle="tab" data-link="template">Template</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#styleData" class="nav-link" role="tab" id="styleData-tab" data-bs-toggle="tab"
-                                data-link="style">Styles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#tree" class="nav-link" role="tab" id="tree-tab" data-bs-toggle="tab"
-                                data-link="dom-tree">DOM Tree</a>
-                        </li>
-                    </ul>
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade active in" id="info">
-                            <p class="comment">
-                            <h3>File</h3>
-                            </p>
-                            <p class="comment">
-                                <code>src/app/components/toolbar/toolbar.component.ts</code>
-                            </p>
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Classe che gestisce l&#39;intestazione della visualizzazione grafica</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
 
 
-                            <p class="comment">
-                            <h3>Description</h3>
-                            </p>
-                            <p class="comment">
-                            <p>Classe che gestisce l&#39;intestazione della visualizzazione grafica</p>
 
-                            </p>
 
 
-                            <p class="comment">
-                            <h3>Implements</h3>
-                            </p>
-                            <p class="comment">
-                                <code>OnInit</code>
-                            </p>
-
-
-                            <section data-compodoc="block-metadata">
-                                <h3>Metadata</h3>
-                                <table class="table table-sm table-hover metadata">
-                                    <tbody>
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <tr>
-                                            <td class="col-md-3">selector</td>
-                                            <td class="col-md-9"><code>app-toolbar</code></td>
-                                        </tr>
-
-
-
-                                        <tr>
-                                            <td class="col-md-3">styleUrls</td>
-                                            <td class="col-md-9"><code>./toolbar.component.scss</code></td>
-                                        </tr>
-
-
-
-                                        <tr>
-                                            <td class="col-md-3">templateUrl</td>
-                                            <td class="col-md-9"><code>./toolbar.component.html</code></td>
-                                        </tr>
-
-
-
-
-
-
-
-
-                                    </tbody>
-                                </table>
-                            </section>
-
-                            <section data-compodoc="block-index">
-                                <h3 id="index">Index</h3>
-                                <table class="table table-sm table-bordered index-table">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <h6><b>Properties</b></h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <ul class="index-list">
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#activeLanguage">activeLanguage</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#isDark">isDark</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#languages">languages</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#mobileQuery">mobileQuery</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Private</span>
-                                                        <a href="#queryListener">queryListener</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#strictLang">strictLang</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#today">today</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#user">user</a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <h6><b>Methods</b></h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <ul class="index-list">
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#changeActiveLanguage">changeActiveLanguage</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#ngOnDestroy">ngOnDestroy</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#ngOnInit">ngOnInit</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#openLogoutDialog">openLogoutDialog</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#openLogoutUserDialog">openLogoutUserDialog</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#toggleTheme">toggleTheme</a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-
-
-
-
-                                    </tbody>
-                                </table>
-                            </section>
-
-                            <section data-compodoc="block-constructor">
-                                <h3 id="constructor">Constructor</h3>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <code>constructor(authInfoService: <a href="../injectables/AuthInformationsService.html" target="_self">AuthInformationsService</a>, themeService: <a href="../injectables/ThemeService.html" target="_self">ThemeService</a>, logoutService: <a href="../injectables/LogoutService.html" target="_self">LogoutService</a>, dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, languageService: <a href="../injectables/LanguageService.html" target="_self">LanguageService</a>)</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="59"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:59</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Costruttore della classe che gestisce l&#39;intestazione della
-                                                        visualizzazione grafica</p>
-                                                </div>
-                                                <div>
-                                                    <b>Parameters :</b>
-                                                    <table class="params">
-                                                        <thead>
-                                                            <tr>
-                                                                <td>Name</td>
-                                                                <td>Type</td>
-                                                                <td>Optional</td>
-                                                                <td>Description</td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>authInfoService</td>
-
-                                                                <td>
-                                                                    <code><a href="../injectables/AuthInformationsService.html" target="_self" >AuthInformationsService</a></code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                    <p>Servizio per gestire le informazioni relative
-                                                                        all&#39;autenticazione</p>
-
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>themeService</td>
-
-                                                                <td>
-                                                                    <code><a href="../injectables/ThemeService.html" target="_self" >ThemeService</a></code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                    <p>Servizio di gestione del tema grafico di
-                                                                        interfaccia</p>
-
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>logoutService</td>
-
-                                                                <td>
-                                                                    <code><a href="../injectables/LogoutService.html" target="_self" >LogoutService</a></code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                    <p>Servizio di gestione logout</p>
-
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>dialog</td>
-
-                                                                <td>
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-toolbar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./toolbar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./toolbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#activeLanguage" >activeLanguage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#iconMobileQuery" >iconMobileQuery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isDark" >isDark</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#languages" >languages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#mobileQuery" >mobileQuery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#queryListener" >queryListener</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#strictLang" >strictLang</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#today" >today</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeActiveLanguage" >changeActiveLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#openLogoutDialog" >openLogoutDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#openLogoutUserDialog" >openLogoutUserDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authInfoService: <a href="../injectables/AuthInformationsService.html" target="_self">AuthInformationsService</a>, themeService: <a href="../injectables/ThemeService.html" target="_self">ThemeService</a>, logoutService: <a href="../injectables/LogoutService.html" target="_self">LogoutService</a>, dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, languageService: <a href="../injectables/LanguageService.html" target="_self">LanguageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Costruttore della classe che gestisce l&#39;intestazione della visualizzazione grafica</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authInfoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthInformationsService.html" target="_self" >AuthInformationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per gestire le informazioni relative all&#39;autenticazione</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeService.html" target="_self" >ThemeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio di gestione del tema grafico di interfaccia</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>logoutService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LogoutService.html" target="_self" >LogoutService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio di gestione logout</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
                                                                     <code>MatDialog</code>
-                                                                </td>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Dialog di logout</p>
 
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                    <p>Dialog di logout</p>
-
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>changeDetectorRef</td>
-
-                                                                <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>changeDetectorRef</td>
+                                                  
+                                                        <td>
                                                                     <code>ChangeDetectorRef</code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>media</td>
-
-                                                                <td>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>media</td>
+                                                  
+                                                        <td>
                                                                     <code>MediaMatcher</code>
-                                                                </td>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>languageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LanguageService.html" target="_self" >LanguageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio di gestione del linguaggio attivo nell&#39;applicazione</p>
 
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>languageService</td>
-
-                                                                <td>
-                                                                    <code><a href="../injectables/LanguageService.html" target="_self" >LanguageService</a></code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-                                                                <td>
-                                                                    <p>Servizio di gestione del linguaggio attivo
-                                                                        nell&#39;applicazione</p>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
 
-                            <section data-compodoc="block-methods">
 
-                                <h3 id="methods">
-                                    Methods
-                                </h3>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="changeActiveLanguage"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>changeActiveLanguage</b></span>
-                                                    <a href="#changeActiveLanguage"><span
-                                                            class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <span class="modifier-icon icon ion-ios-reset"></span>
-                                                <code>changeActiveLanguage(language: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="104"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:104</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeActiveLanguage"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>changeActiveLanguage</b></span>
+                        <a href="#changeActiveLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeActiveLanguage(language: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
 
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo per cambiare linguaggio di traduzione
-                                                        dell&#39;applicazione</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Parameters :</b>
-
-                                                    <table class="params">
-                                                        <thead>
-                                                            <tr>
-                                                                <td>Name</td>
-                                                                <td>Type</td>
-                                                                <td>Optional</td>
-                                                                <td>Description</td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>language</td>
-                                                                <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:112</a></div>
+                </td>
+            </tr>
 
 
-                                                                <td>
-                                                                    <p>Nuovo linguaggio in cui l&#39;applicazione deve
-                                                                        essere tradotta</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo per cambiare linguaggio di traduzione dell&#39;applicazione</p>
+</div>
 
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                                <div class="io-description">
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="ngOnDestroy"></a>
-                                                <span class="name">
-                                                    <span><b>ngOnDestroy</b></span>
-                                                    <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <code>ngOnDestroy()</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="96"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:96</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Distruttore per rimuovere gli event listener</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="ngOnInit"></a>
-                                                <span class="name">
-                                                    <span><b>ngOnInit</b></span>
-                                                    <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <code>ngOnInit()</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="82"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:82</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo di inizializzazione per quanto riguarda nome utente e tema
-                                                        all&#39;avvio</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="openLogoutDialog"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>openLogoutDialog</b></span>
-                                                    <a href="#openLogoutDialog"><span
-                                                            class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <span class="modifier-icon icon ion-ios-reset"></span>
-                                                <code>openLogoutDialog()</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="121"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:121</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo per gestire le interazioni con il dialog di logout
-                                                        generale
-                                                        Occorre reinserire nome utente e password per ri-ottenere il
-                                                        token</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="openLogoutUserDialog"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>openLogoutUserDialog</b></span>
-                                                    <a href="#openLogoutUserDialog"><span
-                                                            class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <span class="modifier-icon icon ion-ios-reset"></span>
-                                                <code>openLogoutUserDialog()</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="146"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:146</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo per gestire le interazioni con il dialog di logout
-                                                        parziale
-                                                        Occorre reinserire il pin per ri-accedere ai servizi in qualità
-                                                        di operatore</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="toggleTheme"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>toggleTheme</b></span>
-                                                    <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <span class="modifier-icon icon ion-ios-reset"></span>
-                                                <code>toggleTheme(undefined: MatSlideToggleChange)</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="112"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:112</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo per cambiare tema dell&#39;applicazione</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Parameters :</b>
-
-                                                    <table class="params">
-                                                        <thead>
-                                                            <tr>
-                                                                <td>Name</td>
-                                                                <td>Type</td>
-                                                                <td>Optional</td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <code>MatSlideToggleChange</code>
-                                                                </td>
-
-                                                                <td>
-                                                                    No
-                                                                </td>
-
-
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                                <div class="io-description">
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-                            <section data-compodoc="block-properties">
-
-                                <h3 id="inputs">
-                                    Properties
-                                </h3>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="activeLanguage"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>activeLanguage</b></span>
-                                                    <a href="#activeLanguage"><span
-                                                            class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i>
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>language</td>
+                                    <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value : </i><code>&quot;&quot;</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="49"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:49</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Linguaggio attualmente selezionato dalla lista di linguaggi
-                                                        disponibili</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="isDark"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>isDark</b></span>
-                                                    <a href="#isDark"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value : </i><code>false</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="23"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:23</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Attributo per gestire il toggle dello slider all&#39;avvio</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="languages"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>languages</b></span>
-                                                    <a href="#languages"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i> <code>string[]</code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value :
-                                                </i><code>[&quot;Italiano&quot;, &quot;Inglese&quot;, &quot;Spagnolo&quot;]</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="39"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:39</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Lista di linguaggi disponibili</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="mobileQuery"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>mobileQuery</b></span>
-                                                    <a href="#mobileQuery"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i> <code>MediaQueryList</code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="59"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:59</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Lista di query per capire quando cambiare [mode]</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="queryListener"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Private</span>
-                                                    <span><b>queryListener</b></span>
-                                                    <a href="#queryListener"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="54"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:54</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Query listener: consente di capire quando il menù delle fasi deve
-                                                        cambiare [mode]</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="strictLang"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>strictLang</b></span>
-                                                    <a href="#strictLang"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i> <code>string[]</code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value :
-                                                </i><code>[&#x27;it&#x27;, &#x27;en&#x27;, &#x27;es&#x27;]</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="44"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:44</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Lista di linguaggi - stringhe da usare con il servizio di
-                                                        traduzione</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="today"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>today</b></span>
-                                                    <a href="#today"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value : </i><code>new Date()</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="29"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:29</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Attributo contenente la data odierna (giorno in cui il component
-                                                        viene generato)
-                                                        Serve per estrarre nel template HTML il mese, l&#39;anno e la
-                                                        settimana</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="user"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>user</b></span>
-                                                    <a href="#user"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value : </i><code>&quot;&quot;</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="34"
-                                                        class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:34</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Attributo contenente il nome dell&#39;utente (operatore)
-                                                        autenticato</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </section>
-
-                        </div>
+                                    <td>
+                                        No
+                                    </td>
 
 
-                        <div class="tab-pane fade  tab-source-code" id="source">
-                            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, OnInit } from &#x27;@angular/core&#x27;;
+                                    <td>
+                                        <p>Nuovo linguaggio in cui l&#39;applicazione deve essere tradotta</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Distruttore per rimuovere gli event listener</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo di inizializzazione per quanto riguarda nome utente e tema all&#39;avvio</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openLogoutDialog"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>openLogoutDialog</b></span>
+                        <a href="#openLogoutDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openLogoutDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:129</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo per gestire le interazioni con il dialog di logout generale
+Occorre reinserire nome utente e password per ri-ottenere il token</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openLogoutUserDialog"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>openLogoutUserDialog</b></span>
+                        <a href="#openLogoutUserDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openLogoutUserDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:154</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo per gestire le interazioni con il dialog di logout parziale
+Occorre reinserire il pin per ri-accedere ai servizi in qualità di operatore</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleTheme(undefined: MatSlideToggleChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo per cambiare tema dell&#39;applicazione</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                            <code>MatSlideToggleChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeLanguage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>activeLanguage</b></span>
+                        <a href="#activeLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Linguaggio attualmente selezionato dalla lista di linguaggi disponibili</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="iconMobileQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>iconMobileQuery</b></span>
+                        <a href="#iconMobileQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MediaQueryList</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista di query per capire quando nascondere l&#39;icona del prodotto</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDark"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isDark</b></span>
+                        <a href="#isDark"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Attributo per gestire il toggle dello slider all&#39;avvio</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="languages"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>languages</b></span>
+                        <a href="#languages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&quot;Italiano&quot;, &quot;Inglese&quot;, &quot;Spagnolo&quot;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista di linguaggi disponibili</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mobileQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>mobileQuery</b></span>
+                        <a href="#mobileQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MediaQueryList</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista di query per capire quando cambiare [mode]</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="queryListener"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>queryListener</b></span>
+                        <a href="#queryListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Query listener: consente di capire quando il menù delle fasi deve cambiare [mode]</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="strictLang"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>strictLang</b></span>
+                        <a href="#strictLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;it&#x27;, &#x27;en&#x27;, &#x27;es&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista di linguaggi - stringhe da usare con il servizio di traduzione</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="today"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>today</b></span>
+                        <a href="#today"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Attributo contenente la data odierna (giorno in cui il component viene generato)
+Serve per estrarre nel template HTML il mese, l&#39;anno e la settimana</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/toolbar/toolbar.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Attributo contenente il nome dell&#39;utente (operatore) autenticato</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
 import { MatSlideToggleChange } from &#x27;@angular/material/slide-toggle&#x27;;
 import { AuthInformationsService } from &#x27;src/app/services/auth-informations/auth-informations.service&#x27;;
@@ -1135,6 +1100,11 @@ export class ToolbarComponent implements OnInit {
   public mobileQuery: MediaQueryList;
 
   /**
+   * Lista di query per capire quando nascondere l&#x27;icona del prodotto
+   */
+  public iconMobileQuery: MediaQueryList;
+
+  /**
    * Costruttore della classe che gestisce l&#x27;intestazione della visualizzazione grafica 
    * @param authInfoService Servizio per gestire le informazioni relative all&#x27;autenticazione
    * @param themeService Servizio di gestione del tema grafico di interfaccia
@@ -1144,8 +1114,10 @@ export class ToolbarComponent implements OnInit {
    */
   constructor(private authInfoService: AuthInformationsService, private themeService: ThemeService, private logoutService: LogoutService, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private languageService: LanguageService) {
 
+    this.iconMobileQuery &#x3D; media.matchMedia(&#x27;(max-width: 500px)&#x27;);
     this.mobileQuery &#x3D; media.matchMedia(&#x27;(max-width: 900px)&#x27;);
     this.queryListener &#x3D; () &#x3D;&gt; changeDetectorRef.detectChanges();
+    this.iconMobileQuery.addEventListener(&quot;change&quot;, this.queryListener);
     this.mobileQuery.addEventListener(&quot;change&quot;, this.queryListener);
 
     this.activeLanguage &#x3D; localStorage.getItem(&#x27;lang&#x27;) || &#x27;it&#x27;;
@@ -1170,6 +1142,7 @@ export class ToolbarComponent implements OnInit {
    * Distruttore per rimuovere gli event listener
    */
   ngOnDestroy(): void {
+    this.iconMobileQuery.removeEventListener(&quot;change&quot;, this.queryListener);
     this.mobileQuery.removeEventListener(&quot;change&quot;, this.queryListener);
   }
 
@@ -1242,15 +1215,15 @@ export class ToolbarComponent implements OnInit {
 
 }
 </code></pre>
-                        </div>
+    </div>
 
-                        <div class="tab-pane fade " id="templateData">
-                            <pre class="line-numbers"><code class="language-html">&lt;mat-toolbar id&#x3D;&quot;toolbar&quot; color&#x3D;&quot;primary&quot;&gt;
-  &lt;div *ngIf&#x3D;&quot;mobileQuery.matches&quot; id&#x3D;&quot;logo&quot;&gt;&lt;/div&gt;
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-toolbar id&#x3D;&quot;toolbar&quot; color&#x3D;&quot;primary&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;mobileQuery.matches &amp;&amp; !iconMobileQuery.matches&quot; id&#x3D;&quot;logo&quot;&gt;&lt;/div&gt;
   &lt;ng-content&gt;&lt;/ng-content&gt;
   &lt;span *ngIf&#x3D;&quot;!mobileQuery.matches&quot;&gt;{{(today | date:&#x27;MMMM&#x27;)! | titlecase | translate}} {{today | date:&#x27;yyyy&#x27;}} -
     {{&quot;Settimana&quot; | translate}} {{today | date: &#x27;ww&#x27;}}&lt;/span&gt;
-  &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
+  &lt;span *ngIf&#x3D;&quot;!iconMobileQuery.matches&quot; class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
   &lt;div id&#x3D;&quot;dark-theme-slider&quot; title&#x3D;&quot;{{&#x27;Cambio tema&#x27; | translate}}&quot;&gt;
     &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; [attr.aria-label]&#x3D;&quot;&#x27;Tema chiaro&#x27; | translate&quot; fontIcon&#x3D;&quot;light_mode&quot;&gt;&lt;/mat-icon&gt;
     &lt;mat-slide-toggle [(ngModel)]&#x3D;&quot;isDark&quot; (change)&#x3D;&quot;toggleTheme($event)&quot; color&#x3D;&quot;accent&quot;&gt;&lt;/mat-slide-toggle&gt;
@@ -1269,7 +1242,7 @@ export class ToolbarComponent implements OnInit {
   &lt;/mat-menu&gt;
 
   &lt;span *ngIf&#x3D;&quot;!mobileQuery.matches&quot;&gt;{{user}}&lt;/span&gt;
-  &lt;img *ngIf&#x3D;&quot;!mobileQuery.matches&quot; src&#x3D;&quot;../../../assets/icons/logo.jpg&quot; /&gt;
+  &lt;img *ngIf&#x3D;&quot;!mobileQuery.matches&quot; src&#x3D;&quot;assets/icons/logo.jpg&quot; /&gt;
 
   &lt;button *ngIf&#x3D;&quot;mobileQuery.matches&quot; [attr.aria-label]&#x3D;&quot;&#x27;Logout completo&#x27; | translate&quot; class&#x3D;&quot;icon logout-mobile&quot;
     (click)&#x3D;&quot;openLogoutDialog()&quot; title&#x3D;&quot;{{&#x27;Logout completo&#x27; | translate}}&quot;&gt;
@@ -1280,13 +1253,13 @@ export class ToolbarComponent implements OnInit {
     &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; fontIcon&#x3D;&quot;change_circle&quot;&gt;&lt;/mat-icon&gt;
   &lt;/button&gt;
 &lt;/mat-toolbar&gt;</code></pre>
-                        </div>
+    </div>
 
-                        <div class="tab-pane fade " id="styleData">
-                            <p class="comment">
-                                <code>./toolbar.component.scss</code>
-                            </p>
-                            <pre class="line-numbers"><code class="language-scss">#toolbar {
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./toolbar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">#toolbar {
     width: 100%;
     height: 70px;
 }
@@ -1347,121 +1320,113 @@ img {
     height: 48px;
     border-radius: 100%;
     border: none;
-}
-
-.logout-mobile {
-    font-weight: 600;
 }</code></pre>
-                        </div>
+    </div>
 
-                        <div class="tab-pane fade " id="tree">
-                            <div id="tree-container"></div>
-                            <div class="tree-legend">
-                                <div class="title">
-                                    <b>Legend</b>
-                                </div>
-                                <div>
-                                    <div class="color htmlelement"></div><span>Html element</span>
-                                </div>
-                                <div>
-                                    <div class="color component"></div><span>Component</span>
-                                </div>
-                                <div>
-                                    <div class="color directive"></div><span>Html element with directive</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <script src="../js/libs/vis.min.js"></script>
-                    <script src="../js/libs/htmlparser.js"></script>
-                    <script src="../js/libs/deep-iterator.js"></script>
-                    <script>
-                        var COMPONENT_TEMPLATE = '<div><mat-toolbar id="toolbar" color="primary">  <div *ngIf="mobileQuery.matches" id="logo"></div>  <ng-content></ng-content>  <span *ngIf="!mobileQuery.matches">{{(today | date:\'MMMM\')! | titlecase | translate}} {{today | date:\'yyyy\'}} -    {{"Settimana" | translate}} {{today | date: \'ww\'}}</span>  <span class="spacer"></span>  <div id="dark-theme-slider" title="{{\'Cambio tema\' | translate}}">    <mat-icon aria-hidden="false" [attr.aria-label]="\'Tema chiaro\' | translate" fontIcon="light_mode"></mat-icon>    <mat-slide-toggle [(ngModel)]="isDark" (change)="toggleTheme($event)" color="accent"></mat-slide-toggle>    <mat-icon aria-hidden="false" [attr.aria-label]="\'Tema scuro\' | translate" fontIcon="dark_mode"></mat-icon>  </div>  <button id="translation" mat-icon-button [matMenuTriggerFor]="menu"    [attr.aria-label]="\'Cambio di linguaggio\' | translate" title="{{\'Traduzioni\' | translate}}">    <mat-icon aria-hidden="false" fontIcon="language"></mat-icon>  </button>  <mat-menu #menu="matMenu" id="languageMenu">    <button mat-menu-item *ngFor="let language of languages; let i = index"      (click)="changeActiveLanguage(strictLang[i])" color="accent">      <span class="entry" [ngClass]="{\'checkmark\' : activeLanguage === strictLang[i]}">{{language | translate}}</span>    </button>  </mat-menu>  <span *ngIf="!mobileQuery.matches">{{user}}</span>  <img *ngIf="!mobileQuery.matches" src="../../../assets/icons/logo.jpg" />  <button *ngIf="mobileQuery.matches" [attr.aria-label]="\'Logout completo\' | translate" class="icon logout-mobile"    (click)="openLogoutDialog()" title="{{\'Logout completo\' | translate}}">    <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>  </button>  <button *ngIf="mobileQuery.matches" [attr.aria-label]="\'Logout parziale\'  | translate" class="icon logout-mobile"    (click)="openLogoutUserDialog()" title="{{\'Logout parziale\' | translate}}">    <mat-icon aria-hidden="false" fontIcon="change_circle"></mat-icon>  </button></mat-toolbar></div>'
-                        var COMPONENTS = [{ 'name': 'AppComponent', 'selector': 'app-root' }, { 'name': 'ConfirmDataDialogComponent', 'selector': 'app-confirm-data-dialog' }, { 'name': 'DashboardComponent', 'selector': 'app-dashboard' }, { 'name': 'LoginPinComponent', 'selector': 'app-login-pin' }, { 'name': 'LoginUsernameComponent', 'selector': 'app-login-username' }, { 'name': 'LogModifierComponent', 'selector': 'app-log-modifier' }, { 'name': 'LogoutDialogComponent', 'selector': 'app-logout-dialog' }, { 'name': 'LogViewerComponent', 'selector': 'app-log-viewer' }, { 'name': 'PhasesComponent', 'selector': 'app-phases' }, { 'name': 'SidenavComponent', 'selector': 'app-sidenav' }, { 'name': 'ToolbarComponent', 'selector': 'app-toolbar' }];
-                        var DIRECTIVES = [];
-                        var ACTUAL_COMPONENT = { 'name': 'ToolbarComponent' };
-                    </script>
-                    <script src="../js/tree.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-                <div class="search-results">
-                    <div class="has-results">
-                        <h1 class="search-results-title"><span class='search-results-count'></span> results matching
-                            "<span class='search-query'></span>"</h1>
-                        <ul class="search-results-list"></ul>
-                    </div>
-                    <div class="no-results">
-                        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-                    </div>
-                </div>
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
             </div>
-            <!-- END CONTENT -->
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
         </div>
     </div>
 
-    <label class="dark-mode-switch">
-        <input type="checkbox">
-        <span class="slider">
-            <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-        </span>
-    </label>
+    
+</div>
 
-    <script>
-        var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-        var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-        var COMPODOC_CURRENT_PAGE_URL = 'ToolbarComponent.html';
-        var MAX_SEARCH_RESULTS = 15;
-    </script>
-
-    <script src="../js/libs/custom-elements.min.js"></script>
-    <script src="../js/libs/lit-html.js"></script>
-
-    <script src="../js/menu-wc.js" defer></script>
-    <script nomodule src="../js/menu-wc_es5.js" defer></script>
-
-    <script src="../js/libs/bootstrap-native.js"></script>
-
-    <script src="../js/libs/es6-shim.min.js"></script>
-    <script src="../js/libs/EventDispatcher.js"></script>
-    <script src="../js/libs/promise.min.js"></script>
-    <script src="../js/libs/zepto.min.js"></script>
-
-    <script src="../js/compodoc.js"></script>
-
-    <script src="../js/tabs.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../js/libs/clipboard.min.js"></script>
-    <script src="../js/libs/prism.js"></script>
-    <script src="../js/sourceCode.js"></script>
-    <script src="../js/search/search.js"></script>
-    <script src="../js/search/lunr.min.js"></script>
-    <script src="../js/search/search-lunr.js"></script>
-    <script src="../js/search/search_index.js"></script>
-    <script src="../js/lazy-load-graphs.js"></script>
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar id="toolbar" color="primary">  <div *ngIf="mobileQuery.matches && !iconMobileQuery.matches" id="logo"></div>  <ng-content></ng-content>  <span *ngIf="!mobileQuery.matches">{{(today | date:\'MMMM\')! | titlecase | translate}} {{today | date:\'yyyy\'}} -    {{"Settimana" | translate}} {{today | date: \'ww\'}}</span>  <span *ngIf="!iconMobileQuery.matches" class="spacer"></span>  <div id="dark-theme-slider" title="{{\'Cambio tema\' | translate}}">    <mat-icon aria-hidden="false" [attr.aria-label]="\'Tema chiaro\' | translate" fontIcon="light_mode"></mat-icon>    <mat-slide-toggle [(ngModel)]="isDark" (change)="toggleTheme($event)" color="accent"></mat-slide-toggle>    <mat-icon aria-hidden="false" [attr.aria-label]="\'Tema scuro\' | translate" fontIcon="dark_mode"></mat-icon>  </div>  <button id="translation" mat-icon-button [matMenuTriggerFor]="menu"    [attr.aria-label]="\'Cambio di linguaggio\' | translate" title="{{\'Traduzioni\' | translate}}">    <mat-icon aria-hidden="false" fontIcon="language"></mat-icon>  </button>  <mat-menu #menu="matMenu" id="languageMenu">    <button mat-menu-item *ngFor="let language of languages; let i = index"      (click)="changeActiveLanguage(strictLang[i])" color="accent">      <span class="entry" [ngClass]="{\'checkmark\' : activeLanguage === strictLang[i]}">{{language | translate}}</span>    </button>  </mat-menu>  <span *ngIf="!mobileQuery.matches">{{user}}</span>  <img *ngIf="!mobileQuery.matches" src="assets/icons/logo.jpg" />  <button *ngIf="mobileQuery.matches" [attr.aria-label]="\'Logout completo\' | translate" class="icon logout-mobile"    (click)="openLogoutDialog()" title="{{\'Logout completo\' | translate}}">    <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>  </button>  <button *ngIf="mobileQuery.matches" [attr.aria-label]="\'Logout parziale\'  | translate" class="icon logout-mobile"    (click)="openLogoutUserDialog()" title="{{\'Logout parziale\' | translate}}">    <mat-icon aria-hidden="false" fontIcon="change_circle"></mat-icon>  </button></mat-toolbar></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDataDialogComponent', 'selector': 'app-confirm-data-dialog'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'LoginPinComponent', 'selector': 'app-login-pin'},{'name': 'LoginUsernameComponent', 'selector': 'app-login-username'},{'name': 'LogModifierComponent', 'selector': 'app-log-modifier'},{'name': 'LogoutDialogComponent', 'selector': 'app-logout-dialog'},{'name': 'LogViewerComponent', 'selector': 'app-log-viewer'},{'name': 'PhasesComponent', 'selector': 'app-phases'},{'name': 'SidenavComponent', 'selector': 'app-sidenav'},{'name': 'SplashScreenComponent', 'selector': 'app-splash-screen'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ToolbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
 
 
-</body>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToolbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
 </html>

@@ -1,38 +1,35 @@
 <!doctype html>
 <html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ade-qa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ade-qa documentation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
 
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/dark.css">
-</head>
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ade-qa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
 
-<body>
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
 
-    <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-        <a href="../" class="navbar-brand">ade-qa documentation</a>
-        <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
-    </div>
-
-    <div class="xs-menu menu" id="mobile-menu">
-        <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>
-        <compodoc-menu></compodoc-menu>
-    </div>
-
-    <div class="container-fluid main">
-        <div class="row main">
-            <div class="hidden-xs menu">
-                <compodoc-menu mode="normal"></compodoc-menu>
-            </div>
-            <!-- START CONTENT -->
-            <div class="content injectable">
-                <div class="content-data">
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
 
 
 
@@ -41,257 +38,247 @@
 
 
 
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Injectables</li>
-                        <li class="breadcrumb-item">LogoutService</li>
-                    </ol>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >LogoutService</li>
+</ol>
 
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a href="#info" class="nav-link" class="nav-link active" role="tab" id="info-tab"
-                                data-bs-toggle="tab" data-link="info">Info</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#source" class="nav-link" role="tab" id="source-tab" data-bs-toggle="tab"
-                                data-link="source">Source</a>
-                        </li>
-                    </ul>
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade active in" id="info">
-                            <p class="comment">
-                            <h3>File</h3>
-                            </p>
-                            <p class="comment">
-                                <code>src/app/services/logout/logout.service.ts</code>
-                            </p>
-
-
-                            <p class="comment">
-                            <h3>Description</h3>
-                            </p>
-                            <p class="comment">
-                            <p>Classe che gestisce il logout dell&#39;utente in due modalità:
-                                -) Logout utente: l&#39;utente conserva il token in &#39;localStorage&#39; ma perde le
-                                altre informazioni
-                                -) Logout completo: l&#39;utente perde anche il token</p>
-
-                            </p>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/logout/logout.service.ts</code>
+        </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe che gestisce il logout dell&#39;utente in due modalità:
+-) Logout utente: l&#39;utente conserva il token in &#39;localStorage&#39; ma perde le altre informazioni
+-) Logout completo: l&#39;utente perde anche il token</p>
 
-                            <section data-compodoc="block-index">
-                                <h3 id="index">Index</h3>
-                                <table class="table table-sm table-bordered index-table">
-                                    <tbody>
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <h6><b>Methods</b></h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <ul class="index-list">
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#logout">logout</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="modifier">Public</span>
-                                                        <a href="#logoutUserId">logoutUserId</a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
+            </p>
 
 
 
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#logoutUserId" >logoutUserId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
-                                    </tbody>
-                                </table>
-                            </section>
 
-                            <section data-compodoc="block-constructor">
-                                <h3 id="constructor">Constructor</h3>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <code>constructor(authInfoService: <a href="../injectables/AuthInformationsService.html" target="_self">AuthInformationsService</a>, router: Router)</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="13"
-                                                        class="link-to-prism">src/app/services/logout/logout.service.ts:13</a>
-                                                </div>
-                                            </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Costruttore della classe di gestione del logout</p>
-                                                </div>
-                                                <div>
-                                                    <b>Parameters :</b>
-                                                    <table class="params">
-                                                        <thead>
-                                                            <tr>
-                                                                <td>Name</td>
-                                                                <td>Type</td>
-                                                                <td>Optional</td>
-                                                                <td>Description</td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>authInfoService</td>
 
-                                                                <td>
-                                                                    <code><a href="../injectables/AuthInformationsService.html" target="_self" >AuthInformationsService</a></code>
-                                                                </td>
+        </tbody>
+    </table>
+</section>
 
-                                                                <td>
-                                                                    No
-                                                                </td>
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authInfoService: <a href="../injectables/AuthInformationsService.html" target="_self">AuthInformationsService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/logout/logout.service.ts:13</a></div>
+                            </td>
+                        </tr>
 
-                                                                <td>
-                                                                    <p>Servizio per gestire le informazioni relative
-                                                                        all&#39;autenticazione</p>
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Costruttore della classe di gestione del logout</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authInfoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthInformationsService.html" target="_self" >AuthInformationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servizio per gestire le informazioni relative all&#39;autenticazione</p>
 
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>router</td>
-
-                                                                <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
                                                                     <code>Router</code>
-                                                                </td>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Router per eseguire dei reindirizzamenti su browser</p>
 
-                                                                <td>
-                                                                    No
-                                                                </td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
-                                                                <td>
-                                                                    <p>Router per eseguire dei reindirizzamenti su
-                                                                        browser</p>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-
-                            <section data-compodoc="block-methods">
-
-                                <h3 id="methods">
-                                    Methods
-                                </h3>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="logout"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>logout</b></span>
-                                                    <a href="#logout"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <span class="modifier-icon icon ion-ios-reset"></span>
-                                                <code>logout()</code>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="25"
-                                                        class="link-to-prism">src/app/services/logout/logout.service.ts:25</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logout()</code>
+                </td>
+            </tr>
 
 
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo che gestisce il logout completo da parte dell&#39;utente,
-                                                        eliminando anche il token di autenticazione</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="logoutUserId"></a>
-                                                <span class="name">
-                                                    <span class="modifier">Public</span>
-                                                    <span><b>logoutUserId</b></span>
-                                                    <a href="#logoutUserId"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <span class="modifier-icon icon ion-ios-reset"></span>
-                                                <code>logoutUserId()</code>
-                                            </td>
-                                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/services/logout/logout.service.ts:25</a></div>
+                </td>
+            </tr>
 
 
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="33"
-                                                        class="link-to-prism">src/app/services/logout/logout.service.ts:33</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo che gestisce il logout completo da parte dell&#39;utente, eliminando anche il token di autenticazione</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logoutUserId"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>logoutUserId</b></span>
+                        <a href="#logoutUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logoutUserId()</code>
+                </td>
+            </tr>
 
 
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-description">
-                                                    <p>Metodo che gestisce il logout parziale da parte dell&#39;utente,
-                                                        eliminando solo l&#39;identificativo utente</p>
-                                                </div>
-
-                                                <div class="io-description">
-                                                    <b>Returns : </b>
-                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-
-                        </div>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/services/logout/logout.service.ts:33</a></div>
+                </td>
+            </tr>
 
 
-                        <div class="tab-pane fade  tab-source-code" id="source">
-                            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo che gestisce il logout parziale da parte dell&#39;utente, eliminando solo l&#39;identificativo utente</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { AuthInformationsService } from &#x27;../auth-informations/auth-informations.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
@@ -329,82 +316,78 @@ export class LogoutService {
   }
 }
 </code></pre>
-                        </div>
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-                <div class="search-results">
-                    <div class="has-results">
-                        <h1 class="search-results-title"><span class='search-results-count'></span> results matching
-                            "<span class='search-query'></span>"</h1>
-                        <ul class="search-results-list"></ul>
-                    </div>
-                    <div class="no-results">
-                        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-                    </div>
-                </div>
-            </div>
-            <!-- END CONTENT -->
-        </div>
     </div>
 
-    <label class="dark-mode-switch">
-        <input type="checkbox">
-        <span class="slider">
-            <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-        </span>
-    </label>
-
-    <script>
-        var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-        var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-        var COMPODOC_CURRENT_PAGE_URL = 'LogoutService.html';
-        var MAX_SEARCH_RESULTS = 15;
-    </script>
-
-    <script src="../js/libs/custom-elements.min.js"></script>
-    <script src="../js/libs/lit-html.js"></script>
-
-    <script src="../js/menu-wc.js" defer></script>
-    <script nomodule src="../js/menu-wc_es5.js" defer></script>
-
-    <script src="../js/libs/bootstrap-native.js"></script>
-
-    <script src="../js/libs/es6-shim.min.js"></script>
-    <script src="../js/libs/EventDispatcher.js"></script>
-    <script src="../js/libs/promise.min.js"></script>
-    <script src="../js/libs/zepto.min.js"></script>
-
-    <script src="../js/compodoc.js"></script>
-
-    <script src="../js/tabs.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../js/libs/clipboard.min.js"></script>
-    <script src="../js/libs/prism.js"></script>
-    <script src="../js/sourceCode.js"></script>
-    <script src="../js/search/search.js"></script>
-    <script src="../js/search/lunr.min.js"></script>
-    <script src="../js/search/search-lunr.js"></script>
-    <script src="../js/search/search_index.js"></script>
-    <script src="../js/lazy-load-graphs.js"></script>
+</div>
 
 
-</body>
 
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'LogoutService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
 </html>

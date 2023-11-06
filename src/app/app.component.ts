@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
+/**
+ * Classe che funge da entrypoint
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

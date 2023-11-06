@@ -1,4 +1,4 @@
-(function (compodoc) {
+(function(compodoc) {
 
     function LunrSearchEngine() {
         this.index = undefined;
@@ -6,7 +6,7 @@
         this.name = 'LunrSearchEngine';
     }
 
-    LunrSearchEngine.prototype.init = function () {
+    LunrSearchEngine.prototype.init = function() {
         var that = this,
             d = new promise.Promise();
 
@@ -17,13 +17,13 @@
         return d;
     };
 
-    LunrSearchEngine.prototype.search = function (q, offset, length) {
+    LunrSearchEngine.prototype.search = function(q, offset, length) {
         var that = this,
             results = [],
             d = new promise.Promise();
 
         if (this.index) {
-            results = $.map(this.index.search('*' + q + '*'), function (result) {
+            results = $.map(this.index.search('*' + q + '*'), function(result) {
                 var doc = that.store[result.ref];
 
                 return {
@@ -43,7 +43,7 @@
         return d;
     };
 
-    compodoc.addEventListener(compodoc.EVENTS.READY, function (event) {
+    compodoc.addEventListener(compodoc.EVENTS.READY, function(event) {
         var engine = new LunrSearchEngine(),
             initialized = false;
 
@@ -57,11 +57,11 @@
         };
 
         engine.init()
-            .then(function () {
-                initialized = true;
-                compodoc.dispatchEvent({
-                    type: compodoc.EVENTS.SEARCH_READY
-                });
+        .then(function() {
+            initialized = true;
+            compodoc.dispatchEvent({
+                type: compodoc.EVENTS.SEARCH_READY
             });
+        });
     });
 })(compodoc);

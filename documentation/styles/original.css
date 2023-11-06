@@ -15,7 +15,7 @@
     border-bottom: none;
 }
 
-.menu ul.list>li:nth-child(2) {
+.menu ul.list > li:nth-child(2) {
     display: none;
 }
 
@@ -42,7 +42,6 @@
     margin-bottom: 0;
     border-bottom: none;
 }
-
 .menu ul.list li.divider {
     margin: 0;
 }

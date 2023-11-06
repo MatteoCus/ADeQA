@@ -152,7 +152,7 @@
 
   // bazel-out/k8-fastbuild-ST-2e5f3376adb5/bin/packages/service-worker/worker/src/api.mjs
   var UpdateCacheStatus;
-  (function (UpdateCacheStatus2) {
+  (function(UpdateCacheStatus2) {
     UpdateCacheStatus2[UpdateCacheStatus2["NOT_CACHED"] = 0] = "NOT_CACHED";
     UpdateCacheStatus2[UpdateCacheStatus2["CACHED_BUT_UNUSED"] = 1] = "CACHED_BUT_UNUSED";
     UpdateCacheStatus2[UpdateCacheStatus2["CACHED"] = 2] = "CACHED";
@@ -223,7 +223,7 @@ ${error.stack}`;
     return a << count | a >>> 32 - count;
   }
   var Endian;
-  (function (Endian2) {
+  (function(Endian2) {
     Endian2[Endian2["Little"] = 0] = "Little";
     Endian2[Endian2["Big"] = 1] = "Big";
   })(Endian || (Endian = {}));
@@ -1218,7 +1218,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ "Content-Type": "text/plain" }
     "vibrate"
   ];
   var DriverReadyState;
-  (function (DriverReadyState2) {
+  (function(DriverReadyState2) {
     DriverReadyState2[DriverReadyState2["NORMAL"] = 0] = "NORMAL";
     DriverReadyState2[DriverReadyState2["EXISTING_CLIENTS_ONLY"] = 1] = "EXISTING_CLIENTS_ONLY";
     DriverReadyState2[DriverReadyState2["SAFE_MODE"] = 2] = "SAFE_MODE";

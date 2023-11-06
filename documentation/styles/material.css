@@ -56,17 +56,15 @@ a:hover {
 .nav {
     border: 0;
 }
-
-.nav-tabs>li>a {
+.nav-tabs > li > a {
     border: 0;
     border-bottom: 0.214rem solid transparent;
     color: rgba(0, 0, 0, 0.54);
     margin-right: 0;
 }
-
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
     color: rgba(0, 0, 0, 0.87);
     border-top: 0;
     border-left: 0;
@@ -75,9 +73,8 @@ a:hover {
     border-color: #008cff;
     font-weight: bold;
 }
-
-.nav>li>a:focus,
-.nav>li>a:hover {
+.nav > li > a:focus,
+.nav > li > a:hover {
     background: none;
 }
 
@@ -87,7 +84,6 @@ a:hover {
     border-top-left-radius: 0.125rem;
     border-top-right-radius: 0.125rem;
 }
-
 .list-group-item:last-child {
     border-bottom-left-radius: 0.125rem;
     border-bottom-right-radius: 0.125rem;
@@ -105,14 +101,13 @@ pre[class*='language-'] {
 
 /** TABLE **/
 
-.table-hover>tbody>tr:hover {
+.table-hover > tbody > tr:hover {
     background: rgba(0, 0, 0, 0.075);
 }
 
 table.params thead {
     background: none;
 }
-
 table.params thead td {
     color: rgba(0, 0, 0, 0.54);
     font-weight: bold;
@@ -121,20 +116,16 @@ table.params thead td {
 .dark .menu .title:hover {
     background-color: #2d2d2d;
 }
-
 .dark .menu ul.list li a:hover,
 .dark .menu ul.list li.chapter .simple:hover {
     background-color: #2d2d2d;
 }
-
-.dark .nav-tabs>li:not(.active)>a {
+.dark .nav-tabs > li:not(.active) > a {
     color: #fafafa;
 }
-
 .dark table.params thead {
     background: #484848;
 }
-
 .dark table.params thead td {
     color: #fafafa;
 }

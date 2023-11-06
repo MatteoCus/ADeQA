@@ -42,7 +42,7 @@ body.dark {
     color: #fafafa;
 }
 
-.dark .table.metadata>tbody>tr:hover {
+.dark .table.metadata > tbody > tr:hover {
     color: #555;
 }
 
@@ -50,12 +50,12 @@ body.dark {
     border: 1px solid #444;
 }
 
-.dark .table-bordered>tbody>tr>td,
-.dark .table-bordered>tbody>tr>th,
-.dark .table-bordered>tfoot>tr>td,
-.dark .table-bordered>tfoot>tr>th,
-.dark .table-bordered>thead>tr>td,
-.dark .table-bordered>thead>tr>th {
+.dark .table-bordered > tbody > tr > td,
+.dark .table-bordered > tbody > tr > th,
+.dark .table-bordered > tfoot > tr > td,
+.dark .table-bordered > tfoot > tr > th,
+.dark .table-bordered > thead > tr > td,
+.dark .table-bordered > thead > tr > th {
     border: 1px solid #444;
 }
 
@@ -72,7 +72,6 @@ body.dark {
 .dark .routes svg a {
     fill: white;
 }
-
 .dark .routes svg rect {
     fill: #212121 !important;
 }
@@ -94,7 +93,6 @@ body.dark {
     color: #fafafa;
     border: 1px solid #444;
 }
-
 .dark .overview .card a {
     color: #fafafa;
 }

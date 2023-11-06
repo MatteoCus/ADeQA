@@ -17,11 +17,11 @@
 
         <div id="buttons">
           <button id="edit" *ngIf="column.attributevalue == 'Actions'" mat-raised-button
-            (click)="edit(element); highlight(element)">
+            [title]="'Modifica' | translate" (click)="edit(element); highlight(element)">
             <mat-icon aria-hidden="false" [attr.aria-label]="'Modifica' | translate" fontIcon="edit"></mat-icon>
           </button>
           <button id="delete" *ngIf="column.attributevalue == 'Actions'" mat-raised-button
-            (click)="deleteDialog(element)">
+            [title]="'Elimina' | translate" (click)="deleteDialog(element)">
             <mat-icon aria-hidden="false" [attr.aria-label]="'Elimina' | translate" fontIcon="delete"></mat-icon>
           </button>
         </div>

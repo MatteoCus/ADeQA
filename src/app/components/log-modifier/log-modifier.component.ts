@@ -25,6 +25,9 @@ import { MainViewCommunicationsService } from 'src/app/services/main-view-commun
 })
 export class LogModifierComponent implements OnInit {
 
+  /**
+   * Fase attiva, serve per preparare i parametri per le richieste HTTP
+   */
   private activePhase: QualityphaseModel = new Object();
 
   /**
@@ -42,6 +45,10 @@ export class LogModifierComponent implements OnInit {
    */
   public form: FormGroup = new FormGroup({});
 
+
+  /**
+   * Attributo che contiene i dati del log da modificare
+   */
   public updateDataSource: any[] = [];
 
   /**
@@ -52,12 +59,18 @@ export class LogModifierComponent implements OnInit {
    */
   public addLog: boolean = true;
 
+  /**
+   * Attributo che indica l'opzione selezionata per un attributo di tipo "lista" in un log da modificare
+   */
   public defaultOption: string = "";
 
+  /**
+   * Log di qualità da modificare
+   */
   private logToUpdate: QualitysavelogModel = new Object();
 
   /**
-   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato
+   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato in caso di fallimento
    * @param message Messaggio da mostrare
    * @param type Etichetta del pulsante di chiusura
   */
@@ -66,6 +79,12 @@ export class LogModifierComponent implements OnInit {
       panelClass: ['red-snackbar'],
     });
   }
+
+  /**
+   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato in caso di successo
+   * @param message Messaggio da mostrare
+   * @param type Etichetta del pulsante di chiusura
+  */
   private openSuccessSnackBar(message: string, type: string): void {
     this.snackBar.open(message, type, {
       panelClass: ['green-snackbar'],
@@ -80,6 +99,9 @@ export class LogModifierComponent implements OnInit {
    * @param translateService Servizio di gestione delle traduzioni: si basa su file json definiti in /assets/
    * @param authInfoService Servizio per gestire le informazioni relative all'autenticazione
    * @param loadingService Servizio di tracciamento del caricamento di LogModifierComponent e LogViewerComponent
+   * @param qualitySaveLogService Servizio per aggiungere / modificare / eliminare i log di qualità
+   * @param activePhaseService Servizio per gestire la fase attiva
+   * @param mainViewCommunicationsService Servizio che mette in comunicazione LogModifierComponent e LogViewerComponent
    */
   constructor(private activeAttributesService: ActiveAttributesService, private snackBar: MatSnackBar, private dialog: MatDialog, private translateService: TranslateService,
     private authInfoService: AuthInformationsService, private loadingService: LoadingService, private qualitySaveLogService: QualitySaveLogService, private activePhaseService: ActivePhaseService,
@@ -139,6 +161,13 @@ export class LogModifierComponent implements OnInit {
       });
   }
 
+  /**
+   * Metodo per la preparazione dei parametri per la richiesta di aggiunta di un log di qualità per la fase attiva
+   * @param token Token di autenticazione
+   * @param c_projectphase_id Identificativo della fase attiva
+   * @param qualityvalue Valore del log, è una stringa in formato JSON
+   * @returns Parametri per la richiesta di aggiunta di un log di qualità per la fase attiva
+   */
   private prepareAddParams(token: string, c_projectphase_id: number, qualityvalue: string): Add$Params {
     return {
       "AdesuiteToken": token,
@@ -149,6 +178,13 @@ export class LogModifierComponent implements OnInit {
     };
   }
 
+  /**
+   * Metodo per la preparazione dei parametri per la richiesta di modifica di un log di qualità per la fase attiva
+   * @param token Token di autenticazione
+   * @param c_projectphase_quality_log_id Identificativo del log da modificare
+   * @param qualityvalue Valore del log, è una stringa in formato JSON
+   * @returns Parametri per la richiesta di modifica di un log di qualità per la fase attiva
+   */
   private prepareUpdateParams(token: string, c_projectphase_quality_log_id: number, qualityvalue: string): Update$Params {
     return {
       "AdesuiteToken": token,
@@ -290,7 +326,12 @@ export class LogModifierComponent implements OnInit {
     })
   }
 
-  private buildQualityValue() {
+  /**
+   * Metodo per costruire una stringa in formato JSON contenente i valori del form
+   * Serve per costruire il parametro "qualityvalue" per l'aggiunta / la modifica di un log di qualità
+   * @returns Una stringa contenente il parametro "qualityvalue"
+   */
+  private buildQualityValue(): string {
     let qualityvalue: string = "{";
 
     // modificare qui

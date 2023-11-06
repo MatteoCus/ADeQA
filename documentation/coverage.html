@@ -1,1152 +1,1121 @@
 <!doctype html>
 <html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ade-qa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ade-qa documentation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
 
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/dark.css">
-</head>
-
-<body>
-
-    <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-        <a href="./" class="navbar-brand">ade-qa documentation</a>
-        <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
-    </div>
-
-    <div class="xs-menu menu" id="mobile-menu">
-        <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>
-        <compodoc-menu></compodoc-menu>
-    </div>
-
-    <div class="container-fluid main">
-        <div class="row main">
-            <div class="hidden-xs menu">
-                <compodoc-menu mode="normal"></compodoc-menu>
-            </div>
-            <!-- START CONTENT -->
-            <div class="content coverage">
-                <div class="content-data">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Documentation coverage</li>
-                    </ol>
-
-                    <div>
-                        <img src="./images/coverage-badge-documentation.svg">
-                    </div>
-
-                    <table class="table table-bordered coverage" id="coverage-table">
-                        <thead class="coverage-header">
-                            <tr>
-                                <th>File</th>
-                                <th>Type</th>
-                                <th>Identifier</th>
-                                <th style="text-align:right" class="statements" data-sort-default>Statements</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./injectables/ApiConfiguration.html">src/app/api/api-configuration.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>ApiConfiguration</td>
-                                <td align="right" data-sort="50">
-                                    <span class="coverage-percent">50 %</span>
-                                    <span class="coverage-count">(1/2)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/ApiConfigurationParams.html">src/app/api/api-configuration.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>ApiConfigurationParams</td>
-                                <td align="right" data-sort="50">
-                                    <span class="coverage-percent">50 %</span>
-                                    <span class="coverage-count">(1/2)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./injectables/BaseService.html">src/app/api/base-service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>BaseService</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./interfaces/Login$Params.html">src/app/api/fn/authentication/login.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Login$Params</td>
-                                <td align="right" data-sort="50">
-                                    <span class="coverage-percent">50 %</span>
-                                    <span class="coverage-count">(1/2)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#login">src/app/api/fn/authentication/login.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>login</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Logout$Params.html">src/app/api/fn/authentication/logout.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Logout$Params</td>
-                                <td align="right" data-sort="50">
-                                    <span class="coverage-percent">50 %</span>
-                                    <span class="coverage-count">(1/2)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#logout">src/app/api/fn/authentication/logout.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>logout</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./interfaces/Fetch$Params.html">src/app/api/fn/operators/fetch.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Fetch$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./miscellaneous/functions.html#fetch">src/app/api/fn/operators/fetch.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>fetch</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Fetch_3$Params.html">src/app/api/fn/quality-attribute/fetch-3.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Fetch_3$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#fetch_3">src/app/api/fn/quality-attribute/fetch-3.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>fetch_3</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Fetch_2$Params.html">src/app/api/fn/quality-phase/fetch-2.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Fetch_2$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#fetch_2">src/app/api/fn/quality-phase/fetch-2.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>fetch_2</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Add$Params.html">src/app/api/fn/quality-save-log/9000004-add.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Add$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#Add">src/app/api/fn/quality-save-log/9000004-add.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>Add</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Delete$Params.html">src/app/api/fn/quality-save-log/9000004-delete.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Delete$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#Delete">src/app/api/fn/quality-save-log/9000004-delete.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>Delete</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Update$Params.html">src/app/api/fn/quality-save-log/9000004-update.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Update$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#Update">src/app/api/fn/quality-save-log/9000004-update.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>Update</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/Fetch_1$Params.html">src/app/api/fn/quality-save-log/fetch-1.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Fetch_1$Params</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/functions.html#fetch_1">src/app/api/fn/quality-save-log/fetch-1.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>fetch_1</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./interfaces/ErrorModel.html">src/app/api/models/error-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>ErrorModel</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchRequestOperatorsModel.html">src/app/api/models/fetch-request-operators-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchRequestOperatorsModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchRequestQualityattributeModel.html">src/app/api/models/fetch-request-qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchRequestQualityattributeModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchRequestQualityphaseModel.html">src/app/api/models/fetch-request-qualityphase-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchRequestQualityphaseModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchRequestQualitysavelogModel.html">src/app/api/models/fetch-request-qualitysavelog-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchRequestQualitysavelogModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchResponseOperatorsModel.html">src/app/api/models/fetch-response-operators-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchResponseOperatorsModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchResponseQualityattributeModel.html">src/app/api/models/fetch-response-qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchResponseQualityattributeModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchResponseQualityphaseModel.html">src/app/api/models/fetch-response-qualityphase-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchResponseQualityphaseModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FetchResponseQualitysavelogModel.html">src/app/api/models/fetch-response-qualitysavelog-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FetchResponseQualitysavelogModel</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FilterOperatorsModel.html">src/app/api/models/filter-operators-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FilterOperatorsModel</td>
-                                <td align="right" data-sort="25">
-                                    <span class="coverage-percent">25 %</span>
-                                    <span class="coverage-count">(1/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FilterQualityattributeModel.html">src/app/api/models/filter-qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FilterQualityattributeModel</td>
-                                <td align="right" data-sort="25">
-                                    <span class="coverage-percent">25 %</span>
-                                    <span class="coverage-count">(1/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FilterQualityphaseModel.html">src/app/api/models/filter-qualityphase-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FilterQualityphaseModel</td>
-                                <td align="right" data-sort="25">
-                                    <span class="coverage-percent">25 %</span>
-                                    <span class="coverage-count">(1/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/FilterQualitysavelogModel.html">src/app/api/models/filter-qualitysavelog-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>FilterQualitysavelogModel</td>
-                                <td align="right" data-sort="25">
-                                    <span class="coverage-percent">25 %</span>
-                                    <span class="coverage-count">(1/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./interfaces/OperatorsModel.html">src/app/api/models/operators-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>OperatorsModel</td>
-                                <td align="right" data-sort="9">
-                                    <span class="coverage-percent">9 %</span>
-                                    <span class="coverage-count">(1/11)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/OrderOperatorsModel.html">src/app/api/models/order-operators-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>OrderOperatorsModel</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/OrderQualityattributeModel.html">src/app/api/models/order-qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>OrderQualityattributeModel</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/OrderQualityphaseModel.html">src/app/api/models/order-qualityphase-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>OrderQualityphaseModel</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/OrderQualitysavelogModel.html">src/app/api/models/order-qualitysavelog-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>OrderQualitysavelogModel</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/JsonList.html">src/app/api/models/qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>JsonList</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/optionType.html">src/app/api/models/qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>optionType</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/QualityattributeModel.html">src/app/api/models/qualityattribute-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>QualityattributeModel</td>
-                                <td align="right" data-sort="7">
-                                    <span class="coverage-percent">7 %</span>
-                                    <span class="coverage-count">(1/13)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/QualityphaseModel.html">src/app/api/models/qualityphase-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>QualityphaseModel</td>
-                                <td align="right" data-sort="5">
-                                    <span class="coverage-percent">5 %</span>
-                                    <span class="coverage-count">(1/19)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./interfaces/QualitysavelogModel.html">src/app/api/models/qualitysavelog-model.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>QualitysavelogModel</td>
-                                <td align="right" data-sort="16">
-                                    <span class="coverage-percent">16 %</span>
-                                    <span class="coverage-count">(1/6)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./classes/HeaderParameter.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>class</td>
-                                <td>HeaderParameter</td>
-                                <td align="right" data-sort="14">
-                                    <span class="coverage-percent">14 %</span>
-                                    <span class="coverage-count">(1/7)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./classes/Parameter.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>class</td>
-                                <td>Parameter</td>
-                                <td align="right" data-sort="16">
-                                    <span class="coverage-percent">16 %</span>
-                                    <span class="coverage-count">(1/6)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./classes/ParameterCodec.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>class</td>
-                                <td>ParameterCodec</td>
-                                <td align="right" data-sort="20">
-                                    <span class="coverage-percent">20 %</span>
-                                    <span class="coverage-count">(1/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./classes/PathParameter.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>class</td>
-                                <td>PathParameter</td>
-                                <td align="right" data-sort="14">
-                                    <span class="coverage-percent">14 %</span>
-                                    <span class="coverage-count">(1/7)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./classes/QueryParameter.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>class</td>
-                                <td>QueryParameter</td>
-                                <td align="right" data-sort="14">
-                                    <span class="coverage-percent">14 %</span>
-                                    <span class="coverage-count">(1/7)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./classes/RequestBuilder.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>class</td>
-                                <td>RequestBuilder</td>
-                                <td align="right" data-sort="37">
-                                    <span class="coverage-percent">37 %</span>
-                                    <span class="coverage-count">(6/16)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./interfaces/ParameterOptions.html">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>ParameterOptions</td>
-                                <td align="right" data-sort="33">
-                                    <span class="coverage-percent">33 %</span>
-                                    <span class="coverage-count">(1/3)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./miscellaneous/variables.html#ParameterCodecInstance">src/app/api/request-builder.ts</a>
-                                </td>
-                                <td>variable</td>
-                                <td>ParameterCodecInstance</td>
-                                <td align="right" data-sort="0">
-                                    <span class="coverage-percent">0 %</span>
-                                    <span class="coverage-count">(0/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/AuthenticationService.html">src/app/api/services/authentication.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>AuthenticationService</td>
-                                <td align="right" data-sort="66">
-                                    <span class="coverage-percent">66 %</span>
-                                    <span class="coverage-count">(6/9)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/OperatorsService.html">src/app/api/services/operators.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>OperatorsService</td>
-                                <td align="right" data-sort="50">
-                                    <span class="coverage-percent">50 %</span>
-                                    <span class="coverage-count">(3/6)</span>
-                                </td>
-                            </tr>
-                            <tr class="good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/QualityAttributeService.html">src/app/api/services/quality-attribute.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>QualityAttributeService</td>
-                                <td align="right" data-sort="66">
-                                    <span class="coverage-percent">66 %</span>
-                                    <span class="coverage-count">(4/6)</span>
-                                </td>
-                            </tr>
-                            <tr class="good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/QualityPhaseService.html">src/app/api/services/quality-phase.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>QualityPhaseService</td>
-                                <td align="right" data-sort="66">
-                                    <span class="coverage-percent">66 %</span>
-                                    <span class="coverage-count">(4/6)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/QualitySaveLogService.html">src/app/api/services/quality-save-log.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>QualitySaveLogService</td>
-                                <td align="right" data-sort="86">
-                                    <span class="coverage-percent">86 %</span>
-                                    <span class="coverage-count">(13/15)</span>
-                                </td>
-                            </tr>
-                            <tr class="medium">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./components/AppComponent.html">src/app/app.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>AppComponent</td>
-                                <td align="right" data-sort="50">
-                                    <span class="coverage-percent">50 %</span>
-                                    <span class="coverage-count">(1/2)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./miscellaneous/functions.html#HttpLoaderFactory">src/app/app.module.ts</a>
-                                </td>
-                                <td>function</td>
-                                <td>HttpLoaderFactory</td>
-                                <td align="right" data-sort="0">
-                                    <span class="coverage-percent">0 %</span>
-                                    <span class="coverage-count">(0/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/ConfirmDataDialogComponent.html">src/app/components/confirm-data-dialog/confirm-data-dialog.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>ConfirmDataDialogComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(8/8)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/DashboardComponent.html">src/app/components/dashboard/dashboard.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>DashboardComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(7/7)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/LogModifierComponent.html">src/app/components/log-modifier/log-modifier.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>LogModifierComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(14/14)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/LogViewerComponent.html">src/app/components/log-viewer/log-viewer.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>LogViewerComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(5/5)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/LoginPinComponent.html">src/app/components/login-pin/login-pin.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>LoginPinComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(12/12)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/LoginUsernameComponent.html">src/app/components/login-username/login-username.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>LoginUsernameComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(8/8)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/LogoutDialogComponent.html">src/app/components/logout-dialog/logout-dialog.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>LogoutDialogComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(8/8)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/PhasesComponent.html">src/app/components/phases/phases.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>PhasesComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(8/8)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/SidenavComponent.html">src/app/components/sidenav/sidenav.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>SidenavComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(4/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./components/ToolbarComponent.html">src/app/components/toolbar/toolbar.component.ts</a>
-                                </td>
-                                <td>component</td>
-                                <td>ToolbarComponent</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(16/16)</span>
-                                </td>
-                            </tr>
-                            <tr class="low">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./interfaces/Message.html">src/app/models/message.ts</a>
-                                </td>
-                                <td>interface</td>
-                                <td>Message</td>
-                                <td align="right" data-sort="12">
-                                    <span class="coverage-percent">12 %</span>
-                                    <span class="coverage-count">(1/8)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./pipes/OptionsPipe.html">src/app/pipes/options.pipe.ts</a>
-                                </td>
-                                <td>pipe</td>
-                                <td>OptionsPipe</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a href="./pipes/SafePipe.html">src/app/pipes/safe-html.pipe.ts</a>
-                                </td>
-                                <td>pipe</td>
-                                <td>SafePipe</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(1/1)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/ActiveAttributesService.html">src/app/services/active-attributes/active-attributes.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>ActiveAttributesService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(7/7)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/ActivePhaseService.html">src/app/services/active-phase/active-phase.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>ActivePhaseService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(6/6)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/AuthInformationsService.html">src/app/services/auth-informations/auth-informations.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>AuthInformationsService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(8/8)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/IframeInitializerService.html">src/app/services/iframe-initializer/iframe-initializer.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>IframeInitializerService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(4/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/LanguageService.html">src/app/services/language/language.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>LanguageService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(4/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/LogoutService.html">src/app/services/logout/logout.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>LogoutService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(4/4)</span>
-                                </td>
-                            </tr>
-                            <tr class="very-good">
-                                <td>
-                                    <!-- miscellaneous -->
-                                    <a
-                                        href="./injectables/ThemeService.html">src/app/services/theme/theme.service.ts</a>
-                                </td>
-                                <td>injectable</td>
-                                <td>ThemeService</td>
-                                <td align="right" data-sort="100">
-                                    <span class="coverage-percent">100 %</span>
-                                    <span class="coverage-count">(3/3)</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <script src="js/libs/tablesort.min.js"></script>
-                    <script src="js/libs/tablesort.number.min.js"></script>
-                    <script>
-                        new Tablesort(document.getElementById('coverage-table'));
-                    </script>
-
-                </div>
-                <div class="search-results">
-                    <div class="has-results">
-                        <h1 class="search-results-title"><span class='search-results-count'></span> results matching
-                            "<span class='search-query'></span>"</h1>
-                        <ul class="search-results-list"></ul>
-                    </div>
-                    <div class="no-results">
-                        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-                    </div>
-                </div>
-            </div>
-            <!-- END CONTENT -->
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="./" class="navbar-brand">ade-qa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ApiConfiguration.html">src/app/api/api-configuration.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ApiConfiguration</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ApiConfigurationParams.html">src/app/api/api-configuration.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ApiConfigurationParams</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BaseService.html">src/app/api/base-service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BaseService</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Login$Params.html">src/app/api/fn/authentication/login.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Login$Params</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#login">src/app/api/fn/authentication/login.ts</a>
+            </td>
+            <td>function</td>
+            <td>login</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Logout$Params.html">src/app/api/fn/authentication/logout.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Logout$Params</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#logout">src/app/api/fn/authentication/logout.ts</a>
+            </td>
+            <td>function</td>
+            <td>logout</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Fetch$Params.html">src/app/api/fn/operators/fetch.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Fetch$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#fetch">src/app/api/fn/operators/fetch.ts</a>
+            </td>
+            <td>function</td>
+            <td>fetch</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Fetch_3$Params.html">src/app/api/fn/quality-attribute/fetch-3.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Fetch_3$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#fetch_3">src/app/api/fn/quality-attribute/fetch-3.ts</a>
+            </td>
+            <td>function</td>
+            <td>fetch_3</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Fetch_2$Params.html">src/app/api/fn/quality-phase/fetch-2.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Fetch_2$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#fetch_2">src/app/api/fn/quality-phase/fetch-2.ts</a>
+            </td>
+            <td>function</td>
+            <td>fetch_2</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Add$Params.html">src/app/api/fn/quality-save-log/9000004-add.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Add$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#Add">src/app/api/fn/quality-save-log/9000004-add.ts</a>
+            </td>
+            <td>function</td>
+            <td>Add</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Delete$Params.html">src/app/api/fn/quality-save-log/9000004-delete.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Delete$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#Delete">src/app/api/fn/quality-save-log/9000004-delete.ts</a>
+            </td>
+            <td>function</td>
+            <td>Delete</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Update$Params.html">src/app/api/fn/quality-save-log/9000004-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Update$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#Update">src/app/api/fn/quality-save-log/9000004-update.ts</a>
+            </td>
+            <td>function</td>
+            <td>Update</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Fetch_1$Params.html">src/app/api/fn/quality-save-log/fetch-1.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Fetch_1$Params</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#fetch_1">src/app/api/fn/quality-save-log/fetch-1.ts</a>
+            </td>
+            <td>function</td>
+            <td>fetch_1</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ErrorModel.html">src/app/api/models/error-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ErrorModel</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchRequestOperatorsModel.html">src/app/api/models/fetch-request-operators-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchRequestOperatorsModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchRequestQualityattributeModel.html">src/app/api/models/fetch-request-qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchRequestQualityattributeModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchRequestQualityphaseModel.html">src/app/api/models/fetch-request-qualityphase-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchRequestQualityphaseModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchRequestQualitysavelogModel.html">src/app/api/models/fetch-request-qualitysavelog-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchRequestQualitysavelogModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchResponseOperatorsModel.html">src/app/api/models/fetch-response-operators-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchResponseOperatorsModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchResponseQualityattributeModel.html">src/app/api/models/fetch-response-qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchResponseQualityattributeModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchResponseQualityphaseModel.html">src/app/api/models/fetch-response-qualityphase-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchResponseQualityphaseModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FetchResponseQualitysavelogModel.html">src/app/api/models/fetch-response-qualitysavelog-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FetchResponseQualitysavelogModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FilterOperatorsModel.html">src/app/api/models/filter-operators-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FilterOperatorsModel</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FilterQualityattributeModel.html">src/app/api/models/filter-qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FilterQualityattributeModel</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FilterQualityphaseModel.html">src/app/api/models/filter-qualityphase-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FilterQualityphaseModel</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FilterQualitysavelogModel.html">src/app/api/models/filter-qualitysavelog-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FilterQualitysavelogModel</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OperatorsModel.html">src/app/api/models/operators-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OperatorsModel</td>
+            <td align="right" data-sort="9">
+                <span class="coverage-percent">9 %</span>
+                <span class="coverage-count">(1/11)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OrderOperatorsModel.html">src/app/api/models/order-operators-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OrderOperatorsModel</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OrderQualityattributeModel.html">src/app/api/models/order-qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OrderQualityattributeModel</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OrderQualityphaseModel.html">src/app/api/models/order-qualityphase-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OrderQualityphaseModel</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OrderQualitysavelogModel.html">src/app/api/models/order-qualitysavelog-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OrderQualitysavelogModel</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/JsonList.html">src/app/api/models/qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>JsonList</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/optionType.html">src/app/api/models/qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>optionType</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/QualityattributeModel.html">src/app/api/models/qualityattribute-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>QualityattributeModel</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/QualityphaseModel.html">src/app/api/models/qualityphase-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>QualityphaseModel</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/19)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/QualitysavelogModel.html">src/app/api/models/qualitysavelog-model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>QualitysavelogModel</td>
+            <td align="right" data-sort="16">
+                <span class="coverage-percent">16 %</span>
+                <span class="coverage-count">(1/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/HeaderParameter.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>class</td>
+            <td>HeaderParameter</td>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(1/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Parameter.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>class</td>
+            <td>Parameter</td>
+            <td align="right" data-sort="16">
+                <span class="coverage-percent">16 %</span>
+                <span class="coverage-count">(1/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ParameterCodec.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>class</td>
+            <td>ParameterCodec</td>
+            <td align="right" data-sort="20">
+                <span class="coverage-percent">20 %</span>
+                <span class="coverage-count">(1/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PathParameter.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>class</td>
+            <td>PathParameter</td>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(1/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/QueryParameter.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>class</td>
+            <td>QueryParameter</td>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(1/7)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/RequestBuilder.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>class</td>
+            <td>RequestBuilder</td>
+            <td align="right" data-sort="37">
+                <span class="coverage-percent">37 %</span>
+                <span class="coverage-count">(6/16)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ParameterOptions.html">src/app/api/request-builder.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ParameterOptions</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#ParameterCodecInstance">src/app/api/request-builder.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ParameterCodecInstance</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthenticationService.html">src/app/api/services/authentication.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthenticationService</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(6/9)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/OperatorsService.html">src/app/api/services/operators.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>OperatorsService</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(3/6)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/QualityAttributeService.html">src/app/api/services/quality-attribute.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>QualityAttributeService</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(4/6)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/QualityPhaseService.html">src/app/api/services/quality-phase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>QualityPhaseService</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(4/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/QualitySaveLogService.html">src/app/api/services/quality-save-log.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>QualitySaveLogService</td>
+            <td align="right" data-sort="86">
+                <span class="coverage-percent">86 %</span>
+                <span class="coverage-count">(13/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AppComponent.html">src/app/app.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AppComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#HttpLoaderFactory">src/app/app.module.ts</a>
+            </td>
+            <td>function</td>
+            <td>HttpLoaderFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ConfirmDataDialogComponent.html">src/app/components/confirm-data-dialog/confirm-data-dialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ConfirmDataDialogComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/DashboardComponent.html">src/app/components/dashboard/dashboard.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>DashboardComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LogModifierComponent.html">src/app/components/log-modifier/log-modifier.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LogModifierComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(22/22)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LogViewerComponent.html">src/app/components/log-viewer/log-viewer.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LogViewerComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(17/17)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LoginPinComponent.html">src/app/components/login-pin/login-pin.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LoginPinComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LoginUsernameComponent.html">src/app/components/login-username/login-username.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LoginUsernameComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LogoutDialogComponent.html">src/app/components/logout-dialog/logout-dialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LogoutDialogComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/PhasesComponent.html">src/app/components/phases/phases.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PhasesComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SidenavComponent.html">src/app/components/sidenav/sidenav.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>SidenavComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SplashScreenComponent.html">src/app/components/splash-screen/splash-screen.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>SplashScreenComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ToolbarComponent.html">src/app/components/toolbar/toolbar.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ToolbarComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(17/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Message.html">src/app/models/message.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Message</td>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./pipes/OptionsPipe.html">src/app/pipes/options.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>OptionsPipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./pipes/SafePipe.html">src/app/pipes/safe-html.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>SafePipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ActiveAttributesService.html">src/app/services/active-attributes/active-attributes.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ActiveAttributesService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ActivePhaseService.html">src/app/services/active-phase/active-phase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ActivePhaseService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthInformationsService.html">src/app/services/auth-informations/auth-informations.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthInformationsService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/IframeInitializerService.html">src/app/services/iframe-initializer/iframe-initializer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>IframeInitializerService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LanguageService.html">src/app/services/language/language.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LanguageService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LoadingService.html">src/app/services/loading/loading.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LoadingService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LogoutService.html">src/app/services/logout/logout.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LogoutService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MainViewCommunicationsService.html">src/app/services/main-view-communications/main-view-communications.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MainViewCommunicationsService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ThemeService.html">src/app/services/theme/theme.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ThemeService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
     </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
 
-    <label class="dark-mode-switch">
-        <input type="checkbox">
-        <span class="slider">
-            <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-        </span>
-    </label>
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
 
-    <script>
-        var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-        var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
-        var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
-        var MAX_SEARCH_RESULTS = 15;
-    </script>
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
 
-    <script src="./js/libs/custom-elements.min.js"></script>
-    <script src="./js/libs/lit-html.js"></script>
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
 
-    <script src="./js/menu-wc.js" defer></script>
-    <script nomodule src="./js/menu-wc_es5.js" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
-    <script src="./js/libs/bootstrap-native.js"></script>
+       <script src="./js/libs/bootstrap-native.js"></script>
 
-    <script src="./js/libs/es6-shim.min.js"></script>
-    <script src="./js/libs/EventDispatcher.js"></script>
-    <script src="./js/libs/promise.min.js"></script>
-    <script src="./js/libs/zepto.min.js"></script>
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
 
-    <script src="./js/compodoc.js"></script>
+       <script src="./js/compodoc.js"></script>
 
-    <script src="./js/tabs.js"></script>
-    <script src="./js/menu.js"></script>
-    <script src="./js/libs/clipboard.min.js"></script>
-    <script src="./js/libs/prism.js"></script>
-    <script src="./js/sourceCode.js"></script>
-    <script src="./js/search/search.js"></script>
-    <script src="./js/search/lunr.min.js"></script>
-    <script src="./js/search/search-lunr.js"></script>
-    <script src="./js/search/search_index.js"></script>
-    <script src="./js/lazy-load-graphs.js"></script>
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
 
 
-</body>
-
+    </body>
 </html>

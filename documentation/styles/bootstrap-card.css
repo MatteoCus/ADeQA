@@ -10,13 +10,10 @@
 .card-block {
   padding: 15px;
 }
-
-.card-block:before,
-.card-block:after {
+.card-block:before, .card-block:after {
   content: " ";
   display: table;
 }
-
 .card-block:after {
   clear: both;
 }
@@ -40,17 +37,15 @@
 .card-link:hover {
   text-decoration: none;
 }
-
-.card-link+.card-link {
+.card-link + .card-link {
   margin-left: 15px;
 }
 
-.card>.list-group:first-child .list-group-item:first-child {
+.card > .list-group:first-child .list-group-item:first-child {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
-
-.card>.list-group:last-child .list-group-item:last-child {
+.card > .list-group:last-child .list-group-item:last-child {
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -60,17 +55,13 @@
   background-color: #f5f5f5;
   border-bottom: 1px solid #ddd;
 }
-
-.card-header:before,
-.card-header:after {
+.card-header:before, .card-header:after {
   content: " ";
   display: table;
 }
-
 .card-header:after {
   clear: both;
 }
-
 .card-header:first-child {
   border-radius: 4px 4px 0 0;
 }
@@ -80,17 +71,13 @@
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
 }
-
-.card-footer:before,
-.card-footer:after {
+.card-footer:before, .card-footer:after {
   content: " ";
   display: table;
 }
-
 .card-footer:after {
   clear: both;
 }
-
 .card-footer:last-child {
   border-radius: 0 0 4px 4px;
 }
@@ -111,7 +98,6 @@
   background-color: #337ab7;
   border-color: #337ab7;
 }
-
 .card-primary .card-header,
 .card-primary .card-footer {
   background-color: transparent;
@@ -121,7 +107,6 @@
   background-color: #5cb85c;
   border-color: #5cb85c;
 }
-
 .card-success .card-header,
 .card-success .card-footer {
   background-color: transparent;
@@ -131,7 +116,6 @@
   background-color: #5bc0de;
   border-color: #5bc0de;
 }
-
 .card-info .card-header,
 .card-info .card-footer {
   background-color: transparent;
@@ -141,7 +125,6 @@
   background-color: #f0ad4e;
   border-color: #f0ad4e;
 }
-
 .card-warning .card-header,
 .card-warning .card-footer {
   background-color: transparent;
@@ -151,7 +134,6 @@
   background-color: #d9534f;
   border-color: #d9534f;
 }
-
 .card-danger .card-header,
 .card-danger .card-footer {
   background-color: transparent;
@@ -191,23 +173,19 @@
 .card-inverse .card-footer {
   border-color: rgba(255, 255, 255, 0.2);
 }
-
 .card-inverse .card-header,
 .card-inverse .card-footer,
 .card-inverse .card-title,
 .card-inverse .card-blockquote {
   color: #fff;
 }
-
 .card-inverse .card-link,
 .card-inverse .card-text,
 .card-inverse .card-subtitle,
 .card-inverse .card-blockquote .blockquote-footer {
   color: rgba(255, 255, 255, 0.65);
 }
-
-.card-inverse .card-link:hover,
-.card-inverse .card-link:focus {
+.card-inverse .card-link:hover, .card-inverse .card-link:focus {
   color: #fff;
 }
 

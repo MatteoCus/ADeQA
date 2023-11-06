@@ -22,14 +22,29 @@ import { ConfirmDataDialogComponent } from '../confirm-data-dialog/confirm-data-
 })
 export class LogViewerComponent implements OnInit {
 
+  /**
+   * Ultima fase selezionata, serve come riferimento quando si vuole aggiornare la tabella dopo un inserimento / modifica di un log
+   */
   private lastPhase: QualityphaseModel = new Object();
 
+  /**
+   * Log attivi in un dato istante; serve per individuare i log da modificare
+   */
   private activeLogs: QualitysavelogModel[] = [];
 
+  /**
+   * Oggetto osservabile che contiene i log attivi in un dato istante; contiene i dati visibili nella tabella
+   */
   public logs: Subject<any[]> = new Subject<any[]>();
 
+  /**
+   * Log da evidenziare, è stato selezionato per essere modificato
+   */
   public highlighted: QualitysavelogModel = new Object();
 
+  /**
+   * Id del log che deve essere fatto "lampeggiare": è un log appena inserito o modificato
+   */
   public blinkLogId: number = 0;
 
   /**
@@ -37,6 +52,9 @@ export class LogViewerComponent implements OnInit {
    */
   public displayedColumns: Array<string> = new Array<string>();
 
+  /**
+   * Attributi attivi
+   */
   public attributes: QualityattributeModel[] = [];
 
   /**
@@ -89,7 +107,11 @@ export class LogViewerComponent implements OnInit {
     });
   }
 
-  private updateTable(phase: QualityphaseModel) {
+  /**
+   * Metodo per aggiornare la tabella di visualizzazione dei log
+   * @param phase Fase della quale ottenere i log di qualità
+   */
+  private updateTable(phase: QualityphaseModel): void {
 
     const token = this.authInfoService.Token;
 
@@ -134,7 +156,7 @@ export class LogViewerComponent implements OnInit {
   }
 
   /**
-   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato
+   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato in caso di fallimento
    * @param message Messaggio da mostrare
    * @param type Etichetta del pulsante di chiusura
   */
@@ -143,24 +165,42 @@ export class LogViewerComponent implements OnInit {
       panelClass: ['red-snackbar'],
     });
   }
+
+  /**
+   * Metodo per l'apertura della barra di visualizzazione di messaggi di stato in caso di successo
+   * @param message Messaggio da mostrare
+   * @param type Etichetta del pulsante di chiusura
+  */
   private openSuccessSnackBar(message: string, type: string): void {
     this.snackBar.open(this.translateService.instant(message), type, {
       panelClass: ['green-snackbar'],
     });
   }
 
+  /**
+   * Metodo per evidenziare graficamente un log quando viene selezionato per essere modificato
+   * @param selected Log da evidenziare graficamente
+   */
   public highlight(selected: QualitysavelogModel): void {
     this.highlighted = selected;
     this.blinkLogId = 0;
   }
 
-  public edit(selectedLog: any): void {
+  /**
+   * Metodo per modificare un log di qualità (inviare il suo stato al componente LogModifier)
+   * @param selectedLog Log da modificare
+   */
+  public edit(selectedLog: QualitysavelogModel): void {
     const logToUpdate = this.activeLogs.find((log) => log.c_projectphase_quality_log_id == selectedLog.c_projectphase_quality_log_id);
     if (logToUpdate != undefined) {
       this.mainViewCommunicationsService.updateLog.next(logToUpdate);
     }
   }
 
+  /**
+   * Metodo per visualizzare un dialog di conferma per l'eliminazione del log selezionato
+   * @param selectedLog Log da eliminare
+   */
   public deleteDialog(selectedLog: any): void {
     const tableAttributes = this.attributes.slice().map(attribute => attribute.attributename).filter(attribute => attribute != "Azioni");
     const tableColumns = this.displayedColumns.filter(column => column != "Actions");
@@ -201,7 +241,11 @@ export class LogViewerComponent implements OnInit {
     });
   }
 
-  public delete(selectedLog: any): void {
+  /**
+   * Metodo per eliminare il log selezionato
+   * @param selectedLog Log da eliminare
+   */
+  public delete(selectedLog: QualitysavelogModel): void {
     const token = this.authInfoService.Token;
 
     const params = {
