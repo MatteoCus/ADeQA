@@ -25,8 +25,8 @@ describe('LogModifierComponent', () => {
   let mockMatDialog: jasmine.SpyObj<MatDialog>;
 
   const mockAttributes: QualityattributeModel[] = [
-    { attributename: 'Attribute1', attributevaluetype: 'S' },
-    { attributename: 'Attribute2', attributevaluetype: 'N' },
+    { attributename: 'Attribute1', attributevalue: 'AttributeValue1', attributevaluetype: 'S' },
+    { attributename: 'Attribute2', attributevalue: 'AttributeValue2', attributevaluetype: 'N' },
   ];
 
   beforeEach(() => {
@@ -70,7 +70,7 @@ describe('LogModifierComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component.activeAttributes).toEqual(mockAttributes);
-    expect(component.displayedColumns).toEqual(mockAttributes.map((attr) => attr.attributename!));
+    expect(component.displayedColumns).toEqual(mockAttributes.map((attr) => attr.attributevalue!));
     expect(component.form).toBeInstanceOf(FormGroup);
   });
 
@@ -189,6 +189,134 @@ describe('LogModifierComponent', () => {
     component.form.setControl('control-0', new FormControl('TestValue'));
     component.form.setControl('control-1', new FormControl(42));
 
+
+    component.clearDialog();
+
+    expect(component.form.value).toEqual({ 'control-0': '', 'control-1': '' });
+  });
+
+  it('should open a snackbar when no attributes are available', () => {
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    activeAttributesService.getActiveAttributes.and.returnValue(of([]));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    expect(openSnackBarSpy).toHaveBeenCalledWith('Errore: non sono disponibili attributi per la fase selezionata!', 'X', { panelClass: ['red-snackbar'] });
+  });
+
+  it('should open a dialog for adding a log and handle the "confirm-option"', () => {
+    activeAttributesService.getActiveAttributes.and.returnValue(of(mockAttributes));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    const formData = ['Attribute1: TestValue', 'Attribute2: 42'];
+
+    mockMatDialog.open.and.returnValue({
+      afterClosed: () => of({ event: 'confirm-option' }),
+    } as any);
+
+    component.addLog = true;
+
+    component.form.setControl('control-0', new FormControl('TestValue', Validators.required));
+    component.form.setControl('control-1', new FormControl(42, Validators.required));
+
+    component.addDialog();
+
+    expect(mockMatDialog.open).toHaveBeenCalledWith(ConfirmDataDialogComponent, {
+      data: { title: 'Aggiungi un log', description: 'Dati inseriti:', resume: formData },
+    });
+
+    expect(openSnackBarSpy).not.toHaveBeenCalled();
+  });
+
+  it('should open a dialog for adding a log and handle the "cancel-option"', () => {
+    activeAttributesService.getActiveAttributes.and.returnValue(of(mockAttributes));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    const formData = ['Attribute1: TestValue', 'Attribute2: 42'];
+
+    mockMatDialog.open.and.returnValue({
+      afterClosed: () => of({ event: 'cancel-option' }),
+    } as any);
+
+    component.addLog = true;
+
+    component.form.setControl('control-0', new FormControl('TestValue', Validators.required));
+    component.form.setControl('control-1', new FormControl(42, Validators.required));
+
+    component.addDialog();
+
+    expect(mockMatDialog.open).toHaveBeenCalledWith(ConfirmDataDialogComponent, {
+      data: { title: 'Aggiungi un log', description: 'Dati inseriti:', resume: formData },
+    });
+
+    expect(openSnackBarSpy).not.toHaveBeenCalled();
+  });
+
+  it('should open a dialog for updating a log and handle the "confirm-option"', () => {
+    activeAttributesService.getActiveAttributes.and.returnValue(of(mockAttributes));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    const formData = ['Attribute1: UpdatedValue', 'Attribute2: 45'];
+
+    mockMatDialog.open.and.returnValue({
+      afterClosed: () => of({ event: 'confirm-option' }),
+    } as any);
+
+    component.addLog = false;
+    component.form.setControl('control-0', new FormControl('UpdatedValue', Validators.required));
+    component.form.setControl('control-1', new FormControl(45, Validators.required));
+
+    component.updateDialog();
+
+    expect(mockMatDialog.open).toHaveBeenCalledWith(ConfirmDataDialogComponent, {
+      data: {
+        title: 'Modifica il log selezionato',
+        description: 'Dati aggiornati:',
+        resume: formData
+      },
+    });
+
+    expect(openSnackBarSpy).not.toHaveBeenCalled();
+  });
+
+  it('should open a dialog for updating a log and handle the "cancel-option"', () => {
+    activeAttributesService.getActiveAttributes.and.returnValue(of(mockAttributes));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const openSnackBarSpy = spyOn(snackBar, 'open');
+    const formData = ['Attribute1: UpdatedValue', 'Attribute2: 45'];
+
+    mockMatDialog.open.and.returnValue({
+      afterClosed: () => of({ event: 'cancel-option' }),
+    } as any);
+
+    component.addLog = false;
+    component.form.setControl('control-0', new FormControl('UpdatedValue', Validators.required));
+    component.form.setControl('control-1', new FormControl(45, Validators.required));
+
+    component.updateDialog();
+
+    expect(mockMatDialog.open).toHaveBeenCalledWith(ConfirmDataDialogComponent, {
+      data: {
+        title: 'Modifica il log selezionato',
+        description: 'Dati aggiornati:',
+        resume: formData
+      },
+    });
+
+    expect(openSnackBarSpy).not.toHaveBeenCalled();
+  });
+
+  it('should clear the dialog', () => {
+    activeAttributesService.getActiveAttributes.and.returnValue(of(mockAttributes));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    component.form.setControl('control-0', new FormControl('TestValue'));
+    component.form.setControl('control-1', new FormControl(42));
 
     component.clearDialog();
 
