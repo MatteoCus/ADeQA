@@ -1,0 +1,17 @@
+.header {
+    width: 100%;
+    text-align: center;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+}
+
+.container {
+    max-height: 100%;
+    width: 90%;
+    overflow: auto;
+    margin: auto;
+}
+
+dx-tab-panel, dxi-item {
+    height: 100%;
+}

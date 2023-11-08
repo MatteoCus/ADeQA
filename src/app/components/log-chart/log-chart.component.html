@@ -1,0 +1,17 @@
+    <dx-chart id="chart" [dataSource]="dataSource">
+        <dxo-tooltip
+        [enabled]="true">
+    </dxo-tooltip>
+        <dxi-series
+          argumentField="len"
+          valueField="len_counts"
+          name="Occurrences"
+          type="bar"
+        >
+
+        <dxo-label [visible]="true">
+            <dxo-connector [visible]="true"></dxo-connector>
+        </dxo-label>
+
+        </dxi-series>
+      </dx-chart>

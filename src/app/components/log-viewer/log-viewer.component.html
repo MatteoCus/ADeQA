@@ -1,12 +1,4 @@
-<div class="header">{{"Log" | translate}}</div>
-
-<dx-button
-    text="Click me"
-    (onClick)="helloWorld()">
-</dx-button>
-
-<div class="container">
-  <table mat-table [dataSource]="logs" class="mat-elevation-z8" *ngIf="displayedColumns.length">
+<table mat-table [dataSource]="logs" class="mat-elevation-z8" *ngIf="displayedColumns.length">
 
     <ng-container [matColumnDef]="column.attributevalue!" *ngFor="let column of attributes; let i = index">
       <th mat-header-cell *matHeaderCellDef> <label>{{column.attributename}}</label> </th>
@@ -43,4 +35,3 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-</div>

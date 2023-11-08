@@ -35,7 +35,7 @@ app-log-modifier {
     max-height: calc(40% - 70px);
 }
 
-app-log-viewer {
+app-log {
     width: 100%;
     flex: 60%;
     max-height: calc(60% - 70px);
@@ -64,13 +64,13 @@ app-log-viewer {
         min-height: 270px;
     }
 
-    app-log-viewer {
+    app-log {
         max-height: calc(100% - 370px);
     }
 }
 
 @media screen and (max-height: 700px) {
-    app-log-viewer {
+    app-log {
         max-height: none;
         margin-bottom: 1em;
     }

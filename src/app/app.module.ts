@@ -41,8 +41,9 @@ import localeIt from '@angular/common/locales/it';
 import { registerLocaleData } from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
-import { DxButtonModule } from 'devextreme-angular';
+import { DxButtonModule, DxChartModule, DxTabPanelModule, DxTooltipModule } from 'devextreme-angular';
 import { LogComponent } from './components/log/log.component';
+import { LogChartComponent } from './components/log-chart/log-chart.component';
 
 registerLocaleData(localeIt);
 
@@ -67,7 +68,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     OptionsPipe,
     ConfirmDataDialogComponent,
     SplashScreenComponent,
-    LogComponent
+    LogComponent,
+    LogChartComponent
   ],
   imports: [
     BrowserModule,
@@ -93,6 +95,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     DxButtonModule,
+    DxTabPanelModule,
+    DxChartModule,
+    DxTooltipModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
