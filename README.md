@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
 
+## Abstract
+
+The aim of this project is to enable TriZeta's business partners to manually enter quality control data for their supply chains.
+
+## About
+
+This project was developed during a curricular internship period in TriZeta (18/09/2023 - 10/11/2023).
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
