@@ -41,6 +41,9 @@ import localeIt from '@angular/common/locales/it';
 import { registerLocaleData } from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
+import { DxButtonModule } from 'devextreme-angular';
+import { LogComponent } from './components/log/log.component';
+
 registerLocaleData(localeIt);
 
 
@@ -63,7 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SafePipe,
     OptionsPipe,
     ConfirmDataDialogComponent,
-    SplashScreenComponent
+    SplashScreenComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +92,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    DxButtonModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

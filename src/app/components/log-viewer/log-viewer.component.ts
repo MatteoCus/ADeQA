@@ -107,6 +107,10 @@ export class LogViewerComponent implements OnInit {
     });
   }
 
+  helloWorld() {
+    alert('Hello world!');
+}
+
   /**
    * Metodo per aggiornare la tabella di visualizzazione dei log
    * @param phase Fase della quale ottenere i log di qualità

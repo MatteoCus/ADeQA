@@ -1,4 +1,10 @@
 <div class="header">{{"Log" | translate}}</div>
+
+<dx-button
+    text="Click me"
+    (onClick)="helloWorld()">
+</dx-button>
+
 <div class="container">
   <table mat-table [dataSource]="logs" class="mat-elevation-z8" *ngIf="displayedColumns.length">
 
