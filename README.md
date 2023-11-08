@@ -8,7 +8,7 @@ The aim of this project is to enable TriZeta's business partners to manually ent
 
 ## About
 
-This project was developed during a curricular internship period in TriZeta (18/09/2023 - 10/11/2023).
+This project was developed during a curricular internship period in TriZeta (18/09/2023 - 10/11/2023) to achieve bachelor degree @UniPD.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
