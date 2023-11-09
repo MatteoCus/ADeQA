@@ -10,8 +10,17 @@
     width: 90%;
     overflow: auto;
     margin: auto;
+    margin-top: 1em;
 }
 
-dx-tab-panel, dxi-item {
+dx-tab-panel {
     height: 100%;
+}
+
+::ng-deep .dx-tabs-wrapper {
+   display: flex !important;
+}
+
+::ng-deep .dx-tab {
+    flex: auto;
 }

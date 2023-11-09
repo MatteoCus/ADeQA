@@ -1,10 +1,13 @@
 <div class="header">{{"Log" | translate}}</div>
 
-<dx-tab-panel>
+<dx-tab-panel [swipeEnabled]="true" [animationEnabled]="true" [selectedIndex]="0" [loop]="true">
     <dxi-item title="{{'Tabella' | translate}}" icon="tableproperties" class="container">
         <app-log-viewer></app-log-viewer>
     </dxi-item>
-    <dxi-item title="{{'Grafico' | translate}}" icon="chart" >
+    <dxi-item title="{{'Grafico a barre' | translate}}" icon="chart" class="container">
         <app-log-chart></app-log-chart>
+    </dxi-item>
+    <dxi-item title="{{'Grafico scatter' | translate}}" icon="chart" class="container">
+        <app-scatter-chart></app-scatter-chart>
     </dxi-item>
 </dx-tab-panel>

@@ -74,5 +74,6 @@
     "false": "falso",
     "true": "vero",
     "Tabella": "Tabella",
-    "Grafico": "Grafico"
+    "Grafico a barre": "Grafico a barre",
+    "Grafico scatter": "Grafico scatter"
 }

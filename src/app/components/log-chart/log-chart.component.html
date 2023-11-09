@@ -1,17 +1,18 @@
-    <dx-chart id="chart" [dataSource]="dataSource">
-        <dxo-tooltip
-        [enabled]="true">
-    </dxo-tooltip>
-        <dxi-series
-          argumentField="len"
-          valueField="len_counts"
-          name="Occurrences"
-          type="bar"
-        >
+<dx-chart id="chart" [dataSource]="dataSource" title="Misure per lunghezza" [customizePoint]="customizePoint">
 
-        <dxo-label [visible]="true">
-            <dxo-connector [visible]="true"></dxo-connector>
-        </dxo-label>
+  <dxo-tooltip [enabled]="true" [customizeTooltip]="customizeTooltip">
+  </dxo-tooltip>
 
-        </dxi-series>
-      </dx-chart>
+  <dxo-argument-axis [tickInterval]="1">
+    <dxi-constant-line [value]="maxLength + 0.1" color="#fc3535" dashStyle="dash" [width]="2">
+      <dxo-label text="Limite tolleranza"></dxo-label>
+    </dxi-constant-line>
+
+    <dxi-constant-line text="'Limite tolleranza'" [value]="minLength - 0.1" color="#fc3535" dashStyle="dash" [width]="2">
+      <dxo-label [text]="'Limite tolleranza'"></dxo-label>
+    </dxi-constant-line>
+  </dxo-argument-axis>
+  <dxi-series argumentField="len" valueField="len_counts" name="Occorrenze valide" type="bar">
+    <dxo-label [visible]="true" backgroundColor="#BF71FF"></dxo-label>
+  </dxi-series>
+</dx-chart>

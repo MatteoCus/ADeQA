@@ -12,13 +12,35 @@ export class LogChartComponent {
 
   expectedLength : number = 40;
 
+  maxLength: number = this.expectedLength * 1.05;
+
+  minLength: number = this.expectedLength * 0.95;
+
   lengthData: any = length_data;
 
   dataSource: LengthData[] = [];
 
+
+  customizePoint = (arg: any) => {
+    if (arg.argument > this.maxLength || arg.argument < this.minLength) {
+      return { color: '#ff7c7c', hoverStyle: { color: '#ff7c7c' } };
+    }  else { return; }
+  };
+
+  customizeTooltip(arg: any) {
+    console.log(arg);
+    return {
+      text: `${arg.value}`,
+      color: "red"
+    };
+  }
+
   @ViewChild(DxChartComponent, { static: false }) chart: DxChartComponent | undefined;
 
+
+
   constructor() {
+  
     const differentLengths = new Set(this.lengthData.map( (data: { lung: any; }) => data.lung));
 
     differentLengths.forEach( length => {
@@ -29,24 +51,9 @@ export class LogChartComponent {
 
       this.dataSource.push(singlePoint);
 
-    })
+    });
+
+
   };
-
-      // Shows the tooltip only when a user clicks a series point
-      onPointClick (e: { target: any; }) {
-        let point = e.target;
-        point.showTooltip();
-    }
-    // Hides the tooltip once the user moves away from the series point
-    onPointHoverChanged (e: { target: any; }) {
-        let point = e.target;
-        if (!point.isHovered()) {
-            point.hideTooltip();
-        }
-    }
-
-  hideTooltip () {
-    this.chart!.instance.hideTooltip();
-};
 
 }

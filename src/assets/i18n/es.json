@@ -74,5 +74,6 @@
     "false": "falso",
     "true": "verdadero",
     "Tabella": "Mesa",
-    "Grafico": "Gráfico"
+    "Grafico a barre": "Gráfico de barras",
+    "Grafico scatter": "Gráfico de dispersión"
 }
