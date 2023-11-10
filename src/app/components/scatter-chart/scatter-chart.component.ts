@@ -23,6 +23,23 @@ export class ScatterChartComponent {
 
   dataSource: any[] = length_data;
 
+  customizePoint = (arg: any) => {
+    let customization: any = {};
+    if (arg.argument > this.maxLength || arg.argument < this.minLength || arg.value > this.maxHeight || arg.value < this.minHeight) {
+      customization.color= '#ff7c7c';
+      customization.hoverStyle= { color: '#ff7c7c' };
+    } 
+    
+    if( !arg.data.visivo ) {
+      customization.symbol = "triangleDown";
+    }
+
+    if(customization.color != '#ff7c7c' && !arg.data.visivo) {
+      customization.color = "yellow";
+    }
+    return customization;
+  };
+
   constructor() {
   }
 }

@@ -45,6 +45,7 @@ import { DevExtremeModule, DxButtonModule, DxChartModule, DxTabPanelModule, DxTe
 import { LogComponent } from './components/log/log.component';
 import { LogChartComponent } from './components/log-chart/log-chart.component';
 import { ScatterChartComponent } from './components/scatter-chart/scatter-chart.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 registerLocaleData(localeIt);
 
@@ -71,7 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplashScreenComponent,
     LogComponent,
     LogChartComponent,
-    ScatterChartComponent
+    ScatterChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
